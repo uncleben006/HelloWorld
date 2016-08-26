@@ -1,10 +1,11 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
 <?php
-
+header("Content-Type:text/html; charset=utf-8");
 //建立session並製作no亂碼
 
 include('link.php');
+include('mailer.php');
 
-/*
 $account = $_POST["account"];
 $pass = $_POST["pass"];
 $repass = $_POST["repass"];
@@ -12,16 +13,19 @@ $name = $_POST["name"];
 $email = $_POST["email"];
 $introduction = $_POST["introduction"];
 $pic = $_POST["pic"];
-*/
+$pri = 0;
+
 
 session_set_cookie_params(600);
 session_start();
-$_SESSION["account"] = $_POST["account"];
-$_SESSION["name"] = $_POST["name"];
-$_SESSION["email"] = $_POST["email"];
-$_SESSION["introduction"] = $_POST["introduction"];
-$_SESSION["pic"] = $_POST["pic"];
-$_SESSION["pri"] = 0;
+$_SESSION["account"] = $account;
+$_SESSION["pass"] = $pass;
+$_SESSION["repass"] = $repass;
+$_SESSION["name"] = $name;
+$_SESSION["email"] = $email;
+$_SESSION["introduction"] = $introduction;
+$_SESSION["pic"] = $pic;
+
 
 $getAllrowsSQL="SELECT COUNT(*) FROM user";
 $runSQL=mysql_query($getAllrowsSQL);
@@ -119,15 +123,44 @@ for($i=0;$i<2;$i++)
 	}
 	$no.=$j;
 }
-echo $no;
 
-if($_POST["pass"]!=$_POST["repass"]){
+$_SESSION["no"] = $no;
+
+if($pass!=$repass){
 	$url = "signup.php?value=1&wrong=1";
 	echo "<script type='text/javascript'>";
 	echo "window.location.href='$url'";
 	echo "</script>";
 }
-else
+else if(!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/",$email)){
+  	$url = "signup.php?value=2&wrong=2";
+	echo "<script type='text/javascript'>";
+	echo "window.location.href='$url'";
+	echo "</script>";
+}
+else{
+	$setSQL = 'INSERT INTO `user`(`no`, `pri`, `account`, `password`, `name`, `email`, `introduction`) VALUES ("'.$no.'","'.$pri.'","'.$account.'","'.$pass.'","'.$name.'","'.$email.'","'.$introduction.'")';
+	echo $setSQL;
+
+	mysql_query($setSQL);
 
 
+
+
+	$url = 'http://localhost:8080/JOMO/confirm?' .$no;
+	$ahref = '<a href= '. $url . '>' . $url . '</a>';
+	/*
+	$htmlurl = '<table><tr><td>welcome and please link the following url</td><td>' . $ahref . '</td></tr></table>';
+	*/
+	$htmlurl = '歡迎註冊桌末狂歡，請點入此連結以驗證您的會員資格<br>Welcome to JOMOR. Please link the following url to confirm your account.<br>'.$ahref;
+	$mail->Body = $htmlurl;
+	$mail->AddAddress($email);
+
+	 if(!$mail->Send()) {
+	    echo "Mailer Error: " . $mail->ErrorInfo;
+	 } else {
+	    echo "Message has been sent";
+	 }
+}
 ?>
+<a href="logout.php"><button>清除session回首頁</button></a>
