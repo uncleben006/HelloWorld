@@ -140,7 +140,6 @@ else if(!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/",$email)){//判斷有沒有em
 else{
 	$setSQL = 'INSERT INTO `user`(`no`, `pri`, `account`, `password`, `name`, `email`, `introduction`) VALUES ("'.$no.'","'.$pri.'","'.$account.'","'.$pass.'","'.$name.'","'.$email.'","'.$introduction.'")';
 	echo $setSQL;
-
 	mysql_query("SET NAMES'UTF8'");
 	mysql_query("SET CHARACTER SET UTF8");
 	mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
@@ -152,7 +151,7 @@ else{
 	/*
 	$htmlurl = '<table><tr><td>welcome and please link the following url</td><td>' . $ahref . '</td></tr></table>';
 	*/
-	$htmlurl = '歡迎註冊桌末狂歡，請點入此連結以驗證您的會員資格<br>Welcome to JOMOR. Please link the following url to confirm your account.<br>'.$ahref;
+	$htmlurl = $name.'您好:<br>歡迎註冊桌末狂歡，請點入此連結以驗證您的會員資格<br>Welcome to JOMOR. Please link the following url to confirm your account.<br>'.$ahref;
 	$mail->Body = $htmlurl;
 	$mail->AddAddress($email);
 
