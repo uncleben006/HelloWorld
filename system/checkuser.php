@@ -38,15 +38,17 @@ $result2 = mysql_query($setSQL2);
 $row2 = mysql_fetch_assoc($result2);
 session_set_cookie_params(600);
 session_start();
-$_SESSION["no"] = $row1["no"];
-$_SESSION["pri"] = $row1["pri"];
-$_SESSION["account"] = $row1["account"];
-$_SESSION["password"] = $row1["password"];
-$_SESSION["name"] = $row1["name"];
-$_SESSION["email"] = $row1["email"];
-$_SESSION["introduction"] = $row1["introduction"];
+$_SESSION["no"] = $row2["no"];
+$_SESSION["pri"] = $row2["pri"];
+$_SESSION["account"] = $row2["account"];
+$_SESSION["password"] = $row2["password"];
+$_SESSION["name"] = $row2["name"];
+$_SESSION["email"] = $row2["email"];
+$_SESSION["introduction"] = $row2["introduction"];
 session_write_close();
-$url = "testlogin.php?name=".$_SESSION["name"]."&pri=".$_SESSION["pri"];
+
+//導入userdata.php
+$url = "userdata.php?name=".$_SESSION["name"]."&pri=".$_SESSION["pri"];
 echo "<script type='text/javascript'>";
 echo "window.location.href='$url'";
 echo "</script>"; 
