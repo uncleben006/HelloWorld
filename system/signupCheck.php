@@ -14,18 +14,6 @@ $introduction = $_POST["introduction"];
 $pic = $_POST["pic"];
 $pri = 0;
 
-
-session_set_cookie_params(600);
-session_start();
-$_SESSION["account"] = $account;
-$_SESSION["pass"] = $pass;
-$_SESSION["repass"] = $repass;
-$_SESSION["name"] = $name;
-$_SESSION["email"] = $email;
-$_SESSION["introduction"] = $introduction;
-$_SESSION["pic"] = $pic;
-
-
 $getAllrowsSQL="SELECT COUNT(*) FROM user";
 $runSQL=mysql_query($getAllrowsSQL);
 $Allrows=mysql_fetch_assoc($runSQL);
@@ -123,7 +111,21 @@ for($i=0;$i<2;$i++)
 	$no.=$j;
 }
 
-//$_SESSION["no"] = $no;
+session_set_cookie_params(600);
+session_start();
+$_SESSION["no"] = $no;
+$_SESSION["pri"] = $pri;
+$_SESSION["account"] = $account;
+$_SESSION["pass"] = $pass;
+$_SESSION["repass"] = $repass;
+$_SESSION["name"] = $name;
+$_SESSION["email"] = $email;
+$_SESSION["introduction"] = $introduction;
+$_SESSION["pic"] = $pic;
+
+$sql = "SELECT * FROM `user` WHERE `account`='".$account."'";
+$result = mysql_query($sql);
+$row = mysql_fetch_assoc($result);
 
 if($pass!=$repass){
 	$url = "signup.php?value=1&wrong=1";
@@ -137,15 +139,13 @@ else if(!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/",$email)){//判斷有沒有em
 	echo "window.location.href='$url'";
 	echo "</script>";
 }
+else if(isset($row["account"])){//判斷帳號重複
+	$url = "signup.php?value=1&wrong=3";
+	echo "<script type='text/javascript'>";
+	echo "window.location.href='$url'";
+	echo "</script>";
+}
 else{
-	$setSQL = 'INSERT INTO `user`(`no`, `pri`, `account`, `password`, `name`, `email`, `introduction`) VALUES ("'.$no.'","'.$pri.'","'.$account.'","'.$pass.'","'.$name.'","'.$email.'","'.$introduction.'")';
-	echo $setSQL;
-	mysql_query("SET NAMES'UTF8'");
-	mysql_query("SET CHARACTER SET UTF8");
-	mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
-	//上面三行mysql_query是為了資料存入SQL時轉UTF8
-	mysql_query($setSQL);
-
 	$url = 'http://localhost:8080/JOMO/system/confirm.php?no='.$no;
 	$ahref = '<a href= '. $url . '>' . $url . '</a>';
 	/*
@@ -159,11 +159,12 @@ else{
 	    echo "Mailer Error: " . $mail->ErrorInfo;
 	 } else {
 	    echo "Message has been sent";
-	    $url = "inform.php?situation=1";
+	    $url = "userUpdate.php";
 		echo "<script type='text/javascript'>";
 		echo "window.location.href='$url'";
 		echo "</script>";
 	 }
 }
 ?>
-<a href="logout.php"><button>清除session回首頁</button></a>
+<!--<a href="logout.php"><button>清除session回首頁</button></a>-->
+<h1>顯示了這個畫面表示系統並未成功寄出認證信。</h1>
