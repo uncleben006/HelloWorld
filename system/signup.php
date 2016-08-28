@@ -63,6 +63,15 @@ value2:除了信箱以外其他都顯示
 						echo '<td><input type="text" name="account" required></td>';
 					}
 					?>
+				<tr>
+					<td>
+					<?php 
+					if($wrong==3){
+							echo '<font color="red">帳號重複，請重新輸入</font>'; 
+					}
+					?>
+					</td>
+				</tr>
 				</tr>
 				<tr>
 					<td>密碼(password)</td>
@@ -75,7 +84,6 @@ value2:除了信箱以外其他都顯示
 					<?php 
 					if($wrong==1){
 							echo '<font color="red">請再次確認密碼</font>'; 
-							$wrong=0; 
 					}
 					?>
 					</td>
@@ -112,7 +120,6 @@ value2:除了信箱以外其他都顯示
 					<?php 
 					if($wrong==2){
 							echo '<font color="red">請輸入正確的信箱</font>'; 
-							$wrong=0; 
 					}
 					?>
 					</td>
