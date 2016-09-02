@@ -52,17 +52,7 @@
 						<a href="#" class="lognin">收藏桌遊</a>
 					</td>
 					<?php
-						if($pri==0){
-							?>
-							<td class="input0" width="50px" align="center" valign="center">
-								<a href="system/user/signup.php" class="lognin">註冊</a>
-							</td>
-							<td class="input0" width="50px" align="left" valign="center">
-								<a href="system/user/login.html" class="lognin">登入</a>
-							</td>
-							<?php
-						}
-						else if($pri==1){
+						if($pri==0){//會員註冊但尚未驗證
 							?>
 							<td class="input0" width="50px" align="center" valign="center">
 								<a href="system/user/userdata.php" class="lognin">會員</a>
@@ -72,7 +62,17 @@
 							</td>
 							<?php
 						}
-						else{
+						else if($pri==1){//正式會員
+							?>
+							<td class="input0" width="50px" align="center" valign="center">
+								<a href="system/user/userdata.php" class="lognin">會員</a>
+							</td>
+							<td class="input0" width="50px" align="left" valign="center">
+								<a href="system/user/logout.php" class="lognin">登出</a>
+							</td>
+							<?php
+						}
+						else{//管理員
 							?>
 							<td class="input0" width="50px" align="center" valign="center">
 								<a href="system/user/userdata.php" class="lognin">管理</a>
