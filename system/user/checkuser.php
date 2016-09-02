@@ -48,11 +48,19 @@ else if(isset($row2["account"])){
 	session_write_close();
 } 
 
+//導回首頁
+$url = "http://localhost:8080/JOMO/index6.php";
+echo "<script type='text/javascript'>";
+echo "window.location.href='$url'";
+echo "</script>"; 
+
+/*
 //導入userdata.php
 $url = "userdata.php?name=".$_SESSION["name"]."&pri=".$_SESSION["pri"];
 echo "<script type='text/javascript'>";
 echo "window.location.href='$url'";
 echo "</script>"; 
+*/
 
 
 
