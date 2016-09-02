@@ -28,7 +28,7 @@
 		<h1>會員基本資料</h1>
 		
 		<?php
-
+		header("Content-Type:text/html; charset=utf-8");
 		include('link.php');
 
 		session_start();
