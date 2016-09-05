@@ -3,10 +3,10 @@
 	width: 1280px;
 	margin:2% auto;
 }
-.header_bg{
+/*.header_bg{
 
 	height: 95px;
-}
+}*/
 #top{
 	height: 95px;
 	background-color:#EA6363;
@@ -67,6 +67,11 @@
 	width: 1280px;
 	padding: 5px 0 10px 0;
 }
+.nav2{
+	font-family:Microsoft JhengHei;
+	font-size: 25px;
+}
+
 .nav1{
 	display: inline;
 	padding: 0px 25px 0px 167px;
@@ -81,6 +86,10 @@
 	font-size: 25px;
 	font-weight:bold;
 }
+.nav2 a:link {color:#444444; font-size:25px; text-decoration:none;}    /* 設定尚未點閱過的連結樣式 */
+.nav2 a:visited {color:#444444; text-decoration:none;} /* 設定過去曾經閱過的連結 */
+.nav2 a:hover {color:#009FCC;font-size:25px; text-decoration:none;}   /* 設定滑鼠游標指在連結位置上的樣式 */
+
 .nav1 a:link {color:#444444; font-size:25px; text-decoration:none;}    /* 設定尚未點閱過的連結樣式 */
 .nav1 a:visited {color:#444444; text-decoration:none;} /* 設定過去曾經閱過的連結 */
 .nav1 a:hover {color:#009FCC;font-size:25px; text-decoration:none;}   /* 設定滑鼠游標指在連結位置上的樣式 */
