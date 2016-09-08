@@ -26,88 +26,97 @@
 		<header class="header_bg">
 			<!--頂部圖案-->
 			<div id="top">
-				<table border="0">
-				<tr>
-				 	<td rowspan="2" class="table-bg" width="175px" align="center" valign="center">
-								<img src="jomor_html/img/00.png" alt="logo" title="logo" width="90x" height="85x">
-					</td>
-					<td rowspan="2" class="table-bg" width="165px" align="center" valign="center">
-								<img src="jomor_html/img/01.png" alt="吉祥物圖一" title="二手拍賣" width="110x" height="85x">
-					</td>
-					<td rowspan="2" class="table-bg" width="165px" align="center" valign="center">
-								<img src="jomor_html/img/02.png" alt="吉祥物圖二" title="店家資訊" width="110x" height="85x">
-					</td>
-					<td rowspan="2" class="table-bg" width="165px" align="center" valign="center">
-					<a href="system/game/game.php">
-								<img src="jomor_html/img/03.png" alt="吉祥物圖三" title="熱門桌遊" width="110x" height="85x">
-					</a>
-					</td>
-					<td rowspan="2" class="table-bg" width="165px" align="center" valign="center">
-								<img src="jomor_html/img/04.png" alt="吉祥物圖四" title="討論版" width="110x" height="85x">
-					</td>
-					<td rowspan="2" class="table-bg" width="165px" align="center" valign="center">
-								<img src="jomor_html/img/05.png" alt="吉祥物圖五" title="聯絡我們" width="110x" height="85x">
-					</td>
-					<td class="input0" width="0" align="center" valign="center">
-						<a href="#" class="lognin">收藏桌遊</a>
-					</td>
-					<?php
-						if($pri==0){//會員註冊但尚未驗證
-							?>
-							<td class="input0" width="50px" align="center" valign="center">
-								<a href="system/user/userdata.php" class="lognin">會員</a>
-							</td>
-							<td class="input0" width="50px" align="left" valign="center">
-								<a href="system/user/logout.php" class="lognin">登出</a>
-							</td>
-							<?php
-						}
-						else if($pri==1){//正式會員
-							?>
-							<td class="input0" width="50px" align="center" valign="center">
-								<a href="system/user/userdata.php" class="lognin">會員</a>
-							</td>
-							<td class="input0" width="50px" align="left" valign="center">
-								<a href="system/user/logout.php" class="lognin">登出</a>
-							</td>
-							<?php
-						}
-						else{//管理員
-							?>
-							<td class="input0" width="50px" align="center" valign="center">
-								<a href="system/user/userdata.php" class="lognin">管理</a>
-							</td>
-							<td class="input0" width="50px" align="left" valign="center">
-								<a href="system/user/logout.php" class="lognin">登出</a>
-							</td>
-							<?php
-						}
-					?>
-				</tr>
+				<table border="0" style="width:950px;">
+					<tr>
+					 	<td  class="table-bg" width="175px" align="center" valign="center" style="margin-bottom:10px">
+									<img src="jomor_html/img/00.png" alt="logo" title="logo" width="90x" height="85x">
+						</td>
+						<td  class="table-bg" width="165px" align="center" valign="center">
+						<a href="system/map/map.php">
+									<img src="jomor_html/img/01.png" alt="吉祥物圖一" title="桌遊地圖" width="110x" height="85x">
+						</a>
+						</td>
+						<td  class="table-bg" width="165px" align="center" valign="center">
+						<a href="system/group/group.php">
+									<img src="jomor_html/img/02.png" alt="吉祥物圖二" title="揪團" width="110x" height="85x">
+						</a>
+						</td>
+						<td  class="table-bg" width="165px" align="center" valign="center">
+						<a href="system/game/game.php">
+									<img src="jomor_html/img/03.png" alt="吉祥物圖三" title="遊戲專欄" width="110x" height="85x">
+						</a>
+						</td>
+						<td  class="table-bg" width="165px" align="center" valign="center">
+									<img src="jomor_html/img/04.png" alt="吉祥物圖四" title="討論區" width="110x" height="85x">
+						</td>
+						<td  class="table-bg" width="165px" align="center" valign="center">
+									<img src="jomor_html/img/05.png" alt="吉祥物圖五" title="關於我們" width="110x" height="85x">
+						</td>
+					</tr>
+					<tr style="text-align:center;">
+						<td></td>
+						<td class="nav2"><a href="sell.html">桌遊地圖</a></td>
+						<td class="nav2"><a href="#">揪團</a></td>
+						<td class="nav2"><a href="#">遊戲專欄</a></td>
+						<td class="nav2"><a href="#">討論區</a></td>
+						<td class="nav2"><a href="#">關於我們</a></td>
+					</tr>
+
+				</table>
+
 				<!--搜尋列-->
-				<tr>
-					<td class="table-bg" align="center" valign="center">
-						<input type="text" name="search" size="15" style="border-radius:10px;">
-					</td>
-					<td class="table-bg" valign="center">
-							<input class="button" name="submit" type="image" value="ee" src="jomor_html/img/button.png">
-					</td>
-				</tr>
+				<table border="0" style="float:right; position:relative; right:3%; bottom:115px;">
+					<tr>
+						<td class="input0" width="0" align="center" valign="center">
+							<a href="#" class="lognin">收藏桌遊</a>
+						<?php
+							if($pri==0){//會員註冊但尚未驗證
+								?>
+								<td class="input0" width="50px" align="center" valign="center">
+									<a href="system/user/userdata.php" class="lognin">會員</a>
+								</td>
+								<td class="input0" width="50px" align="left" valign="center">
+									<a href="system/user/logout.php" class="lognin">登出</a>
+								</td>
+								<?php
+							}
+							else if($pri==1){//正式會員
+								?>
+								<td class="input0" width="50px" align="center" valign="center">
+									<a href="system/user/userdata.php" class="lognin">會員</a>
+								</td>
+								<td class="input0" width="50px" align="left" valign="center">
+									<a href="system/user/logout.php" class="lognin">登出</a>
+								</td>
+								<?php
+							}
+							else{//管理員
+								?>
+								<td class="input0" width="50px" align="center" valign="center">
+									<a href="system/user/userdata.php" class="lognin">管理</a>
+								</td>
+								<td class="input0" width="50px" align="left" valign="center">
+									<a href="system/user/logout.php" class="lognin">登出</a>
+								</td>
+								<?php
+							}
+						?>
+					</tr>
+					<tr>
+						</td>
+						<td class="table-bg" align="center" valign="center">
+							<input type="text" name="search" size="15" style="border-radius:10px;">
+						</td>
+						<td class="table-bg" valign="center">
+								<input class="button" name="submit" type="image" value="ee" src="jomor_html/img/button.png">
+						</td>
+					</tr>
+
 				</table>
 			</div>
 	</header>
 		<!--導覽列-->
-		<nav>
-			<div class="navdiv">
-			    <ul>
-			        <li class="nav1"><a href="sell.html">二手拍賣</a></li>
-			        <li class="nav0"><a href="#">店家資訊</a></li>
-			        <li class="nav0"><a href="#">熱門桌遊</a></li>
-			        <li class="nav0"><a href="#">討論版</a></li>
-			        <li class="nav0"><a href="#">聯絡我們</a></li>
-			    </ul>
-			</div>
-		</nav>
+		<div style="height:60px;"></div>
 			<!--大富翁-->
 			<div class="Monopoly">
 				<img src="jomor_html/img/11.png" class="img-monopoly">
