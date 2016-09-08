@@ -32,7 +32,7 @@ value2:除了信箱以外其他都顯示
 <body>
 	<div class="frame">
 		<h1>這是註冊頁面!!~</h1>
-		<form action="signupCheck.php" method="post">
+		<form action="signupCheck.php" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
 					<td>帳號(Account)</td>
@@ -141,9 +141,18 @@ value2:除了信箱以外其他都顯示
 					
 				</tr>
 			</table>
+			<?php
+			if($wrong==4){
+				?>
+				<div>
+					<font color="red"><?php echo $_SESSION['errMSG'] ?></font>
+				</div>
+				<?php
+			}
+			?>
 			<div>
 				<td>頭像(self)</td>
-				<td><input type="file" name="pic"></td>
+				<td><input type="file" name="pic" accept="image/*"></td>
 			</div>
 			<div><button type="submit">註冊</button></div>
 		</form>
