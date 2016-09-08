@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login</title>
+	<title>UserData</title>
 
 	<style type="text/css">
 		.frame{
@@ -18,6 +18,13 @@
 		}
 		table{
 			height: 80px;
+		}
+		th{
+			width:100px;
+			text-align: left;
+		}
+		th,td{
+			border: 1px solid lightgrey;
 		}
 		
 	</style>
@@ -38,8 +45,17 @@
 		$name = $_SESSION["name"];
 		$email = $_SESSION["email"];
 		$introduction = $_SESSION["introduction"];
+		if(isset($_SESSION["photo"])){
+			$photo = $_SESSION["photo"];
+		}
+		else{
+			$photo = "fuck-you.png";
+			echo '<br><font color="red">您尚未放上照片</font>';
+		}
 		?>
-		
+		<div>
+			<img src="photo/<?php echo $photo ?>" style="height:180px;" />
+		</div>
 		<table>
 			<tr>
 				<th>會員代號</th>
@@ -88,6 +104,11 @@
 				</td>
 			</tr>
 		</table>
+		<div>
+			<a href="alter.php"><button>修改會員資料</button></a>
+			<a href="http://localhost:8080/JOMO/index6.php"><button>回首頁</button></a>
+		</div>
+			
 	</div>
 	
 </body>

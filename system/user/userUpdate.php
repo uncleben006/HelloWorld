@@ -8,8 +8,9 @@ $pass = $_SESSION["pass"];
 $name = $_SESSION["name"];
 $email = $_SESSION["email"];
 $introduction = $_SESSION["introduction"];
+$photo = $_SESSION["photo"];
 
-$setSQL = 'INSERT INTO `user`(`no`, `pri`, `account`, `password`, `name`, `email`, `introduction`) VALUES ("'.$no.'","'.$pri.'","'.$account.'","'.$pass.'","'.$name.'","'.$email.'","'.$introduction.'")';
+$setSQL = 'INSERT INTO `user`(`no`, `pri`, `account`, `password`, `name`, `email`, `introduction`,`photo`) VALUES ("'.$no.'","'.$pri.'","'.$account.'","'.$pass.'","'.$name.'","'.$email.'","'.$introduction.'","'.$photo.'")';
 echo $setSQL;
 mysql_query("SET NAMES'UTF8'");
 mysql_query("SET CHARACTER SET UTF8");
