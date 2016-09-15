@@ -16,7 +16,7 @@ $pri = '0';
 $imgFile = $_FILES['pic']['name'];//取得FILE名稱
 $tmp_dir = $_FILES['pic']['tmp_name'];//把FILE路徑暫存入一個tmp檔
 $imgSize = $_FILES['pic']['size'];//取得FILE大小
-		
+
 if(empty($imgFile)!=TRUE){//這裡不知道為什麼用isset不行
 	$upload_dir = 'photo/'; // upload directory
 	
@@ -41,6 +41,9 @@ if(empty($imgFile)!=TRUE){//這裡不知道為什麼用isset不行
 	else{
 		$errMSG = "抱歉...我只喜歡附檔名是JPG, JPEG, PNG或GIF";		
 	}
+}
+else if(empty($imgFile)){
+	$userpic = "fuck-you.png";
 }
 
 $getAllrowsSQL="SELECT COUNT(*) FROM user";
