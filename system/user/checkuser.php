@@ -32,6 +32,7 @@ if (isset($row1["account"])){
 	$_SESSION["password"] = $row1["password"];
 	$_SESSION["name"] = $row1["name"];
 	$_SESSION["email"] = $row1["email"];
+	$_SESSION["photo"] = $row1["photo"];
 	$_SESSION["introduction"] = $row1["introduction"];
 	session_write_close();
 }
@@ -44,6 +45,7 @@ else if(isset($row2["account"])){
 	$_SESSION["password"] = $row2["password"];
 	$_SESSION["name"] = $row2["name"];
 	$_SESSION["email"] = $row2["email"];
+	$_SESSION["photo"] = $row2["photo"];
 	$_SESSION["introduction"] = $row2["introduction"];
 	session_write_close();
 } 
