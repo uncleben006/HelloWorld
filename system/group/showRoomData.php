@@ -1,5 +1,6 @@
 <?php
-include('linkdb.php');
+include('link.php');
+session_start();
 $no=$_GET['no'];
 
 $mysql2 = "
@@ -30,21 +31,27 @@ $spend = $row1['spend'];
 $remark = $row1['remark'];
 
 if(isset($_POST['join'])){
-	$uno = $_SESSION['no'];
-	$account = $_SESSION['account'];
-	$name = $_SESSION['name'];
-	$email = $_SESSION['email'];
-	$introductio = $_SESSION['introduction'];
-	$photo = $_SESSION['photo'];
+	if(empty($_SESSION['account'])){
+		header("Location:http://localhost:8080/JOMO/system/user/block.php");
+	}
+	else{
+		$uno = $_SESSION['no'];
+		$account = $_SESSION['account'];
+		$name = $_SESSION['name'];
+		$email = $_SESSION['email'];
+		$introductio = $_SESSION['introduction'];
+		$photo = $_SESSION['photo'];
 
 
-	$mysql2 = 'INSERT INTO `room'.$no.'`(`people`, `name`, `account`, `photo`) VALUES ("'.$people.'","'.$name.'","'.$account.'","'.$photo.'")';
-	mysql_query("SET NAMES'UTF8'");
-	mysql_query("SET CHARACTER SET UTF8");
-	mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
-	mysql_query($mysql2);
+		$mysql2 = 'INSERT INTO `room'.$no.'`(`people`, `name`, `account`, `photo`) VALUES ("'.$people.'","'.$name.'","'.$account.'","'.$photo.'")';
+		mysql_query("SET NAMES'UTF8'");
+		mysql_query("SET CHARACTER SET UTF8");
+		mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+		mysql_query($mysql2);
 
-	$addMember;
+		$addMember;
+	}
+	
 }
 
 ?>
@@ -131,7 +138,6 @@ if(isset($_POST['join'])){
 		.room_footer{
 			height: 30px;
 			position: relative;
-			top: -30px;
 			width:100%;
 		}
 		.room_footer_redline{
@@ -233,14 +239,13 @@ if(isset($_POST['join'])){
 								<div class="room_title1">遊戲</div>
 								<div class="room_title2"><?php echo $row1['remark'] ?></div>
 							</div>
-						</div>	
-						</div class="room_footer">
-							<div class="room_footer_redline"></div>
-							<div class="room_footer1">
-								<button class="room_footer_bottom" type="submit" name="join">加入房間</button>
-							</div>
-								
-						<div>				
+						</div>
+					</div>	
+					<div class="room_footer">
+						<div class="room_footer_redline"></div>
+						<div class="room_footer1">
+							<button class="room_footer_bottom" type="submit" name="join">加入房間</button>
+						</div>
 					</div>						
 			</div>
 		</form>
@@ -269,15 +274,17 @@ if(isset($_POST['join'])){
 								<div class="room_title1">暱稱</div>
 								<div class="room_title2"><?php echo $row3['name'] ?></div>
 							</div>
-						</div>	
-						</div class="room_footer">
-							<div class="room_footer_redline"></div>
-							<div class="room_footer1">
+						</div>
+					</div>	
+					<div class="room_footer">
+						<div class="room_footer_redline"></div>
+						<div class="room_footer1">
+							<a href="userData.php?account=<?php echo $row3['account']?>">
 								<button class="room_footer_bottom" type="submit" name="see">看看此人~</button>
-							</div>
-								
-						<div>				
-					</div>						
+							</a>								
+						</div>
+							
+					</div>				
 				</div>
 				<?php
 			}
