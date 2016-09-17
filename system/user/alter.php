@@ -50,6 +50,9 @@ else{
 $successMSG = "修改成功，將在3秒後轉跳回會員資料頁(userdata)";
 $setSQL = "UPDATE `user`SET `no`='".$no."',`pri`='".$pri."',`account`='".$account."',`name`='".$name."',`email`='".$email."',`introduction`='".$introduction."',`photo`='".$photo."' WHERE `account`='".$account."'";
 echo $setSQL;
+mysql_query("SET NAMES'UTF8'");
+mysql_query("SET CHARACTER SET UTF8");
+mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
 mysql_query($setSQL);	
 if(isset($successMSG)){
 	header("refresh:3;userdata.php");
