@@ -56,8 +56,8 @@
 		$_SESSION["introduction"] = $row1["introduction"];
 		session_write_close();
 		echo '<h1>驗證完成</h1><br>';
-		echo '你已經信箱驗證並開通了你的帳號，現在你帳號擁有更多的權限<br>';
-		echo '<a href="http://localhost:8080/JOMO/index6.php"><button>好的非常感謝</button></a>';
+		echo '你已通過信箱驗證並開通了你的帳號，現在你帳號擁有更多的權限<br>';
+		echo '<a href="../../index.php"><button>好的非常感謝</button></a>';
 		?>
 	</div>
 	

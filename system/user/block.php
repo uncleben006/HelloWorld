@@ -23,5 +23,5 @@
 </html>
 
 <?php
-	header("refresh:3;http://localhost:8080/JOMO/system/user/login.html");
+	header("refresh:3;login.html");
 ?>
