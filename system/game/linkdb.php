@@ -9,7 +9,7 @@ $account = $_SESSION["account"];
 $pri = $_SESSION["pri"];
 
 if($pri!=2){
-	$url = "http://localhost:8080/JOMO/index6.php";
+	$url = "../../index.php";
 	echo "<script type='text/javascript'>";
 	echo "window.location.href='$url'";
 	echo "</script>"; 

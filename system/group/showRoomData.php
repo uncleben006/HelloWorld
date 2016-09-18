@@ -32,7 +32,7 @@ $remark = $row1['remark'];
 
 if(isset($_POST['join'])){
 	if(empty($_SESSION['account'])){
-		header("Location:http://localhost:8080/JOMO/system/user/block.php");
+		header("Location:../user/block.php");
 	}
 	else{
 		$uno = $_SESSION['no'];
@@ -267,7 +267,7 @@ if(isset($_POST['join'])){
 						<div class="room_content">
 							<div class="member_title">
 								<div class="member_title2">
-									<img src="http://localhost:8080/JOMO/system/user/photo/<?php echo $row3['photo'] ?>" width="180px" />
+									<img src="../user/photo/<?php echo $row3['photo'] ?>" width="180px" />
 								</div>
 							</div>
 							<div class="room_title">

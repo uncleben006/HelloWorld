@@ -181,7 +181,7 @@ $photo = ['photo'];
 				<div class="room_content">
 					<div class="member_height">
 						<div class="member_title3">
-							<img src="http://localhost:8080/JOMO/system/user/photo/<?php echo $row['photo'] ?>" height="180px"" />
+							<img src="../user/photo/<?php echo $row['photo'] ?>" height="180px"" />
 						</div>
 						<div class="room_title">
 							<div class="room_title1">暱稱</div>
