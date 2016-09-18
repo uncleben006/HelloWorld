@@ -1,30 +1,40 @@
 @charset "utf-8";
 #body0{
 	width: 1280px;
-	margin:2% auto;
+	margin:0 0 0 0;
 }
-/*.header_bg{
-
-	height: 95px;
-}*/
-#top{
-	height: 95px;
+.header_bg{
+	position: fixed;
+	z-index: 20;
+	height: 119px;
+	margin: 0 0 3% 0;
+}
+.top{
+	/*height: 105px; */
 	background-color:#EA6363;
+	width: 1280px;
 }
 .table-bg{
 	background-color:#EA6363;
 	border-style:none;
+	/*padding: 1.4% 0 0 0;	*/
 	transition: all 0.5s;
 }
 .table-bg:hover{
-	background-color:#cea4a4;
+	background-color: #cea4a4;
+	transition: all 0.5s;
+}
+.table-bg1{
+	background-color:#EA6363;
 	border-style:none;
+	padding: 1.4% 0 0 0;
 }
-.header_img{
-	display: inline;
-	padding: 0px 20px 0px 0px;
-	border-color: #EA6363;
+.index_search{
+	border: 0;	
+	border-radius:10px;
+	height: 18px;
 }
+
 .button{
 	width:25px;
 	height:25px;
@@ -33,92 +43,124 @@
 	background-color:#EA6363;
 	color:#FFFFFF;
 	border-style:none;
+	position: relative;
+	top: 24px;
 }
 .lognin:link{
 	color:#FFFFFF;
-	font-family:Microsoft JhengHei;
+	font-family:Hiragino Sans GB;
 	font-size: 22px;
-	font-weight:bold;
 	text-decoration:none;
 }
 .lognin:visited{
 	color:#FFFFFF;
-	font-family:Microsoft JhengHei;
+	font-family:Hiragino Sans GB;
 	font-size: 22px;
-	font-weight:bold;
 	text-decoration:none;
 }
 .lognin:hover{
 	color:#444444;
-	font-family:Microsoft JhengHei;
+	font-family:Hiragino Sans GB;
 	font-size: 22px;
-	font-weight:bold;
 	text-decoration:none;
 }
 .lognin:active{
 	color:#666666;
-	font-family:Microsoft JhengHei;
+	font-family:Hiragino Sans GB;
 	font-size: 22px;
-	font-weight:bold;
 	text-decoration:none;
 }
 .navdiv{
+	position: relative;
 	background-color:#FFFFFF;
 	width: 1280px;
+	height: 29px;
 	padding: 5px 0 10px 0;
 }
-.nav2{
-	font-family:Microsoft JhengHei;
-	font-size: 25px;
-}
-
-.nav1{
-	display: inline;
-	padding: 0px 25px 0px 167px;
-	font-family:Microsoft JhengHei;
-	font-size: 25px;
-	font-weight:bold;
-}
 .nav0{
+	position: relative;
+	bottom: 15px;
 	display: inline;
-	padding: 0px 30px 0px 30px;
-	font-family:Microsoft JhengHei;
+	padding: 0px 57px 15px 197px;
+	font-family:Hiragino Sans GB;
 	font-size: 25px;
-	font-weight:bold;
+	cursor:pointer;
 }
-.nav2 a:link {color:#444444; font-size:25px; text-decoration:none;}    /* 設定尚未點閱過的連結樣式 */
-.nav2 a:visited {color:#444444; text-decoration:none;} /* 設定過去曾經閱過的連結 */
-.nav2 a:hover {color:#009FCC;font-size:25px; text-decoration:none;}   /* 設定滑鼠游標指在連結位置上的樣式 */
+.nav1{
+	position: relative;
+	bottom: 15px;
+	display: inline;
+	padding: 0px 43px 15px 25px;
+	font-family:Hiragino Sans GB;
+	font-size: 25px;
+	cursor:pointer;
+}
+.nav2{
+	position: relative;
+	bottom: 15px;
+	display: inline;
+	padding: 0px 38px 15px 25px;
+	font-family:Hiragino Sans GB;
+	font-size: 25px;
+	cursor:pointer;
+}
+.nav1 a:link {color:#666666; font-size:25px; text-decoration:none;}    /* 設定尚未點閱過的連結樣式 */
+.nav1 a:visited {color:#666666; text-decoration:none;} /* 設定過去曾經閱過的連結 */
+.nav1 a:hover {color:#ff6666;font-size:25px; text-decoration:none;}   /* 設定滑鼠游標指在連結位置上的樣式 */
 
-.nav1 a:link {color:#444444; font-size:25px; text-decoration:none;}    /* 設定尚未點閱過的連結樣式 */
-.nav1 a:visited {color:#444444; text-decoration:none;} /* 設定過去曾經閱過的連結 */
-.nav1 a:hover {color:#009FCC;font-size:25px; text-decoration:none;}   /* 設定滑鼠游標指在連結位置上的樣式 */
+.nav0 a:link {color:#666666; font-size:25px; text-decoration:none;}    /* 設定尚未點閱過的連結樣式 */
+.nav0 a:visited {color:#666666; text-decoration:none;} /* 設定過去曾經閱過的連結 */
+.nav0 a:hover {color:#ff6666;font-size:25px; text-decoration:none;}   /* 設定滑鼠游標指在連結位置上的樣式 */
 
-.nav0 a:link {color:#444444; font-size:25px; text-decoration:none;}    /* 設定尚未點閱過的連結樣式 */
-.nav0 a:visited {color:#444444; text-decoration:none;} /* 設定過去曾經閱過的連結 */
-.nav0 a:hover {color:#009FCC;font-size:25px; text-decoration:none;}   /* 設定滑鼠游標指在連結位置上的樣式 */
+.nav2 a:link {color:#666666; font-size:25px; text-decoration:none;}    /* 設定尚未點閱過的連結樣式 */
+.nav2 a:visited {color:#666666; text-decoration:none;} /* 設定過去曾經閱過的連結 */
+.nav2 a:hover {color:#ff6666;font-size:25px; text-decoration:none;}   /* 設定滑鼠游標指在連結位置上的樣式 */
 
 .Monopoly{
 	background-color:#4DBDC2;
-	margin: -20px 0 0 0;
-	height: 530px;
-	padding-top:10px;
+	margin: 0px 0 0 0;
+	height: 475px;
+	padding:16% 0 5% 0;
+}
+.Monopoly_frame{
+	margin: -2% 0 0 0;
+	padding: 0 4% 0 4%;
+	width:1150px;
+	height:546px;
 }
 .img-monopoly{
-	position:absolute;
-	margin: -35px 0 0 0;
-	padding: 0 2% 0 2%;
-	width:1200px;
-	height:650px;
+	position:relative;
+	width:1150px;
+	height:546px;
     z-index:0;
 }
 .monopoly_button01{
-	position:absolute;
+	position:relative;
     z-index:1;
-   top:265px;
-   left: 140px;
-    width: 1200px;
-    height: 650px;
+	bottom: 542px;
+	left: 7px;
+	width: 170px;
+}
+.monopoly_button02{
+	position:relative;
+    z-index:1;
+	bottom: 693px;
+	left: 969.5px;
+	width: 176px;
+}
+.monopoly_button03{
+	position:relative;
+    z-index:1;
+	bottom: 465px;
+	left: 7px;
+	width: 170px;
+}
+.monopoly_button04{
+	position:relative;
+    z-index:1;
+	bottom: 618px;
+	left: 969px;
+	width: 176px;
 }
 .news{
 	padding: 6% 10% 0% 10%;
@@ -209,13 +251,15 @@
 	position:relative;
     z-index:0;
 }
+.flexslider_width{
+	width: 1280px;
+}
 .img_flexslider{
-	right: 2%;
-	top:1135px;
+	margin: -140px 0px 0 1060px;
 	width: 220px;
 	height: 140px;
-	position:absolute;
-    z-index:10;
+	position: relative;
+    z-index:3;
 }
 .date_bg{
 	color:#FFFFFF;
@@ -266,11 +310,13 @@
 	margin: 30px 0 0 0;
 }
 .footer_nav{
+	position: relative;
 	background-color:#EA6363;
 	margin:-50px 30% 0 30%;
 }
 .fnav0{
 	display: inline;
+	color:#FFFFFF;
 }
 .fnav1{
 	display: inline;
@@ -280,3 +326,166 @@
 .fnav0 a:link {	color:#FFFFFF; font-size:16px; font-family:DFKai-sb; text-decoration:none;}    /* 設定尚未點閱過的連結樣式 */
 .fnav0 a:visited {color:#FFFFFF;font-family:DFKai-sb; text-decoration:none;} /* 設定過去曾經閱過的連結 */
 .fnav0 a:hover {color:#444444;; font-size:16px; font-family:DFKai-sb; text-decoration:none;}   /* 設定滑鼠游標指在連結位置上的樣式 */
+
+
+/*store1  店家地圖CSS開始*/
+
+.store_section{
+	float: left;
+}
+.store_marquee_div{
+	padding: 14% 0 0px 700px;
+	height: 80px;
+}
+.store_news01{
+	color:#FFFFFF;
+	background-color:#4EBDC2;
+	border-radius:21px;
+	font-family:Arial;
+	font-size:21px;
+	width: 110px;
+	padding:4px 10px;
+	vertical-align: middle;
+	position: relative;
+	bottom: 9px;
+}
+.store_span{
+	height: 5px;
+}
+.store_marquee{
+	font-family:Arial;
+	font-size: 21px;
+	background-color: #4EBDC2;
+	border-radius:20px;	
+	color: #FFFFFF;
+	height: 30px;
+	width: 400px;
+	margin: 10px 0 0 0px;
+}
+.mapbutton_frame{
+	margin: -2% 0 0 0;
+}
+.map_myButton {
+	background-color:#de6160;
+	-moz-border-radius:25px;
+	-webkit-border-radius:25px;
+	border-radius:25px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:22px;
+	font-weight:bold;
+	padding:8px 24px;
+	text-decoration:none;
+	margin: -5px 0 0 25px;
+}
+.map_myButton:hover {
+	background-color:#e8a7a7;
+}
+.map_myButton:active {
+	position:relative;
+	top:1px;
+}
+.map{
+	padding: 10% 0 0 0%;
+	width: 880px;
+	height: 850px;
+}
+.google_map{
+	position: relative;
+	bottom: 16px;
+	z-index:1;
+	padding: 20% 0 0 8%;
+}
+.mapframe{
+	margin: -740px 0 0 2%;
+	position: relative;
+	z-index:0;
+}
+.aside01{
+	float: right;
+	width: 270px;
+	height: 1200px;
+	margin: 2% 50px 0 0;
+	background: #F2EE71;
+	position: relative;
+	z-index: 3;
+}
+.aside_p1{
+	font-size: 60px;
+	color: #545454;
+	text-align: center;
+	padding: 7% 0 ;
+}
+.aside_store{
+	padding: 3% 15%;
+}
+
+/*store1  店家列表CSS開始*/
+.store_select{
+	position: relative;
+	z-index: 2;
+	background-color: #4EBDC2;
+	height: 400px;
+	width: 1280px;
+	margin: 2% 0 0 0;
+
+}
+.store_select_img{
+	padding: 3% 10%;
+}
+.aside02{
+	float: right;
+	width: 270px;
+	height: 1200px;
+	margin: 25% 50px 0 0;
+	background: #F2EE71;
+	position: relative;
+	z-index: 3;
+}
+.store_select_word{
+	position: relative;
+	bottom: 57%;
+	left: 32%;
+	z-index: 4;
+	font-size: 35px;
+
+}
+.store_select_button0{
+	position: relative;
+	margin: -16% 0 0 22%;
+}
+.store_select_button1{
+	position: relative;
+	padding: 0 0 0 14%;
+}
+.store_select_button2{
+	position: relative;
+	padding: 0 0 0 8%;
+}
+.store_select_myButton {
+	background-color:#f2ee71;
+	-moz-border-radius:42px;
+	-webkit-border-radius:42px;
+	border-radius:50px;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:Arial;
+	font-size:32px;
+	padding:27px 15px;
+	text-decoration:none;
+}
+.store_select_myButton:hover {
+	background-color:#4EBDC2;
+}
+.store_select_myButton:active {
+	position:relative;
+	top:1px;
+}
+.store_search{
+	background-color: #767777;
+	height: 28px;
+	border: 0;
+}
