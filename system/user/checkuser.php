@@ -51,7 +51,7 @@ else if(isset($row2["account"])){
 } 
 
 //導回首頁
-$url = "http://localhost:8080/JOMO/index6.php";
+$url = "../../index.php";
 echo "<script type='text/javascript'>";
 echo "window.location.href='$url'";
 echo "</script>"; 

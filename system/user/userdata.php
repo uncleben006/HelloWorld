@@ -106,7 +106,7 @@
 		</table>
 		<div>
 			<a href="alter.php"><button>修改會員資料</button></a>
-			<a href="http://localhost:8080/JOMO/index6.php"><button>回首頁</button></a>
+			<a href="../../index.php"><button>回首頁</button></a>
 		</div>
 			
 	</div>
