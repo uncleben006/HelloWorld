@@ -16,7 +16,7 @@ if($pri!=2){
 }
 else{
 	$DB_HOST = 'localhost';
-	$DB_USER = 'testphp';
+	$DB_USER = 'root';
 	$DB_PASS = 'ken0426';
 	$DB_NAME = 'boardgame';
 	$DB_TYPE = 'mysql';

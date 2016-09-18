@@ -9,14 +9,14 @@ $account = $_SESSION["account"];
 $pri = $_SESSION["pri"];
 
 if(empty($account)){
-	$url = "http://localhost:8080/JOMO/index6.html";
+	$url = "../../index.php";
 	echo "<script type='text/javascript'>";
 	echo "window.location.href='$url'";
 	echo "</script>"; 
 }
 
 else {
-	$user = 'testphp';
+	$user = 'root';
 	$pass = 'ken0426';
 	$host = 'localhost';
 
