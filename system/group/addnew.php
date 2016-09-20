@@ -1,5 +1,11 @@
 <?php
 include('link.php');
+session_start();
+$account = $_SESSION['account'];
+if(empty($_SESSION['account'])){
+	header("Location:../user/block.php");
+}
+
 if(isset($_POST['create'])){
 	$room = $_POST['room'];
 	$store = $_POST['store'];
@@ -10,7 +16,7 @@ if(isset($_POST['create'])){
 	$spend = $_POST['spend'];
 	$remark = $_POST['remark'];
 
-	$setSQL = 'INSERT INTO `room`(`room`, `store`, `game`, `date`, `time`, `people`, `spend`, `remark`) VALUES ("'.$room.'","'.$store.'","'.$game.'","'.$date.'","'.$time.'","'.$people.'","'.$spend.'","'.$remark.'")';
+	$setSQL = 'INSERT INTO `room`(`host`,`room`, `store`, `game`, `date`, `time`, `people`, `spend`, `remark`) VALUES ("'.$account.'","'.$room.'","'.$store.'","'.$game.'","'.$date.'","'.$time.'","'.$people.'","'.$spend.'","'.$remark.'")';
 	mysql_query("SET NAMES'UTF8'");
 	mysql_query("SET CHARACTER SET UTF8");
 	mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
@@ -59,7 +65,7 @@ if(isset($_POST['create'])){
 </head>
 <body>
 	<div class="frame">
-		<h1>這是登入頁面!!~</h1>
+		<h1>創建房間</h1>
 		<form method="post">
 			<table>
 			<div>
@@ -69,6 +75,10 @@ if(isset($_POST['create'])){
 			}
 			?>
 			</div>
+				<tr>
+					<th>房主</th>
+					<td><input type="text" value="<?php echo $account; ?>" disabled/></td>
+				</tr>
 				<tr>
 					<th>房間名稱</th>
 					<td><input type="text" name="room"></td>
