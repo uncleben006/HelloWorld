@@ -7,8 +7,20 @@ if(empty($_SESSION['account'])){
 }
 
 if(isset($_POST['create'])){
+	$setSQL = 'SELECT * FROM `room`';
+	$result = mysql_query($setSQL);
+	$no = mysql_num_rows($result)+1;//取得所選SQL的列數，取代count(*);
 	$room = $_POST['room'];
 	$store = $_POST['store'];
+
+	//依照房間名稱來指定經緯度
+	if($store=="swan caf'e"){
+		$x = 25.004689;
+		$y = 121.53658;	
+	}
+
+
+
 	$game = $_POST['game'];
 	$date = $_POST['date'];
 	$time = $_POST['time'];
@@ -16,13 +28,15 @@ if(isset($_POST['create'])){
 	$spend = $_POST['spend'];
 	$remark = $_POST['remark'];
 
-	$setSQL = 'INSERT INTO `room`(`host`,`room`, `store`, `game`, `date`, `time`, `people`, `spend`, `remark`) VALUES ("'.$account.'","'.$room.'","'.$store.'","'.$game.'","'.$date.'","'.$time.'","'.$people.'","'.$spend.'","'.$remark.'")';
+	$setSQL = 'INSERT INTO `room`(`no`,`host`,`room`,`store`,`x`,`y`,`game`,`date`, `time`,`people`,`spend`,`remark`) VALUES ("'.$no.'","'.$account.'","'.$room.'","'.$store.'","'.$x.'","'.$y.'","'.$game.'","'.$date.'","'.$time.'","'.$people.'","'.$spend.'","'.$remark.'")';
+	echo $setSQL;
 	mysql_query("SET NAMES'UTF8'");
 	mysql_query("SET CHARACTER SET UTF8");
 	mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
 	mysql_query($setSQL);
-	header("refresh:3;group.php");	
+	header("Location:group.php");	
 }
+
 	?>
 
 
@@ -90,7 +104,7 @@ if(isset($_POST['create'])){
 							<option value="#">你家</option>
 							<option value="#">我家</option>
 							<option value="#">社桌</option>
-							<option value="#">swan caf'e</option>
+							<option value="swan caf'e">swan caf'e</option>
 							<option value="#">看屁看!</option>
 						</select>
 					</td>
@@ -105,7 +119,7 @@ if(isset($_POST['create'])){
 				</tr>
 				<tr>
 					<th>開始時間</th>
-					<td><input type="time" name="time" style="width:97%" step="1800"></td>
+					<td><input type="time" name="time" style="width:97%" ></td><!--step="1800"最少30分鐘-->
 				</tr>
 				<tr>
 					<th>人數</th>
