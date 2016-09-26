@@ -70,6 +70,7 @@ CREATE TABLE `game` (
 
 CREATE TABLE `room` (
   `no` int(3) NOT NULL,
+  `host` varchar(20) NOT NULL,
   `room` text COLLATE utf8_unicode_ci NOT NULL,
   `store` text COLLATE utf8_unicode_ci NOT NULL,
   `game` text COLLATE utf8_unicode_ci NOT NULL,
