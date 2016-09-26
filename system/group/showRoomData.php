@@ -216,7 +216,7 @@ if (isset($_POST['OK'])){
 						   	if($row5==0){
 						   		?>
 						    	<div style="width:100%;height:200px;background-color:#dad2d2;">
-					    			請先登入才能使用聊天室
+						    		<div style="text-align:center;padding-top:80px;">你要加入這間房間才能使用聊天室</div>
 					    		</div>
 					    		<?php
 						   	}
