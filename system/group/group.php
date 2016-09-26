@@ -5,9 +5,6 @@
 	<link href="../../style.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" type="text/css" href="../../flexslider.css" />
 	<link rel="stylesheet" type="text/css" href="group.css">
-	<!--輪播圖的javascript-->
-	<script src="http://libs.useso.com/js/jquery/1.7.2/jquery.min.js"></script>
-	<script type="text/javascript" src="../../jquery.flexslider-min.js"></script>
 	<!--大富翁按鍵的圖片的javascript-->
 	<script type="text/javascript" src="../../javascript.js"></script>
 	<script type="text/javascript">
@@ -58,7 +55,7 @@
 							</a>
 					</td>
 					<?php
-						include('../user/link.php');
+						include('link.php');
 						session_start();
 						if(isset($_SESSION['pri'])){
 							?>
@@ -148,41 +145,62 @@
 			mysql_query("SET CHARACTER SET UTF8");
 			mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
 			$result = mysql_query($setSQL);
-			$number = mysql_num_rows($result);//取得所選SQL的列數
-			
+			$number = mysql_num_rows($result);//取得所選SQL的列數，取代count(*);
 
+			//指定台北時區
+			date_default_timezone_set('Asia/Taipei');
+			$now = date("Y-m-d-H:i:s");
+
+			//$row = mysql_fetch_assoc($result)一定得放在while裡，表示每跑一次迴圈fetch一次陣列
 			if($number>0){
 				while($row = mysql_fetch_assoc($result) ){
 
-				//$row = mysql_fetch_assoc($result)一定得放在while裡，表示每跑一次迴圈fetch一次陣列
+					
 					$no = $row['no'];
+					$room = $row['room'];
+					$date = $row['date'];
+					$time = $row['time'];
+					$store = $row['store'];
+					$people = $row['people'];
+					$game = $row['game'];									
+					$startTime = date("Y-m-d-H:i:s", strtotime($date.$time."5 hours"));
+					if($now>$startTime){
+						//開始時間再加5小時，時間一到，刪除TABLE room 跟 DB room
+						$setSQL1 = "DELETE FROM `room` WHERE `no`=".$no."";
+						mysql_query($setSQL1);
+						$setSQL2 = "DROP TABLE room".$no."";
+						mysql_query($setSQL2);
+					}					
+					
+				
+
 					?>
 					<div class="room">
 							<div class="room_banner">
-								<div class="room_banner1"><?php echo $row['no'] ?></div>
-								<div class="room_banner2"><?php echo $row['room'] ?></div>
+								<div class="room_banner1"><?php echo $no ?></div>
+								<div class="room_banner2"><?php echo $room ?></div>
 							</div>
 							<div class="room_padding">
 								<div class="room_content">
 									<div class="room_title">
 										<div class="room_title1">日期</div>										
-										<div class="room_title2"><?php echo $row['date'] ?></div>										
+										<div class="room_title2"><?php echo $date ?></div>										
 									</div>
 									<div class="room_title">
 										<div class="room_title1">時間</div>										
-										<div class="room_title2"><?php echo $row['time'] ?></div>										
+										<div class="room_title2"><?php echo $time ?></div>										
 									</div>
 									<div class="room_title">
 										<div class="room_title1">地點</div>										
-										<div class="room_title2"><?php echo $row['store'] ?></div>										
+										<div class="room_title2"><?php echo $store ?></div>										
 									</div>
 									<div class="room_title">
 										<div class="room_title1">人數</div>
-										<div class="room_title2"><?php echo $row['people'] ?></div>										
+										<div class="room_title2"><?php echo $people ?></div>										
 									</div>
 									<div class="room_title">
 										<div class="room_title1">遊戲</div>
-										<div class="room_title2"><?php echo $row['game'] ?></div>										
+										<div class="room_title2"><?php echo $game ?></div>										
 									</div>
 									<div style="clear:both"></div>
 								</div>	
@@ -199,6 +217,7 @@
 					</div>
 					<?php
 				}
+
 			}
 			else{
 				echo "目前沒有人揪團唷~";
@@ -208,7 +227,7 @@
 		
    		
    		
-   		
+   		<!--
    		<div class="footer_bg">
    			<img src="../../jomor_html/img/footerbg.png" width="1280">
 	   		<footer>
@@ -225,6 +244,7 @@
 				</div>
 	   		</footer>
 	   	</div>
+	   	-->
 		
 </body>
 </html>
