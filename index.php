@@ -5,7 +5,7 @@
 	<link href="style.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" type="text/css" href="flexslider.css" />
 	<!--輪播圖的javascript-->
-	<script src="http://libs.useso.com/js/jquery/1.7.2/jquery.min.js"></script>
+	<!--<script src="http://libs.useso.com/js/jquery/1.7.2/jquery.min.js"></script>-->
 	<script type="text/javascript" src="jquery.flexslider-min.js"></script>
 	<!--大富翁按鍵的圖片的javascript-->
 	<script type="text/javascript" src="javascript.js"></script>
