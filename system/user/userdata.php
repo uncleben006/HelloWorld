@@ -37,8 +37,8 @@
 		<?php
 		header("Content-Type:text/html; charset=utf-8");
 		include('link.php');
-
-		session_start();
+		include('sessionCheck.php');
+		
 		$no = $_SESSION["no"];
 		$pri = $_SESSION["pri"];
 		$account = $_SESSION["account"];
