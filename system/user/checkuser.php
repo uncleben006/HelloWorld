@@ -1,9 +1,9 @@
 <?php
-
 // 1 是代表user，例如setSQL1、result1
 // 2 是代表admin，例如setSQL2、result2
 
 include('link.php');
+include('sessionCheck.php');
 mysql_query("SET NAMES'UTF8'");
 mysql_query("SET CHARACTER SET UTF8");
 mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
@@ -22,10 +22,9 @@ $row1 = mysql_fetch_assoc($result1);
 $setSQL2 = "SELECT * FROM `admin` WHERE `account` = '".$account."'";
 $result2 = mysql_query($setSQL2);
 $row2 = mysql_fetch_assoc($result2);
-
 if (isset($row1["account"])){
 	session_set_cookie_params(600);
-	session_start();
+	//session_start();
 	$_SESSION["no"] = $row1["no"];
 	$_SESSION["pri"] = $row1["pri"];
 	$_SESSION["account"] = $row1["account"];
@@ -38,7 +37,7 @@ if (isset($row1["account"])){
 }
 else if(isset($row2["account"])){
 	session_set_cookie_params(600);
-	session_start();
+	//session_start();
 	$_SESSION["no"] = $row2["no"];
 	$_SESSION["pri"] = $row2["pri"];
 	$_SESSION["account"] = $row2["account"];
