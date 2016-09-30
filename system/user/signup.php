@@ -38,7 +38,6 @@ value2:除了信箱以外其他都顯示
 					<td>帳號(Account)</td>
 					<?php 
 					session_start();
-
 					if(isset($_GET["value"])==TRUE){
 						$value = $_GET["value"];
 					}
