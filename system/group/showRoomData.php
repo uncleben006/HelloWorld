@@ -1,57 +1,55 @@
 <?php
 include('link.php');
-session_start();
+include('../user/sessionCheck.php');
 $no=$_GET['no'];
 
-//要是 DB room 不存在，則建立之
+//要是 room+no 不存在，則建立之
 $mysql = "
 CREATE TABLE IF NOT EXISTS `room".$no."`(
 	`people` int(2) NOT NULL,
 	`name` text NOT NULL,
 	`account` varchar(20) NOT NULL,
+	`email` varchar(50) NOT NULL,
 	`photo` varchar(100) NOT NULL,
 	PRIMARY KEY(`account`)
 )DEFAULT CHARSET = UTF8;";
 mysql_query($mysql);
 
-//抓取 DB room 裡指定no的資料並指定至相應變數
+//抓取 room+no 裡指定no的資料並指定至相應變數
 $mysql1 = "SELECT * FROM `room` WHERE `no` ='$no'";
 mysql_query("SET NAMES'UTF8'");
 mysql_query("SET CHARACTER SET UTF8");
 mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
 $result1 = mysql_query($mysql1);
 $row1 = mysql_fetch_assoc($result1);
-$room = $row1['room'];
-$host = $row1['host'];
-$store = $row1['store'];
 
-$x = $row1['x'];
-$y = $row1['y'];
+$decide = $row1['decide'];		//鎖定房間判定
+$room = $row1['room'];			//房名
+$host = $row1['host'];			//房主
+$store = $row1['store'];		//店名
+$x = $row1['x'];				//經度
+$y = $row1['y'];				//緯度
+$game = $row1['game'];			//桌遊名稱
+$date = $row1['date'];			//日期
+$time = $row1['time'];			//時間
+$people = $row1['people'];		//人數
+$spend = $row1['spend'];		//消費模式
+$remark = $row1['remark'];		//備註
+$startTime = date("Y-m-d-H:i:s", strtotime($date.$time));
 
-echo $x;
-echo $y;
+//抓取 room+no 裡的列數，指定給$number，作為join button的事先判斷
+$selectRoomNo = "SELECT * FROM `room".$no."`";
+$selectRoomNo = mysql_query($selectRoomNo);
+$number = mysql_num_rows($selectRoomNo);
 
-$game = $row1['game'];
-$date = $row1['date'];
-$time = $row1['time'];
-$people = $row1['people'];
-$spend = $row1['spend'];
-$remark = $row1['remark'];
-
-//抓取 DB room 裡的列數，指定給$number
-$mysql2 = "SELECT * FROM `room".$no."`";
-$result2 = mysql_query($mysql2);
-$number = mysql_num_rows($result2);
-
-//把房主資料insert入DB room，先select from user，再insert into DB room
+//把房主資料insert入 room+no，先select from user，再insert into room+no
 $selectHost = "SELECT * FROM `user` WHERE `account` = '".$host."'";
-$Host = mysql_query($selectHost);
-$select = mysql_fetch_assoc($Host);
-
-$insertHost = 'INSERT INTO `room'.$no.'`(`people`, `name`, `account`, `photo`) VALUES ("'.$people.'","'.$select['name'].'","'.$select['account'].'","'.$select['photo'].'")';
+$selectHost = mysql_query($selectHost);
+$Host = mysql_fetch_assoc($selectHost);
+$insertHost = 'INSERT INTO `room'.$no.'`(`people`, `name`, `account`,`email`, `photo`) VALUES ("'.$people.'","'.$Host['name'].'","'.$Host['account'].'","'.$Host['email'].'","'.$Host['photo'].'")';
 mysql_query($insertHost);
 
-//如果按刪除房間，就刪除 table room 跟 DB room
+//如果按刪除房間，就刪除 room table 跟 room+no
 if(isset($_POST['delete'])){
 	$setSQL1 = "DELETE FROM `room` WHERE `no`=".$no."";
 	mysql_query($setSQL1);
@@ -59,22 +57,29 @@ if(isset($_POST['delete'])){
 	mysql_query($setSQL2);
 	$setSQL3 = "DELETE FROM `chat` WHERE `no`=".$no."";
 	mysql_query($setSQL3);
-	//echo $setSQL1."<br>";
-	//echo $setSQL2."<br>";
-	//echo $setSQL3;
 	header("Location:group.php");
 }
 
-//如果按了刪除此人，就刪除DB room 裡面那人的資料
+//如果按了傳送提醒，就insert房間資料進 remind table
+if(isset($_POST['remind'])){
+	while($Member = mysql_fetch_row($selectRoomNo)){
+		$insertRemind = 'INSERT INTO `remind`(`no`, `account`,`email`, `host`, `room`, `time`, `store`) VALUES ("'.$no.'","'.$Member[2].'","'.$Member[3].'","'.$host.'","'.$room.'","'.$startTime.'","'.$store.'")';
+		mysql_query($insertRemind);		
+	}
+	//$decideR = "UPDATE `room` SET `decide`= '1' WHERE `no` = ".$no."";
+	mysql_query($decideR);//把room裡的decide改成1，方便「傳送提醒」button判斷 
+	header("Location:mailer.php?no=".$no);
+}
+
+//如果按了刪除此人，就刪除 room+no 裡面那人的資料
 if(isset($_POST['deletePerson'])){
 	$deletePerson = "DELETE FROM `room".$no."` WHERE `account`=".$_POST['deletePerson']."";
 	mysql_query($deletePerson);
 	header("Location:showRoomData.php?no=".$no);
-
 }
 
 
-//如果按加入房間，先判斷有無登入，再判斷房間人數是否足夠，最後才把session資料insert進 DB room
+//如果按加入房間，先判斷有無登入，再判斷房間人數是否足夠，最後才把session資料insert進 room+no
 if(isset($_POST['join'])){
 	if(empty($_SESSION['account'])){//判斷有無登入
 		header("Location:../user/block.php");
@@ -86,7 +91,7 @@ if(isset($_POST['join'])){
 		</script>
 		<?php
 	}
-	else{//把session資料insert進 DB room
+	else{//把session資料insert進 room+no
 		$uno = $_SESSION['no'];
 		$account = $_SESSION['account'];
 		$name = $_SESSION['name'];
@@ -95,22 +100,24 @@ if(isset($_POST['join'])){
 		$photo = $_SESSION['photo'];
 
 
-		$mysql3 = 'INSERT INTO `room'.$no.'`(`people`, `name`, `account`, `photo`) VALUES ("'.$people.'","'.$name.'","'.$account.'","'.$photo.'")';
+		$mysql3 = 'INSERT INTO `room'.$no.'`(`people`, `name`, `account`,`email`, `photo`) VALUES ("'.$people.'","'.$name.'","'.$account.'","'.$email.'","'.$photo.'")';
 		mysql_query("SET NAMES'UTF8'");
 		mysql_query("SET CHARACTER SET UTF8");
 		mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
 		mysql_query($mysql3);
-		header("Location:showRoomData.php?no=".$no);//避免重新整理時，重複傳送表單`,故需導回原畫面。
+		header("Location:showRoomData.php?no=".$no);//避免重新整理時，重複傳送表單，故需導回原畫面。
 	}
 	
 }
 
-//如果按OK，則把session名字、房名、留言記錄至 DB ，
+//如果按OK，則把session名字、房名、留言記錄至 chat table ，
 if (isset($_POST['OK'])){ 
 	error_reporting(0); 
+	date_default_timezone_set('Asia/Taipei');
+	$now = date("H:i:s");
     $name=$_SESSION['name'];
     $chat=$_POST['chat'];     
-    $sql1="INSERT INTO `chat`(`no`,`name`,`chat`)values('$no','$name','$chat')";
+    $sql1="INSERT INTO `chat`(`no`,`name`,`now`,`chat`)values('$no','$name','$now','$chat')";
     mysql_query("SET NAMES'UTF8'");
 	mysql_query("SET CHARACTER SET UTF8");
 	mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
@@ -128,7 +135,7 @@ if (isset($_POST['OK'])){
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="group.css">
 	<script>
-	//定位google地圖，宣告變數並把php資料指定給它
+	//google地圖，在addnew.php會把xy輸入進room table
 	var x = <?php echo $x; ?>;
 	var y = <?php echo $y; ?>;
 	function myMap() {
@@ -144,6 +151,8 @@ if (isset($_POST['OK'])){
 	    map.setCenter(marker.getPosition());
 	  });
 	}
+
+
 	</script>
 
 	
@@ -225,7 +234,7 @@ if (isset($_POST['OK'])){
 							    <div style="width:100%;height:250px;background-color:#fff;overflow:scroll;">
 								<?php
 							    while($row4=mysql_fetch_row($result4)){
-							        echo "$row4[1]"."說：&nbsp"."$row4[2]<br>";
+							        echo "($row4[2])"."$row4[1]"."說：&nbsp"."$row4[3]<br>";
 							    }
 							    ?>
 							    </div>
@@ -248,7 +257,18 @@ if (isset($_POST['OK'])){
 							<?php if(isset($_SESSION['account'])&&$_SESSION['account']==$host){
 								?>
 								<button class="room_footer_bottom" type="submit" name="delete">刪除房間</button>
-								<?php
+								<?php if($decide==0){
+									?>								
+									<button class="room_footer_bottom" type="submit" name="remind" onclick="return confirm('鎖定房間將會傳送資料給房內成員，並且不能更改，確定嗎')">
+										鎖定房間
+									</button>
+									<?php
+								}
+								else if($decide==1){
+									?>
+									<button class="room_footer_bottom" type="submit" name="remind" disabled>房間鎖定</button>
+									<?php
+								}
 							}
 							?>
 						</div>
@@ -264,15 +284,13 @@ if (isset($_POST['OK'])){
 			<h2>成員</h2>
 		</div>
 		<?php
-			$mysql3 = "SELECT * FROM `room".$no."`";
-			$result3 = mysql_query($mysql3);
 
-			while ($row3 = mysql_fetch_assoc($result3)) {
+			while ($roomNoRow = mysql_fetch_assoc($selectRoomNo)) {
 				?>
 				<div class="member">
 					<div class="room_banner">
 					<?php
-					if($host==$row3['account']){
+					if($host==$roomNoRow['account']){
 						echo '<div class="member_banner1">房主</div>';
 					}
 					
@@ -280,31 +298,31 @@ if (isset($_POST['OK'])){
 						echo '<div class="member_banner1">帳號</div>';
 					}
 					?>	
-						<div class="member_banner2"><?php echo $row3['account'] ?></div>
+						<div class="member_banner2"><?php echo $roomNoRow['account'] ?></div>
 					</div>
 					<div class="room_padding">
 						<div class="room_content">
 							<div class="member_title">
 								<div class="member_title2">
-									<img src="../user/photo/<?php echo $row3['photo'] ?>" width="180px" />
+									<img src="../user/photo/<?php echo $roomNoRow['photo'] ?>" width="180px" />
 								</div>
 							</div>
 							<div class="room_title">
 								<div class="room_title1">暱稱</div>
-								<div class="room_title4"><?php echo $row3['name'] ?></div>
+								<div class="room_title4"><?php echo $roomNoRow['name'] ?></div>
 							</div>
 						</div>
 					</div>	
 					<div class="room_footer">
 						<div class="room_footer_redline"></div>
 						<div class="room_footer1">
-							<a style="display:inline-block" href="userData.php?account=<?php echo $row3['account']?>">
+							<a style="display:inline-block" href="userData.php?account=<?php echo $roomNoRow['account']?>">
 								<button class="room_footer_bottom" type="submit" name="see">查看此人</button>
 							</a>
 							<form method="post" style="display:inline-block">
-								<?php if(isset($_SESSION['account'])&&$_SESSION['account']==$host&&$row3['account']!=$host){
+								<?php if(isset($_SESSION['account'])&&$_SESSION['account']==$host&&$roomNoRow['account']!=$host){
 									?>
-									<button class="room_footer_bottom" type="submit" name="deletePerson" value="<?php echo $row3['account'] ?>">刪除此人</button>
+									<button class="room_footer_bottom" type="submit" name="deletePerson" value="<?php echo $roomNoRow['account'] ?>">刪除此人</button>
 									<?php
 								}
 								?>
