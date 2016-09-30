@@ -1,7 +1,7 @@
 @charset "utf-8";
 #body0{
 	width: 1280px;
-	margin:0 0 0 0;
+	margin: 0 auto;
 }
 .header_bg{
 	position: fixed;
@@ -10,15 +10,14 @@
 	margin: 0 0 3% 0;
 }
 .top{
-	/*height: 105px; */
+	height: 105px;
 	background-color:#EA6363;
 	width: 1280px;
 }
 .table-bg{
 	background-color:#EA6363;
 	border-style:none;
-	/*padding: 1.4% 0 0 0;	*/
-	transition: all 0.5s;
+	padding: 1.4% 0 0 0;
 }
 .table-bg:hover{
 	background-color: #cea4a4;
@@ -27,7 +26,7 @@
 .table-bg1{
 	background-color:#EA6363;
 	border-style:none;
-	padding: 1.4% 0 0 0;
+	padding: 1.4% 0 0 2%;
 }
 .index_search{
 	border: 0;	
@@ -45,6 +44,7 @@
 	border-style:none;
 	position: relative;
 	top: 24px;
+	/*right: 22px;*/
 }
 .lognin:link{
 	color:#FFFFFF;
@@ -70,6 +70,8 @@
 	font-size: 22px;
 	text-decoration:none;
 }
+/*針對input點擊會出現藍框做消除*/
+input:focus{outline:none}
 .navdiv{
 	position: relative;
 	background-color:#FFFFFF;
@@ -288,21 +290,21 @@
 .border_bottom{
 	border-bottom:#FFB7DD 2px solid;
 	padding:2px;
-	font-family:Microsoft JhengHei;
+	font-family:Hiragino Sans GB;
 	font-size: 25px;
 	font-weight:bold;
 }
 .border_bottom_2{
 	border-bottom:#FFB7DD 2px solid;
 	padding:2px;
-	font-family:Microsoft JhengHei;
+	font-family:Hiragino Sans GB;
 	font-size: 16px;
 	font-weight:bold;
 }
 .rows{
 	border-bottom:#FFB7DD 2px solid;
 	padding:15px;
-	font-family:DFKai-sb;
+	font-family:Hiragino Sans GB;
 	font-size: 21px;
 	margin: 0 0 20px 0;
 }
@@ -416,10 +418,14 @@
 	font-size: 60px;
 	color: #545454;
 	text-align: center;
-	padding: 7% 0 ;
+	padding: 9% 0 ;
+	font-family:Hiragino Sans GB;
 }
 .aside_store{
 	padding: 3% 15%;
+}
+.aside_store_img{
+	border-radius: 25px;
 }
 
 /*store1  店家列表CSS開始*/
@@ -427,30 +433,22 @@
 	position: relative;
 	z-index: 2;
 	background-color: #4EBDC2;
-	height: 400px;
+	height: 380px;
 	width: 1280px;
 	margin: 2% 0 0 0;
 
 }
 .store_select_img{
-	padding: 3% 10%;
-}
-.aside02{
-	float: right;
-	width: 270px;
-	height: 1200px;
-	margin: 25% 50px 0 0;
-	background: #F2EE71;
-	position: relative;
-	z-index: 3;
+	padding: 1% 10% 3% 10%;
 }
 .store_select_word{
+	color: #545454;
 	position: relative;
-	bottom: 57%;
+	bottom: 60%;
 	left: 32%;
 	z-index: 4;
 	font-size: 35px;
-
+	width: 200px;
 }
 .store_select_button0{
 	position: relative;
@@ -484,8 +482,572 @@
 	position:relative;
 	top:1px;
 }
-.store_search{
+.store_search_div{
+	position: relative;
+	bottom: 60px;
+	left: 500px;
 	background-color: #767777;
-	height: 28px;
+	border-radius:20px;
+	height: 35px;
+	width: 175px;
+}
+.store_search{
+	font-size: 20px;
+	background-color: #767777;
+	margin: 4% 0 5% 12%;
+	height: 20px;
 	border: 0;
 }
+.store_search_button{
+	width: 35px;
+	height: 35px;
+	position: relative;
+	bottom: 106%;
+	left:82% ;
+}
+.aside02{
+	float: right;
+	width: 270px;
+	height: 1200px;
+	margin: 0 0 0 0;
+	background: #F2EE71;
+	position: relative;
+	z-index: 3;
+}
+.store_section2{
+	float: left;
+	width: 1000px;
+}
+.store_page_name{
+	color: #4EBDC2;
+	font-family: Hiragino Sans GB;
+	font-size: 28px;
+	margin: 1% 0 0 87%;
+	border-bottom:5px #4EBDC2 solid;
+}
+/* table */
+.div_table {  
+  display: table; 
+  border-collapse: collapse; 
+  margin: 2% 0 4% 0;
+}  
+
+/* tr */
+.row{
+	display: table-row; 
+}
+
+/* td , th */
+.cell1 {  
+  display: table-cell; 
+  width: 300px; 
+  height: 370px; 
+}  
+.store_card{
+	margin: 1% 4% 0 4%;
+}
+.store_info_card-0{
+	position: relative;
+	z-index: 0;
+	background-color: #DE6160;
+	width: 280px;
+	height: 375px;
+	border-radius: 10px;
+	margin: 0px auto;
+}
+.store_info_card01{
+	position: relative;
+	top: 3%;
+	z-index:1;
+	background-color: #F2B9A7;
+	width: 260px;
+	height: 220px;
+	border-top-right-radius: 15px;
+	border-top-left-radius: 15px;
+	margin: 0px auto;	
+	cursor: pointer;
+}
+.span_love_img{
+	position: relative;
+	top: 8px;
+	left: 6%;	
+}
+.love_img{
+	height:29px; 
+	width:29px;
+}
+.store_name{
+	color: #545354;
+	font-family: Hiragino Sans GB;
+	font-size: 19px;
+	position: relative;
+	left: 7%;
+	cursor: pointer;
+}
+.store_img{
+	height: 175px;
+	width: 260px;
+	position: absolute;
+	bottom: 0px;
+	cursor: pointer;
+}
+.store_info_card02{
+	position: relative;
+	top:2%;
+}
+.store_info_card02_table{
+	margin: 3%;
+}
+.store_info_card02_td01{
+	width:33%;
+	font-family: Hiragino Sans GB;
+	color: #911F23;
+	vertical-align:text-top;
+}
+.store_info_p2{
+	font-family: Hiragino Sans GB;
+	color: #ffffff;
+}
+.store_triangle{
+	margin: -3% 0 0 88%;
+	position: relative;
+}
+.store_triangle_id0{
+
+}
+.cell2 {  
+  display: table-cell; 
+  width: 300px; 
+  height: 370px;
+  padding-left: 10px; 
+}  
+  
+.cell3 {  
+  display: table-cell; 
+  width: 300px; 
+  height: 370px;
+  padding-left: 10px; 
+}
+/*店家資訊彈出詳細的視窗*/
+#Store_inf{
+	z-index: 20;
+	width: 1280px;
+	height: 1000px;
+}
+.div_store_card-0{
+	position: relative;
+	z-index: 21;
+	background-color: #DE6160;
+	width: 900px;
+	height: 530px;
+	border-radius: 10px;
+	bottom: 52%;
+	margin: 0% 15% 0% 15%;
+}
+.div_store_section{
+	position: relative;
+	float: left;
+	top: 3%;
+}
+.div_store_card-01{
+	position: relative;
+	left: 4%;
+	z-index:1;
+	background-color: #F2B9A7;
+	width: 350px;
+	height: 300px;
+	border-top-right-radius: 15px;
+	border-top-left-radius: 15px;	
+}
+.div_love_img{
+	position: relative;
+	top: 7px;
+	left: 3%;	
+}
+.div_love_img{
+	height:29px; 
+	width:29px;
+}
+.div_store_name{
+	color: #545354;
+	font-family: Hiragino Sans GB;
+	font-size: 19px;
+	position: relative;
+	left: 17%;
+	top:7px;
+}
+.div_store_img{
+	height: 240px;
+	width: 350px;
+	position: absolute;
+	bottom: 0px;
+}
+.div_store_card-02{
+	position: relative;
+	top:2%;
+}
+.div_store_info_card02_table{
+	margin: 3%;
+	width: 400px;
+}
+.div_store_info_card02_td01{
+	width:21%;
+	font-family: Hiragino Sans GB;
+	color: #911F23;
+	vertical-align:text-top;
+}
+.div_store_info_p2{
+	font-family: Hiragino Sans GB;
+	color: #ffffff;
+}
+.div_store_triangle{
+	margin: -3% 0 0 88%;
+	position: relative;
+	
+}
+.div_store_aside{
+	width: 500px;
+	height: 480px;
+	float: right;
+	position: relative;
+	top: 3%;
+}
+/*關閉店家資訊卡按鈕*/
+.div_store_btn{
+	position: relative;
+	top: 5%;
+	left: 78%;
+}
+.btn {
+	background: #F2EE71;
+	-webkit-border-radius: 16;
+	-moz-border-radius: 16;
+	border-radius: 16px;
+	font-family: Arial;
+	color: #545354;
+	font-size: 20px;
+	padding: 6px 15px 6px 15px;
+	text-decoration: none;
+	cursor: pointer;
+}
+.btn:hover {
+  background: #F2B9A7;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:visited{
+	background: #F2EE71;
+	-webkit-border-radius: 16;
+	-moz-border-radius: 16;
+	border-radius: 16px;
+	font-family: Arial;
+	color: #545354;
+	font-size: 20px;
+	padding: 6px 15px 6px 15px;
+	text-decoration: none;
+	cursor: pointer;
+}
+/*桌遊專欄*/
+/*藍色大象區塊*/
+.blue_section{
+	position: relative;
+	padding: 14% 0 0 0;
+}
+.blue_bg{
+	position: relative;
+	background-color: #4EBDC2;
+	height: 295px;
+	padding: 1% 0 0 0;
+}
+.blog_img{
+	position: relative;
+	margin: 1% 5% 1% 30%;
+}
+.blogbutton_frame{
+	margin: 4% 0 0 7%;
+}
+.blog_myButton {
+	background-color:#de6160;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:22px;
+	font-weight:bold;
+	padding:8px 20px;
+	text-decoration:none;
+	margin: 0 0 0 1%;
+}
+.blog_myButton:hover {
+	background-color:#e8a7a7;
+}
+.blog_myButton:active {
+	position:relative;
+	top:1px;
+}
+.essay_section{
+	margin: 3% 0 0 8%;
+}
+.essay_fram{
+	display: table;
+	background-color: #99C3D9;
+	width: 1070px;
+	height: 340px;
+	border-bottom-right-radius: 40px;
+	border-bottom-left-radius: 40px;
+	margin: 3% 0 0 0;
+}
+.eassy_row{
+	display: table-row;	
+}
+.eassy_pink{
+	display: table-cell;
+	background-color: #E7BBB2;
+	width: 285px;
+	height: 100px;
+}
+.eassy_date{
+	position: relative;
+	text-align: center;
+	top: 35%;
+	color: #5D5D5D;
+	font-size: 35px;
+}
+.eassy_green{
+	display: table-cell;
+	background-color: #56959A;
+	width: 815px;
+	height: 100px;
+}
+.eassy_title{
+	position: relative;
+	left: 5%;
+	top: 35%;
+	color: #ffffff;
+	font-size: 35px;
+}
+.eassy_img_div{
+	display:table-cell;
+	width: 285px;
+}
+.eassy_artical_div{
+	display:table-cell;
+	width: 700px;
+	}
+.eassy_artical{
+	position: relative;
+	left: 7%;
+	bottom: 100px;
+	color: #5D5D5D;
+	font-size: 20px;
+	width: 700px
+}
+.eassy_img{
+	height: 190px;
+	width: 270px; 
+	border-bottom-right-radius: 65px;
+	border-top-right-radius: 65px;
+	margin: 8% 0 0 4%;
+}
+.read_eassy_Button {
+	background-color:#de6160;
+	-moz-border-radius:25px;
+	-webkit-border-radius:25px;
+	border-radius:25px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:22px;
+	font-weight:bold;
+	padding:8px 24px;
+	text-decoration:none;
+	position: relative;
+	left: 78%;
+	bottom: 28px;
+}
+.read_eassy_Button:hover {
+	background-color:#e8a7a7;
+}
+.read_eassy_Button:active {
+	position:relative;
+}
+/*部落格點開的內部文章*/
+.moreessay_section{
+	margin: 3% 0 5% 8%;
+}
+.moreessay_fram{
+	background-color: #99C3D9;
+	width: 1070px;
+	height: 1000px;
+	border-bottom-right-radius: 40px;
+	border-bottom-left-radius: 40px;
+	margin: 3% 0 0 0;
+}
+.moreeassy_green{
+	background-color: #56959A;
+	width: 1070px;
+	height: 80px;
+}
+.moreeassy_title{
+	position: relative;
+	text-align: center;
+	color: #ffffff;
+	font-size: 35px;
+	top: 30%;
+}
+.moreeassy_pink{
+	background-color: #E7BBB2;
+	width: 1070px;
+	height: 60px;
+}
+.moreeassy_date{
+	position: relative;
+	color: #5D5D5D;
+	font-size: 35px;
+	left: 3%;
+	top: 25%;
+	font-weight: bold;
+}
+.moreeassy_times{
+	position: relative;
+	margin: 0 0 0 8%;
+	top: 22%;
+	color: #5D5D5D;
+	font-size: 24px;
+}
+.moreeassy_artical_div{
+	width: 850px;
+}
+.moreeassy_artical{
+	position: relative;
+	left: 15%;
+	color: #5D5D5D;
+	font-size: 20px;
+	width: 850px;
+}
+.moreeassy_img_div{
+	width: 850px;
+}
+.moreeassy_img{
+	position: relative;
+	left: 15%;
+	width: 480px;
+	height: 300px;
+}
+/*聯絡我們css*/
+.about_blue_section{
+	position: relative;
+	padding: 14% 0 0 0;
+}
+.about_blue_bg{
+	position: relative;
+	background-color: #4EBDC2;
+	height: 490px;
+	padding: 1% 0% 1% 0;
+}
+.aboutus_img{
+	position: relative;
+	z-index: 1;
+	height: 480px;
+	width: 930px;
+	margin: 0% 15%; 
+}
+.aboutus_p{
+	position: relative;
+	color: #5D5D5D;
+	z-index: 2;
+	width: 600px;
+	margin: -27% 0 0 26%;
+	line-height: 30px;
+	font-size: 18px;
+}
+.aboutus_p2{
+	position: relative;
+	z-index: 2;
+	width: 610px;
+	margin: 3% 0 0 26%;
+	line-height: 30px;
+	font-size: 22px;
+}
+.mail{
+	color: #5C7FC0;
+	text-decoration:none;
+}
+.aboutus_photo_div1{
+	display: table;
+	margin: -0.5% 10% 0% 28%;
+}
+.aboutus_tr{
+	display: table-row;
+}
+.aboutus_td{
+	display: table-cell;
+	width: 230px;
+}
+.position{
+	display: table-cell;
+	position: relative;
+	width: 100px;
+	bottom: 170px;
+	color: #5C5D5D;
+	font-size: 23px;
+	line-height: 30px;
+	font-family: Hiragino Sans GB;
+}
+.work_td{
+	display: table-cell;
+}
+.work1{
+	position: relative;
+	background-color: #54AD65;
+	border-radius:20px;
+	bottom: 75px;
+	height: 190px;
+	width: 155px;
+}
+.work_p1{
+	writing-mode: vertical-lr;
+	color: #ffffff;
+	font-size: 23px;
+	padding: 25px 0 0 0;
+	font-family: Hiragino Sans GB;
+}
+.aboutus_photo_div2{
+	display: table;
+	margin: -8% 10% 0% 28%;
+}
+.work_p2{
+	writing-mode: vertical-lr;
+	color: #ffffff;
+	font-size: 23px;
+	padding: 4px 0 0 20px;
+	font-family: Hiragino Sans GB;
+}
+.aboutus_photo_div3{
+	display: table;
+	margin: -6% 10% 0% 28%;
+}
+.work2{
+	position: relative;
+	background-color: #54AD65;
+	border-radius:20px;
+	bottom: 3px;
+	height: 190px;
+	width: 155px;
+}
+.position2{
+	display: table-cell;
+	position: relative;
+	width: 100px;
+	bottom: 110px;
+	color: #5C5D5D;
+	font-size: 23px;
+	line-height: 30px;
+	font-family: Hiragino Sans GB;
+}
+
+
+
+
+
