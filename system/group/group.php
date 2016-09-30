@@ -35,28 +35,28 @@
 							</a>
 					</td>
 					<td rowspan="2" class="table-bg" width="165px" align="center" valign="center">
-							<a href="../../store1-2.html">
+							<a href="../../store1-2.php">
 								<img src="../../jomor_html/img/02.png" alt="吉祥物圖二" title="店家地圖" width="114px" height="85px">
 							</a>
 					</td>
 					<td rowspan="2" class="table-bg" width="165px" align="center" valign="center">
-							<a href="">
+							<a href="#">
 								<img src="../../jomor_html/img/03.png" alt="吉祥物圖三" title="討論區" width="114px" height="85px">
 							</a>
 					</td>
 					<td rowspan="2" class="table-bg" width="165px" align="center" valign="center">
-							<a href="../../system/game/game.php">
+							<a href="../../blog.php">
 								<img src="../../jomor_html/img/04.png" alt="吉祥物圖四" title="桌遊專欄" width="124px" height="85px">
 							</a>
 					</td>
 					<td rowspan="2" class="table-bg" width="165px" align="center" valign="center">
-							<a href="#.html">
+							<a href="../../aboutus.php">
 								<img src="../../jomor_html/img/05.png" alt="吉祥物圖五" title="聯絡我們" width="114px" height="85px">
 							</a>
 					</td>
 					<?php
 						include('link.php');
-						session_start();
+						include('../user/sessionCheck.php');
 						if(isset($_SESSION['pri'])){
 							?>
 							<?php
@@ -119,11 +119,11 @@
 			<nav class="navdiv">
 				<div>
 				    <ul>
-				        <li class="nav0"><a href="../../jo.html">揪 團</a></li>
-				        <li class="nav1"><a href="../../store1-2.html">店家地圖</a></li>
+				        <li class="nav0"><a href="group.php">揪 團</a></li>
+				        <li class="nav1"><a href="../../store1-2.php">店家地圖</a></li>
 				        <li class="nav1"><a href="#">討 論 區</a></li>
-				        <li class="nav2"><a href="#">遊戲專欄</a></li>
-				        <li class="nav2"><a href="#">聯絡我們</a></li>
+				        <li class="nav2"><a href="../../blog.php">遊戲專欄</a></li>
+				        <li class="nav2"><a href="../../aboutus.php">聯絡我們</a></li>
 				    </ul>
 				  </div>
 			</nav>
