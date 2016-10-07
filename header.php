@@ -9,7 +9,7 @@
 					</a>	
 			</td>
 			<td rowspan="2" class="table-bg" width="165px" align="center" valign="center">
-					<a href="system/group/group.php">
+					<a href="system/group/jo.php">
 						<img src="jomor_html/img/01.png" alt="吉祥物圖一" title="揪團" width="120px" height="85px">
 					</a>
 			</td>
@@ -98,7 +98,7 @@
 	<nav class="navdiv">
 		<div>
 		    <ul>
-		        <li class="nav0"><a href="system/group/group.php">揪 團</a></li>
+		        <li class="nav0"><a href="jo.php">揪 團</a></li>
 		        <li class="nav1"><a href="store1-2.php">店家地圖</a></li>
 		        <li class="nav1"><a href="#">討 論 區</a></li>
 		        <li class="nav2"><a href="blog.php">桌遊專欄</a></li>
