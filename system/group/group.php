@@ -155,7 +155,6 @@
 			if($number>0){
 				while($row = mysql_fetch_assoc($result) ){
 
-					
 					$no = $row['no'];
 					$room = $row['room'];
 					$date = $row['date'];
@@ -164,12 +163,19 @@
 					$people = $row['people'];
 					$game = $row['game'];									
 					$startTime = date("Y-m-d-H:i:s", strtotime($date.$time."5 hours"));
+
+					$selectRoomNo = mysql_query("SELECT * FROM `room".$no."`");
+					$num = mysql_num_rows($selectRoomNo);
+					
 					if($now>$startTime){
-						//開始時間再加5小時，時間一到，刪除TABLE room 跟 DB room
+						//開始時間再加5小時，時間一到，刪除TABLE room 跟 DB room 還有 chat 裡面 'no'房 的
 						$setSQL1 = "DELETE FROM `room` WHERE `no`=".$no."";
 						mysql_query($setSQL1);
 						$setSQL2 = "DROP TABLE room".$no."";
 						mysql_query($setSQL2);
+						$setSQL3 = "DELETE FROM `chat` WHERE `no`=".$no."";
+						mysql_query($setSQL3);
+						header("Location:group.php");
 					}					
 					
 				
@@ -196,7 +202,7 @@
 									</div>
 									<div class="room_title">
 										<div class="room_title1">人數</div>
-										<div class="room_title2"><?php echo $people ?></div>										
+										<div class="room_title2"><?php echo $num."/".$people ?></div>										
 									</div>
 									<div class="room_title">
 										<div class="room_title1">遊戲</div>

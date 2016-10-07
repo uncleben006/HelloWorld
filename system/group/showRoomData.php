@@ -6,6 +6,7 @@ $no=$_GET['no'];
 //要是 room+no 不存在，則建立之
 $mysql = "
 CREATE TABLE IF NOT EXISTS `room".$no."`(
+	`no` int(3) NOT NULL,
 	`people` int(2) NOT NULL,
 	`name` text NOT NULL,
 	`account` varchar(20) NOT NULL,
@@ -46,10 +47,10 @@ $number = mysql_num_rows($selectRoomNo);
 $selectHost = "SELECT * FROM `user` WHERE `account` = '".$host."'";
 $selectHost = mysql_query($selectHost);
 $Host = mysql_fetch_assoc($selectHost);
-$insertHost = 'INSERT INTO `room'.$no.'`(`people`, `name`, `account`,`email`, `photo`) VALUES ("'.$people.'","'.$Host['name'].'","'.$Host['account'].'","'.$Host['email'].'","'.$Host['photo'].'")';
+$insertHost = 'INSERT INTO `room'.$no.'`(`no`,`people`, `name`, `account`,`email`, `photo`) VALUES ("'.$no.'","'.$people.'","'.$Host['name'].'","'.$Host['account'].'","'.$Host['email'].'","'.$Host['photo'].'")';
 mysql_query($insertHost);
 
-//如果按刪除房間，就刪除 room table 跟 room+no
+//如果按刪除房間，就刪除 room table 跟 room+no 還有 chat 裡面 'no'房 的
 if(isset($_POST['delete'])){
 	$setSQL1 = "DELETE FROM `room` WHERE `no`=".$no."";
 	mysql_query($setSQL1);
@@ -63,11 +64,11 @@ if(isset($_POST['delete'])){
 //如果按了傳送提醒，就insert房間資料進 remind table
 if(isset($_POST['remind'])){
 	while($Member = mysql_fetch_row($selectRoomNo)){
-		$insertRemind = 'INSERT INTO `remind`(`no`, `account`,`email`, `host`, `room`, `time`, `store`) VALUES ("'.$no.'","'.$Member[2].'","'.$Member[3].'","'.$host.'","'.$room.'","'.$startTime.'","'.$store.'")';
+		$insertRemind = 'INSERT INTO `remind`(`no`, `account`,`email`, `host`, `room`, `time`, `store`) VALUES ("'.$no.'","'.$Member[3].'","'.$Member[4].'","'.$host.'","'.$room.'","'.$startTime.'","'.$store.'")';
 		mysql_query($insertRemind);		
 	}
-	//$decideR = "UPDATE `room` SET `decide`= '1' WHERE `no` = ".$no."";
-	mysql_query($decideR);//把room裡的decide改成1，方便「傳送提醒」button判斷 
+	//$setDecide = "UPDATE `room` SET `decide`= '1' WHERE `no` = ".$no."";
+	//mysql_query($setDecide);//把room裡的decide改成1，方便「傳送提醒」button判斷 
 	header("Location:mailer.php?no=".$no);
 }
 
@@ -100,7 +101,7 @@ if(isset($_POST['join'])){
 		$photo = $_SESSION['photo'];
 
 
-		$mysql3 = 'INSERT INTO `room'.$no.'`(`people`, `name`, `account`,`email`, `photo`) VALUES ("'.$people.'","'.$name.'","'.$account.'","'.$email.'","'.$photo.'")';
+		$mysql3 = 'INSERT INTO `room'.$no.'`(`no`,`people`, `name`, `account`,`email`, `photo`) VALUES ("'.$no.'","'.$people.'","'.$name.'","'.$account.'","'.$email.'","'.$photo.'")';
 		mysql_query("SET NAMES'UTF8'");
 		mysql_query("SET CHARACTER SET UTF8");
 		mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
@@ -316,7 +317,7 @@ if (isset($_POST['OK'])){
 					<div class="room_footer">
 						<div class="room_footer_redline"></div>
 						<div class="room_footer1">
-							<a style="display:inline-block" href="userData.php?account=<?php echo $roomNoRow['account']?>">
+							<a style="display:inline-block" href="userData.php?account=<?php echo $roomNoRow['account']?>&no=<?php echo $no ;?>">
 								<button class="room_footer_bottom" type="submit" name="see">查看此人</button>
 							</a>
 							<form method="post" style="display:inline-block">
