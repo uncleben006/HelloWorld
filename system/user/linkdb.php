@@ -17,7 +17,7 @@ if(empty($account)){
 
 else {
 	$user = 'root';
-	$pass = 'ken0426';
+	$pass = '';
 	$host = 'localhost';
 
 	$link = mysql_connect($host, $user, $pass);

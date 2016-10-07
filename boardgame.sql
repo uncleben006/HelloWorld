@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: 127.0.0.1
--- 產生時間： 2016-10-07 18:48:43
+-- 產生時間： 2016-10-07 19:25:58
 -- 伺服器版本: 10.1.13-MariaDB
 -- PHP 版本： 5.6.23
 
@@ -124,7 +124,8 @@ INSERT INTO `member` (`no`, `people`, `name`, `account`, `email`, `photo`) VALUE
 (42, 0, '222', '222', 'uncleben006@gmail.com', '170538.jpg'),
 (43, 20, '222', '222', 'uncleben006@gmail.com', '170538.jpg'),
 (41, 5, '源源水源市場原', '111', 'uncleben006@gmail.com', '777658.jpg'),
-(44, 2, '', '', '', '');
+(44, 2, '', '', '', ''),
+(45, 2, '源源水源市場原', '111', 'uncleben006@gmail.com', '777658.jpg');
 
 -- --------------------------------------------------------
 
@@ -183,7 +184,8 @@ CREATE TABLE `room` (
 INSERT INTO `room` (`no`, `decide`, `host`, `room`, `store`, `x`, `y`, `game`, `date`, `time`, `time2`, `people`, `spend`, `remark`) VALUES
 (41, 0, '222', '創建房間房主要在裡面', 'swan caf''e', 25.0884, 121.464, '2', '2016-10-08', '15:15:00', '00:00:00', '5', '2', '2'),
 (43, 0, '222', '來看看要是超出格式會怎樣', 'swan caf''e', 25.0884, 121.464, '3', '2016-10-08', '15:16:00', '00:00:00', '20', '3', '3'),
-(44, 0, '', '123', 'swan caf''e', 25.0884, 121.464, '2', '2016-10-08', '15:15:00', '00:00:00', '2', '2', '2\r\n');
+(44, 0, '', '123', 'swan caf''e', 25.0884, 121.464, '2', '2016-10-08', '15:15:00', '00:00:00', '2', '2', '2\r\n'),
+(45, 0, '111', '1515', 'swan caf''e', 25.0884, 121.464, '2', '2016-10-09', '15:15:00', '00:00:00', '2', '2', '2');
 
 -- --------------------------------------------------------
 
@@ -246,7 +248,7 @@ ALTER TABLE `game`
 -- 使用資料表 AUTO_INCREMENT `room`
 --
 ALTER TABLE `room`
-  MODIFY `no` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `no` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
