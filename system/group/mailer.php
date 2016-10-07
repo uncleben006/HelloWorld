@@ -17,7 +17,7 @@ $mail->IsHTML(true);
 $mail->Username = "uncleben006@gmail.com";
 $mail->Password = "a102070017";
 $mail->SetFrom("uncleben006@gmail.com");
-$mail->Subject = '您有新揪團';//email的主旨
+$mail->Subject = mb_encode_mimeheader('您有新揪團', "UTF-8");
 
 
 $url = 'http://localhost:8080/JOMO/system/group/showRoomData.php?no='.$no;
@@ -30,7 +30,26 @@ echo $selectRemind;
 $selectRemind = mysql_query($selectRemind);
 while($remind = mysql_fetch_assoc($selectRemind)){
 	$email = $remind['email'];
-	$htmlurl = $remind['account']."您好<br>您參加了一次揪團，<br>時間是".$remind['time']."&nbsp 地點是".$remind['store']."<br>更多詳細資訊請看".$ahref;
+	$htmlurl = 
+	"
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title>email</title>
+	</head>
+	<body>
+		<div style=\"width:60%;margin:0 auto;background-color:#cee6f5;padding:10px;\">
+			<div>".$remind['account']."您好</div>
+			<div>您參加了一次揪團</div>
+			<div>時間是".$remind['time']."</div>
+			<div>地點是".$remind['store']."</div>
+			<div>共多詳細資訊請看".$ahref."</div>
+		</div>
+	</body>
+	</html>
+	";
+
+
 	$mail->Body = $htmlurl;
 	$mail->AddAddress($email);
 	
