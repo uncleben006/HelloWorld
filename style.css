@@ -1,13 +1,20 @@
 @charset "utf-8";
+:hover{
+	transition: all 0.5s;/*所有hover漸進0.5秒*/
+}
+button{
+	border-style: hidden;
+}
 #body0{
 	width: 1280px;
-	margin: 0 auto;
+	margin:0 auto;
 }
 .header_bg{
 	position: fixed;
 	z-index: 20;
 	height: 119px;
 	margin: 0 0 3% 0;
+	top: 0px;
 }
 .top{
 	height: 105px;
@@ -21,12 +28,6 @@
 }
 .table-bg:hover{
 	background-color: #cea4a4;
-	transition: all 0.5s;
-}
-.table-bg1{
-	background-color:#EA6363;
-	border-style:none;
-	padding: 1.4% 0 0 2%;
 }
 .index_search{
 	border: 0;	
@@ -39,34 +40,36 @@
 	height:25px;
 }
 .input0{
+	/*放了會擋到搜尋列
 	background-color:#EA6363;
+	*/
 	color:#FFFFFF;
 	border-style:none;
 	position: relative;
-	top: 24px;
-	/*right: 22px;*/
+	top: 20px;
+	right: 22px;
 }
 .lognin:link{
 	color:#FFFFFF;
-	font-family:Hiragino Sans GB;
+	font-family:Microsoft JhengHei ;
 	font-size: 22px;
 	text-decoration:none;
 }
 .lognin:visited{
 	color:#FFFFFF;
-	font-family:Hiragino Sans GB;
+	font-family:Microsoft JhengHei ;
 	font-size: 22px;
 	text-decoration:none;
 }
 .lognin:hover{
 	color:#444444;
-	font-family:Hiragino Sans GB;
+	font-family:Microsoft JhengHei ;
 	font-size: 22px;
 	text-decoration:none;
 }
 .lognin:active{
 	color:#666666;
-	font-family:Hiragino Sans GB;
+	font-family:Microsoft JhengHei ;
 	font-size: 22px;
 	text-decoration:none;
 }
@@ -84,7 +87,7 @@ input:focus{outline:none}
 	bottom: 15px;
 	display: inline;
 	padding: 0px 57px 15px 197px;
-	font-family:Hiragino Sans GB;
+	font-family:Microsoft JhengHei ;
 	font-size: 25px;
 	cursor:pointer;
 }
@@ -93,7 +96,7 @@ input:focus{outline:none}
 	bottom: 15px;
 	display: inline;
 	padding: 0px 43px 15px 25px;
-	font-family:Hiragino Sans GB;
+	font-family:Microsoft JhengHei ;
 	font-size: 25px;
 	cursor:pointer;
 }
@@ -102,7 +105,7 @@ input:focus{outline:none}
 	bottom: 15px;
 	display: inline;
 	padding: 0px 38px 15px 25px;
-	font-family:Hiragino Sans GB;
+	font-family:Microsoft JhengHei ;
 	font-size: 25px;
 	cursor:pointer;
 }
@@ -290,21 +293,21 @@ input:focus{outline:none}
 .border_bottom{
 	border-bottom:#FFB7DD 2px solid;
 	padding:2px;
-	font-family:Hiragino Sans GB;
+	font-family:Microsoft JhengHei ;
 	font-size: 25px;
 	font-weight:bold;
 }
 .border_bottom_2{
 	border-bottom:#FFB7DD 2px solid;
 	padding:2px;
-	font-family:Hiragino Sans GB;
+	font-family:Microsoft JhengHei ;
 	font-size: 16px;
 	font-weight:bold;
 }
 .rows{
 	border-bottom:#FFB7DD 2px solid;
 	padding:15px;
-	font-family:Hiragino Sans GB;
+	font-family:Microsoft JhengHei ;
 	font-size: 21px;
 	margin: 0 0 20px 0;
 }
@@ -419,7 +422,7 @@ input:focus{outline:none}
 	color: #545454;
 	text-align: center;
 	padding: 9% 0 ;
-	font-family:Hiragino Sans GB;
+	font-family:Microsoft JhengHei ;
 }
 .aside_store{
 	padding: 3% 15%;
@@ -520,7 +523,7 @@ input:focus{outline:none}
 }
 .store_page_name{
 	color: #4EBDC2;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei ;
 	font-size: 28px;
 	margin: 1% 0 0 87%;
 	border-bottom:5px #4EBDC2 solid;
@@ -578,7 +581,7 @@ input:focus{outline:none}
 }
 .store_name{
 	color: #545354;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei ;
 	font-size: 19px;
 	position: relative;
 	left: 7%;
@@ -600,12 +603,12 @@ input:focus{outline:none}
 }
 .store_info_card02_td01{
 	width:33%;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei ;
 	color: #911F23;
 	vertical-align:text-top;
 }
 .store_info_p2{
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei ;
 	color: #ffffff;
 }
 .store_triangle{
@@ -643,6 +646,7 @@ input:focus{outline:none}
 	border-radius: 10px;
 	bottom: 52%;
 	margin: 0% 15% 0% 15%;
+	background: rgba(235,99,99,0.9);
 }
 .div_store_section{
 	position: relative;
@@ -670,7 +674,7 @@ input:focus{outline:none}
 }
 .div_store_name{
 	color: #545354;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei ;
 	font-size: 19px;
 	position: relative;
 	left: 17%;
@@ -692,12 +696,12 @@ input:focus{outline:none}
 }
 .div_store_info_card02_td01{
 	width:21%;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei ;
 	color: #911F23;
 	vertical-align:text-top;
 }
 .div_store_info_p2{
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei ;
 	color: #ffffff;
 }
 .div_store_triangle{
@@ -993,7 +997,7 @@ input:focus{outline:none}
 	color: #5C5D5D;
 	font-size: 23px;
 	line-height: 30px;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei ;
 }
 .work_td{
 	display: table-cell;
@@ -1011,7 +1015,7 @@ input:focus{outline:none}
 	color: #ffffff;
 	font-size: 23px;
 	padding: 25px 0 0 0;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei ;
 }
 .aboutus_photo_div2{
 	display: table;
@@ -1022,7 +1026,7 @@ input:focus{outline:none}
 	color: #ffffff;
 	font-size: 23px;
 	padding: 4px 0 0 20px;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei ;
 }
 .aboutus_photo_div3{
 	display: table;
@@ -1044,8 +1048,1042 @@ input:focus{outline:none}
 	color: #5C5D5D;
 	font-size: 23px;
 	line-height: 30px;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei ;
 }
+/*揪團頁面css*/
+.jobg_section{
+	position: relative;
+	margin: 12% 0 0 0;
+	width: 100%;
+	height: auto;
+	background-color: #abffC2;
+	z-index: 15;
+}
+.jo_blue_section{
+	position: relative;
+	padding: 3% 0 0 0;
+}
+.jo_blue{
+	background-color: #4EBDC2;
+	position: relative;
+	height: 65px;
+	padding: 1% 0 0 0;
+}
+.jo_blue_word{
+	position: relative;
+	left: 10%;
+	color: #ffffff;
+	font-size: 20px;
+	top: 15%;
+}
+.jo_btn {
+	-webkit-border-radius: 60;
+	-moz-border-radius: 60;
+	border-radius: 60px;
+	font-size: 20px;
+	background: #F2ED71;
+	padding: 40px 11px 40px 11px;
+	border: solid #ffffff 10px;
+	text-decoration: none;
+	position: relative;
+	left: 60%;
+	top: 17%;
+	margin: 0 3% 0 0;
+	color: #5C5D5D;
+	font-family: Microsoft JhengHei ;
+}
+
+.jo_btn:hover {
+	color: #ffffff;
+	background: #4EBCC1;
+	text-decoration: none;
+}
+/*揪團房間區塊*/
+.jo_card{
+	margin: 5% 9% 5% 9%;
+	z-index: 2;
+}
+/* table */
+.jo_div_table {  
+  display: table; 
+  border-collapse: collapse; 
+  margin: 0 auto;
+}  
+/* tr */
+.jo_row{
+	display: table-row; 
+}
+/* 大表格td */
+.jo_cell1 {  
+  display: inline-block; 
+  /*外框改成310px(預設大小)*/
+  width: 310px;  
+  height: 340px;
+  /*拿掉padding*/
+  /*padding: 0 2% 5% 2%;*/
+  /*補上padding-left跟margin*/
+  padding-left: 10px;
+  margin: 20px 10px 100px 10px;
+}  
+
+.jo_info_card-0{
+	display: table;
+	position: relative;
+	background-color: #F1E392;
+	/*title改成width:100%，這樣以後調整大小只要改.jo_cell就好了*/
+	width: 100%;
+	height: 50px;
+	border-radius: 25px;
+}
+.jo_title{
+	display: table-row;
+	position: relative;
+	/*這裡不用指定width，因為上面那個.jo_info_card-0的class已經指定過了，而且這邊指定不會有效*/
+	/*width: 310px;*/
+	height: 50px;
+	cursor: pointer;
+}
+.jo_number_div{
+	background-color: #F2B9A7;
+	display:table-cell;
+	position: relative;
+	width: 50px;
+	border-top-left-radius: 25px;
+}
+.jo_number{
+	position: relative;
+	line-height: 50px;
+	left: 25%;
+	font-size: 30px;
+	color: #5C5D5D;
+	font-family: Microsoft JhengHei ;
+}
+.jo_room_name_div{
+	background-color: #EA6363;
+	border-top-right-radius: 25px;
+	z-index: 2;	
+	width: 260px;
+	height: 50px;
+	position: relative;
+}
+.jo_room_name{
+	background-color: #EA6363;
+	border-top-right-radius: 25px;
+	position: relative;
+	text-align: center;
+	line-height: 50px;
+	height: 50px;
+	font-size: 28px;
+	color: #ffffff;
+	font-family: Microsoft JhengHei ;
+	display:block; /* 將資料內容分段顯示 */
+	word-break:break-all; /* 強制文字斷行 */
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	-o-text-overflow:ellipsis;
+	overflow: hidden;
+}
+.jo_info{
+	background-color: #F1E392;
+	/*改width:100%，不過其實也不用寫，因為div會預設填滿整列*/
+	width: 100%;
+	height: 300px;
+}
+.jo_info_table{
+	display: table;
+	margin: 0 auto;
+	position: relative;
+	top: 10%;
+}
+.jo_info_tr{
+	display: table-row;
+	height: 50px;
+}
+.jo_info_bg{
+	background-color: #ffffff;
+	border-radius: 30px;
+}
+.jo_info_td01{
+	display: table-cell
+}
+.jo_info_td01-2{
+	background-color: #E7BBB2;
+	position: relative;
+	line-height: 40px;
+	text-align: center;
+	border-radius: 30px;
+	font-size: 14px;
+	color: #5C5D5D;
+	font-family: Microsoft JhengHei ;
+	width: 60px;
+	height: 40px;
+
+}
+.jo_info_td02{
+	display: table-cell
+}
+.jo_info_td02-2{
+	background-color: #ffffff;
+	position: relative;
+	left: 5%;
+	line-height: 40px;
+	border-bottom-right-radius: 30px;
+	border-top-right-radius:30px;
+	font-size: 14px;
+	color: #5C5D5D;
+	font-family: Microsoft JhengHei ;
+	width: 180px;
+	height: 40px;
+	display:block; /* 將資料內容分段顯示 */
+	word-break:break-all; /* 強制文字斷行 */
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	-o-text-overflow:ellipsis;
+	overflow: hidden;
+}
+.redline{
+	background-color: #EA6363;
+	height: 10px;
+	width: 310px;
+}
+.greenbottom{
+	position: relative;
+	background-color: #56959A;
+	height: 55px;
+	width: 310px;
+	border-bottom-right-radius: 30px;
+	border-bottom-left-radius: 30px;
+
+}
+.goroom_table{
+	margin: 0 auto;
+}
+.go_room_td{
+	width: 24px;
+	height: 50px;
+}
+.go_room_td2{
+	width: 170px;
+	height: 50px;
+	text-align: center;
+}
+.white1{
+	display: block;
+	background-color: #ffffff;
+	width: 24px;
+	height: 24px;
+	border-radius: 100px;
+	position: relative;
+}
+.white2{
+	display: block;
+	background-color: #ffffff;
+	width: 24px;
+	height: 24px;
+	border-radius: 100px;
+	position: relative;
+}
+.goroom_btn {
+	-webkit-border-radius: 28;
+	-moz-border-radius: 28;
+	border-radius: 28px;
+	font-family: Arial;
+	color: #56959A;
+	font-size: 20px;
+	background: #ffffff;
+	padding: 10px 20px 10px 20px;
+	text-decoration: none;}
+
+.goroom_btn:hover {
+	background: #4EBCC1;
+	color: #ffffff;
+	text-decoration: none;
+}
+/*創建房間跳出的div*/
+#op{
+	position: fixed;
+	width: auto;
+	z-index: 2;
+	margin-left:200px;
+	top:150px;
+	/*padding: 10% 12% 50% 12%;*/
+	/*margin: -100% 0% 2% 0%;*/
+	display: none;
+	background: rgba(255,255,255,0.5);
+}
+.op_fixed{
+	position: absolute;
+	width: 
+}
+.openroom_fram01{
+	position: relative;
+	background-color: #ffffff;
+	width: 900px;
+	height: 50px;
+	border-top-right-radius: 40px;
+	border-top-left-radius:40px;
+	border-style: solid;
+	border-width: 5px;
+	border-color: #5D5D5D;
+	background: rgba(255,255,255,0.9);
+
+}
+.openroom_fram01_table{
+	float: right;
+}
+.openroom_title{
+	position: relative;
+	color: #5C5D5D;
+	font-size: 22px;
+	font-family: Microsoft JhengHei ;
+	width: 420px;
+
+}
+.openroom_close{
+	position: relative;
+	color: #5C5D5D;
+	font-size: 28px;
+	font-family: Microsoft JhengHei ;
+	font-style: bold;
+	cursor: pointer;
+	width: 50px;
+
+}
+.openroom_fram02{
+	position: relative;
+	background-color: #ffffff;
+	width: 900px;
+	height: 420px;
+	border-bottom-left-radius: 40px;
+	border-bottom-right-radius:40px;
+	border-style: solid;
+	border-width: 5px;
+	border-color: #5D5D5D;
+	margin: -1% 0 0 0;
+	background: rgba(255,255,255,0.9);
+}
+.openroom_fram02_table{
+	position: relative;
+	margin: 2% 1% 2% 3%;
+	width: 850px;
+	opacity: 1;
+}
+.openroom_info_tr{
+	height: 40px;
+}
+.openroom_info_td{
+	position: relative;
+	text-align: right;
+	width: 100px;
+	font-size: 16px;
+	color: #5C5D5D;
+	font-family: Microsoft JhengHei ;
+}
+.openroom_info_input_td{
+	color: #FF6464;
+	font-size: 14px;
+}
+.jo_text01{
+	background-color: #F1EC71;
+	border-style:none;
+	height: 20px;
+	width: 120px;
+	margin: 0 0 0 1%;
+}
+.jo_text02{
+	background-color: #F1EC71;
+	border-style:none;
+	height: 20px;
+	width: 95px;
+	margin: 0 0 0 1%;
+}
+.jo_text03{
+	background-color: #F1EC71;
+	border-style:none;
+	height: 20px;
+	width: 30px;
+	margin: 0 0 0 1%;
+}
+.jo_text04{
+	background-color: #F1EC71;
+	border-style:none;
+	height: 20px;
+	width: 150px;
+	margin: 0 0 0 1%;
+}
+.jo_text05{
+	background-color: #F1EC71;
+	border-style:none;
+	height: 20px;
+	width: 120px;
+	max-width: 10em;
+	margin: 0 0 0 1%;
+}
+.jo_text06{
+	background-color: #F1EC71;
+	border-style:none;
+	height: 50px;
+	width: 200px;
+	margin: 0 0 0 1%;
+}
+.jo_btn02 {
+	-webkit-border-radius: 60;
+	-moz-border-radius: 60;
+	border-radius: 60px;
+	font-family: Arial;
+	color: #000000;
+	font-size: 22px;
+	background: #F2ED71;
+	padding: 25px 15px 25px 15px;
+	border: solid #ffffff 5px;
+	text-decoration: none;
+	position: relative;
+	color: #5C5D5D;
+	font-family: Microsoft JhengHei ;
+	/*left: 60%;*/
+	/*bottom:15px;*/
+}
+
+.jo_btn02:hover {
+	background: #4EBCC1;
+	text-decoration: none;
+}
+/*創建房間裡的店家資訊卡(與店家選擇做連動）*/
+.jo_build_store_info_card-0{
+	position: relative;
+	z-index: 0;
+	background-color: #DE6160;
+	width: 280px;
+	height: 350px;
+	border-radius: 10px;
+	margin: 0px auto;
+}
+.jo_build_store_info_card01{
+	position: relative;
+	top: 3%;
+	z-index:1;
+	background-color: #F2B9A7;
+	width: 260px;
+	height: 220px;
+	border-top-right-radius: 15px;
+	border-top-left-radius: 15px;
+	margin: 0px auto;	
+	cursor: pointer;
+}
+.jo_build_span_love_img{
+	position: relative;
+	top: 8px;
+	left: 6%;	
+}
+.jo_build_love_img{
+	height:29px; 
+	width:29px;
+}
+.jo_build_store_name{
+	color: #545354;
+	font-family: Microsoft JhengHei ;
+	font-size: 19px;
+	position: relative;
+	left: 7%;
+	cursor: pointer;
+}
+.jo_build_store_img{
+	height: 175px;
+	width: 260px;
+	position: absolute;
+	bottom: 0px;
+	cursor: pointer;
+}
+.jo_build_store_info_card02{
+	position: relative;
+	top:2%;
+}
+.jo_build_store_info_card02_table{
+	position: relative;
+	margin: 3%;
+}
+.jo_build_store_info_card02_td01{
+	width:33%;
+	font-family: Microsoft JhengHei ;
+	color: #911F23;
+	vertical-align:text-top;
+}
+.jo_build_store_info_p2{
+	font-family: Microsoft JhengHei ;
+	color: #ffffff;
+}
+/*瀏覽房間div*/
+#view_room{
+	position: absolute;
+	width: auto;
+	z-index: 2;
+	padding: 10%;
+	top:7%;
+	right: 7%;
+	height:300px;
+	/*display: none;*/
+	height: auto;
+	/*改用absolute不加margin*/
+	/*margin: -100% 0% 2% 0%;*/	
+	/*不用加這個*/
+	/*overflow:scroll;/*超出框顯示捲軸*/
+	/*這邊不用加background，會超出*/
+	/*background: rgba(255,255,255,0.5);*/
+}
+.view_room_center{
+	position: relative;
+	padding: 0 3%;
+}
+.view_room_fram01{
+	position: relative;
+	background-color: #ffffff;
+	width: 930px;
+	height: 50px;
+	border-top-right-radius: 40px;
+	border-top-left-radius:40px;
+	border-style: solid;
+	border-width: 5px;
+	border-color: #5D5D5D;
+	background: rgba(255,255,255,0.9);
+}
+.view_room_fram01_table{
+	float: right;
+}
+.view_room_title{
+	position: relative;
+	color: #5C5D5D;
+	font-size: 22px;
+	font-family: Microsoft JhengHei ;
+	width: 90%;
+
+}
+.view_room_title02{
+	position: relative;
+	color: #5C5D5D;
+	font-size: 22px;
+	font-family: Microsoft JhengHei ;
+	text-align: center;
+	bottom:7px;
+	margin: 1% 0 0 0;
+}
+.view_room_close{
+	position: relative;
+	color: #5C5D5D;
+	font-size: 28px;
+	font-family: Microsoft JhengHei ;
+	font-style: bold;
+	cursor: pointer;
+	width: 50px;
+
+}
+.viewroom_fram02{
+	position: relative;
+	background-color: #ffffff;
+	width: 930px;
+	height: 350px;
+	border-style: solid;
+	border-width: 5px;
+	border-color: #5D5D5D;
+	margin: -1% 0 0 0;
+	background: rgba(255,255,255,0.9);
+}
+.view_room_fram02_table{
+	position: relative;
+	padding: 2% 0 0 2%;
+}
+.view_room_fram02_table_td{
+	position: relative;
+	width:285px;
+
+}
+.view_info_table{
+	display: table;
+	position: relative;
+	padding: 1% 0 0 3%;
+}
+.view_info_tr{
+	display: table-row;
+	height: 50px;
+}
+.view_info_bg{
+	background-color: #F1EC71;
+	border-radius: 30px;
+	width: 250px;
+}
+.view_info_td01{
+	display: table-cell
+}
+.view_info_td01-2{
+	position: relative;
+	background-color: #E7BBB2;
+	line-height: 36px;
+	text-align: center;
+	border-radius: 30px;
+	font-size: 14px;
+	color: #5C5D5D;
+	font-family: Microsoft JhengHei ;
+	width: 60px;
+	height: 36px;
+
+}
+.view_info_td02{
+	display: table-cell
+}
+.view_info_td02-2{
+	background-color: #F1EC71;
+	position: relative;
+	left: 4%;
+	line-height: 36px;
+	border-bottom-right-radius: 30px;
+	border-top-right-radius:30px;
+	font-size: 14px;
+	color: #5C5D5D;
+	font-family: Microsoft JhengHei ;
+	height: 36px;
+	width: 175px;
+	display:block; /* 將資料內容分段顯示 */
+	word-break:break-all; /* 強制文字斷行 */
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	-o-text-overflow:ellipsis;
+	overflow: hidden;
+}
+.view_info_bg02{
+	background-color: #F1EC71;
+	border-radius: 20px;
+	width: 250px;
+}
+.view_info_td02-3{
+	background-color: #F1EC71;
+	position: relative;
+	left: 4%;
+	line-height: 36px;
+	border-radius: 20px;
+	font-size: 14px;
+	color: #5C5D5D;
+	font-family: Microsoft JhengHei ;
+	height: 248px;
+	width: 175px;
+}
+/*揪團系統中瀏覽房間中所出現的店家資訊卡*/
+.jo_store_info_card-02{
+	position: relative;
+	background-color: #DE6160;
+	width: 270px;
+	height: 300px;
+	border-radius: 10px;
+	margin: 0px auto;
+}
+.jo_info_card01{
+	position: relative;
+	top: 2.5%;
+	z-index:1;
+	background-color: #F2B9A7;
+	width: 250px;
+	height: 180px;
+	border-top-right-radius: 15px;
+	border-top-left-radius: 15px;
+	margin: 0px auto;	
+	cursor: pointer;
+}
+.jo_love_img{
+	height:24px; 
+	width:24px;	
+}
+.jo_store_name{
+	color: #545354;
+	font-family: Microsoft JhengHei ;
+	font-size: 16px;
+	position: relative;
+	left: 9%;
+	top: 2px;
+	cursor: pointer;
+}
+.jo_store_img{
+	height: 140px;
+	width: 250px;
+	position: absolute;
+	bottom: 0px;
+	cursor: pointer;
+}
+.jo_store_info_card02{
+	position: relative;
+	top:2%;
+}
+.jo_store_info_card02_table{
+	margin: 2%;
+}
+.jo_store_info_card02_td01{
+	width:33%;
+	font-family: Microsoft JhengHei ;
+	color: #911F23;
+	vertical-align:text-top;
+	font-size: 15px;
+}
+.jo_store_info_p2{
+	font-family: Microsoft JhengHei ;
+	color: #ffffff;
+	font-size: 14px;
+}
+/*第三欄”參與成員“欄位*/
+.view_room_fram03{
+	position: relative;
+	background-color: #ffffff;
+	width: 930px;
+	height: 48px;
+	border-style: solid;
+	border-width: 5px;
+	border-color: #5D5D5D;
+	margin: -1% 0 0 0;
+	border-bottom:none;
+	background: rgba(255,255,255,0.9);
+}
+/*頁籤的css*/
+.abgne_tab {
+		clear: left;
+		width: 930px;
+		margin: -4% 0;
+}
+.tabs_ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		width: 100%;
+		height: 32px;
+		border-bottom: 5px solid;
+		border-color: #5D5D5D;
+	}
+.tabs_li{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		float: left;
+		height: 31px;
+		line-height: 31px;
+		overflow: hidden;
+		position: relative;
+		margin-bottom: -1px;	/* 讓 li 往下移來遮住 ul 的部份 border-bottom */
+		border-left: none;
+		border-bottom: 1px solid #E6BAB1;
+		background: #E6BAB1;
+		border-top-right-radius: 18px;
+		border-top-left-radius: 18px;
+	}
+.tabs_li a {
+		display: block;
+		padding: 0 20px;
+		color: #ffffff;
+		border: 1px;
+		text-decoration: none;
+	}
+.tabs_li a:hover {
+		background: #E96363;
+	}
+.tabs_li.active  {
+		background: #E96363;
+	}
+.tabs_li.active a:hover {
+		background: #E96363;
+	}
+.tab_container {
+		clear: left;
+		width: 100%;
+		height: 615px;
+		border: 5px solid #5D5D5D;
+		border-top: none;
+		border-bottom-right-radius: 40px;
+		border-bottom-left-radius: 40px;
+		background: #ffffff;
+		margin: 0 0 0 -5px;
+		background: rgba(255,255,255,0.9);
+	}
+.tab_container .tab_content {
+		padding: 20px;
+	}
+.tab_container .tab_content h2 {
+		margin: 0 0 20px;
+	}
+/*聊天室的css*/
+.chat_bg{
+	position: relative;
+	background-color: #F1EC71;
+	width: 85%;
+	height: 295px;
+	margin: 1% 0 0 2%;
+}
+.chat_window{
+	position: relative;
+	background-color: #ffffff;
+	width: 80%;
+	height: 76%;
+	top: 5%;
+	left: 2%;
+	overflow:scroll;/*超出框顯示捲軸*/
+}
+.chat_window_p{
+	position: relative;
+	text-align: center;
+	font-size: 14px;
+	font-family: Microsoft JhengHei ;
+	color: #5D5D5D;
+	top: 43%;
+}
+.message{
+	position: relative;
+	margin: 4% 0 0 2%;
+	color: #569499;
+	font-family: Microsoft JhengHei ;
+}
+.chat_text{
+	border: none;
+	height: 26px;
+	width: 68%;
+}
+.chat_enter{
+	position: relative;
+	left: 2%;
+	font-size: 16px;
+	border: none;
+	background-color: #ffffff;
+	color: #5D5D5D;
+	font-family: Microsoft JhengHei ;
+	height: 30px;
+	width: 60px;
+	border-radius: 15px;
+	cursor:pointer;
+}
+.chat_enter:hover{
+	border: none;
+	background-color: #4EBBC0;
+	color: #ffffff;
+	font-family: Microsoft JhengHei ;
+	height: 30px;
+	width: 60px;
+	border-radius: 15px;
+	cursor:pointer;
+}
+/*參與玩家視窗的css*/
+.player{
+	position: relative;
+	background-color: #F1EC71;
+	width: 85%;
+	height: 230px;
+	margin: 3% 0 0 2%;
+	float: left;
+	overflow:scroll;/*超出框顯示捲軸*/
+
+}
+.player_table{
+	position: relative;
+	top: 1%;
+	left: 2%;
+	display: table;
+	border-collapse:separate;/*讓div畫的表格可產生空隙*/
+ 	border-spacing: 20px;/*讓div畫的表格可產生空隙*/
+}
+.player_tr{
+	/*display: table-row*/
+	margin:0px 15px 30px 0px;
+	display:inline-block;
+}
+.player_td0{
+	overflow: hidden;
+	position: relative;
+	/*display: table-cell;*/
+	width: 90px;
+	height: 25px;
+	border-radius: 20px;
+	background-color: #569499;
+	color: #ffffff;
+	text-align: center;
+	line-height: 25px;
+}
+.jo_striangle_img{
+	width: 10px;
+	height: 10px;
+}
+.player_td01{
+	overflow: hidden;
+	position: relative;
+	/*display: table-cell;*/
+	width: 90px;
+	height: 25px;
+	border-radius: 20px;
+	background-color: #ffffff;
+	color: #569499;
+	text-align: center;
+	line-height: 25px;
+}
+.player_td02{
+	overflow: hidden;
+	position: relative;
+	/*display: table-cell;*/
+	width: 90px;
+	height: 25px;
+	border-radius: 20px;
+	background-color: #ffffff;
+	color: #8C8C8C;
+	text-align: center;
+	line-height: 25px;
+}
+.jo_photo_td{
+	display: table-cell;
+}
+.jo_photo{
+	margin: 15px 0 15px 0px;
+	width: 90px;
+	height: 90px;
+}
+.jo_acount_no{
+	color: #8C8C8C;
+	background-color: #ffffff;
+	width: 90px;
+	height: 25px;
+	line-height: 25px;
+	font-size: 10px;
+	text-align: center;
+}
+.join_bt{
+	float: right;
+
+}
+.join_btn {
+	-webkit-border-radius: 60;
+	-moz-border-radius: 60;
+	border-radius: 60px;
+	font-family: Microsoft JhengHei ;
+	font-size: 24px;
+	background: #F2ED71;
+	padding: 24px 16px 24px 16px;
+	border: solid #ffffff 5px;
+	text-decoration: none;
+	position: relative;
+	color: #5C5D5D;
+	top: 175px;
+}
+
+.join_btn:hover {
+	color: #ffffff;
+	background: #4EBCC1;
+	text-decoration: none;
+}
+/*揪團第二個頁籤（條列式顯示）*/
+.b_player{
+	position: relative;
+	background-color: #F1EC71;
+	width: 85%;
+	height: 230px;
+	margin: 3% 0 0 2%;
+	float: left;
+	overflow:scroll;/*超出框顯示捲軸*/
+
+}
+.b_player_tr{
+	display: table-row
+}
+.b_player_table{
+	position: relative;
+	float: left;
+	top: 2%;
+	left: 2%;
+	display: table;
+	border-collapse:separate;/*讓div畫的表格可產生空隙*/
+ 	border-spacing: 18px;/*讓div畫的表格可產生空隙*/
+}
+.b_player_td{
+	position: relative;
+	top: 10%;
+	left: 3%;
+}
+.b_player_td0{	
+	position: relative;
+	/*display: table-cell;*/
+	display: inline-block;
+	width: 20%;
+	height: 25px;
+	border-radius: 20px;
+	background-color: #569499;
+	color: #ffffff;
+	text-align: center;
+	line-height: 25px;
+	/*微調*/
+	top: 9px;
+	/*超出字框*/
+	overflow: hidden;
+}
+.b_jo_acount_no_td{
+	position: relative;
+	/*display: table-cell;*/
+	display: inline-block;
+	width: 17%;
+}
+.b_jo_acount_no{
+	position: relative;
+	color: #8C8C8C;
+	background-color: #ffffff;
+	width: 100px;
+	height: 25px;
+	line-height: 25px;
+	font-size: 10px;
+	text-align: center;
+}
+.b_player_td01{
+	position: relative;
+	/*display: table-cell;*/
+	display: inline-block;
+	width: 20%;
+	height: 25px;
+	border-radius: 20px;
+	background-color: #ffffff;
+	color: #569499;
+	text-align: center;
+	line-height: 25px;
+	/*微調*/
+	top: 9px;
+	/*超出字框*/
+	overflow: hidden;
+}
+.b_player_td02{
+	position: relative;
+	/*display: table-cell;*/
+	display: inline-block;
+	width: 20%;
+	height: 25px;
+	border-radius: 20px;
+	background-color: #ffffff;
+	color: #8C8C8C;
+	text-align: center;
+	line-height: 25px;
+	/*微調*/
+	top: 9px;
+	/*超出字框*/
+	overflow: hidden;
+}
+.b_myself_photo{
+	position: relative;
+	float: right;
+	width: 20%;
+	top: 9%;
+	right: 3%;
+	text-align: center;
+}
+.b_jo_photo{
+	width: 85%;
+	height: 85%;
+}
+.b_jo_myself_acount_no{
+	position: relative;
+	color: #8C8C8C;
+	background-color: #ffffff;
+	width: 75%;
+	line-height: 25px;
+	font-size: 10px;
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 5%;
+}
+
+
 
 
 
