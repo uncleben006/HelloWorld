@@ -97,7 +97,7 @@
 							<script type="text/javascript">
 								var signIn = confirm("你尚未登入唷~請登入後才轉跳");
 								if(signIn){
-									window.location.href='../user/login.html';
+									window.location.href='../user/login.php';
 								}
 								else{
 									window.location.href='jo.php';
@@ -106,42 +106,43 @@
 							<?php
 				 		}else{
 				 			$account = $_SESSION['account'];
-				 		}					 		
-						$room = $_POST['room'];
-						//依照房間名稱來指定經緯度
-						$store = $_POST['store'];
-				 		if($store=="swan caf'e"){
-							$x = 25.088419;
-							$y = 121.463863;	
-						}
-						$game = $_POST['game'];
-						$date = $_POST['date'];
-						$time = $_POST['time'];
-						$people = $_POST['people'];
-						$spend = $_POST['spend'];
-						$remark = $_POST['remark'];
-						$setSQL = 'INSERT INTO `room`(`host`,`room`,`store`,`x`,`y`,`game`,`date`,`time`,`time2`,`people`,`spend`,`remark`) VALUES ("'.$account.'","'.$room.'","'.$store.'","'.$x.'","'.$y.'","'.$game.'","'.$date.'","'.$time.'","'.$time2.'","'.$people.'","'.$spend.'","'.$remark.'")';
-						echo $setSQL;
-						mysql_query("SET NAMES'UTF8'");
-						mysql_query("SET CHARACTER SET UTF8");
-						mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
-						mysql_query($setSQL);
-						header("Location:jo.php");	
+				 			$room = $_POST['room'];
+							//依照房間名稱來指定經緯度
+							$store = $_POST['store'];
+					 		if($store=="swan caf'e"){
+								$x = 25.088419;
+								$y = 121.463863;	
+							}
+							$game = $_POST['game'];
+							$date = $_POST['date'];
+							$time = $_POST['time'];
+							$people = $_POST['people'];
+							$spend = $_POST['spend'];
+							$remark = $_POST['remark'];
+							$setSQL = 'INSERT INTO `room`(`host`,`room`,`store`,`x`,`y`,`game`,`date`,`time`,`time2`,`people`,`spend`,`remark`) VALUES ("'.$account.'","'.$room.'","'.$store.'","'.$x.'","'.$y.'","'.$game.'","'.$date.'","'.$time.'","'.$time2.'","'.$people.'","'.$spend.'","'.$remark.'")';
+							echo $setSQL;
+							mysql_query("SET NAMES'UTF8'");
+							mysql_query("SET CHARACTER SET UTF8");
+							mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+							mysql_query($setSQL);
+							header("Location:jo.php");	
 
-						$selectRoomHost = "SELECT * FROM `room` WHERE `host` = '".$account."' AND `date` = '".$date."' AND `time` = '".$time."' AND `room` = '".$room."' ";
-						//選出主揪人是現在session的資料，要取得room 裡的 no
-						$selectRoomHost = mysql_query($selectRoomHost);
-						$roomHost = mysql_fetch_assoc($selectRoomHost);
+							$selectRoomHost = "SELECT * FROM `room` WHERE `host` = '".$account."' AND `date` = '".$date."' AND `time` = '".$time."' AND `room` = '".$room."' ";
+							//選出主揪人是現在session的資料，要取得room 裡的 no
+							$selectRoomHost = mysql_query($selectRoomHost);
+							$roomHost = mysql_fetch_assoc($selectRoomHost);
 
-						$selectUser = "SELECT * FROM `user` WHERE `account` = '".$account."'";
-						//選出 user table 裡account是現在session的資料，要取的user email 和 photo
-						$selectUser = mysql_query($selectUser);
-						$user = mysql_fetch_assoc($selectUser);
+							$selectUser = "SELECT * FROM `user` WHERE `account` = '".$account."'";
+							//選出 user table 裡account是現在session的資料，要取的user email 和 photo
+							$selectUser = mysql_query($selectUser);
+							$user = mysql_fetch_assoc($selectUser);
 
-						$setSQL1 = 'INSERT INTO `member`(`no`,`people`,`name`,`account`,`email`,`photo`)VALUES("'.$roomHost['no'].'","'.$people.'","'.$user['name'].'","'.$account.'","'.$user['email'].'","'.$user['photo'].'")';
-						mysql_query($setSQL1);
-						header("Location:jo.php");	
-				 	}
+							$setSQL1 = 'INSERT INTO `member`(`no`,`people`,`name`,`account`,`email`,`photo`)VALUES("'.$roomHost['no'].'","'.$people.'","'.$user['name'].'","'.$account.'","'.$user['email'].'","'.$user['photo'].'")';
+							mysql_query($setSQL1);
+							header("Location:jo.php");	
+				 		}
+				 	}					 		
+							
 
 				 	//刪除成員
 				 	//刪除成員
