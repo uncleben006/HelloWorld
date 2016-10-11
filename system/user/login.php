@@ -37,10 +37,10 @@
 								<button type="submit" class="login_bt" >登入</button>
 							</div>
 						</form>
-						
+
 						<div class="login_forget">
 							<span>
-								<a href="register.php" class="login_register">註冊帳號</a>
+								<a href="signup.php" class="login_register">註冊帳號</a>
 							</span>
 							<span>|</span>
 							<span>
