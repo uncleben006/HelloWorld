@@ -34,6 +34,7 @@ if (isset($row1["account"])){
 	$_SESSION["photo"] = $row1["photo"];
 	$_SESSION["introduction"] = $row1["introduction"];
 	session_write_close();
+	header("Location:../../index.php");
 }
 else if(isset($row2["account"])){
 	session_set_cookie_params(600);
@@ -47,33 +48,16 @@ else if(isset($row2["account"])){
 	$_SESSION["photo"] = $row2["photo"];
 	$_SESSION["introduction"] = $row2["introduction"];
 	session_write_close();
+	header("Location:../../index.php");
 } 
-
-//導回首頁
+else{
+	header("Location:block.php?situation=2");
+}
+/*
 $url = "../../index.php";
 echo "<script type='text/javascript'>";
 echo "window.location.href='$url'";
 echo "</script>"; 
-
-/*
-//導入userdata.php
-$url = "userdata.php?name=".$_SESSION["name"]."&pri=".$_SESSION["pri"];
-echo "<script type='text/javascript'>";
-echo "window.location.href='$url'";
-echo "</script>"; 
 */
 
-
-
-
-
-/*
-echo $row1["pri"];
-echo $row1["no"];
-echo $row1["account"];
-echo $row1["password"];
-echo $row1["name"];
-echo $row1["email"];
-echo $row1["introduction"];
-*/
 ?>
