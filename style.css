@@ -1082,7 +1082,7 @@ input:focus{outline:none}
 	margin: 10% 0 0 0;
 	width: 100%;
 	height: auto;
-	background-color: #abffC2;
+	/*background-color: #abffC2;*/
 	z-index: 15;
 }
 .jo_blue_section{
@@ -1173,13 +1173,14 @@ input:focus{outline:none}
 	background-color: #F2B9A7;
 	display:table-cell;
 	position: relative;
+	text-align: center;
 	width: 50px;
 	border-top-left-radius: 25px;
 }
 .jo_number{
 	position: relative;
 	line-height: 50px;
-	left: 25%;
+	/*left: 25%;*/
 	font-size: 30px;
 	color: #5C5D5D;
 	font-family: Microsoft JhengHei ;
