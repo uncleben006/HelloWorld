@@ -138,5 +138,49 @@ function openviewroom(divID)
 			divID.style.left=(document.body.clientWidth-240)/2;
 			divID.style.top=(document.body.clientHeight-139)/2;
 		}
+/*房間內的”加入“按鈕所跳出的創建房間資訊div*/
+function openjoin(divID)
+		{ 
+			view_room.style.display='none';
+		    //根據傳遞的參數確定顯示的層
+			divID.style.display='block';
+			divID.style.left=(document.body.clientWidth-240)/2;
+			divID.style.top=(document.body.clientHeight-139)/2;
+		}
+/*login登入頁面的臉書圖案變色*/
+function login_fb_Over()
+{
+	document.getElementById('fb_img01').src ="../../jomor_html/img/login_fb2.png" 
+}
+function login_fb_Out()
+{
+	document.getElementById('fb_img01').src ="../../jomor_html/img/login_fb.png"
+}
 
+/*註冊頁面的「上傳」button變色*/
+function pic1()
+{
+	document.getElementById('pic').style.backgroundImage ="url('../../jomor_html/img/upload_button_02.png')" ;
+}
+function pic2()
+{
+	document.getElementById('pic').style.backgroundImage ="url('../../jomor_html/img/upload_button_01.png')" ;
+}
 
+/*揪團頁面裡，瀏覽房間中對成員的「查看與踢除」功能，selection三角形圖片變化*/
+function lightGrey(){
+	document.getElementById('triangle').src ="../../jomor_html/img/jo_triangle2.png" 
+}
+function darkGrey(){
+	document.getElementById('triangle').src ="../../jomor_html/img/jo_triangle.png" 
+}
+
+/*揪團頁面裡，瀏覽房間中對成員的「查看與踢除」功能，selection的hidden與show*/
+function selectShow() {
+    var x = document.getElementById('jo_select');
+    if (x.style.visibility === 'hidden') {
+        x.style.visibility = 'visible';
+    } else {
+        x.style.visibility = 'hidden';
+    }
+}
