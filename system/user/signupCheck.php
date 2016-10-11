@@ -165,25 +165,31 @@ $row = mysql_fetch_assoc($result);
 //value2=除了密碼信箱之外其他都顯示
 //wrong1,2,3分別顯示:密碼未重複,email未正確填寫,帳號已有人填過
 if($pass!=$repass){
-	$url = "signup.php?value=1&wrong=1";
+	$url = "signup.php?wrong=1";
 	echo "<script type='text/javascript'>";
 	echo "window.location.href='$url'";
 	echo "</script>";
 }
 else if(!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/",$email)){//判斷有沒有email欄位@
-  	$url = "signup.php?value=2&wrong=2";
+  	$url = "signup.php?wrong=2";
 	echo "<script type='text/javascript'>";
 	echo "window.location.href='$url'";
 	echo "</script>";
 }
 else if(isset($row["account"])){//判斷帳號重複
-	$url = "signup.php?value=1&wrong=3";
+	$url = "signup.php?wrong=3";
 	echo "<script type='text/javascript'>";
 	echo "window.location.href='$url'";
 	echo "</script>";
 }
 else if(isset($errMSG)){
-	$url = "signup.php?value=1&wrong=4";
+	$url = "signup.php?wrong=4";
+	echo "<script type='text/javascript'>";
+	echo "window.location.href='$url'";
+	echo "</script>";
+}
+else if(strlen($name)>5){
+	$url = "signup.php?wrong=5";
 	echo "<script type='text/javascript'>";
 	echo "window.location.href='$url'";
 	echo "</script>";
