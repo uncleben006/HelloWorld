@@ -2,28 +2,21 @@
 <html>
 <head>
 	<title>jomor桌末狂歡</title>
+	<!--輪播-->
+	<script src="//code.jquery.com/jquery-latest.min.js"></script>
+	<script src="//unslider.com/unslider.js"></script>
 	<link href="style.css" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" type="text/css" href="flexslider.css" />
-	<!--輪播圖的javascript-->
-	<!--<script src="http://libs.useso.com/js/jquery/1.7.2/jquery.min.js"></script>-->
-	<script type="text/javascript" src="jquery.flexslider-min.js"></script>
 	<!--大富翁按鍵的圖片的javascript-->
-	<script type="text/javascript" src="javascript.js"></script>
 	<script type="text/javascript">
 		$(function() {
-		    $(".flexslider").flexslider({
-				slideshowSpeed: 2000, //展示时间间隔ms
-				animationSpeed: 400, //滚动时间ms
-				touch: true //是否支持触屏滑动
-			});
-		});
+    		$('.banner').unslider();
+	});
 	</script>
+	<script type="text/javascript" src="javascript.js"></script>
 <meta charset="utf-8">
 </head>
 	<body id="body0">
-
-		<!--把header放入header.php方便管理-->
-		<?php include("header.php"); ?>
+		<?php include('header.php') ?>
 			<!--大富翁-->
 			<div class="Monopoly">
 				<div class="Monopoly_frame">
@@ -32,7 +25,7 @@
 						<a href="store1-2.html" onmouseover="mouseOver1()" onmouseout="mouseOut1()"><img src="jomor_html/img/button01.png" width="170" height="150" id="a1"></a>
 					</div>
 					<div class="monopoly_button02"><!--我要揪團按鈕連結-->
-						<a href="#.html" onmouseover="mouseOver2()" onmouseout="mouseOut2()"><img src="jomor_html/img/button02.png" width="176" height="152" id="a2"></a>
+						<a href="jo.html" onmouseover="mouseOver2()" onmouseout="mouseOut2()"><img src="jomor_html/img/button02.png" width="176" height="152" id="a2"></a>
 					</div>
 					<div class="monopoly_button03"><!--桌遊專欄按鈕連結-->
 						<a href="blog.html" onmouseover="mouseOver3()" onmouseout="mouseOut3()"><img src="jomor_html/img/button04.png" width="170" height="150" id="a3"></a>
@@ -42,8 +35,15 @@
 					</div>
 				</div>
 			</div>
+			<div class="banner">
+			    <ul>
+			        <li style="background-image:url(jomor_html/img/s1.jpg);">This is a slide.</li>
+			        <li style="background-image:url(jomor_html/img/s2.jpg);">This is another slide.</li>
+			        <li style="background-image:url(jomor_html/img/s3.jpg);">This is a final slide.</li>
+			    </ul>
+			</div>
 			<!--輪播圖-->
-			<div>
+		<!--<div>
 				<div class="flexslider">
 			  		<ul class="slides">
 			        	<li><img src="jomor_html/img/s1.jpg" /></li>
@@ -53,7 +53,8 @@
 			  		</ul>
 		   		</div>
 		   		<img src="jomor_html/img/12.png" class="img_flexslider">
-		   	</div>
+		 	</div>
+		-->
    		<!--公告區-->
    		<div class="news">
    			<table>
