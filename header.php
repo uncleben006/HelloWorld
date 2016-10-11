@@ -1,109 +1,108 @@
 <header class="header_bg">
 	<!--頂部圖案-->
 	<div class="top">
-		<table border="0">
-		<tr>
-		 	<td rowspan="2" class="table-bg" width="175px" align="center" valign="center">
+		<table class="top_table">
+			<tr class="top_tr">
+				<td rowspan="2" class="top_td0"><!--桌末狂歡logo-->
 					<a href="index.php">
-						<img src="jomor_html/img/00.png" alt="logo" title="logo" width="90x" height="85x">
-					</a>	
-			</td>
-			<td rowspan="2" class="table-bg" width="165px" align="center" valign="center">
-					<a href="system/group/jo.php">
-						<img src="jomor_html/img/01.png" alt="吉祥物圖一" title="揪團" width="120px" height="85px">
+						<img src="jomor_html/img/logo.png" alt="logo" title="logo" width="50px" height="80px">
 					</a>
-			</td>
-			<td rowspan="2" class="table-bg" width="165px" align="center" valign="center">
-					<a href="store1-2.php">
-						<img src="jomor_html/img/02.png" alt="吉祥物圖二" title="店家地圖" width="114px" height="85px">
+				</td>
+				<td rowspan="2" class="top_td1">
+					<a href="store1-2.php" class="top_a">
+						<img src="jomor_html/img/animal-01.png" alt="logo" title="store" width="70px" height="50px">
 					</a>
-			</td>
-			<td rowspan="2" class="table-bg" width="165px" align="center" valign="center">
-					<a href="#">
-						<img src="jomor_html/img/03.png" alt="吉祥物圖三" title="討論區" width="114px" height="87px">
+					<span><a href="store1-2.php"" class="pp">店家地圖</a></span>
+				</td>
+				<td rowspan="2" class="top_td2">
+					<a href="system/group/jo.php" class="top_a">
+						<img src="jomor_html/img/animal-02.png" alt="logo" title="store" width="70px" height="50px">
 					</a>
-			</td>
-			<td rowspan="2" class="table-bg" width="165px" align="center" valign="center">
-					<a href="blog.php">
-						<img src="jomor_html/img/04.png" alt="吉祥物圖四" title="桌遊專欄" width="124px" height="86px">
+					<span><a href="system/group/jo.php" class="pp">揪團</a></span>
+				</td>
+				<td rowspan="2" class="top_td3">
+					<a href="#" class="top_a">
+						<img src="jomor_html/img/animal-03.png" alt="logo" title="store" width="70px" height="50px">
 					</a>
-			</td>
-			<td rowspan="2" class="table-bg" width="165px" align="center" valign="center">
-					<a href="aboutus.php">
-						<img src="jomor_html/img/05.png" alt="吉祥物圖五" title="聯絡我們" width="114px" height="85px">
+					<span><a href="#" class="pp">討論區</a></span>
+				</td>
+				<td rowspan="2" class="top_td1">
+					<a href="blog.php" class="top_a">
+						<img src="jomor_html/img/animal-04.png" alt="logo" title="store" width="70px" height="50px">
 					</a>
-			</td>
-			<?php
-				include('system/user/link.php');
-				include('system/user/sessionCheck.php');
-				if(isset($_SESSION['pri'])){
-					?>
-					<?php
-					$pri = $_SESSION['pri'];
-					if($pri==0){//會員註冊但尚未驗證
+					<span><a href="blog.php" class="pp">桌遊專欄</a></span>
+				</td>
+				<td rowspan="2" class="top_td1">
+					<a href="aboutus.php" class="top_a">
+						<img src="jomor_html/img/animal-05.png" alt="logo" title="store" width="70px" height="50px">
+					</a>
+					<span><a href="aboutus.php" class="pp">聯絡我們</a></span>
+				</td>
+				<!--
+				<td rowspan="2" class="top_td1">&nbsp;</td>
+				<td><a href="login.html" class="lognin">登入</a></td>
+				<td><a href="register.html" class="lognin">註冊</a></td>-->
+				<div style="position:relative;">
+				<?php
+					include('system/user/link.php');
+					include('system/user/sessionCheck.php');
+					if(isset($_SESSION['pri'])){
 						?>
-						<td class="input0" width="50px" align="center" valign="center">
-							<a href="system/user/userdata.php" class="lognin">會員</a>
+						<?php
+						$pri = $_SESSION['pri'];
+						if($pri==0){//會員註冊但尚未驗證
+							?>
+							<td rowspan="2" class="top_td1">&nbsp;</td>
+							<td class="input0" width="50px" align="center" valign="center">
+								<a href="system/user/userdata.php" class="lognin">會員</a>
+							</td>
+							<td class="input0" width="50px" align="left" valign="center">
+								<a href="system/user/logout.php" class="lognin">登出</a>
+							</td>
+							<?php
+						}
+						else if($pri==1){//正式會員
+							?>
+							<td rowspan="2" class="top_td1">&nbsp;</td>
+							<td class="input0" width="50px" align="center" valign="center">
+								<a href="system/user/userdata.php" class="lognin">會員</a>
+							</td>
+							<td class="input0" width="50px" align="left" valign="center">
+								<a href="system/user/logout.php" class="lognin">登出</a>
+							</td>
+							<?php
+						}
+						else{//管理員
+							?>
+							<td rowspan="2" class="top_td1">&nbsp;</td>
+							<td class="input0" width="50px" align="center" valign="center">
+								<a href="system/user/userdata.php" class="lognin">管理</a>
+							</td>
+							<td class="input0" width="50px" align="left" valign="center">
+								<a href="system/user/logout.php" class="lognin">登出</a>
+							</td>
+							<?php
+						}
+					}
+					else{
+						?>
+						<td rowspan="2" class="top_td1">&nbsp;</td>
+						<td class="input0" width="100px" align="center" valign="center">
+							<a href="system/user/login.php" class="lognin">登入</a>
 						</td>
-						<td class="input0" width="50px" align="left" valign="center">
-							<a href="system/user/logout.php" class="lognin">登出</a>
+						<td class="input0" width="100px" align="left" valign="center">
+							<a href="system/user/signup.php" class="lognin">註冊</a>
 						</td>
 						<?php
 					}
-					else if($pri==1){//正式會員
-						?>
-						<td class="input0" width="50px" align="center" valign="center">
-							<a href="system/user/userdata.php" class="lognin">會員</a>
-						</td>
-						<td class="input0" width="50px" align="left" valign="center">
-							<a href="system/user/logout.php" class="lognin">登出</a>
-						</td>
-						<?php
-					}
-					else{//管理員
-						?>
-						<td class="input0" width="50px" align="center" valign="center">
-							<a href="system/user/userdata.php" class="lognin">管理</a>
-						</td>
-						<td class="input0" width="50px" align="left" valign="center">
-							<a href="system/user/logout.php" class="lognin">登出</a>
-						</td>
-						<?php
-					}
-				}
-				else{
-					?>
-					<td class="input0" width="100px" align="center" valign="center">
-						<a href="system/user/login.html" class="lognin">登入</a>
-					</td>
-					<td class="input0" width="100px" align="left" valign="center">
-						<a href="system/user/signup.php" class="lognin">註冊</a>
-					</td>
-					<?php
-				}
-			?>
-		</tr>
-		<!--搜尋列-->
-		<tr>
-			<td class="table-bg1" align="center" valign="center">
-				<input class="index_search" type="text" name="search" size="15">
-			</td>
-			<td class="table-bg1" valign="center">
+				?>
+			</tr><!--tr-->
+			<tr>
+				<td colspan="2" class="top_td4"><input class="index_search" type="text" name="search" size="15"></td>
+				<td class="top_td5" valign="center">
 					<input class="button" name="submit" type="image" value="search" src="jomor_html/img/button.png">
-			</td>
-		</tr>
+				</td>
+			</tr>
 		</table>
 	</div>
-	<!--導覽列-->
-	<nav class="navdiv">
-		<div>
-		    <ul>
-		        <li class="nav0"><a href="jo.php">揪 團</a></li>
-		        <li class="nav1"><a href="store1-2.php">店家地圖</a></li>
-		        <li class="nav1"><a href="#">討 論 區</a></li>
-		        <li class="nav2"><a href="blog.php">桌遊專欄</a></li>
-		        <li class="nav2"><a href="aboutus.php">聯絡我們</a></li>
-		    </ul>
-		  </div>
-	</nav>
 </header>
