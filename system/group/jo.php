@@ -28,6 +28,9 @@
 				 	<?php
 				 	include('link.php');
 
+				 	//輸入訊息
+				 	//輸入訊息
+				 	//輸入訊息
 				 	//如果按輸入，則把session名字、房號、留言、時間，記錄至 chat table ，之後再抓取出來做成聊天室。
 					if (isset($_POST['OK'])){ 						
 						error_reporting(0); 
@@ -44,6 +47,9 @@
 					    header("Location:jo.php?no=".$no);//避免重新整理時，重複傳送表單`,故需導回原畫面。
 					}
 
+					//加入房間
+					//加入房間
+					//加入房間
 					//如果按加入，則把session資料輸入進 member table 裡
 					if(isset($_POST['join'])){
 						$no = $_GET['no'];
@@ -82,6 +88,9 @@
 						
 					}
 
+					//創建房間
+					//創建房間
+					//創建房間
 				 	if(isset($_POST['create'])){//若按了「創建」則創建房間					 		
 				 		if(empty($_SESSION['account'])){//若沒有登入則阻擋「創建」
 				 			?> 
@@ -134,6 +143,17 @@
 						header("Location:jo.php");	
 				 	}
 
+				 	//刪除成員
+				 	//刪除成員
+				 	//刪除成員
+					if(isset($_POST['deletePerson'])){
+						$no = $_GET['no'];
+						$account = $_POST['deletePerson'];
+						$deletePerson = "DELETE FROM `member` WHERE `no`='".$no."' AND `account`='".$account."'";
+						mysql_query($deletePerson);
+						header("Location:jo.php?no=".$no);
+					}
+
 				 	$setSQL = 'SELECT * FROM `room` ORDER BY `no`';
 					mysql_query("SET NAMES'UTF8'");
 					mysql_query("SET CHARACTER SET UTF8");
@@ -144,6 +164,10 @@
 					//指定台北時區
 					date_default_timezone_set('Asia/Taipei');
 					$now = date("Y-m-d-H:i:s");
+
+					//顯示房間	配合html
+					//顯示房間	配合html
+					//顯示房間	配合html
 				 	//若資料庫裡 room table 的列數大於0，則取出資料並配合html顯示
 					if($number>0){
 						while($row = mysql_fetch_assoc($result) ){
@@ -357,28 +381,11 @@
 						        <td class="openroom_info_input_td"><input type="text" name="spend" class="jo_text01">&nbsp;&nbsp;*必填</td>
 						        <td rowspan="9">							
 							</tr>
-							<!--不用放聯絡方式
-						    <tr class="openroom_info_tr">
-						        <td class="openroom_info_td">電話</td>
-						        <td class="openroom_info_input_td"><input type="tel" pattern="[0][9][0-9]{8}" class="jo_text05">&nbsp;&nbsp;*必填</td>
-						    </tr>					    
-						    <tr class="openroom_info_tr">
-						        <td class="openroom_info_td">其他聯絡方式</td>
-						        <td class="openroom_info_input_td"><input type="text" class="jo_text01"></td>
-						    </tr>
-						    -->
-						    <!--不用放稱呼，因為已經有紀錄帳號
-						    <tr class="openroom_info_tr">
-						        <td class="openroom_info_td">稱呼</td>
-						        <td class="openroom_info_input_td"><input type="text" name="roomnames" class="jo_text01">&nbsp;&nbsp;*必填</td>
-						    </tr>
-						    -->
 						    <tr class="openroom_info_tr">
 						        <td class="openroom_info_td">備註</td>
 						        <td class="openroom_info_input_td">
 						          <textarea name="remark"  rows=5 cols=50 wrap=physical class="jo_text06"></textarea>
 						        </td>
-						        <!--若把<a>設成submit，不知道行不行-->
 						        <td><button type="submit" name="create" class="jo_btn02" >創建</button></td>
 						    </tr>
 					    </form>
@@ -524,198 +531,274 @@
 		      	<div class="view_room_fram03">
 		            <div class="view_room_title02"><?php echo $num."/".$roomNo['people'] ?></div>
 		        	<div class="abgne_tab"><!--圖像與條列頁籤切換鈕-->
-		          	<ul class="tabs_ul">
-			            <li class="tabs_li"><a href="#tab1">圖像顯示</a></li>
-			            <li class="tabs_li"><a href="#tab2">條列顯示</a></li>
-		          	</ul>
+			          	<ul class="tabs_ul">
+				            <li class="tabs_li"><a href="#tab1">圖像顯示</a></li>
+				            <li class="tabs_li"><a href="#tab2">條列顯示</a></li>
+			          	</ul>
 	        			<!--第一個頁籤（頭像式）含聊天室-->
 	        			<!--第一個頁籤（頭像式）含聊天室-->
 	        			<!--第一個頁籤（頭像式）含聊天室-->
 			        	<div class="tab_container">
 
-			        	<?php
-			        	error_reporting(0); 
-			        	//用房號來抓取討論室裡的資料
-			        	$selectChatNo = "SELECT * FROM `chat` WHERE `no`='".$no."'";
-			        	$selectChat1 = mysql_query($selectChatNo);//分1和2給兩不同頁籤
-			        	$selectChat2 = mysql_query($selectChatNo);
-			        	//抓取 memeber table 裡面房號與目前點選房間的房號相同，帳號又跟目前使用者的session紀錄相同的資料，若有才開放聊天室
-			        	$selectMemberAccount = "SELECT * FROM `member` WHERE `account` = '".$_SESSION['account']."' AND `no` = '".$no."'";
-			        	$selectMemberAccount = mysql_query($selectMemberAccount);
-			        	$memberSignIn = mysql_num_rows($selectMemberAccount);		        	
-			        	?>
-			            <div id="tab1" class="tab_content">
-			              	<div class="chat_bg"><!--聊天室的黃背景-->
-				              	<?php
-					              	if($memberSignIn==0){
-					        			?>			        		
-						                <div class="chat_window">
-						                  	<p class="chat_window_p">您必須先加入此房間才能使用聊天室<p>
-						                </div>
-						                <?php
-						            }
-						            else{
-						            	?>
-						            	<div class="chat_window">
-						            		<?php
-						            		while($chatNo = mysql_fetch_assoc($selectChat1)){
-						            			echo "(".$chatNo['now'].")".$chatNo['name']."說：&nbsp".$chatNo['chat']."<br>";     
-						            			//echo"<p class='chat_window_p'>($row4[2])"."$row4[1]"."說：&nbsp"."$row4[3]<p>";
-						            		}					            		
-						                  	?>
-						                </div>
-						                <?php
-						            }
-					            ?>
-				                <div class="message"><!--留言打字框-->
-				                	<form method="post">
-					                  	<span>我有話要說：</span>
-					                  	<span><input class="chat_text" type="text" name="chat"></span>
-					                  	<span><input class="chat_enter" type="submit" name="OK" value="輸入"></span>
-					                </form>
-				                </div>
-			            	</div> 
-				            <div class="player"><!--參與玩家視窗-->
-				                <div class="player_table"><!--參與玩家視窗表格-->
-				                  	<div class="player_tr">
-				                  		
-				                  		<!--主揪0玩家1等待中2-->
-				                  		
-					                    <!--<div class="player_td0">笨太郎 
-					                    	<img src="../../jomor_html/img/jo_triangle.png" class="jo_striangle_img">
-					                    </div>
-					                    -->
-					                    <?php
-					                    //selectRoomNo已經做過不用再做
-					                    //selectMemberNo已經做過不用再做
-					                    //抓到member裡的此房間的房主
-					                    $limit = $roomNo['people']-$num;					                    
-					                    $selectMemberHost = mysql_query("SELECT * FROM `member` WHERE `no` = '".$no."' AND `account` =  '".$roomNo['host']."'");
-					                    $memberHost = mysql_fetch_assoc($selectMemberHost);
-					                   
-					                    $selectOnlyMember1 = mysql_query("SELECT * FROM `member` WHERE `no` = '".$no."' AND `account` != '".$roomNo['host']."'");
-					                    $selectOnlyMember2 = mysql_query("SELECT * FROM `member` WHERE `no` = '".$no."' AND `account` != '".$roomNo['host']."'");
+				        	<?php
+					        	error_reporting(0); 
+					        	//用房號來抓取討論室裡的資料
+					        	$selectChatNo = "SELECT * FROM `chat` WHERE `no`='".$no."'";
+					        	$selectChat1 = mysql_query($selectChatNo);//分1和2給兩不同頁籤
+					        	$selectChat2 = mysql_query($selectChatNo);
+					        	//抓取 memeber table 裡面房號與目前點選房間的房號相同，帳號又跟目前使用者的session紀錄相同的資料，若有才開放聊天室
+					        	$selectMemberAccount = "SELECT * FROM `member` WHERE `account` = '".$_SESSION['account']."' AND `no` = '".$no."'";
+					        	$selectMemberAccount = mysql_query($selectMemberAccount);
+					        	$memberSignIn = mysql_num_rows($selectMemberAccount);		        	
+				        	?>
+				            <div id="tab1" class="tab_content">
+					            <div class="player_frame">
+					            	<div class="player"><!--參與玩家視窗-->
+						                <div class="player_table"><!--參與玩家視窗表格-->
+						                  	<div class="player_tr">
+							                    <?php
+								                    //selectRoomNo已經做過不用再做
+								                    //selectMemberNo已經做過不用再做
+								                    //抓到member裡的此房間的房主
+								                    $limit = $roomNo['people']-$num;					                    
+								                    $selectMemberHost = mysql_query("SELECT * FROM `member` WHERE `no` = '".$no."' AND `account` =  '".$roomNo['host']."'");
+								                    $memberHost = mysql_fetch_assoc($selectMemberHost);
+								                   
+								                    $selectOnlyMember1 = mysql_query("SELECT * FROM `member` WHERE `no` = '".$no."' AND `account` != '".$roomNo['host']."'");
+								                    $selectOnlyMember2 = mysql_query("SELECT * FROM `member` WHERE `no` = '".$no."' AND `account` != '".$roomNo['host']."'");
 
-					                    
-					                    ?>
-						                    <div class="player_tr">
-					                    		<div class="player_td0" title="<?php echo $memberHost['name']; ?>" ><?php echo $memberHost['name']; ?></div> 
-						                      	<img class="jo_photo" src="../user/photo/<?php echo $memberHost['photo']; ?>">
-				                        		<div class="jo_acount_no"><?php echo $memberHost['account']; ?></div>
-					                      	</div> 
-					                    <?php
-					                    while($onlyMember = mysql_fetch_assoc($selectOnlyMember1)){
-					                    	?>
-						                    <div class="player_tr">
-					                    		<div class="player_td01" title="<?php echo $onlyMember['name']; ?>" ><?php echo $onlyMember['name']; ?></div> 
-						                      	<img class="jo_photo" src="../user/photo/<?php echo $onlyMember['photo']; ?>">
-				                        		<div class="jo_acount_no"><?php echo $onlyMember['account']; ?></div>
-					                      	</div>
-					                    	<?php
-					                    }
-					                    for( $i=1 ; $i <= $limit ; $i++ ){
-					                    	?>
-						                    <div class="player_tr">
-					                    		<div class="player_td02">等待中</div> 
-						                      	<img class="jo_photo" src="../../jomor_html/img/jo_photo.png">
-				                        		<div class="jo_acount_no">empty</div>
-					                      	</div>
-					                    	<?php
-					                    }
-					                    ?>
+							                    ?>
+							                    <!--成員包裹-->
+							                    <!--成員包裹-->
+							                    <!--成員包裹-->
 
-				                  	</div>
-				                  	
-				                </div><!--參與玩家視窗表格結束-->
-				                <div>測試捲軸！！</div>
-				                <div>當資訊需要到第二行時確保可以有卷軸往下滑</div>
-				            </div><!--參與玩家視窗結束-->
-				            <form method="post">
+							                    <!--顯示房主資料-->
+							                    <!--顯示房主資料-->
+							                    <!--顯示房主資料-->
+							                    <div class="player_tr">
+							                    	<div class="player_tr_frame" >
+							                    		<div class="player_td0" title="<?php echo $memberHost['name']; ?>" >
+							                    			<a class="player_a" href="userData.php?account=<?php echo $memberHost['account']; ?>">
+							                    				<?php echo $memberHost['name']; ?>
+							                    			</a>							                    			    
+							                    		</div> 
+								                      	<img class="jo_photo" src="../user/photo/<?php echo $memberHost['photo']; ?>">
+
+								                      	<!--帳號欄包含選單-->
+								                      	<div class="jo_acount">
+								                      		<div id="jo_select" class="jo_acount_selection">
+								                      			<form method="post">
+								                      				<!--要房長才會顯示-->
+								                      				<button name="deletePerson" class="jo_acount_select" value="<?php echo $memberHost['account']; ?>">踢除此成員</button>
+											                      	<div class="jo_acount_sborder"></div><!--要房長才會顯示-->
+											                      	<button class="jo_acount_select" ><a href="userData.php?account=<?php echo $memberHost['account']; ?>">查看個人資料</a></button>
+										                      	</form>
+								                      		</div>
+								                      		<div style="clear:both"></div>   
+							                        		<div class="jo_acount_no">
+							                        			<?php echo $memberHost['account']; ?>
+							                        			<div class="player_a_img">
+									                    			<img 
+									                    				id="triangle" 
+									                    				class="jo_striangle_img" 
+									                    				src="../../jomor_html/img/jo_triangle.png" 
+									                    				onmouseover="this.src='../../jomor_html/img/jo_triangle2.png'" 
+										                    			onmouseout="this.src='../../jomor_html/img/jo_triangle.png'"
+									                    				onClick="selectShow();"
+									                    			>
+									                    		</div>
+							                        		</div>
+							                        	</div>
+							                    	</div>						                    		
+						                      	</div> 
+
+						                      	<!--顯示成員資料-->
+						                      	<!--顯示成員資料-->
+						                      	<!--顯示成員資料-->
+							                    <?php
+								                    while($onlyMember = mysql_fetch_assoc($selectOnlyMember1)){
+								                	?>
+								                    <div class="player_tr">
+								                    	<div class="player_tr_frame" >
+								                    		<div class="player_td01" title="<?php echo $onlyMember['name']; ?>" >
+								                    			<a class="player_a01" href="userData.php?account=<?php echo $onlyMember['account']; ?>">
+								                    				<?php echo $onlyMember['name']; ?>
+								                    			</a>							                    			    
+								                    		</div> 
+									                      	<img class="jo_photo" src="../user/photo/<?php echo $onlyMember['photo']; ?>">
+
+									                      	<!--帳號欄包含選單-->
+									                      	<div class="jo_acount">
+									                      		<div id="jo_select" class="jo_acount_selection">
+									                      			<form method="post">
+									                      				<!--要房長才會顯示-->
+									                      				<button name="deletePerson" class="jo_acount_select" value="<?php echo $onlyMember['account']; ?>">踢除此成員</button>
+												                      	<div class="jo_acount_sborder"></div><!--要房長才會顯示-->
+												                      	<button class="jo_acount_select" ><a href="userData.php?account=<?php echo $onlyMember['account']; ?>">查看個人資料</a></button>
+											                      	</form>
+									                      		</div>
+									                      		<div style="clear:both"></div>   
+								                        		<div class="jo_acount_no">
+								                        			<?php echo $onlyMember['account']; ?>
+								                        			<div class="player_a_img">
+										                    			<img 
+										                    				id="triangle" 
+										                    				class="jo_striangle_img" 
+										                    				src="../../jomor_html/img/jo_triangle.png" 
+										                    				onmouseover="this.src='../../jomor_html/img/jo_triangle2.png'" 
+										                    				onmouseout="this.src='../../jomor_html/img/jo_triangle.png'"
+										                    				onClick="selectShow()"
+										                    			>
+										                    		</div>
+								                        		</div>
+								                        	</div>
+								                    	</div>							                    		
+							                      	</div>
+							                    	<?php
+							                    }
+							                    //顯示等待中
+							                    //顯示等待中
+							                    //顯示等待中
+							                    for( $i=1 ; $i <= $limit ; $i++ ){
+							                    	?>
+							                    	<div class="player_waiting">
+							                    		<div class="player_tr">
+							                    			<div class="player_tr_frame" >
+							                    				<div class="player_td02">等待中</div> 
+										                      	<img class="jo_photo" src="../../jomor_html/img/jo_photo.png">
+								                        		<div class="jo_acount_no">empty</div>
+							                    			</div>								                    		
+								                      	</div>
+							                    	</div>
+							                    	<?php
+							                    }
+							                    ?>
+
+						                  	</div>
+						                  	
+						                </div><!--參與玩家視窗表格結束-->
+						                <div>測試捲軸！！</div>
+						                <div>當資訊需要到第二行時確保可以有卷軸往下滑</div>
+						            </div><!--參與玩家視窗結束-->
+					            </div>
+
+				              	<div class="chat_bg"><!--聊天室的黃背景-->
+					              	<?php
+						              	if($memberSignIn==0){
+						        			?>			        		
+							                <div class="chat_window">
+							                  	<p class="chat_window_p">您必須先加入此房間才能使用聊天室<p>
+							                </div>
+							                <?php
+							            }
+							            else{
+							            	?>
+							            	<div class="chat_window">
+							            		<?php
+							            		while($chatNo = mysql_fetch_assoc($selectChat1)){
+							            			echo "(".$chatNo['now'].")".$chatNo['name']."說：&nbsp".$chatNo['chat']."<br>";     
+							            			//echo"<p class='chat_window_p'>($row4[2])"."$row4[1]"."說：&nbsp"."$row4[3]<p>";
+							            		}					            		
+							                  	?>
+							                </div>
+							                <?php
+							            }
+						            ?>
+					                <div class="message"><!--留言打字框-->
+					                	<form method="post">
+						                  	<span>我有話要說：</span>
+						                  	<span><input class="chat_text" type="text" name="chat"></span>
+						                  	<span><input class="chat_enter" type="submit" name="OK" value="輸入"></span>
+						                </form>
+					                </div>
+					                <form method="post">
+						            	<div class="join_bt">
+							            	<button type="submit" name="join" class="join_btn" onClick="javascript:window.location.href='jo.php';">
+							            		加入
+							            	</button>
+						            	</div>
+					            	</form>
+				            	</div> 
+				        	</div>
+
+
+				          	<!--第二個頁籤（條列式）含聊天室-->
+				          	<!--第二個頁籤（條列式）含聊天室-->
+				          	<!--第二個頁籤（條列式）含聊天室-->
+				            <div id="tab2" class="tab_content">
+				            	<div class="b_player_frame">
+					            	<div class="b_player"><!--參與玩家視窗-->
+						            	
+						                <div class="b_player_td">
+						                  	<div class="b_player_td0" title="<?php echo $memberHost['name'] ?>" ><?php echo $memberHost['name']; ?></div>
+					                      	<div class="b_jo_acount_no_td">
+					                        	<div class="b_jo_acount_no"><?php echo $memberHost['account'] ?></div>
+					                        </div>
+					                        <?php
+						                    	while($onlyMember = mysql_fetch_assoc($selectOnlyMember2)){
+						                    	?>
+						                        <div class="b_player_td01" title="<?php echo $onlyMember['name']; ?>" ><?php echo $onlyMember['name']; ?> </div>
+						                      	<div class="b_jo_acount_no_td">
+						                        	<div class="b_jo_acount_no"><?php echo $onlyMember['account']; ?></div>
+						                        </div>
+					                        	<?php
+					                    	}
+					                    	for( $i=1 ; $i <= $limit ; $i++ ){
+						                    	?>
+						                    	<div class="b_player_td02">等待中</div>
+						                      	<div class="b_jo_acount_no_td">
+						                        	<div class="b_jo_acount_no">empty</div>
+						                        </div>
+						                        <?php
+					                    	}
+					                    	?>
+					       			    </div>
+						            </div><!--參與玩家視窗結束-->
+					            </div>
+				              	<div class="chat_bg"><!--聊天室的黃背景-->
+				                	<?php
+						              	if($memberSignIn==0){
+						        			?>			        		
+							                <div class="chat_window">
+							                  	<p class="chat_window_p">您必須先加入此房間才能使用聊天室<p>
+							                </div>
+							                <?php
+							            }
+							            else{
+							            	?>
+							            	<div class="chat_window">
+							            		<?php
+							            		while($chatNo = mysql_fetch_assoc($selectChat2)){
+							            			echo "(".$chatNo['now'].")".$chatNo['name']."說：&nbsp".$chatNo['chat']."<br>";     
+							            			//echo"<p class='chat_window_p'>($row4[2])"."$row4[1]"."說：&nbsp"."$row4[3]<p>";
+							            		}					            		
+							                  	?>
+							                </div>
+							                <?php
+							            }
+						            ?>
+					                <div class="message"><!--留言打字框-->
+					                	<form method="post">
+						                  	<span>我有話要說：</span>
+						                  	<span><input class="chat_text" type="text" name="chat"></span>
+						                  	<span><input class="chat_enter" type="submit" name="OK" value="輸入"></span>
+						                </form>
+					                </div>
+				            	</div> 
+					            
 				            	<div class="join_bt">
-					            	<button type="submit" name="join" class="join_btn" onClick="javascript:window.location.href='jo.php';">
-					            		加入
-					            	</button>
+				            		<button class="join_btn2" onClick="javascript:window.location.href='jo.php';">加入</button>
 				            	</div>
-				            </form>
-			        	</div>
-
-
-			          	<!--第二個頁籤（條列式）含聊天室-->
-			          	<!--第二個頁籤（條列式）含聊天室-->
-			          	<!--第二個頁籤（條列式）含聊天室-->
-			            <div id="tab2" class="tab_content">
-			              	<div class="chat_bg"><!--聊天室的黃背景-->
-			                	<?php
-					              	if($memberSignIn==0){
-					        			?>			        		
-						                <div class="chat_window">
-						                  	<p class="chat_window_p">您必須先加入此房間才能使用聊天室<p>
-						                </div>
-						                <?php
-						            }
-						            else{
-						            	?>
-						            	<div class="chat_window">
-						            		<?php
-						            		while($chatNo = mysql_fetch_assoc($selectChat2)){
-						            			echo "(".$chatNo['now'].")".$chatNo['name']."說：&nbsp".$chatNo['chat']."<br>";     
-						            			//echo"<p class='chat_window_p'>($row4[2])"."$row4[1]"."說：&nbsp"."$row4[3]<p>";
-						            		}					            		
-						                  	?>
-						                </div>
-						                <?php
-						            }
-					            ?>
-				                <div class="message"><!--留言打字框-->
-				                	<form method="post">
-					                  	<span>我有話要說：</span>
-					                  	<span><input class="chat_text" type="text" name="chat"></span>
-					                  	<span><input class="chat_enter" type="submit" name="OK" value="輸入"></span>
-					                </form>
-				                </div>
-			            	</div> 
-			            <div class="b_player"><!--參與玩家視窗-->
-			            	<div class="b_myself_photo">
-			                    <img class="b_jo_photo" src="../../jomor_html/img/jo_photo.png">
-			                    <div class="b_jo_myself_acount_no">該頭像帳號</div>
-			                </div>
-			                <div class="b_player_td">
-			                  	<div class="b_player_td0" title="<?php echo $memberHost['name'] ?>" ><?php echo $memberHost['name']; ?></div>
-		                      	<div class="b_jo_acount_no_td">
-		                        	<div class="b_jo_acount_no"><?php echo $memberHost['account'] ?></div>
-		                        </div>
-		                        <?php
-			                    while($onlyMember = mysql_fetch_assoc($selectOnlyMember2)){
-			                    ?>
-		                        <div class="b_player_td01" title="<?php echo $onlyMember['name']; ?>" ><?php echo $onlyMember['name']; ?></div>
-		                      	<div class="b_jo_acount_no_td">
-		                        	<div class="b_jo_acount_no"><?php echo $onlyMember['account']; ?></div>
-		                        </div>
-		                        <?php
-		                    	}
-		                    	for( $i=1 ; $i <= $limit ; $i++ ){
-		                    	?>
-		                    	<div class="b_player_td02">等待中</div>
-		                      	<div class="b_jo_acount_no_td">
-		                        	<div class="b_jo_acount_no">empty</div>
-		                        </div>
-		                        <?php
-		                    	}
-		                    	?>
-		       			    </div>
-			            </div><!--參與玩家視窗結束-->
-			            <div class="join_bt"><button class="join_btn" onClick="javascript:window.location.href='jo.php';">加入</button></div>
-	        		</div><!--第二個頁籤（條列式）含聊天室結束-->
+			        		</div><!--第二個頁籤（條列式）含聊天室結束-->
+						</div>
+		  			</div>
 				</div>
-  			</div>
+			</div>
 		</div>
+		<?php
+	}
+	?>
 	</div>
-</div>
-<?php
-}
-?>
-
-    </div>
-  	</section>
+</section>
 </body>
 </html>
