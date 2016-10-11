@@ -1,11 +1,10 @@
 <?php
 include('link.php');
 $account = $_GET['account'];
-$no = $_GET['no'];
 
 
 //取出user table裡當前帳號的資料
-$mysql1 = "SELECT * FROM `user` WHERE `account` ='$account'";
+$mysql1 = "SELECT * FROM `user` WHERE `account` ='".$account."'";
 mysql_query("SET NAMES'UTF8'");
 mysql_query("SET CHARACTER SET UTF8");
 mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
@@ -18,6 +17,8 @@ $email = $row1['email'];
 $introduction = $row1['introduction'];
 $photo = $row1['photo'];
 
+
+/*
 $mysql2 = "SELECT * FROM `room` WHERE `no` = '".$no."'";
 $result2 = mysql_query($mysql2);
 $row2 = mysql_fetch_assoc($result2);
@@ -29,7 +30,7 @@ date_default_timezone_set('Asia/Taipei');
 $now = date("Y-m-d-H:i:s");
 
 //若按judge button，則把judge的value加入資料庫中
-/*if(isset($_POST['judge'])){
+if(isset($_POST['judge'])){
 	if(){//若現在時間<揪團時間則block
 
 	}
