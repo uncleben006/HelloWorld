@@ -104,7 +104,49 @@
 								}
 							</script>
 							<?php
-				 		}else{
+						}
+						else if(empty($_POST['room'])){
+			 				?> 
+							<script type="text/javascript">
+								var signIn = confirm("你沒填房名喔!!");
+								window.location.href='jo.php';
+							</script>
+							<?php
+			 			}
+			 			else if(empty($_POST['people'])){
+			 				?> 
+							<script type="text/javascript">
+								var signIn = confirm("你沒填會員人數喔!!");
+								window.location.href='jo.php';
+							</script>
+							<?php
+			 			}
+			 			else if(empty($_POST['date'])){
+			 				?> 
+							<script type="text/javascript">
+								var signIn = confirm("請填日期~");
+								window.location.href='jo.php';
+							</script>
+							<?php
+			 			}
+			 			else if(empty($_POST['time'])){
+			 				?> 
+							<script type="text/javascript">
+								var signIn = confirm("請填時間~");
+								window.location.href='jo.php';
+							</script>
+							<?php
+			 			} 		
+			 			else{
+			 				if(empty($_POST['game'])){
+				 				$game = "無";
+				 			}
+				 			else if(empty($_POST['spend'])){
+				 				$spend = "無";
+				 			}
+				 			else if(empty($_POST['remark'])){
+				 				$remark = "無";
+				 			}
 				 			$account = $_SESSION['account'];
 				 			$room = $_POST['room'];
 							//依照房間名稱來指定經緯度
@@ -116,6 +158,7 @@
 							$game = $_POST['game'];
 							$date = $_POST['date'];
 							$time = $_POST['time'];
+							$time2 = $_POST['time2'];
 							$people = $_POST['people'];
 							$spend = $_POST['spend'];
 							$remark = $_POST['remark'];
@@ -367,6 +410,7 @@
 								<td class="openroom_info_td">地點</td>
 								<td class="openroom_info_input_td">
 								<select name="store" class="jo_text04">
+									<option value="#" >無</option>
 									<option value="swan caf'e">swancafe天鵝咖啡館</option>
 									<option value="#">女巫店</option>
 									<option value="#">卡卡城</option>
