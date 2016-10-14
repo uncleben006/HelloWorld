@@ -8,7 +8,8 @@
 	<meta charset="utf-8">
 </head>
 	<body id="body0">
-		<?php include('header.php') ?>
+		<?php include('../../include/sessionCheck.php') ?>
+		<?php include('../../include/userHeader.php') ?>
 		<section>
 			<div class="login_div">
 				<div class="login_bg">
