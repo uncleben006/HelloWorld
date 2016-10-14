@@ -4,11 +4,13 @@
 	<title>jomor桌末狂歡</title>
 	<link href="style.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" type="text/css" href="flexslider.css" />
+	<script type="text/javascript" src="javascript.js"></script>
 	<meta charset="utf-8">
 </head>
 	<body id="body0">
 		<!--把header放入header.php方便管理-->
-		<?php include("header.php"); ?>
+		<?php include('include/sessionCheck.php') ?>
+		<?php include("include/header.php"); ?>
 		<section class="about_blue_section"><!--藍底區塊-->
 			<div class="about_blue_bg"><!--團隊介紹和信箱-->
 				<img class="aboutus_img" src="jomor_html/img/aboutus_img.png">
