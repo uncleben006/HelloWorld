@@ -25,8 +25,8 @@
 		<!--地圖切換頁籤-->
 	<section>
 		<div class="mapbutton_frame">
-			<a href="store1-2.html" class="map_myButton">店家地圖</a>
-			<a href="store2.html" class="map_myButton">店家列表</a>
+			<a href="store1-2.php" class="map_myButton">店家地圖</a>
+			<a href="store2.php" class="map_myButton">店家列表</a>
 		</div>
 		<!--猴子篩選列-->
 		<div class="store_select">

@@ -51,7 +51,7 @@ else if(isset($row2["account"])){
 	header("Location:../../index.php");
 } 
 else{
-	header("Location:block.php?situation=2");
+	header("Location:../../include/block.php?situation=2");
 }
 /*
 $url = "../../index.php";

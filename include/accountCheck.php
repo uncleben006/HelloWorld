@@ -1,5 +1,5 @@
 <?php
 if(empty($account)){
-	header('Location:')
+	header('Location:block.php?situation=3');
 }
 ?>
