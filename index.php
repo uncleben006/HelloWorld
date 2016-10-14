@@ -2,9 +2,31 @@
 <html>
 <head>
 	<title>jomor桌末狂歡</title>
-	<!--輪播-->
-	<script src="//code.jquery.com/jquery-latest.min.js"></script>
-	<script src="//unslider.com/unslider.js"></script>
+	<!--輪播圖-->
+		<!-- Demo CSS -->
+		<link rel="stylesheet" href="flexslider.css" type="text/css" media="screen" />
+	<!-- jQuery -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js">			
+		</script>
+		<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.js">\x3C/script>')
+		</script>
+  <!-- FlexSlider -->
+  <script defer src="jquery.flexslider.js"></script>
+
+  <script type="text/javascript">
+    $(function(){
+      SyntaxHighlighter.all();
+    });
+    $(window).load(function(){
+      $('.flexslider').flexslider({
+        animation: "slide",
+        start: function(slider){
+          $('body').removeClass('loading');
+        }
+      });
+    });
+  </script>
+	<!--css-->
 	<link href="style.css" rel="stylesheet" type="text/css" />
 	<!--大富翁按鍵的圖片的javascript-->
 	<script type="text/javascript">
@@ -16,7 +38,12 @@
 <meta charset="utf-8">
 </head>
 	<body id="body0">
-		<?php include('header.php') ?>
+
+		<?php 
+		include('include/link.php');
+		include('include/sessionCheck.php');
+		include('include/header.php') 
+		?>		
 			<!--大富翁-->
 			<div class="Monopoly">
 				<div class="Monopoly_frame">
@@ -35,26 +62,33 @@
 					</div>
 				</div>
 			</div>
-			<div class="banner">
-			    <ul>
-			        <li style="background-image:url(jomor_html/img/s1.jpg);">This is a slide.</li>
-			        <li style="background-image:url(jomor_html/img/s2.jpg);">This is another slide.</li>
-			        <li style="background-image:url(jomor_html/img/s3.jpg);">This is a final slide.</li>
-			    </ul>
-			</div>
-			<!--輪播圖-->
-		<!--<div>
-				<div class="flexslider">
-			  		<ul class="slides">
-			        	<li><img src="jomor_html/img/s1.jpg" /></li>
-			        	<li><img src="jomor_html/img/s2.jpg" /></li>
-			            <li><img src="jomor_html/img/s3.jpg" /></li>
-			            <li><img src="jomor_html/img/s4.jpg" /></li>
-			  		</ul>
-		   		</div>
-		   		<img src="jomor_html/img/12.png" class="img_flexslider">
-		 	</div>
-		-->
+		<!--輪播圖-->
+			<div id="container" class="cf">
+				<div id="main" role="main">
+			      <section class="slider">
+			        <div class="flexslider">
+			          <ul class="slides">
+			            <li>
+			  	    	    <img src="jomor_html/img/f1.png" />
+			  	    		</li>
+			  	    		<li>
+			  	    	    <img src="jomor_html/img/kitchen_adventurer_lemon.jpg" />
+			  	    		</li>
+			  	    		<li>
+			  	    	    <img src="jomor_html/img/kitchen_adventurer_donut.jpg" />
+			  	    		</li>
+			  	    		<li>
+			  	    	    <img src="jomor_html/img/kitchen_adventurer_caramel.jpg" />
+			  	    		</li>
+			          </ul>
+			        </div>
+			      </section>
+			    </div>
+			    			<!--輪播圖右下方圖片-->
+	   		<div>
+	   			<img src="jomor_html/img/12.png" class="img_flexslider">
+	   		</div>
+			  </div>
    		<!--公告區-->
    		<div class="news">
    			<table>
@@ -104,16 +138,14 @@
 	   		<footer>
 	   			<div class="footer_nav">
 				    <ul>
-				        <li class="fnav0"><a href="#.html">合作廠商</a></li>
+				        <li class="fnav0"><a href="http://www.swanpanasia.com/">合作廠商</a></li>
 				        <li class="fnav1">│</li>
-				        <li class="fnav0"><a href="#">粉絲專頁</a></li>
+				        <li class="fnav0"><a href="https://www.facebook.com/jomor.party/?fref=nf">粉絲專頁</a></li>
 				        <li class="fnav1">│</li>
-				        <li class="fnav0"><a href="#">連絡我們</a></li>
-				        <li class="fnav1">│</li>
-				        <li class="fnav0">解析度建議1280*760</li>
+				        <li class="fnav0"><a href="aboutus.html">聯絡我們</a></li>
 				    </ul>
 				</div>
 	   		</footer>
 	   	</div>
-</body>
+	</body>
 </html>
