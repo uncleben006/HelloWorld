@@ -9,7 +9,242 @@
 </head>
 	<body id="body0">
 	<!--把header放入header.php方便管理-->
-	<?php include("header.php"); ?>
+	<?php 
+	 	include('link.php');
+		include('../../include/sessionCheck.php');		
+	 	//輸入訊息
+	 	//輸入訊息
+	 	//輸入訊息
+	 	//如果按輸入，則把session名字、房號、留言、時間，記錄至 chat table ，之後再抓取出來做成聊天室。
+		if (isset($_POST['OK'])){ 						
+			error_reporting(0); 
+			date_default_timezone_set('Asia/Taipei');
+			$no = $_GET['no'];
+			$now = date("H:i:s");
+		    $name=$_SESSION['name'];
+		    $chat=$_POST['chat'];     
+		    $sql="INSERT INTO `chat`(`no`,`name`,`now`,`chat`)values('$no','$name','$now','$chat')";
+		    mysql_query("SET NAMES'UTF8'");
+			mysql_query("SET CHARACTER SET UTF8");
+			mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+		    mysql_query($sql);
+		    header("Location:jo.php?no=".$no);//避免重新整理時，重複傳送表單`,故需導回原畫面。
+		}
+
+		//加入房間
+		//加入房間
+		//加入房間
+		//如果按加入，則把session資料輸入進 member table 裡
+		if(isset($_POST['join'])){
+			$no = $_GET['no'];
+			//取得房間上限人數
+			$selectRoomNo = mysql_query("SELECT * FROM `room` WHERE `no` = '".$no."'");
+			$roomNo = mysql_fetch_assoc($selectRoomNo);
+			$people = $roomNo['people'];
+			//取得目前房間人數
+			$selectMemberNo = mysql_query("SELECT * FROM `member` WHERE `no` = '".$no."'");
+			$selectMemberSession = mysql_query("SELECT * FROM `member` WHERE `no` = '".$no."' AND `account` = '".$_SESSION['account']."' ");
+			echo $selectMemberSession;
+			$memberSession = mysql_num_rows($selectMemberSession);
+			$num = mysql_num_rows($selectMemberNo);
+			
+			if($memberSession == 1){//判斷若以加入則阻擋
+				?>
+				<script type="text/javascript">
+					alert("你已經加入了這個房間");
+				</script>
+				<?php
+				header("Location:jo.php");
+			}
+			if(empty($_SESSION['account'])){//判斷若未登入則阻擋
+				header("Location:../user/block.php?situation=1");
+			}
+			else if($num>=$people){//判斷若房間人數已滿則阻擋
+				?> 
+				<script type="text/javascript">
+					alert("抱歉人數已滿~~去加別房啦~");
+				</script>
+				<?php
+				header("Location:jo.php");
+			}
+			else{//把session資料insert進 member table
+				$uno = $_SESSION['no'];
+				$account = $_SESSION['account'];
+				$name = $_SESSION['name'];
+				$email = $_SESSION['email'];
+				$photo = $_SESSION['photo'];
+				$mysql3 = 'INSERT INTO `member`(`no`,`people`, `name`, `account`,`email`, `photo`) VALUES ("'.$no.'","'.$people.'","'.$name.'","'.$account.'","'.$email.'","'.$photo.'")';
+				mysql_query("SET NAMES'UTF8'");
+				mysql_query("SET CHARACTER SET UTF8");
+				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+				mysql_query($mysql3);
+				header("Location:jo.php?no=".$no);//避免重新整理時，重複傳送表單，故需導回原畫面。
+			}
+			
+		}
+
+		//創建房間
+		//創建房間
+		//創建房間
+	 	if(isset($_POST['create'])){//若按了「創建」則創建房間					 		
+	 		if(empty($_SESSION['account'])){//若沒有登入則阻擋「創建」
+	 			?> 
+				<script type="text/javascript">
+					var signIn = confirm("你尚未登入唷~請登入後才轉跳");
+					if(signIn){
+						window.location.href='../user/login.php';
+					}
+					else{
+						window.location.href='jo.php';
+					}
+				</script>
+				<?php
+			}
+			else if(empty($_POST['room'])){
+				?> 
+				<script type="text/javascript">
+					var signIn = confirm("你沒填房名喔!!");
+					window.location.href='jo.php';
+				</script>
+				<?php
+			}
+			else if(empty($_POST['people'])){
+				?> 
+				<script type="text/javascript">
+					var signIn = confirm("你沒填會員人數喔!!");
+					window.location.href='jo.php';
+				</script>
+				<?php
+			}
+			else if(empty($_POST['date'])){
+				?> 
+				<script type="text/javascript">
+					var signIn = confirm("請填日期~");
+					window.location.href='jo.php';
+				</script>
+				<?php
+			}
+			else if(empty($_POST['time'])){
+				?> 
+				<script type="text/javascript">
+					var signIn = confirm("請填時間~");
+					window.location.href='jo.php';
+				</script>
+				<?php
+			}
+			else{
+				if(empty($_POST['game'])){
+	 				$game = "無";
+	 			}
+	 			else{
+	 				$game = $_POST['game'];
+	 			}
+	 			if(empty($_POST['spend'])){
+	 				$spend = "無";
+	 			}
+	 			else{
+	 				$spend = $_POST['spend'];
+	 			}
+	 			if(empty($_POST['remark'])){
+	 				$remark = "無";
+	 			}
+	 			else{
+	 				$remark = $_POST['remark'];
+	 			}
+	 			$account = $_SESSION['account'];
+	 			$room = $_POST['room'];
+				//依照房間名稱來指定經緯度
+				$store = $_POST['store'];
+		 		if($store=="swan caf'e"){
+					$x = 25.088419;
+					$y = 121.463863;	
+				}				
+				$date = $_POST['date'];
+				$time = $_POST['time'];
+				$time2 = $_POST['time2'];
+				$people = $_POST['people'];	
+				
+				$setSQL = 'INSERT INTO `room`(`host`,`room`,`store`,`x`,`y`,`game`,`date`,`time`,`time2`,`people`,`spend`,`remark`) VALUES ("'.$account.'","'.$room.'","'.$store.'","'.$x.'","'.$y.'","'.$game.'","'.$date.'","'.$time.'","'.$time2.'","'.$people.'","'.$spend.'","'.$remark.'")';
+				echo $setSQL;
+				mysql_query("SET NAMES'UTF8'");
+				mysql_query("SET CHARACTER SET UTF8");
+				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+				mysql_query($setSQL);
+
+				$selectRoomHost = "SELECT * FROM `room` WHERE `host` = '".$account."' AND `date` = '".$date."' AND `time` = '".$time."' AND `room` = '".$room."' ";
+				//選出主揪人是現在session的資料，要取得room 裡的 no
+				$selectRoomHost = mysql_query($selectRoomHost);
+				$roomHost = mysql_fetch_assoc($selectRoomHost);
+
+				$selectUser = "SELECT * FROM `user` WHERE `account` = '".$account."'";
+				//選出 user table 裡account是現在session的資料，要取的user email 和 photo
+				$selectUser = mysql_query($selectUser);
+				$user = mysql_fetch_assoc($selectUser);
+
+				$setSQL1 = 'INSERT INTO `member`(`no`,`people`,`name`,`account`,`email`,`photo`)VALUES("'.$roomHost['no'].'","'.$people.'","'.$user['name'].'","'.$account.'","'.$user['email'].'","'.$user['photo'].'")';
+				mysql_query($setSQL1);
+				header("Location:jo.php");
+			}			
+ 		}				 		
+				
+
+	 	//刪除成員
+	 	//刪除成員
+	 	//刪除成員
+		if(isset($_POST['deletePerson'])){
+			$no = $_GET['no'];
+			$account = $_POST['deletePerson'];
+			$deletePerson = "DELETE FROM `member` WHERE `no`='".$no."' AND `account`='".$account."'";
+			mysql_query($deletePerson);
+			header("Location:jo.php?no=".$no);
+		}
+
+		//刪除房間
+		//刪除房間
+		//刪除房間
+		if(isset($_POST['deleteRoom'])){
+			$no = $_GET['no'];
+			$deleteRoom = "DELETE FROM `room` WHERE `no` = '".$no."'";
+			$deleteRoomMember = "DELETE FROM `member` WHERE `no` = '".$no."'";
+			mysql_query($deleteRoom);
+			mysql_query($deleteRoomMember);
+			header("Location:jo.php");
+		}
+
+		//鎖定房間
+		//鎖定房間
+		//鎖定房間
+		if(isset($_POST['lockRoom'])){
+			$no = $_GET['no'];
+			$selectRoomNo = "SELECT * FROM `room` WHERE `no` = '".$no."'";
+			mysql_query("SET NAMES'UTF8'");
+			mysql_query("SET CHARACTER SET UTF8");
+			mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+			$selectRoomNo = mysql_query($selectRoomNo);
+			$roomNo = mysql_fetch_assoc($selectRoomNo);
+			$selectMemberHost = "SELECT * FROM `member` WHERE `no` = '".$no."' AND `account` =  '".$roomNo['host']."'";
+			mysql_query("SET NAMES'UTF8'");
+			mysql_query("SET CHARACTER SET UTF8");
+			mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+			$selectMemberHost = mysql_query($selectMemberHost);
+			$memberHost = mysql_fetch_assoc($selectMemberHost);
+			//$insertHostRemind = 'INSERT INTO `remind`(`no`, `account`, `email`, `host`, `room`, `date`, `time`, `store`) VALUES ("'.$no.'","'.$memberHost['account'].'","'.$memberHost['email'].'","'.$memberHost['account'].'","'.$roomNo['room'].'","'.$roomNo['date'].'","'.$roomNo['time'].'","'.$roomNo['store'].'")';
+			$insertHostRemind = mysql_query('INSERT INTO `remind`(`no`, `account`, `email`, `host`, `room`, `date`, `time`, `store`) VALUES ("'.$no.'","'.$memberHost['account'].'","'.$memberHost['email'].'","'.$memberHost['account'].'","'.$roomNo['room'].'","'.$roomNo['date'].'","'.$roomNo['time'].'","'.$roomNo['store'].'")');
+			//echo $insertHostRemind;
+
+			$selectOnlyMember = "SELECT * FROM `member` WHERE `no`= '".$no."' AND `account` !=  '".$roomNo['host']."'";
+			mysql_query("SET NAMES'UTF8'");
+			mysql_query("SET CHARACTER SET UTF8");
+			mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+			$selectOnlyMember = mysql_query($selectOnlyMember);
+			while($onlyMember = mysql_fetch_assoc($selectOnlyMember)){
+				//$insertMemberRemind = 'INSERT INTO `remind`(`no`, `account`, `email`, `host`, `room`, `date`, `time`, `store`) VALUES ("'.$no.'","'.$onlyMember['account'].'","'.$onlyMember['email'].'","'.$memberHost['account'].'","'.$roomNo['room'].'","'.$roomNo['date'].'","'.$roomNo['time'].'","'.$roomNo['store'].'")';
+				$insertMemberRemind = mysql_query('INSERT INTO `remind`(`no`, `account`, `email`, `host`, `room`, `date`, `time`, `store`) VALUES ("'.$no.'","'.$onlyMember['account'].'","'.$onlyMember['email'].'","'.$memberHost['account'].'","'.$roomNo['room'].'","'.$roomNo['date'].'","'.$roomNo['time'].'","'.$roomNo['store'].'")');
+				//echo $insertMemberRemind;
+			}
+		}
+		include("../../include/groupHeader.php"); 
+	?>
 		  
 	<section class="jobg_section"><!--導覽列以下的區塊-->
 		<section class="jo_blue_section">
@@ -26,177 +261,6 @@
 				 	<div class="jo_row"><!-- 大表格tr -->
 				 	
 				 	<?php
-				 	include('link.php');
-
-				 	//輸入訊息
-				 	//輸入訊息
-				 	//輸入訊息
-				 	//如果按輸入，則把session名字、房號、留言、時間，記錄至 chat table ，之後再抓取出來做成聊天室。
-					if (isset($_POST['OK'])){ 						
-						error_reporting(0); 
-						date_default_timezone_set('Asia/Taipei');
-						$no = $_GET['no'];
-						$now = date("H:i:s");
-					    $name=$_SESSION['name'];
-					    $chat=$_POST['chat'];     
-					    $sql="INSERT INTO `chat`(`no`,`name`,`now`,`chat`)values('$no','$name','$now','$chat')";
-					    mysql_query("SET NAMES'UTF8'");
-						mysql_query("SET CHARACTER SET UTF8");
-						mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
-					    mysql_query($sql);
-					    header("Location:jo.php?no=".$no);//避免重新整理時，重複傳送表單`,故需導回原畫面。
-					}
-
-					//加入房間
-					//加入房間
-					//加入房間
-					//如果按加入，則把session資料輸入進 member table 裡
-					if(isset($_POST['join'])){
-						$no = $_GET['no'];
-						//取得房間上限人數
-						$selectRoomNo = mysql_query("SELECT * FROM `room` WHERE `no` = '".$no."'");
-						$roomNo = mysql_fetch_assoc($selectRoomNo);
-						$people = $roomNo['people'];
-						//取得目前房間人數
-						$selectMemberNo = mysql_query("SELECT * FROM `member` WHERE `no` = '".$no."'");
-						$num = mysql_num_rows($selectMemberNo);
-						
-
-						if(empty($_SESSION['account'])){//判斷若未登入則阻擋
-							header("Location:../user/block.php");
-						}
-						else if($num>=$people){//判斷若房間人數已滿則阻擋
-							?> 
-							<script type="text/javascript">
-								alert("抱歉人數已滿~~去加別房啦~");
-							</script>
-							<?php
-						}
-						else{//把session資料insert進 member table
-							$uno = $_SESSION['no'];
-							$account = $_SESSION['account'];
-							$name = $_SESSION['name'];
-							$email = $_SESSION['email'];
-							$photo = $_SESSION['photo'];
-							$mysql3 = 'INSERT INTO `member`(`no`,`people`, `name`, `account`,`email`, `photo`) VALUES ("'.$no.'","'.$people.'","'.$name.'","'.$account.'","'.$email.'","'.$photo.'")';
-							mysql_query("SET NAMES'UTF8'");
-							mysql_query("SET CHARACTER SET UTF8");
-							mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
-							mysql_query($mysql3);
-							header("Location:jo.php?no=".$no);//避免重新整理時，重複傳送表單，故需導回原畫面。
-						}
-						
-					}
-
-					//創建房間
-					//創建房間
-					//創建房間
-				 	if(isset($_POST['create'])){//若按了「創建」則創建房間					 		
-				 		if(empty($_SESSION['account'])){//若沒有登入則阻擋「創建」
-				 			?> 
-							<script type="text/javascript">
-								var signIn = confirm("你尚未登入唷~請登入後才轉跳");
-								if(signIn){
-									window.location.href='../user/login.php';
-								}
-								else{
-									window.location.href='jo.php';
-								}
-							</script>
-							<?php
-						}
-						else if(empty($_POST['room'])){
-			 				?> 
-							<script type="text/javascript">
-								var signIn = confirm("你沒填房名喔!!");
-								window.location.href='jo.php';
-							</script>
-							<?php
-			 			}
-			 			else if(empty($_POST['people'])){
-			 				?> 
-							<script type="text/javascript">
-								var signIn = confirm("你沒填會員人數喔!!");
-								window.location.href='jo.php';
-							</script>
-							<?php
-			 			}
-			 			else if(empty($_POST['date'])){
-			 				?> 
-							<script type="text/javascript">
-								var signIn = confirm("請填日期~");
-								window.location.href='jo.php';
-							</script>
-							<?php
-			 			}
-			 			else if(empty($_POST['time'])){
-			 				?> 
-							<script type="text/javascript">
-								var signIn = confirm("請填時間~");
-								window.location.href='jo.php';
-							</script>
-							<?php
-			 			} 		
-			 			else{
-			 				if(empty($_POST['game'])){
-				 				$game = "無";
-				 			}
-				 			else if(empty($_POST['spend'])){
-				 				$spend = "無";
-				 			}
-				 			else if(empty($_POST['remark'])){
-				 				$remark = "無";
-				 			}
-				 			$account = $_SESSION['account'];
-				 			$room = $_POST['room'];
-							//依照房間名稱來指定經緯度
-							$store = $_POST['store'];
-					 		if($store=="swan caf'e"){
-								$x = 25.088419;
-								$y = 121.463863;	
-							}
-							$game = $_POST['game'];
-							$date = $_POST['date'];
-							$time = $_POST['time'];
-							$time2 = $_POST['time2'];
-							$people = $_POST['people'];
-							$spend = $_POST['spend'];
-							$remark = $_POST['remark'];
-							$setSQL = 'INSERT INTO `room`(`host`,`room`,`store`,`x`,`y`,`game`,`date`,`time`,`time2`,`people`,`spend`,`remark`) VALUES ("'.$account.'","'.$room.'","'.$store.'","'.$x.'","'.$y.'","'.$game.'","'.$date.'","'.$time.'","'.$time2.'","'.$people.'","'.$spend.'","'.$remark.'")';
-							echo $setSQL;
-							mysql_query("SET NAMES'UTF8'");
-							mysql_query("SET CHARACTER SET UTF8");
-							mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
-							mysql_query($setSQL);
-							header("Location:jo.php");	
-
-							$selectRoomHost = "SELECT * FROM `room` WHERE `host` = '".$account."' AND `date` = '".$date."' AND `time` = '".$time."' AND `room` = '".$room."' ";
-							//選出主揪人是現在session的資料，要取得room 裡的 no
-							$selectRoomHost = mysql_query($selectRoomHost);
-							$roomHost = mysql_fetch_assoc($selectRoomHost);
-
-							$selectUser = "SELECT * FROM `user` WHERE `account` = '".$account."'";
-							//選出 user table 裡account是現在session的資料，要取的user email 和 photo
-							$selectUser = mysql_query($selectUser);
-							$user = mysql_fetch_assoc($selectUser);
-
-							$setSQL1 = 'INSERT INTO `member`(`no`,`people`,`name`,`account`,`email`,`photo`)VALUES("'.$roomHost['no'].'","'.$people.'","'.$user['name'].'","'.$account.'","'.$user['email'].'","'.$user['photo'].'")';
-							mysql_query($setSQL1);
-							header("Location:jo.php");	
-				 		}
-				 	}					 		
-							
-
-				 	//刪除成員
-				 	//刪除成員
-				 	//刪除成員
-					if(isset($_POST['deletePerson'])){
-						$no = $_GET['no'];
-						$account = $_POST['deletePerson'];
-						$deletePerson = "DELETE FROM `member` WHERE `no`='".$no."' AND `account`='".$account."'";
-						mysql_query($deletePerson);
-						header("Location:jo.php?no=".$no);
-					}
 
 				 	$setSQL = 'SELECT * FROM `room` ORDER BY `no`';
 					mysql_query("SET NAMES'UTF8'");
@@ -240,6 +304,7 @@
 								mysql_query($setSQL3);
 								header("Location:jo.php");//為了避免刪除以後頁面仍顯示房間，導回原頁面做重新整理
 							}
+
 						?>
 						
 				        <div class="jo_cell1"><!-- 大表格td -->  
@@ -606,7 +671,8 @@
 								                    //selectMemberNo已經做過不用再做
 								                    //抓到member裡的此房間的房主
 								                    $limit = $roomNo['people']-$num;					                    
-								                    $selectMemberHost = mysql_query("SELECT * FROM `member` WHERE `no` = '".$no."' AND `account` =  '".$roomNo['host']."'");
+								                    $selectMemberHost = "SELECT * FROM `member` WHERE `no` = '".$no."' AND `account` =  '".$roomNo['host']."'";
+								                    $selectMemberHost = mysql_query($selectMemberHost);
 								                    $memberHost = mysql_fetch_assoc($selectMemberHost);
 								                   
 								                    $selectOnlyMember1 = mysql_query("SELECT * FROM `member` WHERE `no` = '".$no."' AND `account` != '".$roomNo['host']."'");
@@ -756,14 +822,36 @@
 						                  	<span><input class="chat_enter" type="submit" name="OK" value="輸入"></span>
 						                </form>
 					                </div>
-					                <form method="post">
-						            	<div class="join_bt">
-							            	<button type="submit" name="join" class="join_btn" onClick="javascript:window.location.href='jo.php';">
-							            		加入
-							            	</button>
-						            	</div>
-					            	</form>
-				            	</div> 
+					                
+					                
+				            	</div>
+				            	<?php
+					                if($_SESSION['account']==$memberHost['account']){
+						                ?>
+						                <form method="post">
+							            	<div class="join_bt">
+								            	<button type="submit" name="lockRoom" class="join_Hbtn" >
+								            		鎖定<br>房間
+								            	</button>
+								            	<button type="submit" name="deleteRoom" class="join_Hbtn" onClick="javascript:window.location.href='jo.php';">
+								            		刪除<br>房間
+								            	</button>
+							            	</div>
+						            	</form>
+						                <?php
+					            	}
+					            	else{
+					            		?>
+					            		<form method="post">
+							            	<div class="join_bt">
+								            	<button type="submit" name="join" class="join_btn" onClick="javascript:window.location.href='jo.php';">
+								            		加入
+								            	</button>
+							            	</div>
+						            	</form>
+						            	<?php
+					            	}
+				                ?> 
 				        	</div>
 
 
@@ -830,10 +918,33 @@
 						                </form>
 					                </div>
 				            	</div> 
-					            
-				            	<div class="join_bt">
-				            		<button class="join_btn2" onClick="javascript:window.location.href='jo.php';">加入</button>
-				            	</div>
+					            <?php
+					                if($_SESSION['account']==$memberHost['account']){
+						                ?>
+						                <form method="post">
+							            	<div class="join_bt">
+								            	<button type="submit" name="lockRoom" class="join_Hbtn" onClick="javascript:window.location.href='jo.php';">
+								            		鎖定<br>房間
+								            	</button>
+								            	<button type="submit" name="deleteRoom" class="join_Hbtn" onClick="javascript:window.location.href='jo.php';">
+								            		刪除<br>房間
+								            	</button>
+							            	</div>
+						            	</form>
+						                <?php
+					            	}
+					            	else{
+					            		?>
+					            		<form method="post">
+							            	<div class="join_bt">
+								            	<button type="submit" name="join" class="join_btn" onClick="javascript:window.location.href='jo.php';">
+								            		加入
+								            	</button>
+							            	</div>
+						            	</form>
+						            	<?php
+					            	}
+				                ?>
 			        		</div><!--第二個頁籤（條列式）含聊天室結束-->
 						</div>
 		  			</div>
