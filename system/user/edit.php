@@ -10,8 +10,11 @@
 </head>
 	<body id="body0">
 		<?php
-		include('link.php');
-		include('../../include/sessionCheck.php');		
+		include('../../include/link.php');
+		include('../../include/sessionCheck.php');	
+		if(empty($account)){
+			header('Location:../../include/block.php?situation=3');
+		}
 		$account = $_SESSION["account"];
 		$selectUserAccount = "SELECT * FROM `user` WHERE `account` = '".$account."'";
 		mysql_query("SET NAMES'UTF8'");
@@ -36,12 +39,17 @@
 				else{
 					$photo = $_POST['photo'];					
 				}
+				if($_POST['pass']==""){
+					$_POST['pass']=$userAccount['password'];
+				}
+				if($_POST['repass']==""){
+					$_POST['repass']=$userAccount['password'];
+				}
 				$name = $_POST['name'];
 				$favorite = $_POST['favorite'];
 				$goodAt = $_POST['goodAt'];
 				$pass = $_POST['pass'];
 				$introduction = $_POST['introduction'];
-
 
 				$updateUserAccount = 'UPDATE `user` SET `password`="'.$pass.'",`name`="'.$name.'",`introduction`="'.$introduction.'",`photo`="'.$photo.'",`favorite`="'.$favorite.'",`goodAt`="'.$goodAt.'" WHERE `account` = "'.$account.'"';
 				mysql_query("SET NAMES'UTF8'");
@@ -49,7 +57,7 @@
 				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
 				mysql_query($updateUserAccount);
 				header('Location:edit.php');
-			}
+			}				
 		}
 		include('../../include/userHeader.php');
 		?>

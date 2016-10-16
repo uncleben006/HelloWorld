@@ -1715,6 +1715,8 @@ input:focus{outline:none}
 	width: 250px;
 }
 .view_info_td02-3{
+	word-break: break-all;
+	padding-right:15px;
 	background-color: #F1EC71;
 	position: relative;
 	left: 4%;

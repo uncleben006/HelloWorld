@@ -43,23 +43,27 @@
 			$people = $roomNo['people'];
 			//取得目前房間人數
 			$selectMemberNo = mysql_query("SELECT * FROM `member` WHERE `no` = '".$no."'");
-			$selectMemberSession = mysql_query("SELECT * FROM `member` WHERE `no` = '".$no."' AND `account` = '".$_SESSION['account']."' ");
-			echo $selectMemberSession;
-			$memberSession = mysql_num_rows($selectMemberSession);
 			$num = mysql_num_rows($selectMemberNo);
+			$selectMemberSession = "SELECT * FROM `member` WHERE `no` = '".$no."' AND `account` = '".$_SESSION['account']."'";
+			$selectMemberSession = mysql_query($selectMemberSession);
+			$memberSession = mysql_num_rows($selectMemberSession);
 			
-			if($memberSession == 1){//判斷若以加入則阻擋
+			
+			if(empty($_SESSION['account'])){//判斷若未登入則阻擋
+				header("Location:../../include/block.php?situation=1");
+			}
+			else if($memberSession != 0){//再判斷若已經加入則阻擋
 				?>
 				<script type="text/javascript">
-					alert("你已經加入了這個房間");
+					var inRoom = confirm("你已經加入了這個房間，按確定後繼續揪團~");
+					if(inRoom){
+						window.location.href='jo.php';
+					}
+					//不給else，回原頁。
 				</script>
 				<?php
-				header("Location:jo.php");
 			}
-			if(empty($_SESSION['account'])){//判斷若未登入則阻擋
-				header("Location:../user/block.php?situation=1");
-			}
-			else if($num>=$people){//判斷若房間人數已滿則阻擋
+			else if($num>=$people){//再判斷若房間人數已滿則阻擋
 				?> 
 				<script type="text/javascript">
 					alert("抱歉人數已滿~~去加別房啦~");
@@ -298,11 +302,12 @@
 								//開始時間再加5小時，時間一到，刪除TABLE room 跟 DB room 還有 chat 裡面 'no'房 的
 								$setSQL1 = "DELETE FROM `room` WHERE `no`=".$no."";
 								mysql_query($setSQL1);
-								$setSQL2 = "DROP TABLE room".$no."";
+								$setSQL2 = "DELETE FROM `member` WHERE `no` =".$no."";
 								mysql_query($setSQL2);
 								$setSQL3 = "DELETE FROM `chat` WHERE `no`=".$no."";
 								mysql_query($setSQL3);
-								header("Location:jo.php");//為了避免刪除以後頁面仍顯示房間，導回原頁面做重新整理
+								//不能加這個，會error
+								//header("Location:jo.php");//為了避免刪除以後頁面仍顯示房間，導回原頁面做重新整理
 							}
 
 						?>
@@ -656,7 +661,7 @@
 					        	$selectChatNo = "SELECT * FROM `chat` WHERE `no`='".$no."'";
 					        	$selectChat1 = mysql_query($selectChatNo);//分1和2給兩不同頁籤
 					        	$selectChat2 = mysql_query($selectChatNo);
-					        	//抓取 memeber table 裡面房號與目前點選房間的房號相同，帳號又跟目前使用者的session紀錄相同的資料，若有才開放聊天室
+					        	//抓取 member table 裡面房號與目前點選房間的房號相同，帳號又跟目前使用者的session紀錄相同的資料，若有才開放聊天室
 					        	$selectMemberAccount = "SELECT * FROM `member` WHERE `account` = '".$_SESSION['account']."' AND `no` = '".$no."'";
 					        	$selectMemberAccount = mysql_query($selectMemberAccount);
 					        	$memberSignIn = mysql_num_rows($selectMemberAccount);		        	

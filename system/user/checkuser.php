@@ -2,8 +2,8 @@
 // 1 是代表user，例如setSQL1、result1
 // 2 是代表admin，例如setSQL2、result2
 
-include('link.php');
-include('sessionCheck.php');
+include('../../include/link.php');
+include('../../include/sessionCheck.php');
 mysql_query("SET NAMES'UTF8'");
 mysql_query("SET CHARACTER SET UTF8");
 mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");

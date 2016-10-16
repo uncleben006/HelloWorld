@@ -3,7 +3,7 @@ header("Content-Type:text/html; charset=utf-8");
 //建立session並製作no亂碼
 
 include('link.php');
-include('mailer.php');
+include('accountMail.php');
 
 $account = $_POST["account"];
 $pass = $_POST["pass"];
@@ -200,7 +200,24 @@ else{
 	/*
 	$htmlurl = '<table><tr><td>welcome and please link the following url</td><td>' . $ahref . '</td></tr></table>';
 	*/
-	$htmlurl = $name.'您好:<br>歡迎註冊桌末狂歡，請點入此連結以驗證您的會員資格<br>Welcome to JOMOR. Please link the following url to confirm your account.<br>'.$ahref;
+	$htmlurl = 
+	"
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title>email</title>
+	</head>
+	<body>
+		<div style=\"width:60%;margin:0 auto;background-color:#cee6f5;padding:10px;\">
+			<div>".$name."您好</div>
+			<div>歡迎註冊桌末狂歡</div>
+			<div>請點入此連結以驗證您的會員資格</div>
+			<div>Welcome to JOMOR. Please link the following url to confirm your account.</div>
+			<div>".$ahref."</div>
+		</div>
+	</body>
+	</html>
+	";
 	$mail->Body = $htmlurl;
 	$mail->AddAddress($email);
 

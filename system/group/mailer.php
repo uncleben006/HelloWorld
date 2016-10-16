@@ -4,7 +4,7 @@ include('link.php');
 $no=$_GET['no'];
 
 header("Content-Type:text/html; charset=utf-8");
-require './PHPMailer/PHPMailerAutoload.php';
+require '../../include/PHPMailer/PHPMailerAutoload.php';
 
 $mail = new PHPMailer(); // create a new object
 $mail->IsSMTP(); // enable SMTP

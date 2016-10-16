@@ -9,7 +9,7 @@
 	<meta charset="utf-8">
 </head>
 	<body id="body0">
-		<?php include('header.php'); ?>
+		<?php include('../../include/userHeader.php'); ?>
 		<section><!--註冊框-->
 			<div class="register_div">
 				<div class="register_bg"><!--註冊黃色框-->
@@ -108,7 +108,7 @@
 											if(isset($_GET['wrong'])){
 												?>
 												<div class="register_text_div"><!--帳號填的框-->
-													<input type="text" name="account" class="register_text" value="<?php echo $_SESSION['account'] ?>">
+													<input type="text" name="account" class="register_text" value="<?php if(isset($_SESSION['account'])){echo $_SESSION['account']; } ?>">
 												</div>
 												<?php
 											}
@@ -127,7 +127,7 @@
 											if(isset($_GET['wrong'])){
 												?>
 												<div class="register_text_div"><!--暱稱填的框-->
-													<input type="text" name="name" class="register_text" value="<?php echo $_SESSION['name'] ?>">
+													<input type="text" name="name" class="register_text" value="<?php if(isset($_SESSION['name'])){echo $_SESSION['name']; } ?>">
 												</div>
 												<?php
 											}
@@ -177,7 +177,7 @@
 											if(isset($_GET['wrong'])){
 												?>
 												<div class="register_text_div"><!--密碼填的框-->
-													<input type="password" name="pass" class="register_text" value="<?php echo $_SESSION['pass'] ?>">
+													<input type="password" name="pass" class="register_text" value="<?php if(isset($_SESSION['pass'])){echo $_SESSION['pass']; } ?>">
 												</div>
 												<?php
 											}
@@ -196,7 +196,7 @@
 											if(isset($_GET['wrong'])){
 												?>
 												<div class="register_text_div"><!--信箱填的框-->
-													<input type="text" name="email" class="register_text" value="<?php echo $_SESSION['email'] ?>">
+													<input type="text" name="email" class="register_text" value="<?php if(isset($_SESSION['email'])){echo $_SESSION['email']; } ?>">
 												</div>
 												<?php
 											}
@@ -245,7 +245,7 @@
 											if(isset($_GET['wrong'])){
 												?>
 												<div class="register_text_div"><!--確認密碼填的框-->
-													<input type="password" name="repass" class="register_text" value="<?php echo $_SESSION['repass'] ?>">
+													<input type="password" name="repass" class="register_text" value="<?php if(isset($_SESSION['repass'])){echo $_SESSION['repass']; } ?>">
 												</div>
 												<?php
 											}
@@ -264,7 +264,7 @@
 											if(isset($_GET['wrong'])){
 												?>
 												<div class="register_text_div02"><!--簡單介紹填的框-->
-													<textarea class="register_text2" name="introduction" wrap="physical" onKeypress="if (this.value.length >= 20) {return false;}" value="<?php echo $_SESSION['introduction'] ?>"></textarea>
+													<textarea class="register_text2" name="introduction" wrap="physical" onKeypress="if (this.value.length >= 20) {return false;}"><?php if(isset($_SESSION['introduction'])){echo $_SESSION['introduction']; } ?></textarea>
 												</div>
 												<?php
 											}

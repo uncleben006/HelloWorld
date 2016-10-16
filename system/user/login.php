@@ -45,7 +45,7 @@
 							</span>
 							<span>|</span>
 							<span>
-								<a href="#" class="login_register">忘記密碼</a>
+								<a href="forget.php" class="login_register">忘記密碼</a>
 							</span>
 						</div>
 					</div>
