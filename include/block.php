@@ -1,17 +1,10 @@
 <!DOCTYPE html>
 	<html>
 	<head>
-		<title>Login</title>
+		<title>jomor桌末狂歡</title>
+		<link href="../style.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="../javascript.js"></script>
 		<meta charset="utf-8">
-		<style type="text/css">
-			.frame{
-				width: 720px;
-				margin-right: auto;
-				margin-left: auto;
-				padding-top: 20px;
-			}
-		</style>
-
 	</head>
 	<body>
 		<div class="frame">
@@ -33,11 +26,7 @@
 					header("refresh:2;../system/user/login.php");
 				}
 				else if ($situation==3) {
-					?>
-					<h1>你過了太長時間未動，系統幫你自動登出了</h1>
-					<h2>三秒後會轉跳至登入頁面</h2>
-					<?php
-					header("refresh:2;../system/user/login.php");
+					header('Location:../blockAccount.php');
 				}
 			}
 			?>

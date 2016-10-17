@@ -25,7 +25,7 @@ echo $selectUserEmail;
 $selectUserEmail = mysql_query($selectUserEmail);
 $userEmail = mysql_fetch_assoc($selectUserEmail);
 
-$url = 'http://localhost:8080/JOMO/system/group/newPass.php?no='.$userEmail['no'];
+$url = 'http://localhost:8080/JOMO6/system/user/newPass.php?no='.$userEmail['no'];
 $ahref = '<a href= '. $url . '>' . $url . '</a>';
 $htmlurl = 
 "

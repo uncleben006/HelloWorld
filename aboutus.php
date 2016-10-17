@@ -3,14 +3,14 @@
 <head>
 	<title>jomor桌末狂歡</title>
 	<link href="style.css" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" type="text/css" href="flexslider.css" />
 	<script type="text/javascript" src="javascript.js"></script>
 	<meta charset="utf-8">
 </head>
 	<body id="body0">
-		<!--把header放入header.php方便管理-->
-		<?php include('include/sessionCheck.php') ?>
-		<?php include("include/header.php"); ?>
+		<?php
+			include('include/sessionCheck.php'); 
+			include("include/header.php"); 
+		?>
 		<section class="about_blue_section"><!--藍底區塊-->
 			<div class="about_blue_bg"><!--團隊介紹和信箱-->
 				<img class="aboutus_img" src="jomor_html/img/aboutus_img.png">
@@ -24,7 +24,7 @@
 			<div class="aboutus_photo_div1"><!--個人介紹表格-->
 				<div class="aboutus_tr"><!--tr-->
 					<div class="aboutus_td"><!--td-->
-						<img src="jomor_html/img/aboutus_photo.png" height="350px" width="200px">
+						<img src="jomor_html/img/about1.png" height="360px" width="200px">
 					</div>
 					<div class="position">專案<br>經理</div><!--td-->
 					<div class="work_td">
@@ -37,7 +37,7 @@
 			<div class="aboutus_photo_div2"><!--個人介紹表格-->
 				<div class="aboutus_tr"><!--tr-->
 					<div class="aboutus_td"><!--td-->
-						<img src="jomor_html/img/aboutus_photo.png" height="350px" width="200px">
+						<img src="jomor_html/img/about2.png" height="360px" width="200px">
 					</div>
 					<div class="position">網頁<br>設計</div><!--td-->
 					<div class="work_td">
@@ -50,7 +50,7 @@
 			<div class="aboutus_photo_div2"><!--個人介紹表格-->
 				<div class="aboutus_tr"><!--tr-->
 					<div class="aboutus_td"><!--td-->
-						<img src="jomor_html/img/aboutus_photo.png" height="350px" width="200px">
+						<img src="jomor_html/img/about3.png" height="360px" width="200px">
 					</div>
 					<div class="position">程式<br>設計</div><!--td-->
 					<div class="work_td">
@@ -63,7 +63,7 @@
 			<div class="aboutus_photo_div2"><!--個人介紹表格-->
 				<div class="aboutus_tr"><!--tr-->
 					<div class="aboutus_td"><!--td-->
-						<img src="jomor_html/img/aboutus_photo.png" height="350px" width="200px">
+						<img src="jomor_html/img/about4.png" height="360px" width="200px">
 					</div>
 					<div class="position">行銷<br>公關</div><!--td-->
 					<div class="work_td">
@@ -76,7 +76,7 @@
 			<div class="aboutus_photo_div3"><!--個人介紹表格-->
 				<div class="aboutus_tr"><!--tr-->
 					<div class="aboutus_td"><!--td-->
-						<img src="jomor_html/img/aboutus_photo5.png" height="260px" width="200px">
+						<img src="jomor_html/img/about5.png" height="260px" width="200px">
 					</div>
 					<div class="position2">美術<br>設計</div><!--td-->
 					<div class="work_td">

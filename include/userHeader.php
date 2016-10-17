@@ -21,10 +21,10 @@
 							<span><a href="../group/jo.php" class="pp">揪團</a></span>
 						</td>
 						<td rowspan="2" class="top_td3">
-							<a href="#" class="top_a">
+							<a href="../../discussion.php" class="top_a">
 								<img src="../../jomor_html/img/animal-03.png" alt="logo" title="store" width="70px" height="50px">
 							</a>
-							<span><a href="#" class="pp">討論區</a></span>
+							<span><a href="../../discussion.php" class="pp">討論區</a></span>
 						</td>
 						<td rowspan="2" class="top_td1">
 							<a href="../../blog.php" class="top_a">
