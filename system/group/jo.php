@@ -243,25 +243,18 @@
 				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
 				$selectRoomNo = mysql_query($selectRoomNo);
 				$roomNo = mysql_fetch_assoc($selectRoomNo);
-				$selectMemberHost = "SELECT * FROM `member` WHERE `no` = '".$no."' AND `account` =  '".$roomNo['host']."'";
+				
+				$selectMemberNo = "SELECT * FROM `member` WHERE `no`= '".$no."' ";
 				mysql_query("SET NAMES'UTF8'");
 				mysql_query("SET CHARACTER SET UTF8");
 				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
-				$selectMemberHost = mysql_query($selectMemberHost);
-				$memberHost = mysql_fetch_assoc($selectMemberHost);
-				//$insertHostRemind = 'INSERT INTO `remind`(`no`, `account`, `email`, `host`, `room`, `date`, `time`, `store`) VALUES ("'.$no.'","'.$memberHost['account'].'","'.$memberHost['email'].'","'.$memberHost['account'].'","'.$roomNo['room'].'","'.$roomNo['date'].'","'.$roomNo['time'].'","'.$roomNo['store'].'")';
-				$insertHostRemind = mysql_query('INSERT INTO `remind`(`no`, `account`, `email`, `host`, `room`, `date`, `time`, `store`) VALUES ("'.$no.'","'.$memberHost['account'].'","'.$memberHost['email'].'","'.$memberHost['account'].'","'.$roomNo['room'].'","'.$roomNo['date'].'","'.$roomNo['time'].'","'.$roomNo['store'].'")');
-				//echo $insertHostRemind;
-
-				$selectOnlyMember = "SELECT * FROM `member` WHERE `no`= '".$no."' AND `account` !=  '".$roomNo['host']."'";
-				mysql_query("SET NAMES'UTF8'");
-				mysql_query("SET CHARACTER SET UTF8");
-				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
-				$selectOnlyMember = mysql_query($selectOnlyMember);
-				while($onlyMember = mysql_fetch_assoc($selectOnlyMember)){
-					//$insertMemberRemind = 'INSERT INTO `remind`(`no`, `account`, `email`, `host`, `room`, `date`, `time`, `store`) VALUES ("'.$no.'","'.$onlyMember['account'].'","'.$onlyMember['email'].'","'.$memberHost['account'].'","'.$roomNo['room'].'","'.$roomNo['date'].'","'.$roomNo['time'].'","'.$roomNo['store'].'")';
-					$insertMemberRemind = mysql_query('INSERT INTO `remind`(`no`, `account`, `email`, `host`, `room`, `date`, `time`, `store`) VALUES ("'.$no.'","'.$onlyMember['account'].'","'.$onlyMember['email'].'","'.$memberHost['account'].'","'.$roomNo['room'].'","'.$roomNo['date'].'","'.$roomNo['time'].'","'.$roomNo['store'].'")');
-					//echo $insertMemberRemind;
+				$selectMemberNo = mysql_query($selectMemberNo);
+				while($MemberNo = mysql_fetch_assoc($selectMemberNo)){
+					$insertMemberRemind = 'INSERT INTO `remind`(`no`, `account`, `email`, `host`, `room`, `date`, `time`, `store`) VALUES ("'.$no.'","'.$memberNo['account'].'","'.$memberNo['email'].'","'.$roomNo['host'].'","'.$roomNo['room'].'","'.$roomNo['date'].'","'.$roomNo['time'].'","'.$roomNo['store'].'")';
+					mysql_query("SET NAMES'UTF8'");
+					mysql_query("SET CHARACTER SET UTF8");
+					mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+					mysql_query($insertMemberRemind);
 				}
 			}
 			include("../../include/groupHeader.php"); 

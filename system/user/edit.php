@@ -12,10 +12,10 @@
 		<?php
 		include('../../include/link.php');
 		include('../../include/sessionCheck.php');	
+		$account = $_SESSION["account"];
 		if(empty($account)){
 			header('Location:../../include/block.php?situation=3');
-		}
-		$account = $_SESSION["account"];
+		}		
 		$selectUserAccount = "SELECT * FROM `user` WHERE `account` = '".$account."'";
 		mysql_query("SET NAMES'UTF8'");
 		mysql_query("SET CHARACTER SET UTF8");
@@ -33,18 +33,35 @@
 				$errMsg = "「確認密碼」有誤，請再確認一次";
 			}
 			else{
-				if(empty($_POST['photo'])){
-					$photo = $_SESSION['photo'];
+				if(isset($_FILES['photo']['name'])){
+					$imgFile = $_FILES['photo']['name'];//取得FILE名稱
+					$tmp_dir = $_FILES['photo']['tmp_name'];//把FILE路徑暫存入一個tmp檔
+					$imgSize = $_FILES['photo']['size'];//取得FILE大小
+					$upload_dir = 'photo/'; // upload directory	
+					$valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); //宣告有效的檔案型態
+					$imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); //回傳圖片的檔案型態(.jpg/.png)(extension:延伸部分)
+					$photo = rand(1000,1000000).".".$imgExt; //重新命名上傳的圖片，產生文件名稱並指定給$photo
+					if(in_array($imgExt, $valid_extensions)){ //若在$imgExt裡有$valid_extensions的檔案型態的話，就執行
+						if($imgSize < 5000000){
+							move_uploaded_file($tmp_dir , $upload_dir.$photo); //把tmp暫存檔存入指定位置($upload_dir+$photo)(位置加檔名)
+						}
+						else{
+							$errMSG = "呀啊啊啊~太大了啦~人家受不了啦~我是指檔案";
+						}
+					}
+					else{
+						$errMSG = "抱歉...我只喜歡附檔名是JPG, JPEG, PNG或GIF";		
+					}
 				}
-				else{
-					$photo = $_POST['photo'];					
+				else if(empty($_FILES['photo']['name'])){
+					$photo = $_SESSION['photo'];
 				}
 				if($_POST['pass']==""){
 					$_POST['pass']=$userAccount['password'];
 				}
 				if($_POST['repass']==""){
 					$_POST['repass']=$userAccount['password'];
-				}
+				}				
 				$name = $_POST['name'];
 				$favorite = $_POST['favorite'];
 				$goodAt = $_POST['goodAt'];
@@ -52,18 +69,19 @@
 				$introduction = $_POST['introduction'];
 
 				$updateUserAccount = 'UPDATE `user` SET `password`="'.$pass.'",`name`="'.$name.'",`introduction`="'.$introduction.'",`photo`="'.$photo.'",`favorite`="'.$favorite.'",`goodAt`="'.$goodAt.'" WHERE `account` = "'.$account.'"';
+				echo $updateUserAccount;
 				mysql_query("SET NAMES'UTF8'");
 				mysql_query("SET CHARACTER SET UTF8");
 				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
 				mysql_query($updateUserAccount);
-				header('Location:edit.php');
+				header('Location:userdata.php');
 			}				
 		}
 		include('../../include/userHeader.php');
 		?>
 		<section>
 			<div class="edit_bg"><!--藍底-->
-				<form name="form0" id="form0" method="post" enctype="multipart/form-data">
+				<form method="post" enctype="multipart/form-data">
 					<div class="edit_white">
 						<div class="edit_headph_frame">
 							<div class="edit_headph">
@@ -72,7 +90,7 @@
 								</span>
 								<div class="edit_upload_span">
 									<span>瀏覽檔案</span>
-									<input id="pic" type="file" name="photo" class="edit_upload_btn">
+									<input id="pic" type="file" name="photo" accept="image/*" class="edit_upload_btn">
 								</div>
 							</div>
 						</div>
