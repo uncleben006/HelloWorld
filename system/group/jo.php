@@ -249,7 +249,7 @@
 				mysql_query("SET CHARACTER SET UTF8");
 				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
 				$selectMemberNo = mysql_query($selectMemberNo);
-				while($MemberNo = mysql_fetch_assoc($selectMemberNo)){
+				while($memberNo = mysql_fetch_assoc($selectMemberNo)){
 					$insertMemberRemind = 'INSERT INTO `remind`(`no`, `account`, `email`, `host`, `room`, `date`, `time`, `store`) VALUES ("'.$no.'","'.$memberNo['account'].'","'.$memberNo['email'].'","'.$roomNo['host'].'","'.$roomNo['room'].'","'.$roomNo['date'].'","'.$roomNo['time'].'","'.$roomNo['store'].'")';
 					mysql_query("SET NAMES'UTF8'");
 					mysql_query("SET CHARACTER SET UTF8");
@@ -319,7 +319,6 @@
 									//不能加這個，會error
 									//header("Location:jo.php");//為了避免刪除以後頁面仍顯示房間，導回原頁面做重新整理
 								}
-
 							?>
 							
 					        <div class="jo_cell1"><!-- 大表格td -->  
