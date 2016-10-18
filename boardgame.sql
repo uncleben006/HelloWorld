@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: 127.0.0.1
--- 產生時間： 2016-10-18 05:01:08
+-- 產生時間： 2016-10-18 08:56:19
 -- 伺服器版本: 10.1.13-MariaDB
 -- PHP 版本： 5.6.23
 
@@ -125,10 +125,14 @@ INSERT INTO `member` (`no`, `people`, `name`, `account`, `email`, `photo`) VALUE
 (9, 20, '你怎麼沒暱稱', '111', 'uncleben006@gmail.com', 'fuck-you.png'),
 (9, 20, '你怎麼沒暱稱', '111', 'uncleben006@gmail.com', 'fuck-you.png'),
 (9, 20, '元元', '777', 'uncleben004@gmail.com', '45724.jpg'),
-(9, 20, '111', '000', 'uncleben006@gmail.com', '634155.jpg'),
+(9, 20, '000', '000', 'uncleben006@gmail.com', '474525.jpg'),
 (9, 20, '超過五個字', '333', 'uncleben006@gmail.com', 'iMac-icon.png'),
 (9, 0, '源源', '999', 'uncleben006@gmail.com', 'iMac-icon.png'),
-(9, 0, '安安你好', '888', 'uncleben006@gmail.com', 'iMac-icon.png');
+(9, 0, '安安你好', '888', 'uncleben006@gmail.com', '637052.png'),
+(10, 8, '000', '000', 'uncleben006@gmail.com', '474525.jpg'),
+(10, 0, '爽啦!!', '222', 'uncleben006@gmail.com', '360473.png'),
+(11, 6, '元元', '777', 'uncleben004@gmail.com', '45724.jpg'),
+(11, 0, '爽啦!!', '222', 'uncleben006@gmail.com', '360473.png');
 
 -- --------------------------------------------------------
 
@@ -160,14 +164,10 @@ INSERT INTO `remind` (`no`, `account`, `email`, `host`, `room`, `date`, `time`, 
 (9, '333', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
 (9, '999', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
 (9, '888', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
-(9, '222', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
-(9, '111', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
-(9, '111', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
-(9, '777', 'uncleben004@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
-(9, '000', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
-(9, '333', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
-(9, '999', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
-(9, '888', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e');
+(10, '000', 'uncleben006@gmail.com', '000', '我來看看提醒能不能跑兩個', '2016-10-19', '18:00:00', 'swan caf''e'),
+(10, '222', 'uncleben006@gmail.com', '000', '我來看看提醒能不能跑兩個', '2016-10-19', '18:00:00', 'swan caf''e'),
+(11, '777', 'uncleben004@gmail.com', '777', '再開一間', '2016-10-22', '19:19:00', 'swan caf''e'),
+(11, '222', 'uncleben006@gmail.com', '777', '再開一間', '2016-10-22', '19:19:00', 'swan caf''e');
 
 -- --------------------------------------------------------
 
@@ -197,7 +197,9 @@ CREATE TABLE `room` (
 --
 
 INSERT INTO `room` (`no`, `decide`, `host`, `room`, `store`, `x`, `y`, `game`, `date`, `time`, `time2`, `people`, `spend`, `remark`) VALUES
-(9, 1, '222', '測試可以重複登入的問題', 'swan caf''e', 25.0884, 121.464, '乾你什麼事', '2016-10-19', '15:16:00', '15:16:00', '20', '50/hr', '77777777777777777777777777');
+(9, 1, '222', '測試可以重複登入的問題', 'swan caf''e', 25.0884, 121.464, '乾你什麼事', '2016-10-19', '15:16:00', '15:16:00', '20', '50/hr', '77777777777777777777777777'),
+(10, 1, '000', '我來看看提醒能不能跑兩個', 'swan caf''e', 25.0884, 121.464, '爽爽', '2016-10-19', '18:00:00', '20:00:00', '8', '爽爽', '爽爽'),
+(11, 1, '777', '再開一間', 'swan caf''e', 25.0884, 121.464, '6', '2016-10-22', '19:19:00', '19:19:00', '6', '6', '6');
 
 -- --------------------------------------------------------
 
@@ -224,13 +226,13 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`no`, `pri`, `account`, `password`, `name`, `email`, `introduction`, `photo`, `gender`, `favorite`, `goodAt`) VALUES
-('009YF', 0, '000', '000', '000', 'uncleben006@gmail.com', '源源', '', '', '000', '000'),
+('009YF', 0, '000', '000', '000', 'uncleben006@gmail.com', '源源', '474525.jpg', '', '000', '000'),
 ('006GQ', 0, '111', '111', '你怎麼沒暱稱', 'uncleben006@gmail.com', '哈哈哈', '', '', '222', '222'),
 ('003MG', 1, '222', '222', '爽啦!!', 'uncleben006@gmail.com', '22222222222222222222', '360473.png', '', '桌末狂歡', '沒有QQ幫QQ'),
 ('007XJ', 0, '333', '333', '超過五個字', 'uncleben006@gmail.com', '', 'iMac-icon.png', '', '', ''),
 ('007FW', 1, '777', '777', '元元', 'uncleben004@gmail.com', '源源元', '45724.jpg', '', '', ''),
-('008IM', 0, '888', '888', '安安你好', 'uncleben006@gmail.com', '安安你好安安你好', 'iMac-icon.png', '', '', ''),
-('009UE', 0, '999', '999', '源源', 'uncleben006@gmail.com', '999', 'iMac-icon.png', '', '', ''),
+('008IM', 0, '888', '888', '安安你好', 'uncleben006@gmail.com', '安安你好安安你好', '637052.png', '', '牛頭人~', '沒有哈哈'),
+('009UE', 1, '999', '999', '源源', 'uncleben006@gmail.com', '999', 'iMac-icon.png', '', '', ''),
 ('008PF', 1, 'abc', 'abc', 'abc', 'uncleben006@gmail.com', 'abc', '660161.jpg', '', '', ''),
 ('012AS', 0, 'bbb', 'bbb', 'bbb', 'uncleben006@gmail.com', 'bbbbbb', '', '', 'bbb', 'bbb'),
 ('010UN', 0, 'benny', 'benny', 'Ben', 'uncleben006@gmail.com', '我喜歡虧妹', '813724.jpg', '', '', ''),
@@ -273,7 +275,7 @@ ALTER TABLE `game`
 -- 使用資料表 AUTO_INCREMENT `room`
 --
 ALTER TABLE `room`
-  MODIFY `no` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `no` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
