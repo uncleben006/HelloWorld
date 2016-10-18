@@ -42,24 +42,46 @@
 							<img src="../../jomor_html/img/notify.png" class="notify_img01" onClick="openNotify()">
 							<!--通知欄跳出的div框-->
 							<div id="notify" style="position:absolute; visibility:hidden">
-							  <div class="notify_fram">
-							        <div class="notify_div01">
-							            <div class="notify_div_img">
-							              <img src="../../jomor_html/img/headphoto.png" class="notify_headph">
-							            </div>
-							            <div class="notify_div_p">
-							                <p>您於剛剛正式加入zxc123所創建的大家來揪團，提醒您9/27 14:00在天鵝咖啡館別遲到囉～</p>
-							            </div>
-							        </div>
-							        <div class="notify_div01">
-							            <div class="notify_div_img">
-							              <img src="../../jomor_html/img/headphoto.png" class="notify_headph">
-							            </div>
-							            <div class="notify_div_p">
-							                <p>您於剛剛正式加入yyyyyyy所創建的來來來桌遊，提醒您10/01 14:00在女巫店別遲到囉～</p>
-							            </div>
-							        </div>
-							  </div>   
+							  	<?php
+									if(isset($_SESSION['account'])){
+										$account = $_SESSION['account'];
+										$selectRemindAccount = "SELECT * FROM `remind` WHERE `account` = '".$account."'";
+										mysql_query("SET NAMES'UTF8'");
+										mysql_query("SET CHARACTER SET UTF8");
+										mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+										$selectRemindAccount = mysql_query($selectRemindAccount);
+
+										?>
+										<div class="notify_fram">
+											<?php
+											while($remindAccount = mysql_fetch_assoc($selectRemindAccount)){
+												$selectUserHost = "SELECT * FROM `user` WHERE `account` = '".$remindAccount['host']."'";
+												mysql_query("SET NAMES'UTF8'");
+												mysql_query("SET CHARACTER SET UTF8");
+												mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+												$selectUserHost = mysql_query($selectUserHost);
+												$userHost = mysql_fetch_assoc($selectUserHost);
+												$photo = $userHost['photo'];
+												$name = $userHost['name'];
+												$date = date("m/d",strtotime($remindAccount['date']));
+												$time = date("H:i",strtotime($remindAccount['time']));
+												?>
+											  		
+													<div class="notify_div01">
+											            <div class="notify_div_img">
+											              	<img src="../user/photo/<?php echo $photo; ?>" class="notify_headph">
+											            </div>
+											            <div class="notify_div_p">
+											                <p>您於剛剛正式加入<font color="red"><?php echo $name; ?></font>所創建的房間<font color="red"><?php echo $remindAccount['room']; ?></font>，提醒您<font color="red"><?php echo $date; ?></font> <font color="red"><?php echo $time; ?></font>在天鵝咖啡館別遲到囉～</p>
+											            </div>
+													</div>
+											  	<?php   
+											}
+											?>
+										</div>  
+										<?php
+									}
+								?>	  
 							</div> 
 						</td>
 						<?php
@@ -67,7 +89,14 @@
 								?>
 								<?php
 								$pri = $_SESSION['pri'];
-								$photo = $_SESSION['photo'];
+								$account = $_SESSION['account'];
+								$selectUserAccount = "SELECT * FROM `user` WHERE `account` = '".$account."'";
+								mysql_query("SET NAMES'UTF8'");
+								mysql_query("SET CHARACTER SET UTF8");
+								mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+								$selectUserAccount = mysql_query($selectUserAccount);
+								$userAccount = mysql_fetch_assoc($selectUserAccount);
+								$photo = $userAccount['photo'];
 								if($pri==0){//會員註冊但尚未驗證
 									?>
 									<td rowspan="2" class="top_notify_td02"><!--圓形頭貼照-->
@@ -81,7 +110,7 @@
 									   	<div id="nav" style="position:absolute;width:200px; height:400px;visibility:hidden">
 								  			<div class="nav_div">
 										        <div class="nav_bt_div">
-										            <a href="individual_self.php" class="nav_bt">我的檔案</a>
+										            <a href="../user/userdata.php" class="nav_bt">我的檔案</a>
 										        </div>
 										        <div class="nav_bt_div">
 										            <a href="../user/logout.php" class="nav_bt2">登出</a>

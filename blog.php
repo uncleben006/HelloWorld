@@ -7,8 +7,11 @@
 	<meta charset="utf-8">
 </head>
 	<body id="body0">
-		<?php include('include/sessionCheck.php') ?>
-		<?php include('include/header.php') ?>
+		<?php 
+			include('include/link.php');
+			include('include/sessionCheck.php');
+			include('include/header.php'); 
+		?>
 		<section class="blue_section">	<!--藍底大象-->
 			<div class="blue_bg">
 				<img class="blog_img" src="jomor_html/img/blogimg.png" height="240px" width="690px">

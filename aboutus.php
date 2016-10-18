@@ -8,8 +8,9 @@
 </head>
 	<body id="body0">
 		<?php
-			include('include/sessionCheck.php'); 
-			include("include/header.php"); 
+			include('include/link.php');
+			include('include/sessionCheck.php');
+			include('include/header.php'); 
 		?>
 		<section class="about_blue_section"><!--藍底區塊-->
 			<div class="about_blue_bg"><!--團隊介紹和信箱-->

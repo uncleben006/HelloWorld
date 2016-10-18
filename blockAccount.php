@@ -8,6 +8,7 @@
 </head>
 	<body id="body0">
 		<?php
+			include('include/link.php');
 			include('include/sessionCheck.php');
 			header("refresh:3;system/user/login.php");
 			include("include/header.php"); 

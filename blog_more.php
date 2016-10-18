@@ -9,7 +9,11 @@
 	<body id="body0">
 	
 		<!--把header放入header.php方便管理-->
-		<?php include("header.php"); ?>
+		<?php 
+			include('include/link.php');
+			include('include/sessionCheck.php');
+			include('include/header.php'); 
+		?>
 		<section class="blue_section">	<!--藍底大象-->
 			<div class="blue_bg">
 				<img class="blog_img" src="jomor_html/img/blogimg.png" height="275px" width="720px">

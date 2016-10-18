@@ -23,10 +23,20 @@
 				error_reporting(0); 
 				date_default_timezone_set('Asia/Taipei');
 				$no = $_GET['no'];
+				$account = $_SESSION['account'];
+
+				//name要從資料庫抓取，這樣當edit.php修改了名稱，聊天室顯示的名稱才會跟著變
+				$selectUserAccount = "SELECT * FROM `user` WHERE `account` = '".$account."'";
+			    mysql_query("SET NAMES'UTF8'");
+				mysql_query("SET CHARACTER SET UTF8");
+				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+				$selectUserAccount = mysql_query($selectUserAccount);
+				$userAccount = mysql_fetch_assoc($selectUserAccount);
+				$name = $userAccount['name'];		
+
 				$now = date("H:i:s");
-			    $name=$_SESSION['name'];
-			    $chat=$_POST['chat'];     
-			    $sql="INSERT INTO `chat`(`no`,`name`,`now`,`chat`)values('$no','$name','$now','$chat')";
+			    $chat = $_POST['chat'];     
+			    $sql = "INSERT INTO `chat`(`no`, `account` ,`name`,`now`,`chat`)values('$no', '$account' ,'$name','$now','$chat')";
 			    mysql_query("SET NAMES'UTF8'");
 				mysql_query("SET CHARACTER SET UTF8");
 				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
@@ -237,6 +247,10 @@
 			//鎖定房間
 			if(isset($_POST['lockRoom'])){
 				$no = $_GET['no'];
+
+				$updateRoomNo = 'UPDATE `room` SET `decide`=1 WHERE `no` = "'.$no.'"';
+				mysql_query($updateRoomNo);
+
 				$selectRoomNo = "SELECT * FROM `room` WHERE `no` = '".$no."'";
 				mysql_query("SET NAMES'UTF8'");
 				mysql_query("SET CHARACTER SET UTF8");
@@ -316,7 +330,6 @@
 									mysql_query($setSQL2);
 									$setSQL3 = "DELETE FROM `chat` WHERE `no`=".$no."";
 									mysql_query($setSQL3);
-									//不能加這個，會error
 									//header("Location:jo.php");//為了避免刪除以後頁面仍顯示房間，導回原頁面做重新整理
 								}
 							?>
@@ -397,8 +410,21 @@
 													<div class="white1"></div> <!--白球-->
 												</td>
 												<td class="go_room_td2">
-													<button type="submit" class="goroom_btn" onClick="openviewroom(view_room)">瀏覽房間</button>
-													<!--<a href="#" class="goroom_btn" onClick="openviewroom(view_room)">瀏覽房間</a>-->
+													<?php
+														$selectRoomNo = "SELECT * FROM `room` WHERE `no` = '".$no."'";
+												 		$selectRoomNo = mysql_query($selectRoomNo);
+												 		$roomNo = mysql_fetch_assoc($selectRoomNo);
+														if($roomNo['decide']==0){
+															?>
+															<button type="submit" class="goroom_btn" onClick="openviewroom(view_room)">瀏覽房間</button>
+															<?php
+														}
+														else{
+															?>
+															<button type="submit" class="goroom_btn" onClick="openviewroom(view_room)">已經鎖定</button>
+															<?php
+														}
+													?>
 												</td>
 												<td class="go_room_td">
 													<div class="white2"></div> <!--白球-->
@@ -840,31 +866,42 @@
 								                
 							            	</div>
 							            	<?php
-								                if($_SESSION['account']==$memberHost['account']){
-									                ?>
-									                <form method="post">
-										            	<div class="join_bt">
-											            	<button type="submit" name="lockRoom" class="join_Hbtn" >
-											            		鎖定<br>房間
-											            	</button>
-											            	<button type="submit" name="deleteRoom" class="join_Hbtn" onClick="javascript:window.location.href='jo.php';">
-											            		刪除<br>房間
-											            	</button>
-										            	</div>
-									            	</form>
-									                <?php
-								            	}
-								            	else{
-								            		?>
-								            		<form method="post">
-										            	<div class="join_bt">
-											            	<button type="submit" name="join" class="join_btn" onClick="javascript:window.location.href='jo.php';">
-											            		加入
-											            	</button>
-										            	</div>
-									            	</form>
-									            	<?php
-								            	}
+												if($roomNo['decide']==0){
+													if($_SESSION['account']==$memberHost['account']){
+										                ?>
+										                <form method="post">
+											            	<div class="join_bt">
+												            	<button type="submit" name="lockRoom" class="join_Hbtn" >
+												            		鎖定<br>房間
+												            	</button>
+												            	<button type="submit" name="deleteRoom" class="join_Hbtn" onClick="javascript:window.location.href='jo.php';">
+												            		刪除<br>房間
+												            	</button>
+											            	</div>
+										            	</form>
+										                <?php
+									            	}
+									            	else{
+									            		?>
+									            		<form method="post">
+											            	<div class="join_bt">
+												            	<button type="submit" name="join" class="join_btn" onClick="javascript:window.location.href='jo.php';">
+												            		加入
+												            	</button>
+											            	</div>
+										            	</form>
+										            	<?php
+									            	}
+												}
+												else{
+													?>
+									            	<div class="join_bt">
+										            	<button type="submit" name="join" class="join_btn" onClick="javascript:window.location.href='jo.php';" disabled>
+										            		已鎖
+										            	</button>
+									            	</div>
+													<?php
+												}								                
 							                ?> 
 							        	</div>
 
@@ -933,31 +970,42 @@
 								                </div>
 							            	</div> 
 								            <?php
-								                if($_SESSION['account']==$memberHost['account']){
-									                ?>
-									                <form method="post">
-										            	<div class="join_bt">
-											            	<button type="submit" name="lockRoom" class="join_Hbtn" onClick="javascript:window.location.href='jo.php';">
-											            		鎖定<br>房間
-											            	</button>
-											            	<button type="submit" name="deleteRoom" class="join_Hbtn" onClick="javascript:window.location.href='jo.php';">
-											            		刪除<br>房間
-											            	</button>
-										            	</div>
-									            	</form>
-									                <?php
-								            	}
-								            	else{
-								            		?>
-								            		<form method="post">
-										            	<div class="join_bt">
-											            	<button type="submit" name="join" class="join_btn" onClick="javascript:window.location.href='jo.php';">
-											            		加入
-											            	</button>
-										            	</div>
-									            	</form>
-									            	<?php
-								            	}
+												if($roomNo['decide']==0){
+													if($_SESSION['account']==$memberHost['account']){
+										                ?>
+										                <form method="post">
+											            	<div class="join_bt">
+												            	<button type="submit" name="lockRoom" class="join_Hbtn" >
+												            		鎖定<br>房間
+												            	</button>
+												            	<button type="submit" name="deleteRoom" class="join_Hbtn" onClick="javascript:window.location.href='jo.php';">
+												            		刪除<br>房間
+												            	</button>
+											            	</div>
+										            	</form>
+										                <?php
+									            	}
+									            	else{
+									            		?>
+									            		<form method="post">
+											            	<div class="join_bt">
+												            	<button type="submit" name="join" class="join_btn" onClick="javascript:window.location.href='jo.php';">
+												            		加入
+												            	</button>
+											            	</div>
+										            	</form>
+										            	<?php
+									            	}
+												}
+												else{
+													?>
+									            	<div class="join_bt">
+										            	<button type="submit" name="join" class="join_btn" onClick="javascript:window.location.href='jo.php';" disabled>
+										            		已鎖
+										            	</button>
+									            	</div>
+													<?php
+												}								                
 							                ?>
 						        		</div><!--第二個頁籤（條列式）含聊天室結束-->
 									</div>

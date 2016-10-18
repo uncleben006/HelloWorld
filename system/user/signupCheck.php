@@ -43,7 +43,7 @@ if(empty($imgFile)!=TRUE){//這裡不知道為什麼用isset不行
 	}
 }
 else if(empty($imgFile)){
-	$userpic = "iMac-icon.png";
+	$userpic = "default.png";
 }
 
 $getAllrowsSQL="SELECT COUNT(*) FROM user";
@@ -190,6 +190,12 @@ else if(isset($errMSG)){
 }
 else if(mb_strlen($name)>5){
 	$url = "signup.php?wrong=5";
+	echo "<script type='text/javascript'>";
+	echo "window.location.href='$url'";
+	echo "</script>";
+}
+else if(isset($row['name'])){
+	$url = "signup.php?wrong=6";
 	echo "<script type='text/javascript'>";
 	echo "window.location.href='$url'";
 	echo "</script>";

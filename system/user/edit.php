@@ -68,12 +68,28 @@
 				$pass = $_POST['pass'];
 				$introduction = $_POST['introduction'];
 
+				//update user table
 				$updateUserAccount = 'UPDATE `user` SET `password`="'.$pass.'",`name`="'.$name.'",`introduction`="'.$introduction.'",`photo`="'.$photo.'",`favorite`="'.$favorite.'",`goodAt`="'.$goodAt.'" WHERE `account` = "'.$account.'"';
 				echo $updateUserAccount;
 				mysql_query("SET NAMES'UTF8'");
 				mysql_query("SET CHARACTER SET UTF8");
 				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
 				mysql_query($updateUserAccount);
+
+				//update member table
+				$updateMemberAccount = 'UPDATE `member` SET `name`="'.$name.'",`photo`="'.$photo.'" WHERE `account` = "'.$account.'"';
+				mysql_query("SET NAMES'UTF8'");
+				mysql_query("SET CHARACTER SET UTF8");
+				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+				mysql_query($updateMemberAccount);
+
+				//update chat table
+				$updateChatAccount = 'UPDATE `chat` SET `name`="'.$name.'" WHERE `account` = "'.$account.'"';
+				mysql_query("SET NAMES'UTF8'");
+				mysql_query("SET CHARACTER SET UTF8");
+				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+				mysql_query($updateChatAccount);
+
 				header('Location:userdata.php');
 			}				
 		}

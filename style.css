@@ -105,7 +105,7 @@ button{
 }
 .pp{
 	font-size: 1.4em;
-	font-family:Hiragino Sans GB;
+	font-family:Microsoft JhengHei;
 	color: #545454;
 	text-decoration: none;	
 }
@@ -131,25 +131,25 @@ button{
 }
 .lognin:link{
 	color:#EA6363;
-	font-family:Hiragino Sans GB;
+	font-family:Microsoft JhengHei;
 	font-size: 1em;
 	text-decoration:none;
 }
 .lognin:visited{
 	color:#EA6363;
-	font-family:Hiragino Sans GB;
+	font-family:Microsoft JhengHei;
 	font-size: 1em;
 	text-decoration:none;
 }
 .lognin:hover{
 	color:#444444;
-	font-family:Hiragino Sans GB;
+	font-family:Microsoft JhengHei;
 	font-size: 1em;
 	text-decoration:none;
 }
 .lognin:active{
 	color:#666666;
-	font-family:Hiragino Sans GB;
+	font-family:Microsoft JhengHei;
 	font-size: 1em;
 	text-decoration:none;
 }
@@ -255,7 +255,7 @@ button{
 }
 .notify_headph{
 	position: relative;
-	top: 8%;
+	top: 10px;
 	width: 60%;
 	height: 84%;
 }
@@ -512,21 +512,21 @@ input:focus{outline:none}
 .border_bottom{
 	border-bottom:#FFB7DD 2px solid;
 	padding:2px;
-	font-family:Hiragino Sans GB;
+	font-family:Microsoft JhengHei;
 	font-size: 25px;
 	font-weight:bold;
 }
 .border_bottom_2{
 	border-bottom:#FFB7DD 2px solid;
 	padding:2px;
-	font-family:Hiragino Sans GB;
+	font-family:Microsoft JhengHei;
 	font-size: 16px;
 	font-weight:bold;
 }
 .rows{
 	border-bottom:#FFB7DD 2px solid;
 	padding:15px;
-	font-family:Hiragino Sans GB;
+	font-family:Microsoft JhengHei;
 	font-size: 21px;
 	margin: 0 0 20px 0;
 }
@@ -763,7 +763,7 @@ input:focus{outline:none}
 }
 .store_page_name{
 	color: #4EBDC2;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	font-size: 28px;
 	margin: 1% 0 0 87%;
 	border-bottom:5px #4EBDC2 solid;
@@ -821,7 +821,7 @@ input:focus{outline:none}
 }
 .store_name{
 	color: #545354;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	font-size: 19px;
 	position: relative;
 	text-align: center;
@@ -848,12 +848,12 @@ input:focus{outline:none}
 }
 .store_info_card02_td01{
 	width:33%;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	color: #911F23;
 	vertical-align:text-top;
 }
 .store_info_p2{
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	color: #ffffff;
 }
 .store_triangle{
@@ -989,7 +989,7 @@ input:focus{outline:none}
 }
 .div_store_name{
 	color: #545354;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	font-size: 1.3em;
 	position: relative;
 	text-align: center;
@@ -1012,12 +1012,12 @@ input:focus{outline:none}
 }
 .div_store_info_card02_td01{
 	width:21%;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	color: #911F23;
 	vertical-align:text-top;
 }
 .div_store_info_p2{
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	color: #ffffff;
 }
 .div_store_triangle{
@@ -1312,7 +1312,7 @@ input:focus{outline:none}
 	color: #5C5D5D;
 	font-size: 23px;
 	line-height: 30px;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 }
 .work_td{
 	display: table-cell;
@@ -1330,7 +1330,7 @@ input:focus{outline:none}
 	color: #ffffff;
 	font-size: 23px;
 	padding: 25px 0 0 0;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 }
 .aboutus_photo_div2{
 	display: table;
@@ -1341,7 +1341,7 @@ input:focus{outline:none}
 	color: #ffffff;
 	font-size: 23px;
 	padding: 4px 0 0 20px;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 }
 .aboutus_photo_div3{
 	display: table;
@@ -1363,7 +1363,7 @@ input:focus{outline:none}
 	color: #5C5D5D;
 	font-size: 23px;
 	line-height: 30px;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 }
 /*揪團頁面css*/
 .jobg_section{
@@ -2559,7 +2559,7 @@ input:focus{outline:none}
 	position: relative;
 	color: #5C5D5D;
 	font-size: 22px;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	left: 35%;
 	line-height: 50px;
 
@@ -2602,7 +2602,7 @@ position: relative;
 	width: auto;
 	font-size: 16px;
 	color: #5C5D5D;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 }
 .jo_info_input_td{
 	color: #FF6464;
@@ -2628,7 +2628,7 @@ position: relative;
 	text-decoration: none;
 	position: relative;
 	color: #5C5D5D;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	left: 80%;
 	bottom: 35px;
 }
@@ -2866,7 +2866,7 @@ position: relative;
 	color: #5D5D5D;
 	font-size: 2em;
 	text-align: center;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 }
 .login_fb_div{
 	position: relative;
@@ -2881,14 +2881,14 @@ position: relative;
 	position: relative;
 	color: #848484;
 	font-size: 1.2em;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	margin: 2% 0;
 }
 .login_p3{
 	position: relative;
 	color: #848484;
 	font-size: 1.2em;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	margin: 2% 0;
 	text-align: center;
 }
@@ -2918,6 +2918,11 @@ position: relative;
 	width: 100%;
 	text-decoration:none;
 	text-align: center;
+}
+.login_bt_err{
+	margin-bottom: 10px;
+	color:red;
+	font-family:Microsoft JhengHei;
 }
 .login_bt{
 	background-color:#A0920D;
@@ -2951,7 +2956,7 @@ position: relative;
 .login_register{
 	color: #848484;
 	font-size: 1em;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	text-decoration:none;
 }
 .login_register:hover {
@@ -3043,7 +3048,7 @@ position: relative;
 	margin-top:20%;
 	font-size: 1.3em;
 	text-align: center;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	font-weight:bold;
 	color: #535354;
 }
@@ -3055,7 +3060,7 @@ position: relative;
 	position: relative;
 	font-size: 1.5em;
 	text-align: center;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	font-weight:bold;
 	color: #535354;	
 }
@@ -3064,7 +3069,7 @@ position: relative;
 	width: 60%;
 	margin: 0 0 0 20%;
 	font-size: 1em;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	color: #727272;	
 	line-height: 25px;
 }
@@ -3097,7 +3102,7 @@ position: relative;
 	position: relative;
 	margin: 3% 0 0 7%;
 	font-size: 1.6em;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	font-weight:bold;
 	color: #535354;	
 }
@@ -3109,7 +3114,7 @@ position: relative;
 	position: relative;
 	margin: 3% 0 0 7%;
 	font-size: 1.3em;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	color: #535354;	
 	font-weight:bold;
 	line-height: 15px;
@@ -3118,7 +3123,7 @@ position: relative;
 	position: relative;
 	margin: 3% 0 0 7%;
 	font-size: 1em;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	color: #727272;	
 	line-height: 18px;
 }
@@ -3162,7 +3167,7 @@ position: relative;
 	position: relative;
 	margin: 0 0 0 7%;
 	font-size: 1.6em;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	font-weight:bold;
 	color: #535354;	
 }
@@ -3173,7 +3178,7 @@ position: relative;
 	position: relative;
 	margin: 3% 0 0 7%;
 	font-size: 1.3em;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	color: #535354;	
 	font-weight:bold;
 	line-height: 12px;
@@ -3182,7 +3187,7 @@ position: relative;
 	position: relative;
 	margin: 2% 0 0 7%;
 	font-size: 1em;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	color: #727272;	
 	line-height: 14px;
 }
@@ -3371,13 +3376,13 @@ position: relative;
 	color: #5D5D5D;
 	font-size: 2em;
 	text-align: center;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 }
 .forget_p3{
 	position: relative;
 	color: #848484;
 	font-size: 1em;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	margin: 4% 0 3% 0;
 	text-align: center;
 }
@@ -3442,7 +3447,7 @@ position: relative;
 .login_register{
 	color: #848484;
 	font-size: 1em;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	text-decoration:none;
 }
 .login_register:hover {
@@ -3482,13 +3487,13 @@ position: relative;
 	color: #5D5D5D;
 	font-size: 2em;
 	text-align: center;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 }
 .receive_p3{
 	position: relative;
 	color: #848484;
 	font-size: 1em;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	margin: 6% 0 3% 0;
 	text-align: center;
 	line-height: 10px;
@@ -3601,7 +3606,7 @@ position: relative;
 	position: relative;
 	color: #5C5D5D;
 	font-size: 1.3em;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	left: 2%;
 	line-height: 50px;
 
@@ -3637,7 +3642,7 @@ position: relative;
 	top: 2%;
 	text-align: center;
 	color: #5D5D5D;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	line-height: 14px;
 }
 .rank_div{
@@ -3756,7 +3761,7 @@ position: relative;
 	top: 17%;
 	margin: 0 1% 0 0;
 	color: #5C5D5D;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 }
 .grade_btn:hover {
 	color: #ffffff;
@@ -3800,7 +3805,7 @@ position: relative;
 	position: relative;
 	color: #5C5D5D;
 	font-size: 1.3em;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	left: 2%;
 	line-height: 50px;
 
@@ -3836,7 +3841,7 @@ position: relative;
 	top: 8%;
 	text-align: center;
 	color: #5D5D5D;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	line-height: 14px;
 	font-size: 1.1em;
 	color: #000000;
@@ -3846,7 +3851,7 @@ position: relative;
 	top: 8%;
 	text-align: center;
 	color: #5D5D5D;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	line-height: 14px;
 	font-size: 1.1em;
 	color: #E96363;
@@ -3870,7 +3875,7 @@ position: relative;
 	top: 17%;
 	margin: 0 1% 0 0;
 	color: #5C5D5D;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 }
 .sure_btn:hover {
 	color: #ffffff;
@@ -3916,7 +3921,7 @@ position: relative;
 	position: relative;
 	color: #5C5D5D;
 	font-size: 1.3em;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	left: 2%;
 	line-height: 50px;
 
@@ -3971,7 +3976,7 @@ position: relative;
 	border-radius: 30px;
 	font-size: 14px;
 	color: #5C5D5D;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	width: 60px;
 
 }
@@ -3983,7 +3988,7 @@ position: relative;
 	border-radius: 30px;
 	font-size: 14px;
 	color: #5C5D5D;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	width: 60px;
 	top: 0px;
 
@@ -4000,7 +4005,7 @@ position: relative;
 	border-top-right-radius:30px;
 	font-size: 14px;
 	color: #5C5D5D;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	width: 175px;
 	overflow:scroll;/*超出框顯示捲軸*/
 }
@@ -4028,7 +4033,7 @@ position: relative;
 	border-radius: 20px;
 	font-size: 14px;
 	color: #5C5D5D;
-	font-family: Hiragino Sans GB;
+	font-family: Microsoft JhengHei;
 	height: 100px;
 	left: 80px;
 	top: 0px;

@@ -89,7 +89,12 @@
 											} 
 											else if($wrong==5){
 												?>
-												<div><font color="red"><?php echo "超過五個字" ?></font></div>
+												<div><font color="red"><?php echo "超過五個字，請刪減字數" ?></font></div>
+												<?php
+											}
+											else if($wrong==6){
+												?>
+												<div><font color="red"><?php echo "暱稱重複了，請換一個" ?></font></div>
 												<?php
 											}
 											else{
