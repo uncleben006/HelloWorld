@@ -87,7 +87,7 @@
 								<input type="password" name="password" placeholder="密碼" class="login_text">
 							</div>
 							<div class="login_bt_div">
-								<div class="login_bt_err"><?php echo $errMsg; ?></div>
+								<div class="login_bt_err"><?php if(isset($errMsg)){echo $errMsg;} ?></div>
 								<button type="submit" name="login" class="login_bt" >登入</button>
 							</div>
 						</form>
