@@ -2,15 +2,15 @@
 <html>
 <head>
 	<title>jomor桌末狂歡</title>
-	<link href="style.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="javascript.js"></script>
+	<link href="../../style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="../../javascript.js"></script>
 	<meta charset="utf-8">
 </head>
 	<body id="body0">
 		<?php 
-			include('include/link.php');
-			include('include/sessionCheck.php');
-			include('include/header.php'); 
+			include('../../include/link.php');
+			include('../../include/sessionCheck.php');
+			include('../../include/storeHeader.php'); 
 		?>
 		<section>
 			<!--最新活動跑馬燈-->
@@ -30,11 +30,23 @@
 			<div class="mapbutton_frame">
 				<a href="store1-2.php" class="map_myButton">店家地圖</a>
 				<a href="store2.php" class="map_myButton">店家列表</a>
+				<?php
+					if(isset($_SESSION['account'])){
+						$account = $_SESSION['account'];
+						$selectUserAccount = mysql_query("SELECT * FROM `user` WHERE `account` = '".$account."'");
+						$userAccount = mysql_fetch_assoc($selectUserAccount);
+						if($userAccount['pri']==2){
+							?>
+							<a href="importStore.php" class="map_myButton">輸入店家資訊</a>
+							<?php						
+						}
+					}					
+				?>
 			</div>
 			<!--猴子篩選列-->
 			<div class="store_select">
 				<div class="store_select_img">
-					<img src="jomor_html/img/store2.png" alt="吉祥物圖框" title="猴子吉祥物" width="800px" height="250px">
+					<img src="../../jomor_html/img/store2.png" alt="吉祥物圖框" title="猴子吉祥物" width="800px" height="250px">
 					<div class="store_select_word">店家篩選</div>
 					<div class="store_select_button0">
 						<span class="store_select_button1">
@@ -86,7 +98,7 @@
 						</span>
 						<div class="store_search_div">
 							<input class="store_search" type="text" name="search" size="12" style=" border-radius:2px" placeholder="關鍵字查詢">
-							<input class="store_search_button" name="submit" type="image" value="search" src="jomor_html/img/store_search_button.png">
+							<input class="store_search_button" name="submit" type="image" value="search" src="../../jomor_html/img/store_search_button.png">
 						</div>
 					</div>
 				</div>
@@ -109,7 +121,7 @@
 				            <div class="store_info_card-0">
 								<div class="store_info_card01"><!--店家資訊卡店名與圖片部分-->
 									<div class="store_name" onClick="opendiv(Store_inf)">Swancafe天鵝咖啡館</div>
-									<div><img class="store_img" src="jomor_html/img/swancafe01.jpg" onClick="opendiv(Store_inf)"></div>
+									<div><img class="store_img" src="../../jomor_html/img/swancafe01.jpg" onClick="opendiv(Store_inf)"></div>
 								</div>
 								<!--店家資訊卡文字部分-->
 								<div class="store_info_card02">
@@ -137,7 +149,7 @@
 				             <div class="store_info_card-0">
 								<div class="store_info_card01"><!--店家資訊卡店名與圖片部分-->
 									<div class="store_name" onClick="opendiv(Store_inf)">女巫店</div>
-									<div><img class="store_img" src="jomor_html/img/witch.jpg" onClick="opendiv(Store_inf)"></div>
+									<div><img class="store_img" src="../../jomor_html/img/witch.jpg" onClick="opendiv(Store_inf)"></div>
 								</div>
 								<!--店家資訊卡文字部分-->
 								<div class="store_info_card02">
@@ -165,7 +177,7 @@
 				             <div class="store_info_card-0">
 								<div class="store_info_card01"><!--店家資訊卡店名與圖片部分-->
 									<div class="store_name" onClick="opendiv(Store_inf)">Swancafe天鵝咖啡館</div>
-									<div><img class="store_img" src="jomor_html/img/swancafe01.jpg" onClick="opendiv(Store_inf)"></div>
+									<div><img class="store_img" src="../../jomor_html/img/swancafe01.jpg" onClick="opendiv(Store_inf)"></div>
 								</div>
 								<!--店家資訊卡文字部分-->
 								<div class="store_info_card02">
@@ -198,7 +210,7 @@
 				            <div class="store_info_card-0">
 								<div class="store_info_card01"><!--店家資訊卡店名與圖片部分-->
 									<div class="store_name" onClick="opendiv(Store_inf)">Swancafe天鵝咖啡館</div>
-									<div><img class="store_img" src="jomor_html/img/swancafe01.jpg" onClick="opendiv(Store_inf)"></div>
+									<div><img class="store_img" src="../../jomor_html/img/swancafe01.jpg" onClick="opendiv(Store_inf)"></div>
 								</div>
 								<!--店家資訊卡文字部分-->
 								<div class="store_info_card02">
@@ -226,7 +238,7 @@
 				             <div class="store_info_card-0">
 								<div class="store_info_card01"><!--店家資訊卡店名與圖片部分-->
 									<div class="store_name" onClick="opendiv(Store_inf)">女巫店</div>
-									<div><img class="store_img" src="jomor_html/img/witch.jpg" onClick="opendiv(Store_inf)"></div>
+									<div><img class="store_img" src="../../jomor_html/img/witch.jpg" onClick="opendiv(Store_inf)"></div>
 								</div>
 								<!--店家資訊卡文字部分-->
 								<div class="store_info_card02">
@@ -254,7 +266,7 @@
 				             <div class="store_info_card-0">
 								<div class="store_info_card01"><!--店家資訊卡店名與圖片部分-->
 									<div class="store_name" onClick="opendiv(Store_inf)">Swancafe天鵝咖啡館</div>
-									<div><img class="store_img" src="jomor_html/img/swancafe01.jpg" onClick="opendiv(Store_inf)"></div>
+									<div><img class="store_img" src="../../jomor_html/img/swancafe01.jpg" onClick="opendiv(Store_inf)"></div>
 								</div>
 								<!--店家資訊卡文字部分-->
 								<div class="store_info_card02">
@@ -285,13 +297,13 @@
 		<aside class="aside02">
 			<div class="aside_p1">推薦</br>店家</div>
 			<div class="aside_store">
-				<img class="aside_store_img" src="jomor_html/img/swancafe01.jpg"  onClick="opendiv(Store_inf)">
+				<img class="aside_store_img" src="../../jomor_html/img/swancafe01.jpg"  onClick="opendiv(Store_inf)">
 			</div>
 			<div class="aside_store">
-				<img class="aside_store_img" src="jomor_html/img/witch.jpg"  onClick="opendiv(Store_inf)">
+				<img class="aside_store_img" src="../../jomor_html/img/witch.jpg"  onClick="opendiv(Store_inf)">
 			</div>
 			<div class="aside_store">
-				<img class="aside_store_img" src="jomor_html/img/swancafe01.jpg" onClick="opendiv(Store_inf)">
+				<img class="aside_store_img" src="../../jomor_html/img/swancafe01.jpg" onClick="opendiv(Store_inf)">
 			</div>
 		</aside>
 		<!--店家資訊跳出顯示div-->
@@ -300,7 +312,7 @@
 			    <section class="div_store_section">
 			         <div class="div_store_card-01"><!--店家資訊卡店名與圖片部分-->
 			             <span class="div_store_name">Swancafe天鵝咖啡館</span>
-			                <div><img class="div_store_img" src="jomor_html/img/swancafe01.jpg" ></div>
+			                <div><img class="div_store_img" src="../../jomor_html/img/swancafe01.jpg" ></div>
 			         </div>
 			         <!--店家資訊卡文字部分-->
 			         <div class="div_store_card-02">

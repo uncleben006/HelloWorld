@@ -9,10 +9,10 @@
 							</a>
 						</td>
 						<td rowspan="2" class="top_td1">
-							<a href="../../store1-2.php" class="top_a">
+							<a href="../../system/store/store1-2.php" class="top_a">
 								<img src="../../jomor_html/img/animal-01.png" alt="logo" title="store" width="70px" height="50px">
 							</a>
-							<span><a href="../../store1-2.php"" class="pp">店家地圖</a></span>
+							<span><a href="../../system/store/store1-2.php"" class="pp">店家地圖</a></span>
 						</td>
 						<td rowspan="2" class="top_td2">
 							<a href="../group/jo.php" class="top_a">
