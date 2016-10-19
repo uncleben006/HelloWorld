@@ -4,6 +4,7 @@
 	<title>jomor桌末狂歡</title>
 	<link href="style.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" type="text/css" href="flexslider.css" />
+	<script type="text/javascript" src="javascript.js"></script>
 	<meta charset="utf-8">
 </head>
 	<body id="body0">

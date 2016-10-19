@@ -2,37 +2,16 @@
 <html>
 <head>
 	<title>Confirm</title>
-	<meta charset="utf-8">
-
-	<style type="text/css">
-		.frame{
-			width: 720px;
-			margin-right: auto;
-			margin-left: auto;
-			padding-top: 20px;
-		}
-		input[type="text"],input[type="password"]{
-			border-color:#bdc5d0;
-		}
-		div{
-			margin-top: 5px;
-		}
-		table{
-			height: 80px;
-		}
-		
-	</style>
-
-</head>
-<body>
-	<div class="frame">
-		<?php
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<link href="../../style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="../../javascript.js"></script>
+	<meta charset="utf-8"></head>
+<body id="body0">
+	<?php		
+		include('../../include/link.php');
 		header("Content-Type:text/html; charset=utf-8");
-		include('link.php');
-
 		$no = $_GET["no"];
 		$setSQL = "UPDATE `user` SET `pri`='1' WHERE `no`='".$no."'";
-		echo $setSQL;
 		mysql_query("SET NAMES'UTF8'");
 		mysql_query("SET CHARACTER SET UTF8");
 		mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
@@ -55,11 +34,34 @@
 		$_SESSION["email"] = $row1["email"];
 		$_SESSION["introduction"] = $row1["introduction"];
 		session_write_close();
-		echo '<h1>驗證完成</h1><br>';
-		echo '你已通過信箱驗證並開通了你的帳號，現在你帳號擁有更多的權限<br>';
-		echo '<a href="../../index.php"><button>好的非常感謝</button></a>';
-		?>
-	</div>
-	
+		include('../../include/userHeader.php');
+	?>
+	<section>
+		<div class="receive_div">
+			<div class="receive_bg">
+				<div class="receive_white">
+					<div class="receive_p_div">
+						<h1 class="receive_p">快完成了！</h1>
+					</div>
+					<hr color="#A0920D" size="3" width="95%">
+					<div class="receive_p3">
+						<p>您已完成第二階段的註冊，</p>
+						<p>可以使用<font style="color: #EA6363">揪團系統</font>等更多功能</p>
+					</div>
+					<div class="receive_text_img"><!--注意圖-->
+						<img src="../../jomor_html/img/attention.png" class="attention_img">
+					</div>
+					<div class="receive_p3">
+						<p>現在的帳號是一個權力完整的帳號。</p>
+						<p>同一個信箱只能用來註冊一次，帳號不能重複註冊，亦不能刪除</p>
+						<p>所以請使用者對自己的帳號負起行為和語言責任</p>
+					</div>
+					<div class="receive_bt_div">
+						<a href="../../index.php" class="receive_bt">確認</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 </body>
 </html>
