@@ -2651,7 +2651,7 @@ position: relative;
 	position: relative;
 	background-color: #Ffffff;
 	width: 50%;
-    height: 585px;
+    height: 550px;
     border-radius: 30px;
     margin: 0 auto;
     top: 3%;
@@ -4066,6 +4066,11 @@ position: relative;
 	width: 100%;
 }
 
+/*編輯店家，管理員頁面*/
+.import_text{
+	border-width: 5px;
+    border-color: #acb2b9;
+}
 
 
 
