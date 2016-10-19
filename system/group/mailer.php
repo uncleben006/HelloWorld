@@ -14,9 +14,9 @@ $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
 $mail->Host = 'smtp.gmail.com';
 $mail->Port = 465; // 465 or 587
 $mail->IsHTML(true);
-$mail->Username = "uncleben006@gmail.com";
-$mail->Password = "a102070017";
-$mail->SetFrom("uncleben006@gmail.com");
+$mail->Username = "ics.jomorparty@gmail.com";
+$mail->Password = "Jomorparty";
+$mail->SetFrom("ics.jomorparty@gmail.com");
 $mail->Subject = mb_encode_mimeheader('您有新揪團', "UTF-8");
 
 

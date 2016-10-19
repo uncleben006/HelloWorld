@@ -15,48 +15,51 @@
 				$account = $_POST["account"];
 				$pass = $_POST["password"];
 				$setSQL1 = "SELECT * FROM `user` WHERE `account` = '".$account."'";
+				mysql_query("SET NAMES'UTF8'");
+				mysql_query("SET CHARACTER SET UTF8");
+				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
 				$result1 = mysql_query($setSQL1);
 				$row1 = mysql_fetch_assoc($result1);
+				echo $row1['password'];
 
 				$setSQL2 = "SELECT * FROM `admin` WHERE `account` = '".$account."'";
+				mysql_query("SET NAMES'UTF8'");
+				mysql_query("SET CHARACTER SET UTF8");
+				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
 				$result2 = mysql_query($setSQL2);
 				$row2 = mysql_fetch_assoc($result2);
 
-				if($pass!=$row1['password']){
-					$errMsg = "帳號或密碼有誤";
+				
+				if($pass==$row1['password']){
+					session_set_cookie_params(600);
+					session_start();
+					$_SESSION["no"] = $row1["no"];
+					$_SESSION["pri"] = $row1["pri"];
+					$_SESSION["account"] = $row1["account"];
+					$_SESSION["password"] = $row1["password"];
+					$_SESSION["name"] = $row1["name"];
+					$_SESSION["email"] = $row1["email"];
+					$_SESSION["photo"] = $row1["photo"];
+					$_SESSION["introduction"] = $row1["introduction"];
+					session_write_close();
+					header("Location:../../index.php");
 				}
-				else if($pass!=$row2['password']){
-					$errMsg = "帳號或密碼有誤";
+				else if($pass==$row2['password']){
+					session_set_cookie_params(600);
+					session_start();
+					$_SESSION["no"] = $row2["no"];
+					$_SESSION["pri"] = $row2["pri"];
+					$_SESSION["account"] = $row2["account"];
+					$_SESSION["password"] = $row2["password"];
+					$_SESSION["name"] = $row2["name"];
+					$_SESSION["email"] = $row2["email"];
+					$_SESSION["photo"] = $row2["photo"];
+					$_SESSION["introduction"] = $row2["introduction"];
+					session_write_close();						
+					header("Location:../../index.php");
 				}
 				else{
-					if(isset($row1["account"])){
-						session_set_cookie_params(600);
-						//session_start();
-						$_SESSION["no"] = $row1["no"];
-						$_SESSION["pri"] = $row1["pri"];
-						$_SESSION["account"] = $row1["account"];
-						$_SESSION["password"] = $row1["password"];
-						$_SESSION["name"] = $row1["name"];
-						$_SESSION["email"] = $row1["email"];
-						$_SESSION["photo"] = $row1["photo"];
-						$_SESSION["introduction"] = $row1["introduction"];
-						session_write_close();
-						header("Location:userdata.php");
-					}
-					if(isset($row2["account"])){
-						session_set_cookie_params(600);
-						//session_start();
-						$_SESSION["no"] = $row2["no"];
-						$_SESSION["pri"] = $row2["pri"];
-						$_SESSION["account"] = $row2["account"];
-						$_SESSION["password"] = $row2["password"];
-						$_SESSION["name"] = $row2["name"];
-						$_SESSION["email"] = $row2["email"];
-						$_SESSION["photo"] = $row2["photo"];
-						$_SESSION["introduction"] = $row2["introduction"];
-						session_write_close();
-						header("Location:userdata.php");
-					}
+					$errMsg = "帳號或密碼有誤";
 				}
 			}
 			

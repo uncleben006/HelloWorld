@@ -43,7 +43,7 @@ if(empty($imgFile)!=TRUE){//這裡不知道為什麼用isset不行
 	}
 }
 else if(empty($imgFile)){
-	$userpic = "default.png";
+	$userpic = "default.jpg";
 }
 
 $getAllrowsSQL="SELECT COUNT(*) FROM user";

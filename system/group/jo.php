@@ -1234,7 +1234,7 @@
 			                    <span class="success_title">加入成功</span>
 			                    <!--關掉的xx-->
 			                    <span class="success_close" onClick="javascript:success.style.visibility='hidden';">
-				                	<img src="jomor_html/img/close.png" class="success_close_img">
+				                	<img src="../../jomor_html/img/close.png" class="success_close_img">
 				                </span>
 			                </div>
 			                <div class="success_fram02">

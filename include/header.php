@@ -50,36 +50,37 @@
 										mysql_query("SET CHARACTER SET UTF8");
 										mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
 										$selectRemindAccount = mysql_query($selectRemindAccount);
-
-										?>
-										<div class="notify_fram">
-											<?php
-											while($remindAccount = mysql_fetch_assoc($selectRemindAccount)){
-												$selectUserHost = "SELECT * FROM `user` WHERE `account` = '".$remindAccount['host']."'";
-												mysql_query("SET NAMES'UTF8'");
-												mysql_query("SET CHARACTER SET UTF8");
-												mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
-												$selectUserHost = mysql_query($selectUserHost);
-												$userHost = mysql_fetch_assoc($selectUserHost);
-												$photo = $userHost['photo'];
-												$name = $userHost['name'];
-												$date = date("m/d",strtotime($remindAccount['date']));
-												$time = date("H:i",strtotime($remindAccount['time']));
-												?>
-											  		
-													<div class="notify_div01">
-											            <div class="notify_div_img">
-											              	<img src="system/user/photo/<?php echo $photo; ?>" class="notify_headph">
-											            </div>
-											            <div class="notify_div_p">
-											                <p>您於剛剛正式加入<font color="red"><?php echo $name; ?></font>所創建的房間<font color="red"><?php echo $remindAccount['room']; ?></font>，提醒您<font color="red"><?php echo $date; ?></font> <font color="red"><?php echo $time; ?></font>在天鵝咖啡館別遲到囉～</p>
-											            </div>
-													</div>
-											  	<?php   
-											}
+										$remindNum = mysql_num_rows($selectRemindAccount);
+										if($remindNum>0){
 											?>
-										</div>  
-										<?php
+											<div class="notify_fram">
+												<?php
+												while($remindAccount = mysql_fetch_assoc($selectRemindAccount)){
+													$selectUserHost = "SELECT * FROM `user` WHERE `account` = '".$remindAccount['host']."'";
+													mysql_query("SET NAMES'UTF8'");
+													mysql_query("SET CHARACTER SET UTF8");
+													mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+													$selectUserHost = mysql_query($selectUserHost);
+													$userHost = mysql_fetch_assoc($selectUserHost);
+													$photo = $userHost['photo'];
+													$name = $userHost['name'];
+													$date = date("m/d",strtotime($remindAccount['date']));
+													$time = date("H:i",strtotime($remindAccount['time']));
+													?>
+														<div class="notify_div01">
+												            <div class="notify_div_img">
+												              	<img src="system/user/photo/<?php echo $photo; ?>" class="notify_headph">
+												            </div>
+												            <div class="notify_div_p">
+												                <p>您於剛剛正式加入<font color="red"><?php echo $name; ?></font>所創建的房間<font color="red"><?php echo $remindAccount['room']; ?></font>，提醒您<font color="red"><?php echo $date; ?></font> <font color="red"><?php echo $time; ?></font>在天鵝咖啡館別遲到囉～</p>
+												            </div>
+														</div>
+												  	<?php   
+												}
+												?>
+											</div>  
+											<?php
+										}										
 									}
 								?>	
 							</div> 

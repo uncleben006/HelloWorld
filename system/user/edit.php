@@ -53,8 +53,8 @@
 						$errMSG = "抱歉...我只喜歡附檔名是JPG, JPEG, PNG或GIF";		
 					}
 				}
-				else if(empty($_FILES['photo']['name'])){
-					$photo = $_SESSION['photo'];
+				if(empty($_FILES['photo']['name'])){
+					$photo = $userAccount['photo'];
 				}
 				if($_POST['pass']==""){
 					$_POST['pass']=$userAccount['password'];
@@ -65,11 +65,12 @@
 				$name = $_POST['name'];
 				$favorite = $_POST['favorite'];
 				$goodAt = $_POST['goodAt'];
+				$gender = $_POST['gender'];
 				$pass = $_POST['pass'];
 				$introduction = $_POST['introduction'];
 
 				//update user table
-				$updateUserAccount = 'UPDATE `user` SET `password`="'.$pass.'",`name`="'.$name.'",`introduction`="'.$introduction.'",`photo`="'.$photo.'",`favorite`="'.$favorite.'",`goodAt`="'.$goodAt.'" WHERE `account` = "'.$account.'"';
+				$updateUserAccount = 'UPDATE `user` SET `password`="'.$pass.'",`name`="'.$name.'",`introduction`="'.$introduction.'",`photo`="'.$photo.'",`gender`="'.$gender.'",`favorite`="'.$favorite.'",`goodAt`="'.$goodAt.'" WHERE `account` = "'.$account.'"';
 				echo $updateUserAccount;
 				mysql_query("SET NAMES'UTF8'");
 				mysql_query("SET CHARACTER SET UTF8");
@@ -154,7 +155,7 @@
 							<tr class="edit_tr"><!--tr-->
 								<td class="edit_td0">請輸入新密碼</td>
 								<td class="edit_td1"></td><!--表格中間空格-->
-								<td class="edit_td0">關於我</td>
+								<td class="edit_td0">性別</td>
 							</tr>
 							<tr class="edit_tr"><!--tr-->
 								<td class="edit_td2">
@@ -163,16 +164,23 @@
 									</div>
 								</td>
 								<td class="edit_td1"></td><!--表格中間空格-->
-								<td class="edit_td2" rowspan="3">
-									<div class="edit_text_div0">
-										<textarea class="edit_text0" name="introduction" wrap="physical" onKeypress="if (this.value.length >= 20) {return false;}" ><?php if($userAccount['introduction']!=""){echo $userAccount['introduction']; } ?></textarea>
+								<td class="edit_td2">
+									<div class="edit_text_div">
+										<select name="gender" class="edit_text">
+											<option value="<?php if($userAccount['gender']!=""){echo $userAccount['gender']; } ?>"><?php if($userAccount['gender']!=""){echo $userAccount['gender']; } ?></option>
+											<option value="男">男</option>
+											<option value="女">女</option>
+											<option value="其他">其他</option>
+										</select>
 									</div>
 								</td>
+								
 							</tr>
 							<!--第四行-->
 							<tr class="edit_tr"><!--tr-->
 								<td class="edit_td0">確認新密碼</td>
 								<td class="edit_td1"></td><!--表格中間空格-->
+								<td class="edit_td0">關於我</td>
 							</tr>
 							<tr class="edit_tr"><!--tr-->
 								<td class="edit_td2">
@@ -181,11 +189,16 @@
 									</div>
 								</td>
 								<td class="edit_td1"></td><!--表格中間空格-->
+								<td class="edit_td2" rowspan="2">
+									<div class="edit_text_div0">
+										<textarea class="edit_text0" name="introduction" wrap="physical" onKeypress="if (this.value.length >= 20) {return false;}" ><?php if($userAccount['introduction']!=""){echo $userAccount['introduction']; } ?></textarea>
+									</div>
+								</td>
 							</tr>
 							<tr class="edit_tr2">
 								<td class="edit_td3" colspan="3">
-									<button type="submit" name="edit" class="edit_bt">確定</button>
-									<div><?php if(isset($errMsg)){echo $errMsg;} ?></div>
+									<button type="submit" name="edit" class="edit_bt1">確定</button>
+									<div style="position: relative; top:105px"><?php if(isset($errMsg)){echo $errMsg;} ?></div>
 								</td>
 							</tr>
 						</table>
