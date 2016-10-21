@@ -135,7 +135,7 @@
 									   	<div id="nav" style="position:absolute;width:200px; height:400px;visibility:hidden">
 								  			<div class="nav_div">
 										        <div class="nav_bt_div">
-										            <a href="individual_self.php" class="nav_bt">我的檔案</a>
+										            <a href="../user/userdata.php" class="nav_bt">我的檔案</a>
 										        </div>
 										        <div class="nav_bt_div">
 										            <a href="../user/logout.php" class="nav_bt2">登出</a>
@@ -160,7 +160,7 @@
 									   	<div id="nav" style="position:absolute;width:200px; height:400px;visibility:hidden">
 								  			<div class="nav_div">
 										        <div class="nav_bt_div">
-										            <a href="individual_self.php" class="nav_bt">我的檔案</a>
+										            <a href="../user/userdata.php" class="nav_bt">我的檔案</a>
 										        </div>
 										        <div class="nav_bt_div">
 										            <a href="../user/logout.php" class="nav_bt2">登出</a>

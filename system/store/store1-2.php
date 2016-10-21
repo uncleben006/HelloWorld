@@ -38,7 +38,7 @@
 						$userAccount = mysql_fetch_assoc($selectUserAccount);
 						if($userAccount['pri']==2){
 							?>
-							<a href="importStore.php" class="map_myButton">輸入店家資訊</a>
+							<a href="uploadStore.php" class="map_myButton">輸入店家資訊</a>
 							<?php						
 						}
 					}					

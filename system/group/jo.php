@@ -757,7 +757,7 @@
 												                    				src="../../jomor_html/img/jo_triangle.png" 
 												                    				onmouseover="this.src='../../jomor_html/img/jo_triangle2.png'" 
 													                    			onmouseout="this.src='../../jomor_html/img/jo_triangle.png'"
-												                    				onClick="selectShow();"
+												                    				onClick="selectShow(jo_select);"
 												                    			>
 												                    		</div>
 										                        		</div>

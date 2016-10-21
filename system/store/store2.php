@@ -37,7 +37,7 @@
 						$userAccount = mysql_fetch_assoc($selectUserAccount);
 						if($userAccount['pri']==2){
 							?>
-							<a href="importStore.php" class="map_myButton">輸入店家資訊</a>
+							<a href="uploadStore.php" class="map_myButton">輸入店家資訊</a>
 							<?php						
 						}
 					}					
@@ -112,187 +112,102 @@
 					</td>
 				</tr>
 			</table>
-			<div class="store_card" >
-			<!--第一行div表格-->
-				<div class="div_table"><!--div_table-->
-				 	<div class="row"><!-- tr --> 
-				         <div class="cell1"><!-- td -->  
-				         	<!--店家資訊卡1-->
-				            <div class="store_info_card-0">
-								<div class="store_info_card01"><!--店家資訊卡店名與圖片部分-->
-									<div class="store_name" onClick="opendiv(Store_inf)">Swancafe天鵝咖啡館</div>
-									<div><img class="store_img" src="../../jomor_html/img/swancafe01.jpg" onClick="opendiv(Store_inf)"></div>
-								</div>
-								<!--店家資訊卡文字部分-->
-								<div class="store_info_card02">
-									<table class="store_info_card02_table">
-										<tr>
-											<td class="store_info_card02_td01">店家地址｜</td>
-											<td class="store_info_p2">台北市羅斯福路五段170巷37號一樓</td>
-										</tr>
-										<tr>
-											<td class="store_info_card02_td01">店家電話｜</td>
-											<td class="store_info_p2">(02)2930-8983</td>
-										</tr>
-										<tr>
-											<td class="store_info_card02_td01">營業時間｜</td>
-											<td class="store_info_p2">每天10:00-22:00</td>
-										</tr>
-									</table>
-									<div class="store_triangle" onClick="opendiv(Store_inf)"><!-- 三角形開啟按鍵 -->
-                 					</div>
-								</div>
-							</div>    
-				         </div> 
-				         <div class="cell2"> <!-- td -->
-				         	<!--店家資訊卡2-->
-				             <div class="store_info_card-0">
-								<div class="store_info_card01"><!--店家資訊卡店名與圖片部分-->
-									<div class="store_name" onClick="opendiv(Store_inf)">女巫店</div>
-									<div><img class="store_img" src="../../jomor_html/img/witch.jpg" onClick="opendiv(Store_inf)"></div>
-								</div>
-								<!--店家資訊卡文字部分-->
-								<div class="store_info_card02">
-									<table class="store_info_card02_table">
-										<tr>
-											<td class="store_info_card02_td01">店家地址｜</td>
-											<td class="store_info_p2">台北市羅斯福路五段170巷37號一樓</td>
-										</tr>
-										<tr>
-											<td class="store_info_card02_td01">店家電話｜</td>
-											<td class="store_info_p2">(02)2930-8983</td>
-										</tr>
-										<tr>
-											<td class="store_info_card02_td01">營業時間｜</td>
-											<td class="store_info_p2">每天10:00-22:00</td>
-										</tr>
-									</table>
-									<div class="store_triangle" onClick="opendiv(Store_inf)"><!-- 三角形開啟按鍵 -->
-                 					</div>
-								</div>
-							</div>    
-				         </div> 
-				         <div class="cell3"> <!-- td -->
-				             <!--店家資訊卡3-->
-				             <div class="store_info_card-0">
-								<div class="store_info_card01"><!--店家資訊卡店名與圖片部分-->
-									<div class="store_name" onClick="opendiv(Store_inf)">Swancafe天鵝咖啡館</div>
-									<div><img class="store_img" src="../../jomor_html/img/swancafe01.jpg" onClick="opendiv(Store_inf)"></div>
-								</div>
-								<!--店家資訊卡文字部分-->
-								<div class="store_info_card02">
-									<table class="store_info_card02_table">
-										<tr>
-											<td class="store_info_card02_td01">店家地址｜</td>
-											<td class="store_info_p2">台北市羅斯福路五段170巷37號一樓</td>
-										</tr>
-										<tr>
-											<td class="store_info_card02_td01">店家電話｜</td>
-											<td class="store_info_p2">(02)2930-8983</td>
-										</tr>
-										<tr>
-											<td class="store_info_card02_td01">營業時間｜</td>
-											<td class="store_info_p2">每天10:00-22:00</td>
-										</tr>
-									</table>
-									<div class="store_triangle" onClick="opendiv(Store_inf)"><!-- 三角形開啟按鍵 -->
-                 					</div>
-								</div>
-							</div>   
-				         </div> <!-- td -->
-				    </div> <!--tr-->  
-				 </div> <!--div_table-->
-				<!--第二行div表格-->
-				<div class="div_table"><!--div_table-->
-				 	<div class="row"><!-- tr --> 
-				         <div class="cell1"><!-- td -->  
-				         	<!--店家資訊卡1-->
-				            <div class="store_info_card-0">
-								<div class="store_info_card01"><!--店家資訊卡店名與圖片部分-->
-									<div class="store_name" onClick="opendiv(Store_inf)">Swancafe天鵝咖啡館</div>
-									<div><img class="store_img" src="../../jomor_html/img/swancafe01.jpg" onClick="opendiv(Store_inf)"></div>
-								</div>
-								<!--店家資訊卡文字部分-->
-								<div class="store_info_card02">
-									<table class="store_info_card02_table">
-										<tr>
-											<td class="store_info_card02_td01">店家地址｜</td>
-											<td class="store_info_p2">台北市羅斯福路五段170巷37號一樓</td>
-										</tr>
-										<tr>
-											<td class="store_info_card02_td01">店家電話｜</td>
-											<td class="store_info_p2">(02)2930-8983</td>
-										</tr>
-										<tr>
-											<td class="store_info_card02_td01">營業時間｜</td>
-											<td class="store_info_p2">每天10:00-22:00</td>
-										</tr>
-									</table>
-									<div class="store_triangle" onClick="opendiv(Store_inf)"><!-- 三角形開啟按鍵 -->
-                 					</div>
-								</div>
-							</div>    
-				         </div> 
-				         <div class="cell2"> <!-- td -->
-				         	<!--店家資訊卡2-->
-				             <div class="store_info_card-0">
-								<div class="store_info_card01"><!--店家資訊卡店名與圖片部分-->
-									<div class="store_name" onClick="opendiv(Store_inf)">女巫店</div>
-									<div><img class="store_img" src="../../jomor_html/img/witch.jpg" onClick="opendiv(Store_inf)"></div>
-								</div>
-								<!--店家資訊卡文字部分-->
-								<div class="store_info_card02">
-									<table class="store_info_card02_table">
-										<tr>
-											<td class="store_info_card02_td01">店家地址｜</td>
-											<td class="store_info_p2">台北市羅斯福路五段170巷37號一樓</td>
-										</tr>
-										<tr>
-											<td class="store_info_card02_td01">店家電話｜</td>
-											<td class="store_info_p2">(02)2930-8983</td>
-										</tr>
-										<tr>
-											<td class="store_info_card02_td01">營業時間｜</td>
-											<td class="store_info_p2">每天10:00-22:00</td>
-										</tr>
-									</table>
-									<div class="store_triangle" onClick="opendiv(Store_inf)"><!-- 三角形開啟按鍵 -->
-                 					</div>
-								</div>
-							</div>    
-				         </div> 
-				         <div class="cell3"> <!-- td -->
-				             <!--店家資訊卡3-->
-				             <div class="store_info_card-0">
-								<div class="store_info_card01"><!--店家資訊卡店名與圖片部分-->
-									<div class="store_name" onClick="opendiv(Store_inf)">Swancafe天鵝咖啡館</div>
-									<div><img class="store_img" src="../../jomor_html/img/swancafe01.jpg" onClick="opendiv(Store_inf)"></div>
-								</div>
-								<!--店家資訊卡文字部分-->
-								<div class="store_info_card02">
-									<table class="store_info_card02_table">
-										<tr>
-											<td class="store_info_card02_td01">店家地址｜</td>
-											<td class="store_info_p2">台北市羅斯福路五段170巷37號一樓</td>
-										</tr>
-										<tr>
-											<td class="store_info_card02_td01">店家電話｜</td>
-											<td class="store_info_p2">(02)2930-8983</td>
-										</tr>
-										<tr>
-											<td class="store_info_card02_td01">營業時間｜</td>
-											<td class="store_info_p2">每天10:00-22:00</td>
-										</tr>
-									</table>
-									<div class="store_triangle" onClick="opendiv(Store_inf)"><!-- 三角形開啟按鍵 -->
-                 					</div>
-								</div>
-							</div>   
-				         </div> <!-- td -->
-				    </div> <!--tr-->  
-				 </div> <!--div_table-->
-			</div><!--class="store_card"-->
+			<?php
+				//依照地區篩選顯示
+				//依照地區篩選顯示
+				//依照地區篩選顯示
+				if(isset($_GET['storePlace'])){
+					$selectStorePlace = "SELECT * FROM `store` WHERE `storePlace` = '".$_GET['storePlace']."'";
+					mysql_query("SET NAMES'UTF8'");
+					mysql_query("SET CHARACTER SET UTF8");
+					mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+					$selectStorePlace = mysql_query($selectStorePlace);
+					while($storePlace = mysql_fetch_assoc($selectStorePlace)){
+						?>
+						<div class="store_info_card-0">
+							<div class="store_info_card01"><!--店家資訊卡店名與圖片部分-->
+								<div class="store_name" onClick="opendiv(Store_inf)"><?php echo $storePlace['storeName']?></div>
+								<div><img class="store_img" src="../../jomor_html/img/swancafe01.jpg" onClick="opendiv(Store_inf)"></div>
+							</div>
+							<!--店家資訊卡文字部分-->
+							<div class="store_info_card02">
+								<table class="store_info_card02_table">
+									<tr>
+										<td class="store_info_card02_td01">店家地址｜</td>
+										<td class="store_info_p2">台北市羅斯福路五段170巷37號一樓</td>
+									</tr>
+									<tr>
+										<td class="store_info_card02_td01">店家電話｜</td>
+										<td class="store_info_p2">(02)2930-8983</td>
+									</tr>
+									<tr>
+										<td class="store_info_card02_td01">營業時間｜</td>
+										<td class="store_info_p2">每天10:00-22:00</td>
+									</tr>
+								</table>
+								<div class="store_triangle" onClick="opendiv(Store_inf)"><!-- 三角形開啟按鍵 -->
+             					</div>
+							</div>
+						</div> 
+						<?php
+					}
+				}
+				//顯示全部
+				//顯示全部
+				//顯示全部
+				else{
+					$selectStore = "SELECT * FROM `store` ";
+					mysql_query("SET NAMES'UTF8'");
+					mysql_query("SET CHARACTER SET UTF8");
+					mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+					$selectStore = mysql_query($selectStore);
+					while($store = mysql_fetch_assoc($selectStore)){
+						?>
+						<div class="store_info_card-0">
+							<div class="store_info_card01"><!--店家資訊卡店名與圖片部分-->
+								<div class="store_name" onClick="opendiv(Store_inf)"><?php echo $store['storeName']?></div>
+								<div><img class="store_img" src="../../jomor_html/img/swancafe01.jpg" onClick="opendiv(Store_inf)"></div><!--圖片連結等有圖片了之後再補上，不然現在太醜了-->
+							</div>
+							<!--店家資訊卡文字部分-->
+							<div class="store_info_card02">
+								<table class="store_info_card02_table">
+									<tr>
+										<td class="store_info_card02_td01">店家地址｜</td>
+										<td class="store_info_p2" title="<?php echo $store['storeAddress'];?>">
+											<?php 
+												$str=$store['storeAddress']; 
+												echo ((mb_strlen($str,'utf8')>10) ? mb_substr($str,0,11,'utf8') : $str).' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
+											?>													
+										</td>
+									</tr>
+									<tr>
+										<td class="store_info_card02_td01">店家電話｜</td>
+										<td class="store_info_p2"><?php echo $store['storeNumber']?></td>
+									</tr>
+									<tr>
+										<td class="store_info_card02_td01">營業時間｜</td>
+										<td class="store_info_p2">
+											<?php 
+												$str=$store['storeTime']; 
+												echo ((mb_strlen($str,'utf8')>10) ? mb_substr($str,0,11,'utf8') : $str).' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
+											?>
+										</td>
+									</tr>
+								</table>
+								<div class="store_triangle" onClick="opendiv(Store_inf)"><!-- 三角形開啟按鍵 -->
+             					</div>
+							</div>
+						</div> 
+						<?php
+					}
+				}
+				
+			?>
+							
 		</section>
+
+		<!--側邊欄位-->
+		<!--側邊欄位-->
 		<!--側邊欄位-->
 		<aside class="aside02">
 			<div class="aside_p1">推薦</br>店家</div>
@@ -306,6 +221,9 @@
 				<img class="aside_store_img" src="../../jomor_html/img/swancafe01.jpg" onClick="opendiv(Store_inf)">
 			</div>
 		</aside>
+
+		<!--店家資訊跳出顯示div-->
+		<!--店家資訊跳出顯示div-->
 		<!--店家資訊跳出顯示div-->
 		<div id="Store_inf" style="position:fixed;display:none;">
 	  		<div class="div_store_card-0">
