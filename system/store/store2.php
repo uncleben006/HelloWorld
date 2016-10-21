@@ -152,6 +152,7 @@
 						<?php
 					}
 				}
+
 				//顯示全部
 				//顯示全部
 				//顯示全部
@@ -165,8 +166,8 @@
 						?>
 						<div class="store_info_card-0">
 							<div class="store_info_card01"><!--店家資訊卡店名與圖片部分-->
-								<div class="store_name" onClick="opendiv(Store_inf)"><?php echo $store['storeName']?></div>
-								<div><img class="store_img" src="../../jomor_html/img/swancafe01.jpg" onClick="opendiv(Store_inf)"></div><!--圖片連結等有圖片了之後再補上，不然現在太醜了-->
+								<div class="store_name" onClick="window.location.href='store2.php?storeName=<?php echo $store['storeName'];?>'"><?php echo $store['storeName']?></div>
+								<div><img class="store_img" src="../../jomor_html/img/swancafe01.jpg" onClick="window.location.href='store2.php?storeName=<?php echo $store['storeName'];?>"></div><!--圖片連結等有圖片了之後再補上，不然現在太醜了-->
 							</div>
 							<!--店家資訊卡文字部分-->
 							<div class="store_info_card02">
@@ -186,7 +187,7 @@
 									</tr>
 									<tr>
 										<td class="store_info_card02_td01">營業時間｜</td>
-										<td class="store_info_p2">
+										<td class="store_info_p2" title="<?php echo $store['storeTime'];?>">
 											<?php 
 												$str=$store['storeTime']; 
 												echo ((mb_strlen($str,'utf8')>10) ? mb_substr($str,0,11,'utf8') : $str).' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
@@ -194,7 +195,7 @@
 										</td>
 									</tr>
 								</table>
-								<div class="store_triangle" onClick="opendiv(Store_inf)"><!-- 三角形開啟按鍵 -->
+								<div class="store_triangle" onClick="window.location.href='store2.php?storeName=<?php echo $store['storeName'];?>'"><!-- 三角形開啟按鍵 -->
              					</div>
 							</div>
 						</div> 
@@ -225,43 +226,57 @@
 		<!--店家資訊跳出顯示div-->
 		<!--店家資訊跳出顯示div-->
 		<!--店家資訊跳出顯示div-->
-		<div id="Store_inf" style="position:fixed;display:none;">
-	  		<div class="div_store_card-0">
-			    <section class="div_store_section">
-			         <div class="div_store_card-01"><!--店家資訊卡店名與圖片部分-->
-			             <span class="div_store_name">Swancafe天鵝咖啡館</span>
-			                <div><img class="div_store_img" src="../../jomor_html/img/swancafe01.jpg" ></div>
-			         </div>
-			         <!--店家資訊卡文字部分-->
-			         <div class="div_store_card-02">
-			            <table class="div_store_info_card02_table">
-			                <tr>
-			                    <td class="div_store_info_card02_td01">店家地址｜</td>
-			                    <td class="div_store_info_p2">台北市羅斯福路五段170巷37號一樓</td>
-			                </tr>
-			                <tr>
-			                    <td class="div_store_info_card02_td01">店家電話｜</td>
-			                    <td class="div_store_info_p2">(02)2930-8983</td>
-			                </tr>
-			                <tr>
-			                    <td class="div_store_info_card02_td01">營業時間｜</td>
-			                    <td class="div_store_info_p2">每天10:00-22:00</td>
-			                </tr>
-			                <tr>
-			                    <td class="div_store_info_card02_td01">消費模式｜</td>
-			                    <td class="div_store_info_p2">每人每時段低消150元<br>(早場10-14、午場14-18、晚場18-22)</td>
-			                </tr>
-			            </table>
-			         </div>
-			    </section>
-			    <aside class="div_store_aside">
-			        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.869828371786!2d121.5343891150057!3d25.0045387839862!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a9f625cc066d%3A0xb72b462e76eaa98b!2zU3dhbiBDYWZlIOWkqem1neahjOmBiumkqA!5e0!3m2!1szh-TW!2stw!4v1474128298550" width="485" height="450" frameborder="0" style="border:0" allowfullscreen>
-			        </iframe>
-			        <div class="div_store_btn">
-			            <a class="btn" onClick="javascript:Store_inf.style.display='none';">關閉</a>
-			        </div>
-			    </aside>
-			</div>
-	  	</div>   
+		<?php
+		if(isset($_GET['storeName'])){
+			$storeName = $_GET['storeName'];
+			$selectStoreName = "SELECT * FROM `store` WHERE `storeName` = '".$storeName."'";
+			mysql_query("SET NAMES'UTF8'");
+			mysql_query("SET CHARACTER SET UTF8");
+			mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+			$selectStoreName = mysql_query($selectStoreName);
+			$store = mysql_fetch_assoc($selectStoreName);
+			?>
+			<div id="Store_inf" style="position:fixed;">
+		  		<div class="div_store_card-0">
+				    <section class="div_store_section">
+				         <div class="div_store_card-01"><!--店家資訊卡店名與圖片部分-->
+				             <span class="div_store_name"><?php echo $store['storeName']?></span>
+				                <div><img class="div_store_img" src="../../jomor_html/img/swancafe01.jpg" ></div>
+				         </div>
+				         <!--店家資訊卡文字部分-->
+				         <div class="div_store_card-02">
+				            <table class="div_store_info_card02_table">
+				                <tr>
+				                    <td class="div_store_info_card02_td01">店家地址｜</td>
+				                    <td class="div_store_info_p2" ><?php echo $store['storeAddress']; ?></td>
+				                </tr>
+				                <tr>
+				                    <td class="div_store_info_card02_td01">店家電話｜</td>
+				                    <td class="div_store_info_p2"><?php echo $store['storeNumber']; ?></td>
+				                </tr>
+				                <tr>
+				                    <td class="div_store_info_card02_td01">營業時間｜</td>
+				                    <td class="div_store_info_p2"><?php echo $store['storeTime']; ?></td>
+				                </tr>
+				                <tr>
+				                    <td class="div_store_info_card02_td01">消費模式｜</td>
+				                    <td class="div_store_info_p2" ><?php echo $store['storeSpend'];?></td>
+				                </tr>
+				            </table>
+				         </div>
+				    </section>
+				    <aside class="div_store_aside">
+				        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.869828371786!2d121.5343891150057!3d25.0045387839862!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a9f625cc066d%3A0xb72b462e76eaa98b!2zU3dhbiBDYWZlIOWkqem1neahjOmBiumkqA!5e0!3m2!1szh-TW!2stw!4v1474128298550" width="485" height="450" frameborder="0" style="border:0" allowfullscreen>
+				        </iframe>
+				        <div class="div_store_btn">
+				            <a class="btn" onClick="javascript:Store_inf.style.display='none';">關閉</a>
+				        </div>
+				    </aside>
+				</div>
+		  	</div>   
+			<?php
+		}
+		?>
+		
 	</body>
 </html>
