@@ -10,6 +10,15 @@
 		<?php 
 			include('../../include/link.php');
 			include('../../include/sessionCheck.php');
+			if(isset($_POST['close'])){
+				if(isset($_GET['storePlace'])){
+					$storePlace = $_GET['storePlace'];
+					header('location:store2.php?storePlace='.$storePlace);
+				}
+				else{
+					header('location:store2.php');
+				}
+			}
 			include('../../include/storeHeader.php'); 
 		?>
 		<section>
@@ -50,7 +59,7 @@
 					<div class="store_select_word">店家篩選</div>
 					<div class="store_select_button0">
 						<span class="store_select_button1">
-							<a href="#" class="store_select_myButton">全部</a>
+							<a href="store2.php" class="store_select_myButton">全部</a>
 						</span>
 						<span class="store_select_button2">
 							<a class="store_select_myButton" onClick="openlocal(local)">地區</a>
@@ -60,37 +69,37 @@
 								    <div class="local_scroll">
 								      <div>
 									        <div class="local_place">北部</div>
-									        <div class="css-input">台北市</div>
-									        <div class="css-input">新北市</div>
-									        <div class="css-input">基隆市</div>
-									        <div class="css-input">桃園縣</div>
-									        <div class="css-input">新竹市</div>
-									        <div class="css-input">新竹縣</div>
-											<div class="css-input">宜蘭縣</div>
+									        <button onclick="window.location.href='store2.php?storePlace=台北市'" class="css-input">台北市</button>
+									        <div onclick="window.location.href='store2.php?storePlace=新北市'" class="css-input">新北市</div>
+									        <div onclick="window.location.href='store2.php?storePlace=基隆市'" class="css-input">基隆市</div>
+									        <div onclick="window.location.href='store2.php?storePlace=桃園縣'" class="css-input">桃園縣</div>
+									        <div onclick="window.location.href='store2.php?storePlace=新竹市'" class="css-input">新竹市</div>
+									        <div onclick="window.location.href='store2.php?storePlace=新竹縣'" class="css-input">新竹縣</div>
+											<div onclick="window.location.href='store2.php?storePlace=宜蘭縣'" class="css-input">宜蘭縣</div>
 								      </div>
 								      <div>
 								          <div class="local_place">中部</div>
-								          <div class="css-input">苗栗縣</div>
-								          <div class="css-input">台中市</div>
-								          <div class="css-input">彰化縣</div>
+								          <div onclick="window.location.href='store2.php?storePlace=苗栗縣'" class="css-input">苗栗縣</div>
+								          <div onclick="window.location.href='store2.php?storePlace=台中市'" class="css-input">台中市</div>
+								          <div onclick="window.location.href='store2.php?storePlace=彰化縣'" class="css-input">彰化縣</div>
 								      </div>
 								      <div>
 								          <div class="local_place">南部</div>
-								          <div class="css-input">雲林縣</div>
-								          <div class="css-input">嘉義市（縣）</div>
-								          <div class="css-input">台南市</div>
-								          <div class="css-input">高雄市</div>
-								          <div class="css-input">屏東縣</div>
+								          <div onclick="window.location.href='store2.php?storePlace=雲林縣'" class="css-input">雲林縣</div>
+								          <div onclick="window.location.href='store2.php?storePlace=嘉義市'" class="css-input">嘉義市（縣）</div>
+								          <div onclick="window.location.href='store2.php?storePlace=台南市'" class="css-input">台南市</div>
+								          <div onclick="window.location.href='store2.php?storePlace=高雄市'" class="css-input">高雄市</div>
+								          <div onclick="window.location.href='store2.php?storePlace=屏東縣'" class="css-input">屏東縣</div>
 								      </div>
 								      <div>
 								          <div class="local_place">東部</div>
-								          <div class="css-input">花蓮縣</div>
-								          <div class="css-input">台東縣</div>
+								          <div onclick="window.location.href='store2.php?storePlace=花蓮縣'" class="css-input">花蓮縣</div>
+								          <div onclick="window.location.href='store2.php?storePlace=台東縣'" class="css-input">台東縣</div>
 								      </div>
 								      <div>
 								          <div class="local_place">外島</div>
-								          <div class="css-input">澎湖縣</div>
-								          <div class="css-input">金門縣</div>
+								          <div onclick="window.location.href='store2.php?storePlace=澎湖縣'" class="css-input">澎湖縣</div>
+								          <div onclick="window.location.href='store2.php?storePlace=金門縣'" class="css-input">金門縣</div>
 								      </div>
 								    </div>
 								  </div>   
@@ -126,26 +135,36 @@
 						?>
 						<div class="store_info_card-0">
 							<div class="store_info_card01"><!--店家資訊卡店名與圖片部分-->
-								<div class="store_name" onClick="opendiv(Store_inf)"><?php echo $storePlace['storeName']?></div>
-								<div><img class="store_img" src="../../jomor_html/img/swancafe01.jpg" onClick="opendiv(Store_inf)"></div>
+								<div class="store_name" onClick="window.location.href='store2.php?storeName=<?php echo $storePlace['storeName'];?>'"><?php echo $storePlace['storeName']?></div>
+								<div><img class="store_img" src="../../jomor_html/img/swancafe01.jpg" onClick="window.location.href='store2.php?storeName=<?php echo $storePlace['storeName'];?>"></div><!--圖片連結等有圖片了之後再補上，不然現在太醜了-->
 							</div>
 							<!--店家資訊卡文字部分-->
 							<div class="store_info_card02">
 								<table class="store_info_card02_table">
 									<tr>
 										<td class="store_info_card02_td01">店家地址｜</td>
-										<td class="store_info_p2">台北市羅斯福路五段170巷37號一樓</td>
+										<td class="store_info_p2" title="<?php echo $storePlace['storeAddress'];?>">
+											<?php 
+												$str=$storePlace['storeAddress']; 
+												echo ((mb_strlen($str,'utf8')>10) ? mb_substr($str,0,11,'utf8') : $str).' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
+											?>													
+										</td>
 									</tr>
 									<tr>
 										<td class="store_info_card02_td01">店家電話｜</td>
-										<td class="store_info_p2">(02)2930-8983</td>
+										<td class="store_info_p2"><?php echo $storePlace['storeNumber']?></td>
 									</tr>
 									<tr>
 										<td class="store_info_card02_td01">營業時間｜</td>
-										<td class="store_info_p2">每天10:00-22:00</td>
+										<td class="store_info_p2" title="<?php echo $storePlace['storeTime'];?>">
+											<?php 
+												$str=$storePlace['storeTime']; 
+												echo ((mb_strlen($str,'utf8')>10) ? mb_substr($str,0,11,'utf8') : $str).' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
+											?>
+										</td>
 									</tr>
 								</table>
-								<div class="store_triangle" onClick="opendiv(Store_inf)"><!-- 三角形開啟按鍵 -->
+								<div class="store_triangle" onClick="window.location.href='store2.php?storePlace=<?php echo $_GET['storePlace'];?>&storeName=<?php echo $storePlace['storeName'];?>'"><!-- 三角形開啟按鍵 -->
              					</div>
 							</div>
 						</div> 
@@ -201,8 +220,7 @@
 						</div> 
 						<?php
 					}
-				}
-				
+				}				
 			?>
 							
 		</section>
@@ -268,9 +286,11 @@
 				    <aside class="div_store_aside">
 				        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.869828371786!2d121.5343891150057!3d25.0045387839862!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a9f625cc066d%3A0xb72b462e76eaa98b!2zU3dhbiBDYWZlIOWkqem1neahjOmBiumkqA!5e0!3m2!1szh-TW!2stw!4v1474128298550" width="485" height="450" frameborder="0" style="border:0" allowfullscreen>
 				        </iframe>
-				        <div class="div_store_btn">
-				            <a class="btn" onClick="javascript:Store_inf.style.display='none';">關閉</a>
-				        </div>
+				        <form method="post">
+				        	<div class="div_store_btn">
+				        		<button name="close" class="btn">關閉</button>
+					        </div>
+				        </form>				        
 				    </aside>
 				</div>
 		  	</div>   
