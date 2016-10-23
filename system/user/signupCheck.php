@@ -2,7 +2,7 @@
 header("Content-Type:text/html; charset=utf-8");
 //建立session並製作no亂碼
 
-include('link.php');
+include('../../include/link.php');
 include('accountMail.php');
 
 $account = $_POST["account"];

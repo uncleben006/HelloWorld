@@ -1,7 +1,13 @@
 <?php
+//整合進edit.php
+//整合進edit.php
+//整合進edit.php
+//整合進edit.php
+//整合進edit.php
+
 session_start();
 if(isset($_POST['alter'])){
-include('link.php');
+include('../../include/link.php');
 $no = $_POST['no'];
 $pri = $_POST['pri'];
 $account = $_POST['account'];
@@ -89,7 +95,7 @@ if(isset($successMSG)){
 
 		<?php
 		header("Content-Type:text/html; charset=utf-8");
-		include('link.php');
+		include('../../include/link.php');
 		$no = $_SESSION["no"];
 		$pri = $_SESSION["pri"];
 		$account = $_SESSION["account"];

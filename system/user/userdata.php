@@ -10,8 +10,8 @@
 	<body id="body0">
 		<?php 
 		header("Content-Type:text/html; charset=utf-8");
-		include('link.php');
-		include('sessionCheck.php');
+		include('../../include/link.php');
+		include('../../include/sessionCheck.php');
 		$no = $_SESSION["no"];
 		$pri = $_SESSION["pri"];
 		$account = $_SESSION["account"];

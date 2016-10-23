@@ -170,7 +170,7 @@ function pic2() {
 
 /*揪團頁面裡，瀏覽房間中對成員的「查看與踢除」功能，selection的hidden與show*/
 function selectShow(x) {
-    x.style.visibility = 'hidden';
+    x.select.option.style.visibility = 'hidden';
     if (x.style.visibility === 'hidden') {
         x.style.visibility = 'visible';
     } else {

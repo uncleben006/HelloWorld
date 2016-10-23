@@ -24,7 +24,7 @@
 		?>
 		<section>
 			<div class="individual_bg">
-			<!--左邊欄位的頭像白框-->
+				<!--左邊欄位的頭像白框-->
 				<div class="aside_l">
 					<div class="individual_head_ph_div">
 						<span class="individual_head_ph_img_span">
@@ -41,7 +41,7 @@
 						<p class="aboutme_introduce"><?php echo $userAccount['introduction'] ?></p>
 					</div>
 				</div>
-			<!--右邊欄位的第一行-->
+				<!--右邊欄位的第一行-->
 				<div class="aside_r01">
 					<div>
 						<p class="my_info">個人資料修改</p>

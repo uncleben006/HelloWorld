@@ -736,31 +736,18 @@
 										                    			</a>							                    			    
 										                    		</div> 
 											                      	<img class="jo_photo" src="../user/photo/<?php echo $memberHost['photo']; ?>">
-
 											                      	<!--帳號欄包含選單-->
-											                      	<div class="jo_acount">
-											                      		<div id="jo_select" class="jo_acount_selection">
-											                      			<form method="post">
-											                      				<!--要房長才會顯示-->
-											                      				<button name="deletePerson" class="jo_acount_select" value="<?php echo $memberHost['account']; ?>">踢除此成員</button>
-														                      	<div class="jo_acount_sborder"></div><!--要房長才會顯示-->
-														                      	<button class="jo_acount_select" ><a href="userData.php?account=<?php echo $memberHost['account']; ?>">查看個人資料</a></button>
-													                      	</form>
-											                      		</div>
-											                      		<div style="clear:both"></div>   
-										                        		<div class="jo_acount_no">
+											                      	<div class="jo_acount">											                      		
+										                        		<div class="jo_acount">
 										                        			<?php echo $memberHost['account']; ?>
-										                        			<div class="player_a_img">
-												                    			<img 
-												                    				id="triangle" 
-												                    				class="jo_striangle_img" 
-												                    				src="../../jomor_html/img/jo_triangle.png" 
-												                    				onmouseover="this.src='../../jomor_html/img/jo_triangle2.png'" 
-													                    			onmouseout="this.src='../../jomor_html/img/jo_triangle.png'"
-												                    				onClick="selectShow(jo_select);"
-												                    			>
-												                    		</div>
+										                        			<div class="player_select_div">
+																				<select class="player_select" onchange="window.open(this.options[this.selectedIndex].value)">
+											                        				<option value="deletePerson.php?account=<?php echo $memberHost['account']; ?>&no=<?php echo $no; ?>">踢除此成員</option>
+											                        				<option value="userData.php?account=<?php echo $memberHost['account']; ?>">查看個人資料</option>
+											                        			</select>
+																			</div>	
 										                        		</div>
+
 										                        	</div>
 										                    	</div>						                    		
 									                      	</div> 
@@ -782,28 +769,13 @@
 
 												                      	<!--帳號欄包含選單-->
 												                      	<div class="jo_acount">
-												                      		<div id="jo_select" class="jo_acount_selection">
-												                      			<form method="post">
-												                      				<!--要房長才會顯示-->
-												                      				<button name="deletePerson" class="jo_acount_select" value="<?php echo $onlyMember['account']; ?>">踢除此成員</button>
-															                      	<div class="jo_acount_sborder"></div><!--要房長才會顯示-->
-															                      	<button class="jo_acount_select" ><a href="userData.php?account=<?php echo $onlyMember['account']; ?>">查看個人資料</a></button>
-														                      	</form>
-												                      		</div>
-												                      		<div style="clear:both"></div>   
-											                        		<div class="jo_acount_no">
-											                        			<?php echo $onlyMember['account']; ?>
-											                        			<div class="player_a_img">
-													                    			<img 
-													                    				id="triangle" 
-													                    				class="jo_striangle_img" 
-													                    				src="../../jomor_html/img/jo_triangle.png" 
-													                    				onmouseover="this.src='../../jomor_html/img/jo_triangle2.png'" 
-													                    				onmouseout="this.src='../../jomor_html/img/jo_triangle.png'"
-													                    				onClick="selectShow()"
-													                    			>
-													                    		</div>
-											                        		</div>
+										                        			<?php echo $onlyMember['account']; ?>
+										                        			<div class="player_select_div">
+																				<select class="player_select" onchange="window.open(this.options[this.selectedIndex].onClick())" >
+											                        				<option onClick="window.location.href='deletePerson.php'(this[this.selectedIndex].value)" value="deletePerson.php?account=<?php echo $onlyMember['account']; ?>&no=<?php echo $no; ?>">踢除此成員</option>
+											                        				<option value="userData.php?account=<?php echo $onlyMember['account']; ?>">查看個人資料</option>
+											                        			</select>
+																			</div>	
 											                        	</div>
 											                    	</div>							                    		
 										                      	</div>
@@ -819,7 +791,7 @@
 										                    			<div class="player_tr_frame" >
 										                    				<div class="player_td02">等待中</div> 
 													                      	<img class="jo_photo" src="../../jomor_html/img/jo_photo.png">
-											                        		<div class="jo_acount_no">empty</div>
+											                        		<div class="jo_acount">empty</div>
 										                    			</div>								                    		
 											                      	</div>
 										                    	</div>

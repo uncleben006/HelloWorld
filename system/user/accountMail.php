@@ -1,3 +1,7 @@
+<!--給signupCheck.php include-->
+<!--給signupCheck.php include-->
+<!--給signupCheck.php include-->
+
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <?php
 header("Content-Type:text/html; charset=utf-8");

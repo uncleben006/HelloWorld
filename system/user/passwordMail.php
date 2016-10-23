@@ -1,3 +1,7 @@
+<!--給forget.php include-->
+<!--給forget.php include-->
+<!--給forget.php include-->
+
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <?php
 $email = $_POST['email'];

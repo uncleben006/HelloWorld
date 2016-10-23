@@ -1,5 +1,5 @@
 <?php
-include('link.php');
+include('../../include/link.php');
 session_start();
 $account = $_SESSION['account'];
 if(empty($_SESSION['account'])){

@@ -2211,9 +2211,9 @@ input:focus{outline:none}
 }
 .player_table{
 	position: relative;
-	top: 1%;
-	left: 2%;
-	display: table;
+    top: 10%;
+    left: 5%;
+	/*display: table;*/
 	border-collapse:separate;/*讓div畫的表格可產生空隙*/
  	border-spacing: 20px;/*讓div畫的表格可產生空隙*/
 }
@@ -2228,8 +2228,6 @@ input:focus{outline:none}
 }
 .player_waiting{
 	display: inline-block;
-	position: relative;
-	bottom: 50px;
 }
 .player_a_frame{
 	width:110px;
@@ -2251,11 +2249,36 @@ input:focus{outline:none}
     text-decoration: inherit;
     position: relative;
 }
-.player_a_img{
+.player_select_div{
 	float: right;
-	width: 30px;
-	text-align: center;
-	border-left:2px solid;
+	position: relative;
+	right: 3px;
+    top: 3px;
+    border-left: 2px solid;
+    border-style: solid;
+	border-width: 20px 8px 0 8px;
+	border-color: #645a59 transparent transparent transparent;
+}
+.player_select_div:hover{
+	float: right;
+	position: relative;
+	right: 3px;
+    top: 4px;
+    border-left: 2px solid;
+	border-style: solid;
+	border-width: 20px 8px 0 8px;
+	border-color: #c1c1c1 transparent transparent transparent;
+}
+.player_select{
+	float: left;
+	position: absolute;
+    top: -23px;
+    right: -12px;
+    margin: 0;
+    padding-top: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    opacity: 0;
 }
 .jo_striangle_img{
 	width: 14px;
@@ -2306,8 +2329,13 @@ input:focus{outline:none}
 }
 
 .jo_acount{
-	position: relative;
-	bottom:50px;
+	color: #8C8C8C;
+	background-color: #ffffff;
+	width: 100%;
+	height: 25px;
+	line-height: 25px;
+	font-size: 15px;
+	text-align: center;
 }
 .jo_acount_selection{
 	visibility: hidden;
@@ -2335,15 +2363,6 @@ input:focus{outline:none}
 	background-color:#8b8a8a;
 	border-radius: 50px;
 	margin:0 auto;
-}
-.jo_acount_no{
-	color: #8C8C8C;
-	background-color: #ffffff;
-	width: 100%;
-	height: 25px;
-	line-height: 25px;
-	font-size: 15px;
-	text-align: center;
 }
 
 .join_btn {
@@ -3045,7 +3064,7 @@ position: relative;
 	background-color: #ffffff;
 	width: 29%;
 	height: 555px;
-	top: 6%;
+	top: 10%;
 	margin-left: 10%;
 	border-radius: 25px;
 }
@@ -3119,7 +3138,7 @@ position: relative;
 	background-color: #ffffff;
 	width: 49%;
 	height: 270px;
-	top: 6%;
+	top: 10%;
 	border-radius: 25px;
 }
 .my_info{
@@ -3158,7 +3177,7 @@ position: relative;
 	background-color: #ffffff;
 	width: 49%;
 	height: 270px;
-	top: 8%;
+	top: 12%;
 	border-radius: 25px;
 }
 .my_info_text{
@@ -3179,7 +3198,7 @@ position: relative;
 	background-color: #ffffff;
 	max-width: 80%;
 	height: 270px;
-	top: 8%;
+	top: 12%;
 	border-radius: 25px;
 }
 .privacy_div{
