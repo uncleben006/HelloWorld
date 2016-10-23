@@ -222,9 +222,9 @@
 		 	//刪除成員
 		 	//刪除成員
 		 	//刪除成員
-			if(isset($_POST['deletePerson'])){
+			if(isset($_GET['deleteAccount'])){
 				$no = $_GET['no'];
-				$account = $_POST['deletePerson'];
+				$account = $_GET['deleteAccount'];
 				$deletePerson = "DELETE FROM `member` WHERE `no`='".$no."' AND `account`='".$account."'";
 				mysql_query($deletePerson);
 				header("Location:jo.php?no=".$no);
@@ -741,9 +741,10 @@
 										                        		<div class="jo_acount">
 										                        			<?php echo $memberHost['account']; ?>
 										                        			<div class="player_select_div">
-																				<select class="player_select" onchange="window.open(this.options[this.selectedIndex].value)">
-											                        				<option value="deletePerson.php?account=<?php echo $memberHost['account']; ?>&no=<?php echo $no; ?>">踢除此成員</option>
-											                        				<option value="userData.php?account=<?php echo $memberHost['account']; ?>">查看個人資料</option>
+																				<select class="player_select" onchange="location.href=this.options[this.selectedIndex].value" >
+																					<option>權限:房主</option>
+											                        				<option value="jo.php?deleteAccount=<?php echo $memberHost['account']; ?>&no=<?php echo $no; ?>">踢除成員</option>
+											                        				<option value="userData.php?account=<?php echo $memberHost['account']; ?>">查看資料</option>
 											                        			</select>
 																			</div>	
 										                        		</div>
@@ -771,9 +772,10 @@
 												                      	<div class="jo_acount">
 										                        			<?php echo $onlyMember['account']; ?>
 										                        			<div class="player_select_div">
-																				<select class="player_select" onchange="window.open(this.options[this.selectedIndex].onClick())" >
-											                        				<option onClick="window.location.href='deletePerson.php'(this[this.selectedIndex].value)" value="deletePerson.php?account=<?php echo $onlyMember['account']; ?>&no=<?php echo $no; ?>">踢除此成員</option>
-											                        				<option value="userData.php?account=<?php echo $onlyMember['account']; ?>">查看個人資料</option>
+																				<select class="player_select" onchange="location.href=this.options[this.selectedIndex].value" >
+																					<option>權限:成員</option>
+											                        				<option value="jo.php?deleteAccount=<?php echo $onlyMember['account']; ?>&no=<?php echo $no; ?>">踢除成員</option>
+											                        				<option value="userData.php?account=<?php echo $onlyMember['account']; ?>">查看資料</option>
 											                        			</select>
 																			</div>	
 											                        	</div>
