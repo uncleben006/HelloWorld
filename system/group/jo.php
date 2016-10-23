@@ -97,12 +97,20 @@
 			if(isset($_POST['yes'])){
 				$no = $_GET['no'];
 				//把session資料insert進 member table
-				$uno = $_SESSION['no'];
+				$selectMemberNo = "SELECT * FROM `member` WHERE `no`= '".$no."' ";
+				mysql_query("SET NAMES'UTF8'");
+				mysql_query("SET CHARACTER SET UTF8");
+				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+				$selectMemberNo = mysql_query($selectMemberNo);
+				$memberNo = mysql_fetch_assoc($selectMemberNo);
 				$account = $_SESSION['account'];
-				$name = $_SESSION['name'];
-				$email = $_SESSION['email'];
-				$photo = $_SESSION['photo'];
-				$mysql3 = 'INSERT INTO `member`(`no`,`people`, `name`, `account`,`email`, `photo`) VALUES ("'.$no.'","'.$people.'","'.$name.'","'.$account.'","'.$email.'","'.$photo.'")';
+				$selectUserAccount = "SELECT * FROM `user` WHERE `account` = '".$account."'";
+			    mysql_query("SET NAMES'UTF8'");
+				mysql_query("SET CHARACTER SET UTF8");
+				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+				$selectUserAccount = mysql_query($selectUserAccount);
+				$userAccount = mysql_fetch_assoc($selectUserAccount);
+				$mysql3 = 'INSERT INTO `member`(`no`,`people`, `name`, `account`,`email`, `photo`) VALUES ("'.$no.'","'.$memberNo['people'].'","'.$userAccount['name'].'","'.$userAccount['account'].'","'.$userAccount['email'].'","'.$userAccount['photo'].'")';
 				mysql_query("SET NAMES'UTF8'");
 				mysql_query("SET CHARACTER SET UTF8");
 				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
@@ -332,6 +340,7 @@
 									mysql_query($setSQL2);
 									$setSQL3 = "DELETE FROM `chat` WHERE `no`=".$no."";
 									mysql_query($setSQL3);
+									$setSQL4 = "DELETE FROM `remind` WHERE `no` = ".$no."";
 									//header("Location:jo.php");//為了避免刪除以後頁面仍顯示房間，導回原頁面做重新整理
 								}
 							?>
@@ -742,8 +751,7 @@
 										                        			<?php echo $memberHost['account']; ?>
 										                        			<div class="player_select_div">
 																				<select class="player_select" onchange="location.href=this.options[this.selectedIndex].value" >
-																					<option>權限:房主</option>
-											                        				<option value="jo.php?deleteAccount=<?php echo $memberHost['account']; ?>&no=<?php echo $no; ?>">踢除成員</option>
+																					<option value="">權限:房主</option>
 											                        				<option value="userData.php?account=<?php echo $memberHost['account']; ?>">查看資料</option>
 											                        			</select>
 																			</div>	
@@ -771,10 +779,17 @@
 												                      	<!--帳號欄包含選單-->
 												                      	<div class="jo_acount">
 										                        			<?php echo $onlyMember['account']; ?>
+
 										                        			<div class="player_select_div">
 																				<select class="player_select" onchange="location.href=this.options[this.selectedIndex].value" >
-																					<option>權限:成員</option>
-											                        				<option value="jo.php?deleteAccount=<?php echo $onlyMember['account']; ?>&no=<?php echo $no; ?>">踢除成員</option>
+																					<option value="">權限:成員</option>
+																					<?php 
+												                        				if($_SESSION['account']==$memberHost['account']&&$roomNo['decide']==0){
+												                        					?>
+												                        					<option value="jo.php?deleteAccount=<?php echo $onlyMember['account']; ?>&no=<?php echo $no; ?>">踢除成員</option>
+												                        					<?php
+												                        				}
+												                        			?>											                        				
 											                        				<option value="userData.php?account=<?php echo $onlyMember['account']; ?>">查看資料</option>
 											                        			</select>
 																			</div>	

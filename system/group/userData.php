@@ -10,19 +10,21 @@
 	<body id="body0">
 		<?php 
 		header("Content-Type:text/html; charset=utf-8");
-		include('link.php');
-		include('../../include/sessionCheck.php');
-		$account = $_GET['account'];
-
-		$selectUserAccount = "SELECT * FROM `user` WHERE `account` = '".$account."'";
-		mysql_query("SET NAMES'UTF8'");
-		mysql_query("SET CHARACTER SET UTF8");
-		mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
-		$selectUserAccount = mysql_query($selectUserAccount);
-		$userAccount = mysql_fetch_assoc($selectUserAccount);
+		include('../../include/link.php');
+		include('../../include/sessionCheck.php');		
 		include('../../include/groupHeader.php');
 		?>
 		<section>
+			<?php
+			$account = $_GET['account'];
+
+			$selectUserAccount = "SELECT * FROM `user` WHERE `account` = '".$account."'";
+			mysql_query("SET NAMES'UTF8'");
+			mysql_query("SET CHARACTER SET UTF8");
+			mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+			$selectUserAccount = mysql_query($selectUserAccount);
+			$userAccount = mysql_fetch_assoc($selectUserAccount);
+			?>
 			<div class="individual_bg">
 				<!--左邊欄位的頭像白框-->
 				<div class="aside_l">
@@ -32,7 +34,7 @@
 						</span>
 					</div>
 					<div class="individual_score">
-						<p>zxcvb1234</p>
+						<p><?php echo $userAccount['account'] ?></p>
 						<p>評價：5分</p>
 					</div>
 					<hr color="#4EBABF" size="5" width="95%">

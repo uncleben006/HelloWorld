@@ -2327,6 +2327,7 @@ input:focus{outline:none}
 	margin: 15px 0 15px 0px;
 	width: 90px;
 	height: 90px;
+	border-radius: 50px;
 }
 
 .jo_acount{
