@@ -32,6 +32,7 @@ button{
 	width:100%;
 	margin: 0 auto;
 	text-align: center;
+	top:10px;
 }
 .top_tr{
 	position: relative;
@@ -235,7 +236,7 @@ button{
 	height: 130px;
 	overflow:auto;/*超出框顯示捲軸*/
 	right:80%;
-	top: 5px;
+	top: 10px;
 }
 .notify_div01{
 	position: relative;
@@ -256,6 +257,12 @@ button{
 .notify_headph{
 	position: relative;
 	top: 10px;
+	width: 60%;
+	height: 84%;
+}
+.notify_attention{
+	position: relative;
+	top: 5px;
 	width: 60%;
 	height: 84%;
 }

@@ -50,38 +50,69 @@
 										mysql_query("SET CHARACTER SET UTF8");
 										mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
 										$selectRemindAccount = mysql_query($selectRemindAccount);
-
-										?>
-										<div class="notify_fram">
-											<?php
-											while($remindAccount = mysql_fetch_assoc($selectRemindAccount)){
-												$selectUserHost = "SELECT * FROM `user` WHERE `account` = '".$remindAccount['host']."'";
-												mysql_query("SET NAMES'UTF8'");
-												mysql_query("SET CHARACTER SET UTF8");
-												mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
-												$selectUserHost = mysql_query($selectUserHost);
-												$userHost = mysql_fetch_assoc($selectUserHost);
-												$photo = $userHost['photo'];
-												$name = $userHost['name'];
-												$date = date("m/d",strtotime($remindAccount['date']));
-												$time = date("H:i",strtotime($remindAccount['time']));
-												?>
-											  		
-													<div class="notify_div01">
-											            <div class="notify_div_img">
-											              	<img src="../user/photo/<?php echo $photo; ?>" class="notify_headph">
-											            </div>
-											            <div class="notify_div_p">
-											                <p>您於剛剛正式加入<font color="red"><?php echo $name; ?></font>所創建的房間<font color="red"><?php echo $remindAccount['room']; ?></font>，提醒您<font color="red"><?php echo $date; ?></font> <font color="red"><?php echo $time; ?></font>在天鵝咖啡館別遲到囉～</p>
-											            </div>
-													</div>
-											  	<?php   
-											}
+										$remindNum = mysql_num_rows($selectRemindAccount);
+										if($remindNum>0){
 											?>
-										</div>  
-										<?php
+											<div class="notify_fram">
+												<?php
+												//做提醒判定，
+												// 0 ==鎖定房間
+												// 1 ==被踢出房間
+												// 2 ==房主刪除房間
+												while($remindAccount = mysql_fetch_assoc($selectRemindAccount)){
+													$selectUserHost = "SELECT * FROM `user` WHERE `account` = '".$remindAccount['host']."'";
+													mysql_query("SET NAMES'UTF8'");
+													mysql_query("SET CHARACTER SET UTF8");
+													mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+													$selectUserHost = mysql_query($selectUserHost);
+													$userHost = mysql_fetch_assoc($selectUserHost);
+													$photo = $userHost['photo'];
+													$name = $userHost['name'];
+													$date = date("m/d",strtotime($remindAccount['date']));
+													$time = date("H:i",strtotime($remindAccount['time']));
+													if($remindAccount['decide']==0){														
+														?>
+															<div class="notify_div01">
+													            <div class="notify_div_img">
+													              	<img src="../user/photo/<?php echo $photo; ?>" class="notify_headph">
+													            </div>
+													            <div class="notify_div_p">
+													                <p>您於剛剛正式加入<font color="red"><?php echo $name; ?></font>所創建的房間<font color="red"><?php echo $remindAccount['room']; ?></font>，提醒您<font color="red"><?php echo $date; ?></font> <font color="red"><?php echo $time; ?></font>在天鵝咖啡館別遲到囉～</p>
+													            </div>
+															</div>
+													  	<?php   
+													}
+													if($remindAccount['decide']==1){
+														?>
+															<div class="notify_div01">
+													            <div class="notify_div_img">
+													              	<img src="../../jomor_html/img/attention.png" class="notify_attention">
+													            </div>
+													            <div class="notify_div_p">
+													                <p>您於剛剛被<font color="red"><?php echo $name; ?></font>踢出了房間，房名為<font color="red"><?php echo $remindAccount['room']; ?></font></p>
+													            </div>
+															</div>
+													  	<?php  
+													}
+													if($remindAccount['decide']==2){
+														?>
+															<div class="notify_div01">
+													            <div class="notify_div_img">
+													              	<img src="../../jomor_html/img/attention.png" class="notify_attention">
+													            </div>
+													            <div class="notify_div_p">
+													                <p><font color="red"><?php echo $name; ?></font>因為個人因素刪除了房間，房名為<font color="red"><?php echo $remindAccount['room']; ?></font></p>
+													            </div>
+															</div>
+													  	<?php  
+													}
+												}
+												?>
+											</div>  
+											<?php
+										}										
 									}
-								?>	  
+								?>		  
 							</div> 
 						</td>
 						<?php

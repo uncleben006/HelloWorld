@@ -232,9 +232,32 @@
 		 	//刪除成員
 			if(isset($_GET['deleteAccount'])){
 				$no = $_GET['no'];
-				$account = $_GET['deleteAccount'];
+				$account = $_GET['deleteAccount'];				
+
+				$selectRoomNo = "SELECT * FROM `room` WHERE `no` = '".$no."'";
+				mysql_query("SET NAMES'UTF8'");
+				mysql_query("SET CHARACTER SET UTF8");
+				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+				$selectRoomNo = mysql_query($selectRoomNo);
+				$roomNo = mysql_fetch_assoc($selectRoomNo);
+				
+				$selectMemberAccount = "SELECT * FROM `member` WHERE `no` = '".$no."' AND `account`= '".$account."' ";
+				echo $selectMemberAccount;
+				mysql_query("SET NAMES'UTF8'");
+				mysql_query("SET CHARACTER SET UTF8");
+				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+				$selectMemberAccount = mysql_query($selectMemberAccount);
+				$memberAccount = mysql_fetch_assoc($selectMemberAccount);
+
+				$insertMemberRemind = 'INSERT INTO `remind`(`no`, `account`, `email`, `host`, `room`, `date`, `time`, `store`,`decide`) VALUES ("'.$no.'","'.$memberAccount['account'].'","'.$memberAccount['email'].'","'.$roomNo['host'].'","'.$roomNo['room'].'","'.$roomNo['date'].'","'.$roomNo['time'].'","'.$roomNo['store'].'","1")';
+				mysql_query("SET NAMES'UTF8'");
+				mysql_query("SET CHARACTER SET UTF8");
+				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+				mysql_query($insertMemberRemind);	
+
 				$deletePerson = "DELETE FROM `member` WHERE `no`='".$no."' AND `account`='".$account."'";
 				mysql_query($deletePerson);
+				
 				header("Location:jo.php?no=".$no);
 			}
 
@@ -242,11 +265,33 @@
 			//刪除房間
 			//刪除房間
 			if(isset($_POST['deleteRoom'])){
-				$no = $_GET['no'];
+				$no = $_GET['no'];				
+
+				$selectRoomNo = "SELECT * FROM `room` WHERE `no` = '".$no."'";
+				mysql_query("SET NAMES'UTF8'");
+				mysql_query("SET CHARACTER SET UTF8");
+				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+				$selectRoomNo = mysql_query($selectRoomNo);
+				$roomNo = mysql_fetch_assoc($selectRoomNo);
+				
+				$selectMemberNo = "SELECT * FROM `member` WHERE `no`= '".$no."' ";
+				mysql_query("SET NAMES'UTF8'");
+				mysql_query("SET CHARACTER SET UTF8");
+				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+				$selectMemberNo = mysql_query($selectMemberNo);
+				while($memberNo = mysql_fetch_assoc($selectMemberNo)){
+					$insertMemberRemind = 'INSERT INTO `remind`(`no`, `account`, `email`, `host`, `room`, `date`, `time`, `store`,`decide`) VALUES ("'.$no.'","'.$memberNo['account'].'","'.$memberNo['email'].'","'.$roomNo['host'].'","'.$roomNo['room'].'","'.$roomNo['date'].'","'.$roomNo['time'].'","'.$roomNo['store'].'","2")';
+					mysql_query("SET NAMES'UTF8'");
+					mysql_query("SET CHARACTER SET UTF8");
+					mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+					mysql_query($insertMemberRemind);	
+				}
+
 				$deleteRoom = "DELETE FROM `room` WHERE `no` = '".$no."'";
 				$deleteRoomMember = "DELETE FROM `member` WHERE `no` = '".$no."'";
 				mysql_query($deleteRoom);
 				mysql_query($deleteRoomMember);
+
 				header("Location:jo.php");
 			}
 
@@ -276,8 +321,7 @@
 					mysql_query("SET NAMES'UTF8'");
 					mysql_query("SET CHARACTER SET UTF8");
 					mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
-					mysql_query($insertMemberRemind);				
-
+					mysql_query($insertMemberRemind);	
 				}
 				include('mailer.php');
 			}
