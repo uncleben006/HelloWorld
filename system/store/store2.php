@@ -28,7 +28,7 @@
 				<span class="store_span">
 					<content>
 						<marquee class="store_marquee">
-							<div style="margin-top:4px">這裡放要跑的文字</div>
+							<div style="margin-top:4px">桌末狂歡上線囉～～快來一起玩桌遊！</div>
 						</marquee>
 					</content>
 				</span>

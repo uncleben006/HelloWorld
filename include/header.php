@@ -5,7 +5,7 @@
 					<tr class="top_tr">
 						<td rowspan="2" class="top_td0"><!--桌末狂歡logo-->
 							<a href="index.php">
-								<img src="jomor_html/img/logo.png" alt="logo" title="logo" width="50px" height="80px">
+								<img src="jomor_html/img/jomorparty_logo.png" alt="logo" title="logo" width="65px" height="65px">
 							</a>
 						</td>
 						<td rowspan="2" class="top_td1">

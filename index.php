@@ -36,32 +36,14 @@
 	</script>
 	<script type="text/javascript" src="javascript.js"></script>
 <meta charset="utf-8">
+<link rel="icon" href="jomor_html/img/jomorparty_logo.png" type="image/ico" />
 </head>
 	<body id="body0">
-
 		<?php 
-		include('include/link.php');
-		include('include/sessionCheck.php');
-		include('include/header.php') 
+			include('include/link.php');
+			include('include/sessionCheck.php');
+			include('include/header.php') 
 		?>		
-			<!--大富翁-->
-			<div class="Monopoly">
-				<div class="Monopoly_frame">
-					<img src="jomor_html/img/11.png" class="img-monopoly">
-					<div class="monopoly_button01"><!--店家地圖按鈕連結-->
-						<a href="store1-2.html" onmouseover="mouseOver1()" onmouseout="mouseOut1()"><img src="jomor_html/img/button01.png" width="170" height="150" id="a1"></a>
-					</div>
-					<div class="monopoly_button02"><!--我要揪團按鈕連結-->
-						<a href="jo.html" onmouseover="mouseOver2()" onmouseout="mouseOut2()"><img src="jomor_html/img/button02.png" width="176" height="152" id="a2"></a>
-					</div>
-					<div class="monopoly_button03"><!--桌遊專欄按鈕連結-->
-						<a href="blog.html" onmouseover="mouseOver3()" onmouseout="mouseOut3()"><img src="jomor_html/img/button04.png" width="170" height="150" id="a3"></a>
-					</div>
-					<div class="monopoly_button04"><!--我要討論按鈕連結-->
-						<a href="#.html" onmouseover="mouseOver4()" onmouseout="mouseOut4()"><img src="jomor_html/img/button06.png" width="176" height="152" id="a4"></a>
-					</div>
-				</div>
-			</div>
 		<!--輪播圖-->
 			<div id="container" class="cf">
 				<div id="main" role="main">
@@ -70,82 +52,137 @@
 			          <ul class="slides">
 			            <li>
 			  	    	    <img src="jomor_html/img/f1.png" />
-			  	    		</li>
-			  	    		<li>
-			  	    	    <img src="jomor_html/img/kitchen_adventurer_lemon.jpg" />
-			  	    		</li>
-			  	    		<li>
+			  	    	</li>
+			  	    	<li>
+			  	    	    <img src="jomor_html/img/f2.png" />
+			  	    	</li>
+			  	    	<li>
 			  	    	    <img src="jomor_html/img/kitchen_adventurer_donut.jpg" />
-			  	    		</li>
-			  	    		<li>
+			  	    	</li>
+			  	    	<li>
 			  	    	    <img src="jomor_html/img/kitchen_adventurer_caramel.jpg" />
-			  	    		</li>
+			  	    	</li>
 			          </ul>
 			        </div>
 			      </section>
 			    </div>
-			    			<!--輪播圖右下方圖片-->
-	   		<div>
-	   			<img src="jomor_html/img/12.png" class="img_flexslider">
-	   		</div>
-			  </div>
-   		<!--公告區-->
-   		<div class="news">
-   			<table>
-   				<tr>
-   					<td class="border_bottom"><img class="triangle_css"src="jomor_html/img/triangle.png" /></td>
-   					<td width="800px" class="border_bottom">最新公告</td>
-   					<td class="border_bottom"><a href="#" class="myButton">MORE</a></td>
-   					<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   					<td><img class="triangle_css"src="jomor_html/img/triangle.png" /></td>
-   					<td width="800px" class="border_bottom">討論版</td>
-   					<td><a href="#" class="myButton2">MORE</a></td>
-   				</tr>
-   				<tr>
-   					<td class="date_bg">2016/7/28</td>
-   					<td colspan="2" class="rows">好康大放送11111111111111111</td>
-   					<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   					<td class="date_bg_2">2016/7/28</td>
-   					<td colspan="2" class="rows">好康大放送11111111111111111-2</td>
-   				</tr>
-   				<tr>
-   					<td class="date_bg">2016/7/29</td>
-   					<td colspan="2" class="rows">好康大放送2222222222222222</td>
-   					<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   					<td class="date_bg_2">2016/7/28</td>
-   					<td colspan="2" class="rows">好康大放送222222222222222-2</td>
-   				</tr>
-   				<tr>
-   					<td class="date_bg">2016/8/08</td>
-   					<td colspan="2" class="rows">好康大放送33333333333333333</td>
-   					<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   					<td class="date_bg_2">2016/7/28</td>
-   					<td colspan="2" class="rows">好康大放送333333333333333-2</td>
-   				</tr>
-   				<tr>
-   					<td class="date_bg">2016/8/08</td>
-   					<td colspan="2" class="rows">好康大放送44444444444444</td>
-   					<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   					<td class="date_bg_2">2016/7/28</td>
-   					<td colspan="2" class="rows">好康大放送444444444444444-2</td>
-   				</tr>
-   			</table>
-   		</div>
-   		<!--底圖-->
-   		<div class="footer_bg">
-   			<img src="jomor_html/img/footerbg.png" width="1280">
-   		<!--底下導覽列-->
-	   		<footer>
-	   			<div class="footer_nav">
-				    <ul>
-				        <li class="fnav0"><a href="http://www.swanpanasia.com/">合作廠商</a></li>
-				        <li class="fnav1">│</li>
-				        <li class="fnav0"><a href="https://www.facebook.com/jomor.party/?fref=nf">粉絲專頁</a></li>
-				        <li class="fnav1">│</li>
-				        <li class="fnav0"><a href="aboutus.html">聯絡我們</a></li>
-				    </ul>
+			</div><!--輪播圖結束-->
+
+				<!--跳出皮皮君介紹-->
+					    <div id="aboutmascot01">
+					    <div class="aboutmascot_position">
+					        <div class="aboutmascot_fram01">
+					            <span class="aboutmascot_title">皮皮君簡介</span>
+					            <!--關掉的xx-->
+					            <span class="aboutmascot_close" onClick="javascript:aboutmascot01.style.visibility='hidden';">
+					            <img src="jomor_html/img/close.png" class="sure_close_img">
+					            </span>
+					        </div> 
+					            <div class="aboutmascot_fram02">
+					               <img src="jomor_html/img/aboutmascot1.png" class="aboutmascot_img">
+					            </div>
+					    </div> 
+					    </div><!--跳出熊哥介紹結束-->
+						<!--跳出熊哥介紹-->
+					    <div id="aboutmascot02">
+					    <div class="aboutmascot_position">
+					        <div class="aboutmascot_fram01">
+					            <span class="aboutmascot_title">熊哥簡介</span>
+					            <!--關掉的xx-->
+					            <span class="aboutmascot_close" onClick="javascript:aboutmascot02.style.visibility='hidden';">
+					            <img src="jomor_html/img/close.png" class="sure_close_img">
+					            </span>
+					        </div> 
+					            <div class="aboutmascot_fram02">
+					               <img src="jomor_html/img/aboutmascot2.png" class="aboutmascot_img">
+					            </div>
+					    </div> 
+					    </div><!--跳出熊哥介紹結束-->
+					    <!--跳出笨太郎介紹-->
+					    <div id="aboutmascot03">
+					    <div class="aboutmascot_position">
+					        <div class="aboutmascot_fram01">
+					            <span class="aboutmascot_title">笨太郎簡介</span>
+					            <!--關掉的xx-->
+					            <span class="aboutmascot_close" onClick="javascript:aboutmascot03.style.visibility='hidden';">
+					            <img src="jomor_html/img/close.png" class="sure_close_img">
+					            </span>
+					        </div> 
+					            <div class="aboutmascot_fram02">
+					               <img src="jomor_html/img/aboutmascot3.png" class="aboutmascot_img">
+					            </div>
+					    </div> 
+					    </div><!--跳出笨太郎介紹結束-->
+					    <!--跳出波爸介紹-->
+					    <div id="aboutmascot04">
+					    <div class="aboutmascot_position">
+					        <div class="aboutmascot_fram01">
+					            <span class="aboutmascot_title">波爸簡介</span>
+					            <!--關掉的xx-->
+					            <span class="aboutmascot_close" onClick="javascript:aboutmascot04.style.visibility='hidden';">
+					            <img src="jomor_html/img/close.png" class="sure_close_img">
+					            </span>
+					        </div> 
+					            <div class="aboutmascot_fram02">
+					               <img src="jomor_html/img/aboutmascot4.png" class="aboutmascot_img">
+					            </div>
+					    </div> 
+					    </div><!--跳出波爸介紹結束-->					    
+				<!--吉祥物區塊-->
+				<div class="mascot_fram">
+					<a href="#">
+						<span class="mascot_span">
+							<img src="jomor_html/img/mascot01-2.png" class="mascot_img00">
+							<img src="jomor_html/img/mascot01.png" class="mascot_img00" onClick="op_aboutmascot01(aboutmascot01)">
+						</span>
+						<span class="mascot_span">
+							<img src="jomor_html/img/mascot02-2.png" class="mascot_img01">
+							<img src="jomor_html/img/mascot02.png" class="mascot_img01" onClick="op_aboutmascot01(aboutmascot02)">
+						</span>
+						<span class="mascot_span">
+							<img src="jomor_html/img/mascot03-2.png" class="mascot_img00">
+							<img src="jomor_html/img/mascot03.png" class="mascot_img00" onClick="op_aboutmascot01(aboutmascot03)">
+						</span>
+						<span class="mascot_span">
+							<img src="jomor_html/img/mascot04-2.png" class="mascot_img00">
+							<img src="jomor_html/img/mascot04.png" class="mascot_img00" onClick="op_aboutmascot01(aboutmascot04)">
+						</span>
+					</a>
+					
 				</div>
-	   		</footer>
-	   	</div>
+				<div class="index_red"></div>
+				<div class="index_yellow"></div>
+				<div class="footer_bt_div">
+					<span class="footer_span">
+						<a href="https://www.facebook.com/jomor.party/?fref=nf" class="footer_a"  target=_blank>
+							<span class="footer_hover">
+								<img src="jomor_html/img/fb2.png" class="index_footer_bt">
+								<img src="jomor_html/img/fb.png" class="index_footer_bt">
+							</span>
+						</a>
+					</span>
+					<span class="footer_span">
+						<a href="mailto:ics.jomorparty@gmail.com" class="footer_a">
+							<span class="footer_hover">
+								<img src="jomor_html/img/mailus2.png" class="index_footer_bt">
+								<img src="jomor_html/img/mailus.png" class="index_footer_bt">
+							</span>
+						</a>
+					</span>
+					<span class="footer_span">
+						<a href="http://www.swanpanasia.com/" class="footer_a" target=_blank>
+							<span class="footer_hover">
+								<img src="jomor_html/img/heaven2.png" class="index_footer_bt">
+								<img src="jomor_html/img/heaven.png" class="index_footer_bt">
+							</span>
+						</a>
+					</span>
+				</div>
 	</body>
 </html>
+
+
+
+
+
+

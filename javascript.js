@@ -94,6 +94,12 @@ function openroom(divID) {
     divID.style.left = (document.body.clientWidth - 240) / 2;
     divID.style.top = (document.body.clientHeight - 139) / 2;
 }
+function openrule(divID) {
+    //根據傳遞的參數確定顯示的層
+    divID.style.visibility = 'visible';
+    divID.style.left = (document.body.clientWidth - 240) / 2;
+    divID.style.top = (document.body.clientHeight - 139) / 2;
+}
 /*測試測試頁籤功能*/
 $(function() {
     // 預設顯示第一個 Tab

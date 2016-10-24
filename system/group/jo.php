@@ -287,8 +287,7 @@
 		<section class="jobg_section"><!--導覽列以下的區塊-->
 			<section class="jo_blue_section">
 				<div class="jo_blue"><!--藍底區塊-->
-					<span class="jo_blue_word">揪團系統</span>
-					<span><a href="#" class="jo_btn">如何揪團</a></span>
+					<span><a class="jo_btn" onClick="openrule(rule)">如何揪團</a></span>
 					<span><a class="jo_btn" onClick="openroom(op)">創建房間</a></span>
 				</div>
 			</section>
@@ -656,9 +655,7 @@
 						              		<!--做一個店家資料的table，再select from it where store = $roomNo['store']-->
 						                  	<div class="jo_store_info_card-02">
 							                    <div class="jo_info_card01"><!--店家資訊卡店名與圖片部分-->
-							                      	<span class="span_love_img">
-							                        	<img class="jo_love_img" src="../../jomor_html/img/love.png">
-							                      	</span>
+							                      	
 							                      	<span class="jo_store_name">Swancafe天鵝咖啡館</span>
 							                      	<div><img class="jo_store_img" src="../../jomor_html/img/swancafe01.jpg"></div>
 							                    </div>
@@ -1224,7 +1221,7 @@
 			                <div class="success_fram01">
 			                    <span class="success_title">加入成功</span>
 			                    <!--關掉的xx-->
-			                    <span class="success_close" onClick="javascript:success.style.visibility='hidden';">
+			                    <span class="success_close" onClick="window.location.href='jo.php'">
 				                	<img src="../../jomor_html/img/close.png" class="success_close_img">
 				                </span>
 			                </div>
@@ -1310,6 +1307,22 @@
 			        <?php
 	        	}
 	        ?>
+
+	        <!--如何玩圖片教學div-->
+	        <!--如何玩圖片教學div-->
+	        <!--如何玩圖片教學div-->
+			<div id="rule">
+				<div class="rule_center">
+				  <div class="rule_fram01">
+						<span class="rule_title">如何揪團</span>
+						<!--關掉的xx-->
+						<span class="rule_close" onClick="window.location.href='jo.php'">X</span>
+				  </div> 
+				  <div class="rule_fram02">
+						<img src="../../jomor_html/img/jorule.png" class="rule_img">
+				  </div>
+				</div>
+			</div>  
 	        
 		</section>
 	</body>
