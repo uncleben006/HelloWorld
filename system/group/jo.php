@@ -6,6 +6,7 @@
 	<link href="../../style.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="../../javascript.js"></script>
 	<meta charset="utf-8">
+	<link rel="icon" href="jomor_html/img/jomorparty_logo.png" type="image/ico" />
 </head>
 	<body id="body0">
 
@@ -872,6 +873,9 @@
 										                <div class="chat_window">
 										                  	<p class="chat_window_p">您必須先加入此房間才能使用聊天室<p>
 										                </div>
+										                <div class="message"><!--留言打字框-->
+										                  	<div class="chat_block">您必須先加入此房間才能使用聊天室</div>
+										                </div> 
 										                <?php
 										            }
 										            else{
@@ -884,18 +888,17 @@
 										            		}					            		
 										                  	?>
 										                </div>
+										                <div class="message"><!--留言打字框-->
+										                	<form method="post">
+											                  	<span>我有話要說：</span>
+											                  	<span><input class="chat_text" type="text" name="chat"></span>
+											                  	<span><input class="chat_enter" type="submit" name="OK" value="輸入"></span>
+											                </form>
+										                </div>    
 										                <?php
 										            }
 									            ?>
-								                <div class="message"><!--留言打字框-->
-								                	<form method="post">
-									                  	<span>我有話要說：</span>
-									                  	<span><input class="chat_text" type="text" name="chat"></span>
-									                  	<span><input class="chat_enter" type="submit" name="OK" value="輸入"></span>
-									                </form>
-								                </div>
-								                
-								                
+								                   								                
 							            	</div>
 							            	<?php
 												if($roomNo['decide']==0){

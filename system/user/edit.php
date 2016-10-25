@@ -7,6 +7,7 @@
 	<script type="text/javascript" src="../../javascript.js"></script>
 	<script src="jquery.min.js"></script>
 	<meta charset="utf-8">
+	<link rel="icon" href="jomor_html/img/jomorparty_logo.png" type="image/ico" />
 </head>
 	<body id="body0">
 		<?php

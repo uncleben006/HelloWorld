@@ -2454,6 +2454,15 @@ input:focus{outline:none}
 	color: #569499;
 	font-family: Microsoft JhengHei ;
 }
+.chat_block{
+	height: 22px;
+	width: 82%;
+	background-color: #ffffff;
+	text-align: center;
+	color:grey;
+	font-size: 12px;
+	padding-top: 4px;
+}
 .chat_text{
 	border: none;
 	height: 26px;
@@ -2998,8 +3007,9 @@ position: relative;
 }
 .headphoto{
 	position: relative;
-	width: 38%;
-	height: 38%;
+	width: 120px;
+	height: 120px;
+	border-radius: 100px;
 }
 /*上傳button*/
 .upload {

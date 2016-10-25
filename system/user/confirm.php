@@ -6,6 +6,7 @@
 	<link href="../../style.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="../../javascript.js"></script>
 	<meta charset="utf-8"></head>
+	<link rel="icon" href="jomor_html/img/jomorparty_logo.png" type="image/ico" />
 <body id="body0">
 	<?php		
 		include('../../include/link.php');

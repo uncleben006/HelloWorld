@@ -1,43 +1,43 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>jomor桌末狂歡</title>
-	<!--輪播圖-->
+	<head>
+		<title>jomor桌末狂歡</title>
+		<!--輪播圖-->
 		<!-- Demo CSS -->
 		<link rel="stylesheet" href="flexslider.css" type="text/css" media="screen" />
-	<!-- jQuery -->
+		<!-- jQuery -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js">			
 		</script>
 		<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.js">\x3C/script>')
 		</script>
-  <!-- FlexSlider -->
-  <script defer src="jquery.flexslider.js"></script>
+		<!-- FlexSlider -->
+	  	<script defer src="jquery.flexslider.js"></script>
 
-  <script type="text/javascript">
-    $(function(){
-      SyntaxHighlighter.all();
-    });
-    $(window).load(function(){
-      $('.flexslider').flexslider({
-        animation: "slide",
-        start: function(slider){
-          $('body').removeClass('loading');
-        }
-      });
-    });
-  </script>
-	<!--css-->
-	<link href="style.css" rel="stylesheet" type="text/css" />
-	<!--大富翁按鍵的圖片的javascript-->
-	<script type="text/javascript">
-		$(function() {
-    		$('.banner').unslider();
-	});
-	</script>
-	<script type="text/javascript" src="javascript.js"></script>
-<meta charset="utf-8">
-<link rel="icon" href="jomor_html/img/jomorparty_logo.png" type="image/ico" />
-</head>
+	  	<script type="text/javascript">
+		    $(function(){
+		      	SyntaxHighlighter.all();
+		    });
+		    $(window).load(function(){
+		      	$('.flexslider').flexslider({
+		        	animation: "slide",
+		        	start: function(slider){
+		          		$('body').removeClass('loading');
+		        	}
+		      	});
+		    });
+	  	</script>
+		<!--css-->
+		<link href="style.css" rel="stylesheet" type="text/css" />
+		<!--大富翁按鍵的圖片的javascript-->
+		<script type="text/javascript">
+			$(function() {
+	    		$('.banner').unslider();
+		});
+		</script>
+		<script type="text/javascript" src="javascript.js"></script>
+		<meta charset="utf-8">
+		<link rel="icon" href="jomor_html/img/jomorparty_logo.png" type="image/ico" />
+	</head>
 	<body id="body0">
 		<?php 
 			include('include/link.php');
