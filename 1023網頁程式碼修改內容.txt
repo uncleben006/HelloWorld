@@ -1,0 +1,34 @@
+1023網頁程式碼修改內容
+新頁面
+1. index.html  :第二版首頁
+
+修改內容
+1. 統一banner更改部份只寫在index.html裡，其他頁面未做更改，再請柏元寫在那邊統一的header裡一次做更改：
+	（1)在</head>前加了這串
+	<link rel="icon" href="jomor_html/img/jomorparty_logo.png" type="image/ico" />
+		fixed
+	意思是可以在網頁上面的那個頁籤上面出現我們logo的icon小圖示
+	（2）banner的logo皆須改成熊哥圖
+		fixed
+	（3)搜尋框內<td>多加style="color:#ffffff;"/ 讓打上去搜尋的字變白色。
+		fixed
+2. store2.html店家列表中所有的愛心圖案刪掉
+3. jo.html揪團
+	(1) 創房間的備註欄改成不能自由拖拉
+		fixed
+	(2) 創房的店家卡與瀏覽房間的愛心刪掉，因此店名與圖片的css排版會有些更動。
+		fixed
+	(3) 把css中1.揪團房間2.創房間的店家卡中的cursor:pointer刪掉，讓他滑鼠滑過去不會出現手指像是有東西可以點。
+		fixed
+	(4) 藍底的“揪團系統”字刪掉，所以有微調一點jo_btn的位置。
+		fixed
+	(5) 新增“如何揪”頁面
+		fixed
+4. abuts.html聯絡我們
+	改成整張圖呈現，因為別的瀏覽器會跑版，或字的方向不支援，所以改成整張圖。
+		fixed
+5. blog.html、blog_more.html頁面寬度調整，加入部份專欄內容提供期中報告截圖使用，然後專欄圖片新增滑鼠移過變透明且可連結到閱讀更多
+	專欄將大象與藍底刪除。
+		fixed
+6. 桌遊地圖頁面加上跑馬燈內容。
+		fixed
