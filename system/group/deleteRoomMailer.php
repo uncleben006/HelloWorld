@@ -14,19 +14,15 @@ $mail->Password = "Jomorparty";
 $mail->SetFrom("ics.jomorparty@gmail.com");
 $mail->Subject = mb_encode_mimeheader('您有新揪團 from JOMO', "UTF-8");
 
-
-$url = 'http://localhost:8080/JOMO/system/group/jo.php?no='.$no;
-$ahref = '<a href= '. $url . '>' . $url . '</a>';
-
 //先insert進remind，再用while迴圈從remind table提取各個資料出來
-$selectRemind = "SELECT * FROM `remind` WHERE `no` = ".$no."";
+$selectRemind = "SELECT * FROM `remind` WHERE `no` = '".$no."' AND `decide` = '2'";
 $selectRemind = mysql_query($selectRemind);
 while($remind = mysql_fetch_assoc($selectRemind)){
 	$email = $remind['email'];
 	$date = date("m/d",strtotime($remind['date']));
 	$time = date("H/i",strtotime($remind['time']));
 
-	$selectUserAccount = "SELECT * FROM `user` WHERE `account` = '".$remind['account']."' AND `decide` = '0' ";
+	$selectUserAccount = "SELECT * FROM `user` WHERE `account` = '".$remind['account']."'";
 	mysql_query("SET NAMES'UTF8'");
 	mysql_query("SET CHARACTER SET UTF8");
 	mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
@@ -43,10 +39,10 @@ while($remind = mysql_fetch_assoc($selectRemind)){
 	<body>
 		<div style=\"width:60%;margin:0 auto;background-color:#cee6f5;padding:10px;\">
 			<div>".$userAccount['name']."您好</div>
-			<div>您參加了一次揪團</div>
+			<div>您參加的房間已經被房主「".$remind['host']."」刪除</div>
 			<div>時間是".$date." ".$time."</div>
 			<div>地點是".$remind['store']."</div>
-			<div>共多詳細資訊請看".$ahref."</div>
+			<div>不要再跑過去囉~</div>
 		</div>
 	</body>
 	</html>

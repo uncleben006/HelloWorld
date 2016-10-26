@@ -188,7 +188,7 @@ else if(isset($errMSG)){
 	echo "window.location.href='$url'";
 	echo "</script>";
 }
-else if(mb_strlen($name)>5){
+else if(strlen($name)>10){
 	$url = "signup.php?wrong=5";
 	echo "<script type='text/javascript'>";
 	echo "window.location.href='$url'";

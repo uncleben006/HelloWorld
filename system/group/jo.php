@@ -250,6 +250,7 @@
 				$selectMemberAccount = mysql_query($selectMemberAccount);
 				$memberAccount = mysql_fetch_assoc($selectMemberAccount);
 
+				//在 remind table 輸入「被踢會員的提醒資料」
 				$insertMemberRemind = 'INSERT INTO `remind`(`no`, `account`, `email`, `host`, `room`, `date`, `time`, `store`,`decide`) VALUES ("'.$no.'","'.$memberAccount['account'].'","'.$memberAccount['email'].'","'.$roomNo['host'].'","'.$roomNo['room'].'","'.$roomNo['date'].'","'.$roomNo['time'].'","'.$roomNo['store'].'","1")';
 				mysql_query("SET NAMES'UTF8'");
 				mysql_query("SET CHARACTER SET UTF8");
@@ -259,7 +260,10 @@
 				$deletePerson = "DELETE FROM `member` WHERE `no`='".$no."' AND `account`='".$account."'";
 				mysql_query($deletePerson);
 				
-				header("Location:jo.php?no=".$no);
+				//寄信給被踢出的會員
+				include('deleteAccountMailer.php');
+
+				//header("Location:jo.php?no=".$no);
 			}
 
 			//刪除房間
@@ -286,13 +290,21 @@
 					mysql_query("SET CHARACTER SET UTF8");
 					mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
 					mysql_query($insertMemberRemind);	
-				}
 
+					
+
+				}
+				//寄信給所有成員
+				include('deleteRoomMailer.php');
+				
+				//刪除房間表裡屬於該房號的房間、成員資料表裡屬於該房號的成員、聊天室資料表裡屬於該房號的資料
 				$deleteRoom = "DELETE FROM `room` WHERE `no` = '".$no."'";
 				$deleteRoomMember = "DELETE FROM `member` WHERE `no` = '".$no."'";
+				$deleteChat = "DELETE FROM `chat` WHERE `no` = '".$no."'";
 				mysql_query($deleteRoom);
 				mysql_query($deleteRoomMember);
-
+				mysql_query($deleteChat);
+				
 				header("Location:jo.php");
 			}
 
