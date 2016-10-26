@@ -118,7 +118,18 @@
 			<table class="store_page_name" cellpadding="7">
 				<tr>
 					<td>
-						<div>全部</div>
+						<?php
+							if(isset($_GET['storePlace'])){
+								?>
+								<div><?php echo $_GET['storePlace']; ?></div>
+								<?php
+							}
+							else{
+								?>
+								<div>全部</div>
+								<?php
+							}
+						?>
 					</td>
 				</tr>
 			</table>
