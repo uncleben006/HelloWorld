@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: 127.0.0.1
--- 產生時間： 2016-10-21 23:57:21
+-- 產生時間： 2016-10-28 14:43:45
 -- 伺服器版本: 10.1.13-MariaDB
 -- PHP 版本： 5.6.23
 
@@ -119,9 +119,8 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`no`, `people`, `name`, `account`, `email`, `photo`) VALUES
-(11, 6, '元元', '777', 'uncleben004@gmail.com', '45724.jpg'),
-(11, 0, '阿元元阿', '222', 'uncleben006@gmail.com', '704642.png'),
-(12, 2, '皮皮君', 'pipi', 'uncleben006@gmail.com', 'pipi.png');
+(16, 3, '皮皮君', 'pipi', 'uncleben006@gmail.com', 'pipi.png'),
+(16, 3, '000', '000', 'uncleben006@gmail.com', '474525.jpg');
 
 -- --------------------------------------------------------
 
@@ -137,25 +136,19 @@ CREATE TABLE `remind` (
   `room` text COLLATE utf8_unicode_ci NOT NULL,
   `date` date NOT NULL,
   `time` time NOT NULL,
-  `store` text COLLATE utf8_unicode_ci NOT NULL
+  `store` text COLLATE utf8_unicode_ci NOT NULL,
+  `decide` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- 資料表的匯出資料 `remind`
 --
 
-INSERT INTO `remind` (`no`, `account`, `email`, `host`, `room`, `date`, `time`, `store`) VALUES
-(9, '222', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
-(9, '111', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
-(9, '222', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
-(9, '111', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
-(9, '111', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
-(9, '777', 'uncleben004@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
-(9, '000', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
-(9, '333', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
-(9, '999', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
-(9, '888', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
-(9, 'iii', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e');
+INSERT INTO `remind` (`no`, `account`, `email`, `host`, `room`, `date`, `time`, `store`, `decide`) VALUES
+(16, 'pipi', 'uncleben006@gmail.com', 'pipi', '刪除房間', '2016-10-28', '15:16:00', 'swan caf''e', 2),
+(16, '000', 'uncleben006@gmail.com', 'pipi', '刪除房間', '2016-10-28', '15:16:00', 'swan caf''e', 2),
+(16, 'pipi', 'uncleben006@gmail.com', 'pipi', '刪除房間', '2016-10-28', '15:16:00', 'swan caf''e', 0),
+(16, '000', 'uncleben006@gmail.com', 'pipi', '刪除房間', '2016-10-28', '15:16:00', 'swan caf''e', 0);
 
 -- --------------------------------------------------------
 
@@ -185,8 +178,7 @@ CREATE TABLE `room` (
 --
 
 INSERT INTO `room` (`no`, `decide`, `host`, `room`, `store`, `x`, `y`, `game`, `date`, `time`, `time2`, `people`, `spend`, `remark`) VALUES
-(11, 0, '777', '再開一間', 'swan caf''e', 25.0884, 121.464, '6', '2016-10-22', '19:19:00', '19:19:00', '6', '6', '6'),
-(12, 0, 'pipi', '1231', 'swan caf''e', 25.0884, 121.464, '2', '2016-10-28', '15:59:00', '15:16:00', '2', '2', '2');
+(16, 1, 'pipi', '刪除房間', 'swan caf''e', 25.0884, 121.464, '5', '2016-10-28', '15:16:00', '15:16:00', '3', '5', '5');
 
 -- --------------------------------------------------------
 
@@ -198,17 +190,15 @@ CREATE TABLE `store` (
   `storePlace` text COLLATE utf8_unicode_ci NOT NULL,
   `storeName` text COLLATE utf8_unicode_ci NOT NULL,
   `storeType` text COLLATE utf8_unicode_ci NOT NULL,
+  `storeArea` text COLLATE utf8_unicode_ci NOT NULL,
   `storeAddress` text COLLATE utf8_unicode_ci NOT NULL,
   `storeNumber` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `storeSpend` text COLLATE utf8_unicode_ci NOT NULL,
   `storeTime` text COLLATE utf8_unicode_ci NOT NULL,
   `storeHoliday` text COLLATE utf8_unicode_ci NOT NULL,
-  `storeTraffic` text COLLATE utf8_unicode_ci NOT NULL,
   `webURL` text COLLATE utf8_unicode_ci NOT NULL,
   `fbURL` text COLLATE utf8_unicode_ci NOT NULL,
-  `googleURL` text COLLATE utf8_unicode_ci NOT NULL,
-  `x` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `y` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `googleURL` longtext COLLATE utf8_unicode_ci NOT NULL,
   `storePhoto` varchar(20) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -216,11 +206,9 @@ CREATE TABLE `store` (
 -- 資料表的匯出資料 `store`
 --
 
-INSERT INTO `store` (`storePlace`, `storeName`, `storeType`, `storeAddress`, `storeNumber`, `storeSpend`, `storeTime`, `storeHoliday`, `storeTraffic`, `webURL`, `fbURL`, `googleURL`, `x`, `y`, `storePhoto`) VALUES
-('台北市', '女巫店', '複合式餐飲桌遊店', '106台灣台北市大安區新生南路三段56巷7號', '02-2369-2528', '一般時段每人最低消費150元', '週日－週三 SUN-WED 10:00-23:00 週四－週六 THU-SAT 10:00-24:00', '無', '捷運：綠線公館站・3號台灣大學出口 公車：公務人力訓練中心站', 'http://www.witchhouse.org/', 'https://zh-tw.facebook.com/%E5%A5%B3%E5%B7%AB%E5%BA%97-133362243371354/', 'https://www.google.com/maps/place/106%E5%8F%B0%E7%81%A3%E5%8F%B0%E5%8C%97%E5%B8%82%E5%A4%A7%E5%AE%89%E5%8D%80%E6%96%B0%E7%94%9F%E5%8D%97%E8%B7%AF%E4%B8%89%E6%AE%B556%E5%B7%B77%E8%99%9F/@25.0204987,121.5314723,17z/data=!3m1!4b1!4m5!3m4!1s0x3442a988fc4f7b2d:0xae67410731144b1a!8m2!3d25.0204987!4d121.533661', '25.0204987', '121.533661', 'taipei01.jpg'),
-('台北市', 'Swan Cafe 天鵝桌遊館', '複合式餐飲桌遊店', '116台灣台北市文山區羅斯福路五段170巷37號', '02-2930-8983', '每人每時段低消150元', '每日10:00-22:00(早場10-14、午場14-18、晚場18-22)', '無', '捷運綠線「萬隆站」4號出口出站左轉，羅斯福路上直走約500公尺到羅斯福路五段170巷 (到天橋下[安泰銀行]旁邊的巷子左轉，170巷上直走約250公尺到Seven Eleven之後左轉，直走約8.88公尺往左邊看[SWAN CAFE]在你的面前。', '無', 'https://www.facebook.com/Swancafe-%E5%A4%A9%E9%B5%9D%E6%A1%8C%E9%81%8A%E9%A4%A8-1062378480487075/', 'https://www.google.com/maps/place/116%E5%8F%B0%E7%81%A3%E5%8F%B0%E5%8C%97%E5%B8%82%E6%96%87%E5%B1%B1%E5%8D%80%E7%BE%85%E6%96%AF%E7%A6%8F%E8%B7%AF%E4%BA%94%E6%AE%B5170%E5%B7%B737%E8%99%9F/@25.0046889,121.5344118,17z/data=!3m1!4b1!4m5!3m4!1s0x3442a9f626a7f0b1:0xab8269ee9dfb4b34!8m2!3d25.0046889!4d121.5366005', '25.0046889', '121.5366005', 'taipei02.jpg'),
-('1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '11', '1', '1', '1', '1'),
-('2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '22', '2', '2', '2', '2');
+INSERT INTO `store` (`storePlace`, `storeName`, `storeType`, `storeArea`, `storeAddress`, `storeNumber`, `storeSpend`, `storeTime`, `storeHoliday`, `webURL`, `fbURL`, `googleURL`, `storePhoto`) VALUES
+('台北市', '女巫店', '複合式餐飲桌遊店', '', '106台灣台北市大安區新生南路三段56巷7號', '02-2369-2528', '一般時段每人最低消費150元', '週日－週三 SUN-WED 10:00-23:00 週四－週六 THU-SAT 10:00-24:00', '無', 'http://www.witchhouse.org/', 'https://zh-tw.facebook.com/%E5%A5%B3%E5%B7%AB%E5%BA%97-133362243371354/', 'https://www.google.com/maps/place/106%E5%8F%B0%E7%81%A3%E5%8F%B0%E5%8C%97%E5%B8%82%E5%A4%A7%E5%AE%89%E5%8D%80%E6%96%B0%E7%94%9F%E5%8D%97%E8%B7%AF%E4%B8%89%E6%AE%B556%E5%B7%B77%E8%99%9F/@25.0204987,121.5314723,17z/data=!3m1!4b1!4m5!3m4!1s0x3442a988fc4f7b2d:0xae67410731144b1a!8m2!3d25.0204987!4d121.533661', 'taipei01.jpg'),
+('台北市', 'Swan Cafe 天鵝桌遊館', '複合式餐飲桌遊店', '', '116台灣台北市文山區羅斯福路五段170巷37號', '02-2930-8983', '每人每時段低消150元', '每日10:00-22:00(早場10-14、午場14-18、晚場18-22)', '無', '無', 'https://www.facebook.com/Swancafe-%E5%A4%A9%E9%B5%9D%E6%A1%8C%E9%81%8A%E9%A4%A8-1062378480487075/', 'https://www.google.com/maps/place/116%E5%8F%B0%E7%81%A3%E5%8F%B0%E5%8C%97%E5%B8%82%E6%96%87%E5%B1%B1%E5%8D%80%E7%BE%85%E6%96%AF%E7%A6%8F%E8%B7%AF%E4%BA%94%E6%AE%B5170%E5%B7%B737%E8%99%9F/@25.0046889,121.5344118,17z/data=!3m1!4b1!4m5!3m4!1s0x3442a9f626a7f0b1:0xab8269ee9dfb4b34!8m2!3d25.0046889!4d121.5366005', 'taipei02.jpg');
 
 -- --------------------------------------------------------
 
@@ -295,7 +283,7 @@ ALTER TABLE `game`
 -- 使用資料表 AUTO_INCREMENT `room`
 --
 ALTER TABLE `room`
-  MODIFY `no` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `no` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
