@@ -32,7 +32,6 @@ button{
 	width:100%;
 	margin: 0 auto;
 	text-align: center;
-	top:10px;
 }
 .top_tr{
 	position: relative;
@@ -77,6 +76,7 @@ button{
 .nav_userImg{
 	position: relative;
 	left: 5px;
+	
 }
 .notify_img02{
 	width: 76%;
@@ -4399,14 +4399,14 @@ position: relative;
 .upload_yellow{
 	background-color: #F0EB71;
 	width: 1280px;
-    height: 700px;
+    height: 600px;
     margin: 7% 0 0 0;	
 }
 .upload_white{
 	position: relative;
 	background-color: #Ffffff;
 	width: 80%;
-    height: 550px;
+    height: 500px;
     border-radius: 30px;
     margin: 0 auto;
     top: 3%;

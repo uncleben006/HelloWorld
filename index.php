@@ -74,7 +74,7 @@
 					        <div class="aboutmascot_fram01">
 					            <span class="aboutmascot_title">皮皮君簡介</span>
 					            <!--關掉的xx-->
-					            <span class="aboutmascot_close" onClick="javascript:aboutmascot01.style.visibility='hidden';">
+					            <span class="aboutmascot_close" onClick="javascript:window.location.href='index.php';">
 					            <img src="jomor_html/img/close.png" class="sure_close_img">
 					            </span>
 					        </div> 
@@ -89,7 +89,7 @@
 					        <div class="aboutmascot_fram01">
 					            <span class="aboutmascot_title">熊哥簡介</span>
 					            <!--關掉的xx-->
-					            <span class="aboutmascot_close" onClick="javascript:aboutmascot02.style.visibility='hidden';">
+					            <span class="aboutmascot_close" onClick="javascript:window.location.href='index.php';">
 					            <img src="jomor_html/img/close.png" class="sure_close_img">
 					            </span>
 					        </div> 
@@ -104,7 +104,7 @@
 					        <div class="aboutmascot_fram01">
 					            <span class="aboutmascot_title">笨太郎簡介</span>
 					            <!--關掉的xx-->
-					            <span class="aboutmascot_close" onClick="javascript:aboutmascot03.style.visibility='hidden';">
+					            <span class="aboutmascot_close" onClick="javascript:window.location.href='index.php';">
 					            <img src="jomor_html/img/close.png" class="sure_close_img">
 					            </span>
 					        </div> 
@@ -119,7 +119,7 @@
 					        <div class="aboutmascot_fram01">
 					            <span class="aboutmascot_title">波爸簡介</span>
 					            <!--關掉的xx-->
-					            <span class="aboutmascot_close" onClick="javascript:aboutmascot04.style.visibility='hidden';">
+					            <span class="aboutmascot_close" onClick="javascript:window.location.href='index.php';">
 					            <img src="jomor_html/img/close.png" class="sure_close_img">
 					            </span>
 					        </div> 

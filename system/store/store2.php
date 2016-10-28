@@ -5,7 +5,6 @@
 	<link href="../../style.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="../../javascript.js"></script>
 	<meta charset="utf-8">
-	<link rel="icon" href="jomor_html/img/jomorparty_logo.png" type="image/ico" />
 </head>
 	<body id="body0">
 		<?php 
@@ -118,18 +117,7 @@
 			<table class="store_page_name" cellpadding="7">
 				<tr>
 					<td>
-						<?php
-							if(isset($_GET['storePlace'])){
-								?>
-								<div><?php echo $_GET['storePlace']; ?></div>
-								<?php
-							}
-							else{
-								?>
-								<div>全部</div>
-								<?php
-							}
-						?>
+						<div>全部</div>
 					</td>
 				</tr>
 			</table>
@@ -296,7 +284,7 @@
 				         </div>
 				    </section>
 				    <aside class="div_store_aside">
-				        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.869828371786!2d121.5343891150057!3d25.0045387839862!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a9f625cc066d%3A0xb72b462e76eaa98b!2zU3dhbiBDYWZlIOWkqem1neahjOmBiumkqA!5e0!3m2!1szh-TW!2stw!4v1474128298550" width="485" height="450" frameborder="0" style="border:0" allowfullscreen>
+				        <iframe src="https://www.google.com/maps/place/116%E5%8F%B0%E7%81%A3%E5%8F%B0%E5%8C%97%E5%B8%82%E6%96%87%E5%B1%B1%E5%8D%80%E7%BE%85%E6%96%AF%E7%A6%8F%E8%B7%AF%E4%BA%94%E6%AE%B5170%E5%B7%B737%E8%99%9F/@25.0046889,121.5344118,17z/data=!3m1!4b1!4m5!3m4!1s0x3442a9f626a7f0b1:0xab8269ee9dfb4b34!8m2!3d25.0046889!4d121.5366005" width="485" height="450" frameborder="0" style="border:0" allowfullscreen>
 				        </iframe>
 				        <form method="post">
 				        	<div class="div_store_btn">

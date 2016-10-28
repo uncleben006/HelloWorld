@@ -212,6 +212,15 @@ function openNotify() {
         x.style.visibility = 'hidden';
     }
 }
+
+/*第二版首頁吉祥物跳出的自我介紹*/
+function op_aboutmascot01(divID) {
+    //根據傳遞的參數確定顯示的層
+    divID.style.visibility = 'visible';
+    divID.style.left = (document.body.clientWidth - 240) / 2;
+    divID.style.top = (document.body.clientHeight - 139) / 2;
+}
+
 /*店家列表的地區選單div*/
 function openlocal(divID) {
     if (divID.style.visibility == 'hidden') {

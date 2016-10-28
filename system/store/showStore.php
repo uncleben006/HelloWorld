@@ -95,20 +95,18 @@
 							<hr color="#A0920D" size="3" width="95%">	
 							<table class="manage_table" border=1>
 								<tr>
-									<th>地區</th>
+									<th>縣市</th>
 									<th>店家名稱</th>
 									<th>店家型態</th>
+									<th>地區</th>
 									<th>地址</th>
 									<th>電話</th>
 									<th>消費模式</th>
 									<th>營業時間</th>
 									<th>公休日</th>
-									<th>交通資訊</th>
 									<th>網頁連結</th>
 									<th>臉書連結</th>
 									<th>google地圖連結</th>
-									<th>經度x</th>
-									<th>緯度y</th>
 									<th>圖片</th>
 									<th></th>
 									<th></th>
@@ -135,6 +133,7 @@
 												<td><?php echo $storePlace['storePlace']; ?></td>
 												<td><?php echo $storePlace['storeName']; ?></td>
 												<td><?php echo $storePlace['storeType']; ?></td>
+												<td><?php echo $storePlace['storeArea']; ?></td>
 												<td><?php echo $storePlace['storeAddress']; ?></td>
 												<td><?php echo $storePlace['storeNumber']; ?></td>
 												<td class="break_word" title="<?php echo $storePlace['storeSpend'];?>">
@@ -145,12 +144,6 @@
 												</td>
 												<td><?php echo $storePlace['storeTime']; ?></td>
 												<td><?php echo $storePlace['storeHoliday']; ?></td>
-												<td class="break_word" title="<?php echo $storePlace['storeTraffic'];?>">
-													<?php
-														$str = $storePlace['storeTraffic'];
-														echo ((mb_strlen($str,'utf8')>20) ? mb_substr($str,0,20,'utf8') : $str).' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
-													?>
-												</td>
 												<td class="break_word" title="<?php echo $storePlace['webURL'];?>">
 													<?php
 														$str = $storePlace['webURL'];
@@ -169,8 +162,6 @@
 														echo ((mb_strlen($str,'utf8')>10) ? mb_substr($str,8,20,'utf8') : $str).' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
 													?>														
 												</td>
-												<td><?php echo $storePlace['x']; ?></td>
-												<td><?php echo $storePlace['y']; ?></td>
 												<td><?php echo $storePlace['storePhoto']; ?></td>
 												<td><button name="edit" type="submit" class="manage_button" value="<?php echo $store['storeNumber']; ?>">修改</button></td>
 												<td><button name="delete" type="submit" class="manage_button" value="<?php echo $store['storeNumber']; ?>">刪除</button></td>
@@ -193,6 +184,7 @@
 												<td class="break_word"><?php echo $store['storePlace']; ?></td>
 												<td class="break_word"><?php echo $store['storeName']; ?></td>
 												<td class="break_word"><?php echo $store['storeType']; ?></td>
+												<td class="break_word"><?php echo $store['storeArea']; ?></td>
 												<td class="break_word"><?php echo $store['storeAddress']; ?></td>
 												<td><?php echo $store['storeNumber']; ?></td>
 												<td class="break_word" title="<?php echo $store['storeSpend'];?>">
@@ -202,13 +194,7 @@
 													?>	
 												</td>
 												<td class="break_word"><?php echo $store['storeTime']; ?></td>
-												<td class="break_word"><?php echo $store['storeHoliday']; ?></td>
-												<td class="break_word"  title="<?php echo $store['storeTraffic'];?>">
-													<?php
-														$str = $store['storeTraffic'];
-														echo ((mb_strlen($str,'utf8')>20) ? mb_substr($str,0,20,'utf8') : $str).' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
-													?>														
-												</td>
+												<td class="break_word"><?php echo $store['storeHoliday']; ?></td>												
 												<td class="break_word" title="<?php echo $store['webURL'];?>">
 													<?php
 														$str = $store['webURL'];
@@ -227,8 +213,6 @@
 														echo ((mb_strlen($str,'utf8')>10) ? mb_substr($str,8,20,'utf8') : $str).' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
 													?>														
 												</td>
-												<td><?php echo $store['x']; ?></td>
-												<td><?php echo $store['y']; ?></td>
 												<td><?php echo $store['storePhoto']; ?></td>
 												<td><button name="edit" type="submit" class="manage_button" value="<?php echo $store['storeNumber']; ?>">修改</button></td>
 												<td><button name="delete" type="submit" class="manage_button" value="<?php echo $store['storeNumber']; ?>">刪除</button></td>

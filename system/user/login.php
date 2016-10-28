@@ -5,6 +5,7 @@
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<link href="../../style.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="../../javascript.js"></script>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta charset="utf-8">
 	<link rel="icon" href="jomor_html/img/jomorparty_logo.png" type="image/ico" />
 </head>
@@ -63,6 +64,20 @@
 					$errMsg = "帳號或密碼有誤";
 				}
 			}
+			/*if(isset($_GET['fb'])){
+				$fb = new phpSDK\src\Facebook\Facebook\Facebook([
+				    'app_id' => '1776470922608272',
+				    'app_secret' => '717ff345aa85c2610170f79ac6a5c841',
+				    'default_graph_version' => 'v2.8',
+				]);
+				
+				$helper = $fb->getRedirectLoginHelper();
+				$permissions = ['email', 'user_likes']; // optional
+				$loginUrl = $helper->getLoginUrl('http://{your-website}/login-callback.php', $permissions);
+
+				echo '<a href="' . $loginUrl . '">Log in with Facebook!</a>';
+			}
+			*/
 			
 			include('../../include/userHeader.php'); 
 		?>
@@ -75,9 +90,9 @@
 						</div>
 						<div class="login_fb_div">
 							<!--連結臉書-->
-							<a href="https://www.facebook.com" onmouseover="login_fb_Over()" onmouseout="login_fb_Out()">
+							<div onclick="login()" onmouseover="login_fb_Over()" onmouseout="login_fb_Out()">
 								<img id="fb_img01" src="../../jomor_html/img/login_fb.png" class="login_fb_img">
-							</a>
+							</div>
 							<div class="login_p2">使用Facebook登入</div>
 						</div>
 						<hr color="#A0920D" size="3" width="95%">
@@ -109,4 +124,6 @@
 				</div>
 			</div>
 		</section>
+
 	</body>
+</html>
