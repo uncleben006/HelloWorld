@@ -1041,7 +1041,7 @@ input:focus{outline:none}
 	width: 0;
 	height: 0;
 	border-style: solid;
-	border-width: 25px 12.5px 0 12.5px;
+	border-width: 20px 10px 0 10px;
 	border-color: #901f23 transparent transparent transparent;
 }
 .store_triangle:hover{

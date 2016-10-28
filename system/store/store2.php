@@ -142,26 +142,30 @@
 							<div class="store_info_card02">
 								<table class="store_info_card02_table">
 									<tr>
-										<td class="store_info_card02_td01">店家地址｜</td>
-										<td class="store_info_p2" title="<?php echo $storePlace['storeAddress'];?>">
+										<td class="store_info_card02_td01">店家類型｜</td>
+										<td class="store_info_p2" title="<?php echo $storePlace['storeType'];?>">
 											<?php 
-												$str=$storePlace['storeAddress']; 
+												$str=$storePlace['storeType']; 
 												echo ((mb_strlen($str,'utf8')>10) ? mb_substr($str,0,11,'utf8') : $str).' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
 											?>													
 										</td>
 									</tr>
 									<tr>
-										<td class="store_info_card02_td01">店家電話｜</td>
-										<td class="store_info_p2"><?php echo $storePlace['storeNumber']?></td>
+										<td class="store_info_card02_td01">店家地區｜</td>
+										<td class="store_info_p2"><?php echo $storePlace['storeArea']?></td>
 									</tr>
 									<tr>
-										<td class="store_info_card02_td01">營業時間｜</td>
-										<td class="store_info_p2" title="<?php echo $storePlace['storeTime'];?>">
+										<td class="store_info_card02_td01">店家電話｜</td>
+										<td class="store_info_p2" title="<?php echo $storePlace['storeNumber'];?>">
 											<?php 
-												$str=$storePlace['storeTime']; 
-												echo ((mb_strlen($str,'utf8')>10) ? mb_substr($str,0,11,'utf8') : $str).' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
-											?>
+												$str=$storePlace['storeNumber']; 
+												echo ((mb_strlen($str,'utf8')>12) ? mb_substr($str,0,12,'utf8') : $str).' '.((mb_strlen($str,'utf8')>12) ? " ..." : "");
+											?>		
 										</td>
+									</tr>
+									<tr>
+										<td class="store_info_card02_td01">公休日｜</td>
+										<td class="store_info_p2"><?php echo $storePlace['storeHoliday']?></td>
 									</tr>
 								</table>
 								<div class="store_triangle" onClick="window.location.href='store2.php?storePlace=<?php echo $_GET['storePlace'];?>&storeName=<?php echo $storePlace['storeName'];?>'"><!-- 三角形開啟按鍵 -->
@@ -192,26 +196,30 @@
 							<div class="store_info_card02">
 								<table class="store_info_card02_table">
 									<tr>
-										<td class="store_info_card02_td01">店家地址｜</td>
-										<td class="store_info_p2" title="<?php echo $store['storeAddress'];?>">
+										<td class="store_info_card02_td01">店家類型｜</td>
+										<td class="store_info_p2" title="<?php echo $store['storeType'];?>">
 											<?php 
-												$str=$store['storeAddress']; 
+												$str=$store['storeType']; 
 												echo ((mb_strlen($str,'utf8')>10) ? mb_substr($str,0,11,'utf8') : $str).' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
 											?>													
 										</td>
 									</tr>
 									<tr>
-										<td class="store_info_card02_td01">店家電話｜</td>
-										<td class="store_info_p2"><?php echo $store['storeNumber']?></td>
+										<td class="store_info_card02_td01">店家地區｜</td>
+										<td class="store_info_p2"><?php echo $store['storeArea']?></td>
 									</tr>
 									<tr>
-										<td class="store_info_card02_td01">營業時間｜</td>
-										<td class="store_info_p2" title="<?php echo $store['storeTime'];?>">
+										<td class="store_info_card02_td01">店家電話｜</td>
+										<td class="store_info_p2" title="<?php echo $store['storeNumber'];?>">
 											<?php 
-												$str=$store['storeTime']; 
+												$str=$store['storeNumber']; 
 												echo ((mb_strlen($str,'utf8')>10) ? mb_substr($str,0,11,'utf8') : $str).' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
-											?>
+											?>		
 										</td>
+									</tr>
+									<tr>
+										<td class="store_info_card02_td01">公休日｜</td>
+										<td class="store_info_p2"><?php echo $store['storeHoliday']?></td>
 									</tr>
 								</table>
 								<div class="store_triangle" onClick="window.location.href='store2.php?storeName=<?php echo $store['storeName'];?>'"><!-- 三角形開啟按鍵 -->
@@ -265,8 +273,12 @@
 				         <div class="div_store_card-02">
 				            <table class="div_store_info_card02_table">
 				                <tr>
+				                    <td class="div_store_info_card02_td01">店家類型｜</td>
+				                    <td class="div_store_info_p2" ><?php echo $store['storeType']; ?></td>
+				                </tr>
+				                <tr>
 				                    <td class="div_store_info_card02_td01">店家地址｜</td>
-				                    <td class="div_store_info_p2" ><?php echo $store['storeAddress']; ?></td>
+				                    <td class="div_store_info_p2"><?php echo $store['storeAddress']; ?></td>
 				                </tr>
 				                <tr>
 				                    <td class="div_store_info_card02_td01">店家電話｜</td>
@@ -280,11 +292,31 @@
 				                    <td class="div_store_info_card02_td01">消費模式｜</td>
 				                    <td class="div_store_info_p2" ><?php echo $store['storeSpend'];?></td>
 				                </tr>
+				                <tr>
+				                	<td>
+				                		<?php
+				                			if(isset($store['fbURL'])){
+				                				?>
+				                				<a href="<?php echo $store['fbURL'];?>">臉書</a>
+				                				<?php
+				                			}
+				                		?>				                			
+				                	</td>
+				                	<td>
+				                		<?php
+				                			if(isset($store['webURL'])){
+				                				?>
+				                				<a href="<?php echo $store['webURL'];?>">網站</a>
+				                				<?php
+				                			}
+				                		?>				                			
+				                	</td>
+				                </tr>
 				            </table>
 				         </div>
 				    </section>
 				    <aside class="div_store_aside">
-				        <iframe src="https://www.google.com/maps/place/116%E5%8F%B0%E7%81%A3%E5%8F%B0%E5%8C%97%E5%B8%82%E6%96%87%E5%B1%B1%E5%8D%80%E7%BE%85%E6%96%AF%E7%A6%8F%E8%B7%AF%E4%BA%94%E6%AE%B5170%E5%B7%B737%E8%99%9F/@25.0046889,121.5344118,17z/data=!3m1!4b1!4m5!3m4!1s0x3442a9f626a7f0b1:0xab8269ee9dfb4b34!8m2!3d25.0046889!4d121.5366005" width="485" height="450" frameborder="0" style="border:0" allowfullscreen>
+				        <iframe src="<?php echo $store['googleURL']; ?>" width="485" height="450" frameborder="0" style="border:0" allowfullscreen>
 				        </iframe>
 				        <form method="post">
 				        	<div class="div_store_btn">
