@@ -16,8 +16,8 @@ if(empty($account)){
 }
 
 else {
-	$user = 'root';
-	$pass = '';
+	$user = 'jomorcom_root';
+	$pass = 'Jomor123';
 	$host = 'localhost';
 
 	$link = mysql_connect($host, $user, $pass);
