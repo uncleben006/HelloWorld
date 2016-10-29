@@ -31,13 +31,27 @@
 
 			//確定修改
 			if(isset($_POST['confirm'])){
-				$updateStoreNumber = 'UPDATE `store` SET `storePlace`= "'.$_POST['storePlace'].'",`storeName`= "'.$_POST['storeName'].'",`storeType`= "'.$_POST['storeType'].'",`storeAddress`= "'.$_POST['storeAddress'].'",`storeNumber`= "'.$_POST['storeNumber'].'",`storeSpend`= "'.$_POST['storeSpend'].'",`storeTime`= "'.$_POST['storeTime'].'",`storeHoliday`= "'.$_POST['storeHoliday'].'",`storeTraffic`= "'.$_POST['storeTraffic'].'",`webURL`= "'.$_POST['webURL'].'",`fbURL`= "'.$_POST['fbURL'].'",`googleURL`= "'.$_POST['googleURL'].'",`x`= "'.$_POST['x'].'",`y`= "'.$_POST['y'].'",`storePhoto`= "'.$_POST['storePhoto'].'" WHERE `storeNumber` = "'.$_POST['storeNumber'].'" OR `storeName` = "'.$_POST['storeName'].'" OR `storePhoto` = "'.$_POST['storePhoto'].'"';
+				$updateStoreNumber = 'UPDATE `store` SET 
+				`storePlace`= "'.$_POST['storePlace'].'",
+				`storeName`= "'.$_POST['storeName'].'",
+				`storeType`= "'.$_POST['storeType'].'",
+				`storeArea` = "'.$_POST['storeArea'].'",
+				`storeAddress`= "'.$_POST['storeAddress'].'",
+				`storeNumber`= "'.$_POST['storeNumber'].'",
+				`storeSpend`= "'.$_POST['storeSpend'].'",
+				`storeTime`= "'.$_POST['storeTime'].'",
+				`storeHoliday`= "'.$_POST['storeHoliday'].'",
+				`webURL`= "'.$_POST['webURL'].'",
+				`fbURL`= "'.$_POST['fbURL'].'",
+				`googleURL`= "'.$_POST['googleURL'].'",
+				`storePhoto`= "'.$_POST['storePhoto'].'" 
+				WHERE `storeNumber` = "'.$_POST['storeNumber'].'" OR `storeName` = "'.$_POST['storeName'].'" OR `storePhoto` = "'.$_POST['storePhoto'].'" OR `storeAddress` = "'.$_POST['storeAddress'].'"';
 				echo $updateStoreNumber;
 				mysql_query("SET NAMES'UTF8'");
 				mysql_query("SET CHARACTER SET UTF8");
 				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
 				$updateStoreNumber = mysql_query($updateStoreNumber);
-				header('Location:showStore.php');
+				//header('Location:showStore.php');
 			}
 
 			//取消(回到管理店家)	
@@ -75,7 +89,7 @@
 									$storeNumber = mysql_fetch_assoc($selectStoreNumber);
 								?>
 									<tr>
-										<td>店家地區</td>
+										<td>縣市</td>
 										<td class="edit_td"><input type="text" name="storePlace" value="<?php echo $storeNumber['storePlace'] ?>" class="manage_input"></td>
 									</tr>
 									<tr>
@@ -85,6 +99,10 @@
 									<tr>
 										<td>店家型態</td>
 										<td><input type="text" name="storeType" value="<?php echo $storeNumber['storeType'] ?>" class="manage_input"></td>	
+									</tr>
+									<tr>
+										<td>地區</td>
+										<td><input type="text" name="storeArea" value="<?php echo $storeNumber['storeArea'] ?>" class="manage_input"></td>	
 									</tr>
 									<tr>
 										<td>地址</td>
@@ -105,11 +123,7 @@
 									<tr>
 										<td>公休日</td>
 										<td><input type="text" name="storeHoliday" value="<?php echo $storeNumber['storeHoliday'] ?>" class="manage_input"></td>
-									</tr>
-									<tr>
-										<td>交通方式</td>
-										<td><input type="text" name="storeTraffic" value="<?php echo $storeNumber['storeTraffic'] ?>" class="manage_input"></td>	
-									</tr>
+									</tr>									
 									<tr>	
 										<td>網頁連結</td>
 										<td><input type="text" name="webURL" value="<?php echo $storeNumber['webURL'] ?>" class="manage_input"></td>	
@@ -121,15 +135,7 @@
 									<tr>
 										<td>google地圖連結</td>
 										<td><input type="text" name="googleURL" value="<?php echo $storeNumber['googleURL'] ?>" class="manage_input"></td>
-									</tr>
-									<tr>
-										<td>經度x</td>
-										<td><input type="text" name="x" value="<?php echo $storeNumber['x'] ?>" class="manage_input"></td>	
-									</tr>
-									<tr>
-										<td>緯度y</td>
-										<td><input type="text" name="y" value="<?php echo $storeNumber['y'] ?>" class="manage_input"></td>	
-									</tr>
+									</tr>									
 									<tr>	
 										<td>圖片</td>
 										<td><input type="text" name="storePhoto" value="<?php echo $storeNumber['storePhoto'] ?>" class="manage_input"></td>
