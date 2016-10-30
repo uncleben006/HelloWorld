@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.0.10.14
 -- http://www.phpmyadmin.net
 --
--- 主機: 127.0.0.1
--- 產生時間： 2016-10-28 14:43:45
--- 伺服器版本: 10.1.13-MariaDB
--- PHP 版本： 5.6.23
+-- 主機: localhost:3306
+-- 建立日期: 2016 年 10 月 31 日 00:26
+-- 伺服器版本: 5.5.52-cll
+-- PHP 版本: 5.6.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,10 +14,10 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
--- 資料庫： `boardgame`
+-- 資料庫: `jomorcom_boardgame`
 --
 
 -- --------------------------------------------------------
@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- 資料表結構 `admin`
 --
 
-CREATE TABLE `admin` (
+CREATE TABLE IF NOT EXISTS `admin` (
   `no` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
   `pri` int(11) NOT NULL,
   `account` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
@@ -49,7 +49,7 @@ INSERT INTO `admin` (`no`, `pri`, `account`, `password`, `name`, `email`, `intro
 -- 資料表結構 `chat`
 --
 
-CREATE TABLE `chat` (
+CREATE TABLE IF NOT EXISTS `chat` (
   `no` int(11) DEFAULT NULL,
   `account` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `name` char(8) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -66,7 +66,10 @@ INSERT INTO `chat` (`no`, `account`, `name`, `now`, `chat`) VALUES
 (38, '', '源源水源市場原', '22:02:42', '安安~'),
 (57, '', '222', '01:22:21', '安安'),
 (57, '', '安安', '01:31:52', '幹嘛?'),
-(59, '', '安安', '01:28:27', '安安');
+(59, '', '安安', '01:28:27', '安安'),
+(17, 'pipi', '皮皮君', '16:59:01', '0 0 '),
+(17, 'pipi', '皮皮君', '16:59:05', '0 0 '),
+(17, 'pipi', '皮皮君', '16:59:14', '0 0 ');
 
 -- --------------------------------------------------------
 
@@ -74,8 +77,8 @@ INSERT INTO `chat` (`no`, `account`, `name`, `now`, `chat`) VALUES
 -- 資料表結構 `game`
 --
 
-CREATE TABLE `game` (
-  `no` int(10) NOT NULL,
+CREATE TABLE IF NOT EXISTS `game` (
+  `no` int(10) NOT NULL AUTO_INCREMENT,
   `game` text NOT NULL,
   `type` text NOT NULL,
   `participant` varchar(2) NOT NULL,
@@ -84,8 +87,9 @@ CREATE TABLE `game` (
   `detail` text NOT NULL,
   `age` varchar(2) NOT NULL,
   `agent` text NOT NULL,
-  `pic` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `pic` varchar(100) NOT NULL,
+  PRIMARY KEY (`no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -93,7 +97,7 @@ CREATE TABLE `game` (
 -- 資料表結構 `judge`
 --
 
-CREATE TABLE `judge` (
+CREATE TABLE IF NOT EXISTS `judge` (
   `judger` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `be judged` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `time` datetime NOT NULL
@@ -105,7 +109,7 @@ CREATE TABLE `judge` (
 -- 資料表結構 `member`
 --
 
-CREATE TABLE `member` (
+CREATE TABLE IF NOT EXISTS `member` (
   `no` int(3) NOT NULL,
   `people` int(2) NOT NULL,
   `name` text COLLATE utf8_unicode_ci NOT NULL,
@@ -119,8 +123,7 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`no`, `people`, `name`, `account`, `email`, `photo`) VALUES
-(16, 3, '皮皮君', 'pipi', 'uncleben006@gmail.com', 'pipi.png'),
-(16, 3, '000', '000', 'uncleben006@gmail.com', '474525.jpg');
+(17, 20, '皮皮君', 'pipi', 'uncleben006@gmail.com', 'pipi.png');
 
 -- --------------------------------------------------------
 
@@ -128,7 +131,7 @@ INSERT INTO `member` (`no`, `people`, `name`, `account`, `email`, `photo`) VALUE
 -- 資料表結構 `remind`
 --
 
-CREATE TABLE `remind` (
+CREATE TABLE IF NOT EXISTS `remind` (
   `no` int(3) NOT NULL,
   `account` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -136,19 +139,25 @@ CREATE TABLE `remind` (
   `room` text COLLATE utf8_unicode_ci NOT NULL,
   `date` date NOT NULL,
   `time` time NOT NULL,
-  `store` text COLLATE utf8_unicode_ci NOT NULL,
-  `decide` int(2) NOT NULL
+  `store` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- 資料表的匯出資料 `remind`
 --
 
-INSERT INTO `remind` (`no`, `account`, `email`, `host`, `room`, `date`, `time`, `store`, `decide`) VALUES
-(16, 'pipi', 'uncleben006@gmail.com', 'pipi', '刪除房間', '2016-10-28', '15:16:00', 'swan caf''e', 2),
-(16, '000', 'uncleben006@gmail.com', 'pipi', '刪除房間', '2016-10-28', '15:16:00', 'swan caf''e', 2),
-(16, 'pipi', 'uncleben006@gmail.com', 'pipi', '刪除房間', '2016-10-28', '15:16:00', 'swan caf''e', 0),
-(16, '000', 'uncleben006@gmail.com', 'pipi', '刪除房間', '2016-10-28', '15:16:00', 'swan caf''e', 0);
+INSERT INTO `remind` (`no`, `account`, `email`, `host`, `room`, `date`, `time`, `store`) VALUES
+(9, '222', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
+(9, '111', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
+(9, '222', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
+(9, '111', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
+(9, '111', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
+(9, '777', 'uncleben004@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
+(9, '000', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
+(9, '333', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
+(9, '999', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
+(9, '888', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e'),
+(9, 'iii', 'uncleben006@gmail.com', '222', '測試可以重複登入的問題', '2016-10-19', '15:16:00', 'swan caf''e');
 
 -- --------------------------------------------------------
 
@@ -156,8 +165,8 @@ INSERT INTO `remind` (`no`, `account`, `email`, `host`, `room`, `date`, `time`, 
 -- 資料表結構 `room`
 --
 
-CREATE TABLE `room` (
-  `no` int(3) NOT NULL,
+CREATE TABLE IF NOT EXISTS `room` (
+  `no` int(3) NOT NULL AUTO_INCREMENT,
   `decide` int(2) NOT NULL,
   `host` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `room` text COLLATE utf8_unicode_ci NOT NULL,
@@ -170,15 +179,16 @@ CREATE TABLE `room` (
   `time2` time NOT NULL,
   `people` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
   `spend` text COLLATE utf8_unicode_ci NOT NULL,
-  `remark` text COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `remark` text COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`no`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=19 ;
 
 --
 -- 資料表的匯出資料 `room`
 --
 
 INSERT INTO `room` (`no`, `decide`, `host`, `room`, `store`, `x`, `y`, `game`, `date`, `time`, `time2`, `people`, `spend`, `remark`) VALUES
-(16, 1, 'pipi', '刪除房間', 'swan caf''e', 25.0884, 121.464, '5', '2016-10-28', '15:16:00', '15:16:00', '3', '5', '5');
+(17, 0, 'pipi', '來喔測試看看中文', 'swan caf''e', 25.0884, 121.464, '爽爽', '2016-10-31', '15:16:00', '15:16:00', '20', '爽爽', '幹~~');
 
 -- --------------------------------------------------------
 
@@ -186,7 +196,8 @@ INSERT INTO `room` (`no`, `decide`, `host`, `room`, `store`, `x`, `y`, `game`, `
 -- 資料表結構 `store`
 --
 
-CREATE TABLE `store` (
+CREATE TABLE IF NOT EXISTS `store` (
+  `no` int(11) NOT NULL AUTO_INCREMENT,
   `storePlace` text COLLATE utf8_unicode_ci NOT NULL,
   `storeName` text COLLATE utf8_unicode_ci NOT NULL,
   `storeType` text COLLATE utf8_unicode_ci NOT NULL,
@@ -199,16 +210,123 @@ CREATE TABLE `store` (
   `webURL` text COLLATE utf8_unicode_ci NOT NULL,
   `fbURL` text COLLATE utf8_unicode_ci NOT NULL,
   `googleURL` longtext COLLATE utf8_unicode_ci NOT NULL,
-  `storePhoto` varchar(20) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `storePhoto` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`no`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=110 ;
 
 --
 -- 資料表的匯出資料 `store`
 --
 
-INSERT INTO `store` (`storePlace`, `storeName`, `storeType`, `storeArea`, `storeAddress`, `storeNumber`, `storeSpend`, `storeTime`, `storeHoliday`, `webURL`, `fbURL`, `googleURL`, `storePhoto`) VALUES
-('台北市', '女巫店', '複合式餐飲桌遊店', '', '106台灣台北市大安區新生南路三段56巷7號', '02-2369-2528', '一般時段每人最低消費150元', '週日－週三 SUN-WED 10:00-23:00 週四－週六 THU-SAT 10:00-24:00', '無', 'http://www.witchhouse.org/', 'https://zh-tw.facebook.com/%E5%A5%B3%E5%B7%AB%E5%BA%97-133362243371354/', 'https://www.google.com/maps/place/106%E5%8F%B0%E7%81%A3%E5%8F%B0%E5%8C%97%E5%B8%82%E5%A4%A7%E5%AE%89%E5%8D%80%E6%96%B0%E7%94%9F%E5%8D%97%E8%B7%AF%E4%B8%89%E6%AE%B556%E5%B7%B77%E8%99%9F/@25.0204987,121.5314723,17z/data=!3m1!4b1!4m5!3m4!1s0x3442a988fc4f7b2d:0xae67410731144b1a!8m2!3d25.0204987!4d121.533661', 'taipei01.jpg'),
-('台北市', 'Swan Cafe 天鵝桌遊館', '複合式餐飲桌遊店', '', '116台灣台北市文山區羅斯福路五段170巷37號', '02-2930-8983', '每人每時段低消150元', '每日10:00-22:00(早場10-14、午場14-18、晚場18-22)', '無', '無', 'https://www.facebook.com/Swancafe-%E5%A4%A9%E9%B5%9D%E6%A1%8C%E9%81%8A%E9%A4%A8-1062378480487075/', 'https://www.google.com/maps/place/116%E5%8F%B0%E7%81%A3%E5%8F%B0%E5%8C%97%E5%B8%82%E6%96%87%E5%B1%B1%E5%8D%80%E7%BE%85%E6%96%AF%E7%A6%8F%E8%B7%AF%E4%BA%94%E6%AE%B5170%E5%B7%B737%E8%99%9F/@25.0046889,121.5344118,17z/data=!3m1!4b1!4m5!3m4!1s0x3442a9f626a7f0b1:0xab8269ee9dfb4b34!8m2!3d25.0046889!4d121.5366005', 'taipei02.jpg');
+INSERT INTO `store` (`no`, `storePlace`, `storeName`, `storeType`, `storeArea`, `storeAddress`, `storeNumber`, `storeSpend`, `storeTime`, `storeHoliday`, `webURL`, `fbURL`, `googleURL`, `storePhoto`) VALUES
+(1, '臺北市', '女巫店', '複合式餐飲桌遊店', '臺北市大安區', '臺北市大安區新生南路三段56巷7號', '(02)2369-2528', '一般時段每人最低消費150元', '週日：10:00-23:00<br> 週一：10:00-23:00<br> 週二：10:00-23:00<br> 週三：10:00-23:00<br> 週四：10:00-24:00<br> 週五：10:00-24:00<br> 週六：10:00-24:00', '無', 'http://www.witchhouse.org/', 'https://zh-tw.facebook.com/%E5%A5%B3%E5%B7%AB%E5%BA%97-133362243371354/', 'https://www.google.com/maps/place/106%E5%8F%B0%E7%81%A3%E5%8F%B0%E5%8C%97%E5%B8%82%E5%A4%A7%E5%AE%89%E5%8D%80%E6%96%B0%E7%94%9F%E5%8D%97%E8%B7%AF%E4%B8%89%E6%AE%B556%E5%B7%B77%E8%99%9F/@25.0204987,121.5314723,17z/data=!3m1!4b1!4m5!3m4!1s0x3442a988fc4f7b2d:0xae67410731144b1a!8m2!3d25.0204987!4d121.533661', 'taipei01.jpg'),
+(2, '臺北市', 'Swan Cafe 天鵝桌遊館', '複合式餐飲桌遊店', '臺北市文山區', '臺北市文山區羅斯福路五段170巷37號', '(02)2930-8983', '每人每時段低消150元(早場10-14、午場14-18、晚場18-22)', '週一：10:00-22:00<br>週二：10:00-22:00<br>週三：10:00-22:00<br>週四：10:00-22:00<br>週五：10:00-22:00<br>週六：10:00-22:00<br>週日：10:00-22:00', '無', '', 'https://www.facebook.com/Swancafe-%E5%A4%A9%E9%B5%9D%E6%A1%8C%E9%81%8A%E9%A4%A8-1062378480487075/', 'https://www.google.com/maps/place/116%E5%8F%B0%E7%81%A3%E5%8F%B0%E5%8C%97%E5%B8%82%E6%96%87%E5%B1%B1%E5%8D%80%E7%BE%85%E6%96%AF%E7%A6%8F%E8%B7%AF%E4%BA%94%E6%AE%B5170%E5%B7%B737%E8%99%9F/@25.0046889,121.5344118,17z/data=!3m1!4b1!4m5!3m4!1s0x3442a9f626a7f0b1:0xab8269ee9dfb4b34!8m2!3d25.0046889!4d121.5366005', 'taipei02.jpg'),
+(3, '臺北市', '萊思樂-桌上遊戲休閒空間', '複合式餐飲桌遊店', '臺北市士林區', '臺北市士林區士東路95號3樓', '(02)2874-0262', '平日：會員 : 1小時30元，包日120元。<br>非會員：1小時40元，包日160元。<br> 假日：會員 : 1小時40元，包日160元。<br>非會員：1小時50元，包日200元。', '週一：13:30-21:00<br>週二：13:30-21:00<br>週四：13:30-21:00<br>週五：13:30-21:00<br>週六：13:30-21:00<br>週日：13:30-21:00', '週三', '', 'https://www.facebook.com/LetsLearn.BGspace/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3612.691390838903!2d121.52710461500786!3d25.112305983935684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442ae84451bc5e3%3A0x6a26497c560cd8a7!2zMTEx5Y-w54Gj5Y-w5YyX5biC5aOr5p6X5Y2A5aOr5p2x6LevOTXomZ8!5e0!3m2!1szh-TW!2s!4v1477656469033', 'taipei03.jpg'),
+(4, '臺北市', 'Legend Fun 樂聚坊桌上遊戲', '桌遊專門店', '臺北市士林區', '臺北市士林區中山北路五段505巷44弄2號', '(02)2883-0357', '40元/hr 優惠100元/3hr', '週一：16:00-22:00<br> 週二：16:00-22:00<br> 週三：16:00-22:00<br> 週四：16:00-22:00<br> 週五：16:00-22:00<br> 週六：13:00-22:00<br> 週日：13:00-22:00', '無', '', 'https://www.facebook.com/LegendFun/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.2500387989385!2d121.5243613150074!3d25.093395983944585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442aea4a6e90c67%3A0x9c2c1ec199322cc!2zMTEx5Y-w54Gj5Y-w5YyX5biC5aOr5p6X5Y2A5Lit5bGx5YyX6Lev5LqU5q61NTA15be3NDTlvIQy6Jmf!5e0!3m2!1szh-TW!2s!4v1477656489983', 'taipei04.jpg'),
+(5, '雲林縣', '玩坊MoreFun（斗六店）', '複合式餐飲桌遊店', '雲林縣斗六市', '雲林縣斗六市上海路174-2號', '(05)533-3038', '平日每人/每小時/$30<br> 假日及國定假日/每人/每小時/$40<br> 飲料無限暢飲', '週二：16:00-23:00<br> 週三：16:00-23:00<br>週四：16:00-23:00<br> 週五：13:15-23:00<br> 週六：13:15-23:00<br>週日：13:15-23:00', '週一', 'http://www.morefun.com.tw/login', 'https://www.facebook.com/morefun.yunlin/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.966089287429!2d120.53739631498068!3d23.7129049846078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec830019f237b%3A0x69b7668271687056!2zNjQw5Y-w54Gj6Zuy5p6X57ij5paX5YWt5biC5LiK5rW36LevMTc0LTLomZ8!5e0!3m2!1szh-TW!2s!4v1477658884403', 'cloud01.jpg'),
+(6, '金門縣', '玩坊MoreFun（金門金城店）', '桌遊專門店', '金門縣金城鎮', '金門縣金城鎮莒光路162之1-2樓', '(08)232-4114', '非會員：平日4小時80元(包日+30元)、假日4小時80元，以4小時為單位再玩四小時再加80<br> 會員：入場費50元(包日+30元)、假日4個小時50元，以4小時為單位再玩四小時再加50元', '週一：無<br> 週二：15:00-22:00<br> 週三：15:00-22:00<br> 週四：15:00-22:00<br> 週五：15:00-22:00<br> 週六：09:00-22:00<br> 週日：09:00-22:00', '週一', '', 'https://www.facebook.com/kinmen.morefun/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3632.4898103319956!2d118.31391331499435!3d24.433785984257003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xee76e2ec49f86316!2zTU9SRSBGVU4g546p5Z2K5qGM5LiK6YGK5oiy!5e0!3m2!1szh-TW!2s!4v1477659110631', 'south01.jpg'),
+(7, '澎湖縣', '夢想部落館', '複合式餐飲桌遊店', '澎湖縣馬公市', '澎湖縣馬公市中央街2號', '(06)926-6998', '每人低消100元', '週一：11:00-21:30<br> 週二：無<br> 週三：11:00-21:30<br> 週四：11:00-21:30<br> 週五：11:00-21:30<br> 週六：11:00-21:30<br> 週日：11:00-21:30', '週二', '', 'https://www.facebook.com/dreamspot2011/', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3657.1169985585716!2d119.5624458!3d23.5642411!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346c5af332d81f0d%3A0xe8d9208c8fdb57c8!2z5aSi5oOz6YOo6JC96aSo!5e0!3m2!1szh-TW!2s!4v1477659123837', 'south02.png'),
+(8, '屏東縣', '益智盒桌遊空間', '桌遊專門店', '屏東縣屏東市', '屏東縣屏東市復興路211號', '(08)752-0707', '一小時40元，包日(超過4小時)150元', '週一：13:00-21:00<br> 週二：13:00-21:00<br> 週三：13:00-21:00<br> 週四：13:00-21:00<br> 週五：13:00-21:00<br> 週六：13:00-22:00<br> 週日：15:00-22:00', '無', '', 'https://www.facebook.com/YiZhiHeYouXiKongJian/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.7249040482084!2d120.48594031496128!3d22.664043185135796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e178748fc95cf%3A0xa65549d345de71f4!2zOTAw5Y-w54Gj5bGP5p2x57ij5bGP5p2x5biC5b6p6IiI6LevMjEx6Jmf!5e0!3m2!1szh-TW!2s!4v1477659132582', 'south03.png'),
+(9, '屏東縣', 'ing.映桌遊餐廳', '複合式餐飲桌遊店', '屏東縣屏東市', '屏東縣屏東市瑞光路二段280號', '(08)735-0319', '每人低消100，所有飲品續杯半價', '週一：15:30-23:00<br> 週二：15:30-23:00<br> 週三：15:30-23:00<br> 週四：15:30-23:00<br> 週五：15:30-23:00<br> 週六：12:00-23:30<br> 週日：12:00-23:30', '無', '', 'https://www.facebook.com/IngTGame', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d460.1632521942044!2d120.5066736!3d22.6796493!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e17ea907aa4c5%3A0x366941c7ec20b56b!2zSW5n5pig5qGM6YGKMi4w!5e0!3m2!1szh-TW!2s!4v1477659145171', 'south04.png'),
+(10, '屏東縣', '不只是桌遊', '桌遊專門店', '屏東縣里港鄉', '屏東縣里港鄉里港路129號', '0905-642-318', '平日一小時20元，會員包日100元<br> 假日一小時30元，會員包日150元<br> 兒童(國小以下) 一小時30元', '週一：無<br> 週二：無<br> 週三：無<br> 週四：無<br> 週五：18:00-22:00<br> 週六：10:00-22:00<br> 週日：10:00-22:00', '週一、二、三、四', '', 'https://www.facebook.com/Notonlyboardgames/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3678.684061275919!2d120.4947332149632!3d22.777103285077953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e15bb174dba3d%3A0xcf3d78789b7030b8!2zOTA15Y-w54Gj5bGP5p2x57ij6YeM5riv6YSJ6YeM5riv6LevMTI56Jmf!5e0!3m2!1szh-TW!2s!4v1477659155788', 'south05.jpg'),
+(11, '屏東縣', 'FTC桌遊主題館', '桌遊專門店', '屏東縣屏東市', '屏東縣屏東市民生路17號', '(08)721-6986', '尚無資料', '週一：14:00-23:00<br> 週二：14:00-23:00<br> 週三：14:00-23:00<br> 週四：14:00-23:00<br> 週五：14:00-23:00<br> 週六：11:00-23:00<br> 週日：11:00-23:00', '無', '', 'https://www.facebook.com/FTCForTheCreator', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3681.791798768866!2d120.5059113!3d22.66155!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e17f4547740db%3A0x4a7e9e92655d8734!2zRlRD5qGM6YGK5Li76aGM6aSo!5e0!3m2!1szh-TW!2s!4v1477659166116', 'south06.jpg'),
+(12, '屏東縣', '活米村桌遊', '桌遊專門店', '屏東縣屏東市', '屏東縣屏東市民生路61-9號', '0935-470-414', '尚無資料', '週一：13:30-22:00<br> 週二：13:30-22:00<br> 週三：13:30-22:00<br> 週四：13:30-22:00<br> 週五：13:30-22:00<br> 週六：12:00-22:00<br> 週日：12:00-22:00', '週日', '', 'https://www.facebook.com/%E6%B4%BB%E7%B1%B3%E6%9D%91%E6%A1%8C%E9%81%8A%E6%A1%8C%E4%B8%8A%E9%81%8A%E6%88%B2%E7%A9%BA%E9%96%93-357354367766722/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.720106392466!2d120.50115331496124!3d22.664221985135708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e178b6847b887%3A0x611cdc5175a592ea!2zOTAw5Y-w54Gj5bGP5p2x57ij5bGP5p2x5biC5rCR55Sf6LevNjEtOeiZnw!5e0!3m2!1szh-TW!2s!4v1477659175786', 'default.jpg'),
+(13, '高雄市', '卡牌屋（高雄店）', '桌遊專門店', '高雄市三民區', '高雄市三民區長明街299號', '(07)236-2280', '平日一小時30元(店員教學50)、假日一小時40元(店員教學70)<br> 包日平日90元(店員教學200)、包日假日120元(店員教學250)', '週一：無<br> 週二：無<br> 週三：13:30-22:00<br> 週四：13:30-22:00<br> 週五：13:30-22:00<br> 週六：13:30-22:00<br> 週日：13:30-22:00', '週一、二', 'http://bghut.com/', 'https://www.facebook.com/bghutkaohsiung/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.4117387991146!2d120.3021849149608!3d22.638432285148983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e04f36b7897d7%3A0x597e9e2f4375adb1!2zODA35Y-w54Gj6auY6ZuE5biC5LiJ5rCR5Y2A6ZW35piO6KGXMjk56Jmf!5e0!3m2!1szh-TW!2s!4v1477659193450', 'south08.jpg'),
+(14, '高雄市', '口袋C:遊桌遊店（建工店）', '複合式餐飲桌遊店', '高雄市三民區', '高雄市三民區建工路510號2F', '0980-740-127', '低消一杯飲料70元，若不點飲料則要餐點滿100元。<br> 目前採不限時制', '週一：17:00-22:30<br> 週二：無<br> 週三：17:00-22:30<br> 週四：17:00-22:30<br> 週五：17:00-22:30<br> 週六：11:00-22:30<br> 週日：11:00-22:30', '週二', '', 'https://www.facebook.com/pocketcplay/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.0722684703314!2d120.32408831496097!3d22.65109398514242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e04d8d5497c41%3A0x5ed95d339eeb7c32!2zODA35Y-w54Gj6auY6ZuE5biC5LiJ5rCR5Y2A5bu65bel6LevNTEw6Jmf!5e0!3m2!1szh-TW!2s!4v1477659205154', 'south09.jpg'),
+(15, '高雄市', '口袋C:遊桌遊店（文山店）', '複合式餐飲桌遊店', '高雄市鳳山區', '高雄市鳳山區濱山街15巷5號', '0980-740-127', '低消一杯飲料70元，若不點飲料則要餐點滿100元。<br> 目前採不限時制', '週一：17:00-22:30<br> 週二：17:00-22:30<br> 週三：無<br> 週四：17:00-22:30<br> 週五：17:00-22:30<br> 週六：11:00-22:30<br> 週日：11:00-22:30', '週三', '', 'https://www.facebook.com/pocketcplay2/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.221275556888!2d120.34835221496094!3d22.645537085145307!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e1b297312418d%3A0x2528971a23906f79!2zODMw5Y-w54Gj6auY6ZuE5biC6bOz5bGx5Y2A5r-x5bGx6KGXMTXlt7c16Jmf!5e0!3m2!1szh-TW!2s!4v1477659238209', 'south10.jpg'),
+(16, '高雄市', '矮人礦坑桌上遊戲專賣店', '桌遊販賣店', '高雄市三民區', '高雄市三民區建國二路29號', '(07)236-9978', '無', '週一：15:30-21:30<br> 週二：15:30-21:30<br> 週三：15:30-21:30<br> 週四：15:30-21:30<br> 週五：15:30-21:30<br> 週六：11:00-21:30<br> 週日：11:00-21:30', '無', 'http://minedwarf.blogspot.tw/', 'https://www.facebook.com/dwarfgoldmine/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.447314362705!2d120.3104413149607!3d22.63710498514966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e04ecf01e9605%3A0xd0b4212ad341862b!2zODA35Y-w54Gj6auY6ZuE5biC5LiJ5rCR5Y2A5bu65ZyL5LqM6LevMjnomZ8!5e0!3m2!1szh-TW!2s!4v1477659250503', 'south11.jpg'),
+(17, '高雄市', 'Tobey′s Game Cafe 總店', '複合式餐飲桌遊店', '高雄市三民區', '高雄市三民區博仁街1號', '(07)322-3929', '會員1小時35元，非會員1小時40元', '週一：無<br> 週二：11:30~22:30<br> 週三：11:30~22:30<br> 週四：11:30~22:30<br> 週五：11:30~22:30<br> 週六：11:30-23:00<br> 週日：11:30-23:00', '週一', 'http://tobeys.com.tw/', 'https://www.facebook.com/tobeysos/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.198498638548!2d120.30184941496097!3d22.646386585144793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e04f0b861f317%3A0xc50448d90d7a7728!2zODA35Y-w54Gj6auY6ZuE5biC5LiJ5rCR5Y2A5Y2a5LuB6KGXMeiZnw!5e0!3m2!1szh-TW!2s!4v1477659267027', 'south12.jpg'),
+(18, '高雄市', 'Tobey′s Game Cafe（楠梓店）', '複合式餐飲桌遊店', '高雄市楠梓區', '高雄市楠梓區土庫三路285號', '(07)353-8507', '一小時40元，往後每半小時20元玩多久算多久、無限暢飲', '週一：12:00-23:00<br> 週二：12:00-23:00<br> 週三：12:00-23:00<br> 週四：12:00-23:00<br> 週五：11:30~22:30<br> 週六：12:00-00:00<br> 週日：12:00-23:00', '無', 'http://tobeys.com.tw/', 'https://www.facebook.com/tobeysnz/?ref=feed_chaining', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.655862664355!2d120.32417491496263!3d22.741029085096333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e0e349e1f9a27%3A0x88344905fad67b!2zODEx5Y-w54Gj6auY6ZuE5biC5qWg5qKT5Y2A5Zyf5bqr5LiJ6LevMjg16Jmf!5e0!3m2!1szh-TW!2s!4v1477659276891', 'south13.jpg'),
+(19, '高雄市', 'Tobey′s Game Cafe 遊戲咖啡館（大福店）', '複合式餐飲桌遊店', '高雄市三民區', '高雄市三民區大福街104號', '(07)381-9918', '非會員一小時40、會員一小時35。<br> 平常日(一~五)可包日。<br> 非會員平常日五小時後時數不計費(200)<br> 會員平常日四個半小時後時數不計費(150)', '週一：無<br> 週二：無<br> 週三：無<br> 週四：無<br> 週五：14:00-22:00<br> 週六：12:00-22:00<br> 週日：12:00-22:00', '週一、二、三、四', 'http://tobeys.com.tw/', 'https://www.facebook.com/tobeysdafu/?ref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.92816505334!2d120.32438921496107!3d22.656466785139635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e0526d5d45bd7%3A0xbbfae5e95c73d9aa!2zODA35Y-w54Gj6auY6ZuE5biC5LiJ5rCR5Y2A5aSn56aP6KGXMTA06Jmf!5e0!3m2!1szh-TW!2s!4v1477659287528', 'south14.png'),
+(21, '高雄市', '天下無雙桌遊城', '複合式餐飲桌遊店', '高雄市三民區', '高雄市三民區黃興路23號', '(07)381-0262', '平日1小時30元、包日105元<br> 假日1小時35元、包日140元（每加一小時便宜5元）', '週一：13:00-01:00<br> 週二：無<br> 週三：13:00-01:00<br> 週四：13:00-01:00<br> 週五：13:00-01:00<br> 週六：10:00-02:00<br> 週日：10:00-02:00', '週二', '', 'https://www.facebook.com/allconqueringboardgamesshop/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.2056468439228!2d120.34156191496086!3d22.646119985144992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e1b2b359f9771%3A0x33d6be6e6bc152a5!2zODA35Y-w54Gj6auY6ZuE5biC5LiJ5rCR5Y2A6buD6IiI6LevMjPomZ8!5e0!3m2!1szh-TW!2s!4v1477659312119', 'south16.jpg'),
+(22, '高雄市', '龐奇桌遊（陽明加盟店）', '複合式餐飲桌遊店', '高雄市苓雅區', '高雄市苓雅區泰順街29號', '(07)223-3338', '平日一小時30元、假日一小時40元<br> 平日包時段四小時100元、假日包時段四小時120元(包時段贈送飲料任選一杯)', '週一：無<br> 週二：無<br> 週三：無<br> 週四：無<br> 週五：無<br> 週六：12:00-22:00<br> 週日：12:00-22:00', '無', 'http://punchboardgame.pixnet.net/blog', 'https://www.facebook.com/punch178', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.209062724869!2d120.3395811149609!3d22.645992585145002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e04d496c906a1%3A0xbc72fdc54313cc34!2zODA35Y-w54Gj6auY6ZuE5biC5LiJ5rCR5Y2A5r6E5bmz6KGXMTc46Jmf!5e0!3m2!1szh-TW!2s!4v1477659325311', 'south17.jpg'),
+(23, '高雄市', 'Ott童樂繪館', '桌遊專門店', '高雄市三民區', '高雄市三民區應昇路50號', '0977-050-511', '尚無資料', '週一：13:30-19:30<br> 週二：13:30-19:30<br> 週三：13:30-19:30<br> 週四：13:30-19:30<br> 週五：13:30-19:30<br> 週六：無<br> 週日：無', '週六、日', '', 'https://www.facebook.com/ottchildplay/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.1226519665347!2d120.31469511496091!3d22.649215185143373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e04e6dcb4cd71%3A0x68e254d4fc7a1ca4!2zODA35Y-w54Gj6auY6ZuE5biC5LiJ5rCR5Y2A5oeJ5piH6LevNTDomZ8!5e0!3m2!1szh-TW!2s!4v1477659334184', 'default.jpg'),
+(24, '高雄市', '奇蹟桌上遊戲休閑館', '桌遊專門店', '高雄市小港區', '高雄市小港區平治街2號', '(07)805-5351', '尚無資料', '週一：14:00-21:00<br> 週二：14:00-21:00<br> 週三：14:00-21:00<br> 週四：14:00-18:30<br> 週五：14:00-21:00<br> 週六：14:00-21:00<br> 週日：14:00-21:00', '週日', '', 'https://www.facebook.com/miraclesgame/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.311816064169!2d120.35602991495949!3d22.567438185185534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e1cdbcc4b0f97%3A0x654808dc702f31c6!2zODEy5Y-w54Gj6auY6ZuE5biC5bCP5riv5Y2A5bmz5rK76KGXMuiZnw!5e0!3m2!1szh-TW!2s!4v1477659344909', 'south19.jpg'),
+(25, '高雄市', '吐司寶寶桌遊館', '複合式餐飲桌遊店', '高雄市苓雅區', '高雄市苓雅區福安路395號', '0983-881-916', '平日:25元/時，100元/4小時<br> 例假日:30元/時，130元/4小時', '週一：17:00-23:00<br> 週二：17:00-23:00<br> 週三：17:00-23:00<br> 週四：17:00-23:00<br> 週五：17:00-23:00<br> 週六：17:00-23:00<br> 週日：17:00-23:00', '無', '', 'https://www.facebook.com/%E5%90%90%E5%8F%B8%E5%AF%B6%E5%AF%B6%E6%A1%8C%E9%81%8A%E9%A4%A8-817029885075425/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.6922236460364!2d120.32365281496067!3d22.627965585154374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e04beb14d47d1%3A0xa40312c5e36e49d5!2zODAy5Y-w54Gj6auY6ZuE5biC6IuT6ZuF5Y2A56aP5a6J6LevMzk16Jmf!5e0!3m2!1szh-TW!2s!4v1477659356301', 'south20.jpg'),
+(26, '高雄市', '漫遊開心館', '桌遊專門店', '高雄市前鎮區', '高雄市前鎮區中山二路268-1號', '(07)338-6183', '每人2小時50元、4小時100元送重量杯飲料', '週一：無<br> 週二：12:30-21:30<br> 週三：12:30-21:30<br> 週四：12:30-21:30<br> 週五：12:30-21:30<br> 週六：12:30-23:00<br> 週日：12:30-23:00', '週一', 'http://class.ruten.com.tw/user/index00.php?s=ice123&_plid=57f11b0ec1e1d', 'https://www.facebook.com/HappyHouseKHH/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3683.067725551668!2d120.3030573!3d22.613946!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e037dbf8c6923%3A0xe1230d4a70436f97!2z5ryr6YGK6ZaL5b-D6aSoKOmrmOaNt-S4ieWkmuWVhuWciOermeWFpyk!5e0!3m2!1szh-TW!2s!4v1477659371821', 'south21.jpg'),
+(27, '高雄市', '童心創意', '尚無資料', '高雄市前鎮區', '高雄市前鎮區中華五路789號 （夢時代誠品館）', '(07)823-2505', '尚無資料', '尚無資料', '尚無資料', '', '', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.573631107822!2d120.30494801496008!3d22.595044685171253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e0372f4ff4561%3A0x8265eb817a24208b!2zODA25Y-w54Gj6auY6ZuE5biC5YmN6Y6u5Y2A5Lit6I-v5LqU6LevNzg56Jmf!5e0!3m2!1szh-TW!2s!4v1477659386250', 'default.jpg'),
+(28, '高雄市', '松梅桌遊舖', '桌遊專門店', '高雄市前鎮區', '高雄市前鎮區瑞興街11號', '0955-830-300', '每人低消兩小時40元，四小時為70元。', '週一：10:00-12:30、14:30-20:30<br> 週二：10:00-12:30、14:30-20:30<br> 週三：無<br> 週四：10:00-12:30、14:30-20:30<br> 週五：10:00-12:30、14:30-20:30<br> 週六：10:00-21:00<br> 週日：無', '週三、日', '', 'https://www.facebook.com/sungmay0955830300/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.1398356257646!2d120.33003511496017!3d22.61125278516288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e04a87685d42f%3A0x1103152f6f486a56!2zODA25Y-w54Gj6auY6ZuE5biC5YmN6Y6u5Y2A55Ge6IiI6KGXMTHomZ8!5e0!3m2!1szh-TW!2s!4v1477659396406', 'default.jpg'),
+(29, '高雄市', '敲桌子桌遊', '複合式餐飲桌遊店', '高雄市苓雅區', '高雄市苓雅區民族二路4巷18號', '(07)225-2198', '每人低消2小時<br> 平日一小時30元，包時四小時100元<br> 假日一小時35元，包時四小時120元(送40元飲料一杯)', '週一：14:00-22:00<br> 週二：無<br> 週三：14:00-22:00<br> 週四：14:00-22:00<br> 週五：14:00-22:00<br> 週六：12:00-22:00<br> 週日：12:00-22:00', '週二', '', 'https://www.facebook.com/KnockBoardGame/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.6416920157026!2d120.31173951496069!3d22.62985158515336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e0493e4c7610f%3A0x873b38a4160aaa85!2zODAy5Y-w54Gj6auY6ZuE5biC6IuT6ZuF5Y2A5rCR5peP5LqM6LevNOW3tzE46Jmf!5e0!3m2!1szh-TW!2s!4v1477659406988', 'south24.jpg'),
+(30, '高雄市', '龐奇桌遊餐廳', '複合式餐飲桌遊店', '高雄市苓雅區', '高雄市苓雅區泰順街29號', '(07)223-3338', '平日一小時30元、假日一小時40元<br> 平日包時段四小時100元、假日包時段四小時120元(包時段贈送飲料任選一杯)', '週一：12:00-22:00<br> 週二：12:00-22:00<br> 週三：12:00-22:00<br> 週四：12:00-22:00<br> 週五：12:00-23:00<br> 週六：12:00-23:00<br> 週日：12:00-22:00', '無', 'http://punchboardgame.pixnet.net/blog', 'https://www.facebook.com/punchboardgame?__mref=message_bubble', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.6017327642276!2d120.31607961496061!3d22.631342885152645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e049507c5ba59%3A0xc05af27e2910164d!2zODAy5Y-w54Gj6auY6ZuE5biC6IuT6ZuF5Y2A5rOw6aCG6KGXMjnomZ8!5e0!3m2!1szh-TW!2s!4v1477659416601', 'south25.jpg'),
+(31, '高雄市', '龐奇桌遊（大統百貨五福店）', '複合式餐飲桌遊店', '高雄市新興區', '高雄市新興區五福二路262號', '(07)261-7770', '平日一小時30元、假日一小時40元<br> 平日包時段四小時100元、假日包時段四小時120元(包時段贈送飲料任選一杯)', '週一：12:00-22:00<br> 週二：12:00-22:00<br> 週三：12:00-22:00<br> 週四：12:00-22:00<br> 週五：12:00-23:00<br> 週六：12:00-23:00<br> 週日：12:00-22:00', '無', 'http://punchboardgame.pixnet.net/blog', 'https://www.facebook.com/punch262/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.8105876099526!2d120.29921811496045!3d22.6235472851566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e0486f3d9584f%3A0xee99dce3f3f06a09!2zODAw5Y-w54Gj6auY6ZuE5biC5paw6IiI5Y2A5LqU56aP5LqM6LevMjYy6Jmf!5e0!3m2!1szh-TW!2s!4v1477659429204', 'south26.jpg'),
+(32, '高雄市', 'BROS. Board game café', '複合式餐飲桌遊店', '高雄市楠梓區', '高雄市楠梓區大學二十六街', '0965-349-179', '每人一小時40元，可抵消飲料輕食。<br> 學生優惠：100元玩整天，但不能抵飲料輕食。', '尚無資料', '尚無資料', '', 'https://www.facebook.com/brosboardgames/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.950528793873!2d120.28127671496252!3d22.730080085101985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e0f12db3c2f67%3A0x22497ffa249faf6e!2zODEx5Y-w54Gj6auY6ZuE5biC5qWg5qKT5Y2A5aSn5a245LqM5Y2B5YWt6KGX!5e0!3m2!1szh-TW!2s!4v1477659438907', 'default.jpg'),
+(33, '高雄市', '海德堡多元創思', '桌遊專門店', '高雄市楠梓區', '高雄市楠梓區樂群路7號', '(07)364-2398', '尚無資料', '週一：13:00-15:30<br> 週二：無<br> 週三：13:00-15:30<br> 週四：10:00-19:00<br> 週五：10:00-19:00<br> 週六：09:30-20:00<br> 週日：09:30-20:00', '週二', '', 'https://www.facebook.com/HeiDelBergThinking', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.3363195386896!2d120.2957587149622!3d22.715737585109267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e0f9d7907c693%3A0x95180495107b147!2zODEx5Y-w54Gj6auY6ZuE5biC5qWg5qKT5Y2A5qiC576k6LevN-iZnw!5e0!3m2!1szh-TW!2s!4v1477659448862', 'default.jpg'),
+(34, '高雄市', '羅以桌遊 ROI Games', '桌遊販賣店', '高雄市鼓山區', '高雄市鼓山區中華一路125號', '0981-245-664', '無', '尚無資料', '尚無資料', 'http://class.ruten.com.tw/user/index00.php?s=guitarjackrose', 'https://www.facebook.com/guitarjackrose/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.6940406496665!2d120.29038691496118!3d22.6651933851352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e05abeef75311%3A0xb38c6f3b81d94f4d!2zODA05Y-w54Gj6auY6ZuE5biC6byT5bGx5Y2A5Lit6I-v5LiA6LevMTI16Jmf!5e0!3m2!1szh-TW!2s!4v1477659481320', 'default.jpg'),
+(35, '屏東縣', '大金喜桌遊坊', '桌遊專門店', '屏東縣潮州鎮', '屏東縣潮州鎮忠孝路64號', '0935-870-045', '尚無資料', '尚無資料', '尚無資料', '', 'https://www.facebook.com/bigsurprise710/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.7676770881562!2d120.53693031495916!3d22.550373985194195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e21e5fe1cffab%3A0x6efff22a0447a3ba!2zOTIw5Y-w54Gj5bGP5p2x57ij5r2u5bee6Y6u5b-g5a2d6LevNjTomZ8!5e0!3m2!1szh-TW!2s!4v1477659492440', 'south30.jpg'),
+(36, '屏東縣', '嘉緯書局', '尚無資料', '屏東縣屏東市', '屏東縣屏東市中正路242號', '(08)737-8000', '尚無資料', '尚無資料', '尚無資料', '', 'https://www.facebook.com/JiaWeiBookstore/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.3007741406714!2d120.48926091496163!3d22.679844585127714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e1799bc6b75df%3A0x9bf9a7af2057df3e!2zOTAw5Y-w54Gj5bGP5p2x57ij5bGP5p2x5biC5Lit5q2j6LevMjQy6Jmf!5e0!3m2!1szh-TW!2s!4v1477659504507', 'default.jpg'),
+(37, '臺中市', '從前有間桌遊', '複合式餐飲桌遊店', '臺中市西屯區', '臺中市西屯區文華路永新巷北三弄2號', '(04)2708-3050', '*平日收費(不限時)：<br> 入場費每人135元<br> 持學生證每人120元<br> 持VIP卡 每人100 元<br> *假日收費(客滿限時4小時)：<br> 入場費每人150元<br> 持學生證每人 130元<br> 持VIP卡每人120元<br> *純飲食類消費方式 ：<br> 最低消費80元，享一款限定遊戲免費試玩', '週一：18:30-00:00<br> 週二：18:30-00:00<br> 週三：18:30-00:00<br> 週四：18:30-00:00<br> 週五：15:00-01:00<br> 週六：14:00-01:00<br> 週日：14:00-01:00', '無', '', 'https://www.facebook.com/onceuponatimegame/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.8499160300466!2d120.64324031498943!3d24.17699578438089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346916222e1a5239%3A0x40a0968cb73befa9!2zNDA35Y-w54Gj5Y-w5Lit5biC6KW_5bGv5Y2A5paH6I-v6Lev5rC45paw5be35YyX5LiJ5byEMuiZnw!5e0!3m2!1szh-TW!2s!4v1477659618282', 'default.jpg'),
+(38, '臺中市', '快樂城堡桌遊', '尚無資料', '臺中市大里區', '臺中市大里區永隆路371號', '(04)2407-6518', '尚無資料', '尚無資料', '尚無資料', '', '', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3641.729813681153!2d120.67414411498827!3d24.1109952844129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693cfaa16a68e1%3A0x9b9d9c866ae741dd!2zNDEy5Y-w54Gj5Y-w5Lit5biC5aSn6YeM5Y2A5rC46ZqG6LevMzcx6Jmf!5e0!3m2!1szh-TW!2s!4v1477659661419', 'default.jpg'),
+(39, '臺中市', '勃根地桌遊休閒館（光復總店）', '桌遊專門店', '臺中市中區', '臺中市中區光復路197號', '(04)2225-0952', '一小時50元<br> 包日：平日100元、假日150元', '週一：11:30-22:30<br> 週二：11:30-22:30<br> 週三：11:30-22:30<br> 週四：11:30-22:30<br> 週五：11:30-22:30<br> 週六：11:30-22:30<br> 週日：11:30-22:30', '無', 'http://www.bgleisure.com/', 'https://www.facebook.com/BGLeisure2013/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.769876606408!2d120.67769651498892!3d24.144718484396517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d6da9d754bb%3A0xef5be890088601e7!2zNDAw5Y-w54Gj5Y-w5Lit5biC5Lit5Y2A5YWJ5b6p6LevMTk36Jmf!5e0!3m2!1szh-TW!2s!4v1477659697821', 'middle03.jpg'),
+(40, '臺中市', '玩具同萌', '桌遊販賣店', '臺中市北屯區', '臺中市北屯區中清路二段310號', '0963-093-923、0973-05', '無', '尚無資料', '尚無資料', '', 'https://www.facebook.com/%E7%8E%A9%E5%85%B7%E5%90%8C%E8%90%8C-1022050384490532/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.8049847539287!2d120.6662523149894!3d24.178571184380065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346917cd04d203f7%3A0x2bc2b8da433fd0dc!2zNDA25Y-w54Gj5Y-w5Lit5biC5YyX5bGv5Y2A5Lit5riF6Lev5LqM5q61MzEw6Jmf!5e0!3m2!1szh-TW!2s!4v1477659713330', 'default.jpg'),
+(41, '臺中市', '豆豆桌遊館（中清水湳店）', '桌遊專門店', '臺中市北屯區', '臺中市北屯區中清路二段332號3F', '(04)2299-0593', '每人100元，不限時間，附飲料無限暢飲。', '週一：12:00-22:00<br> 週二：無<br> 週三：12:00-22:00<br> 週四：12:00-22:00<br> 週五：12:00-22:00<br> 週六：12:00-22:00<br> 週日：12:00-22:00', '週二', '', 'https://www.facebook.com/BGDouDou/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.7972497028522!2d120.66604411498955!3d24.178842384380008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346917cd04d203f7%3A0xb8cfdac610767c5e!2zNDA25Y-w54Gj5Y-w5Lit5biC5YyX5bGv5Y2A5Lit5riF6Lev5LqM5q61MzMy6Jmf!5e0!3m2!1szh-TW!2s!4v1477659724248', 'middle05.jpg'),
+(42, '臺中市', '勃根地NOVA英才店', '桌遊販賣店', '臺中市西區', '臺中市西區英才路508號223門市', '(04)2329-8239', '無', '週一：11:00-22:00<br> 週二：11:00-22:00<br> 週三：11:00-22:00<br> 週四：11:00-22:00<br> 週五：11:00-22:00<br> 週六：11:00-22:00<br> 週日：11:00-22:00', '無', 'http://www.bgleisure.com/', 'https://www.facebook.com/BGLnova2015/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.577969748979!2d120.66287931498901!3d24.151454984393187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d9def051c23%3A0x4585400733b9984f!2zNDAz5Y-w54Gj5Y-w5Lit5biC6KW_5Y2A6Iux5omN6LevNTA46Jmf!5e0!3m2!1szh-TW!2s!4v1477659734237', 'middle06.jpg'),
+(43, '臺中市', 'Y德俐鼠童書城', '桌遊販賣店', '臺中市北屯區', '臺中市北屯區祥順路二段', '(04)2707-7576', '無', '週一：09:30-19:00<br> 週二：09:30-19:00<br> 週三：09:30-19:00<br> 週四：09:30-19:00<br> 週五：09:30-19:00<br> 週六：09:30-19:00<br> 週日：09:30-19:00', '無', 'http://www.srbook.com.tw/', 'https://www.facebook.com/srbook99.tw/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.7972497028522!2d120.66604411498955!3d24.178842384380008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346917cd04d203f7%3A0xb8cfdac610767c5e!2zNDA25Y-w54Gj5Y-w5Lit5biC5YyX5bGv5Y2A5Lit5riF6Lev5LqM5q61MzMy6Jmf!5e0!3m2!1szh-TW!2s!4v1477659745357', 'default.jpg'),
+(44, '臺中市', '玩具牧場', '複合式餐飲桌遊店', '臺中市北區', '臺中市北區梅亭街227號', '(04)2235-9456', '平日低消100、假日低消150', '週一：11:00-22:00<br> 週二：11:00-22:00<br> 週三：11:00-22:00<br> 週四：11:00-22:00<br> 週五：11:00-22:00<br> 週六：11:00-22:00<br> 週日：11:00-22:00', '無', 'http://class.ruten.com.tw/user/index00.php?s=hikaru7f', 'https://www.facebook.com/GameFarm.OUR/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.3271857750156!2d120.67967411498917!3d24.16025558438902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d63cab00e8f%3A0xa361daea1cf3b1f8!2zNDA05Y-w54Gj5Y-w5Lit5biC5YyX5Y2A5qKF5Lqt6KGXMjI36Jmf!5e0!3m2!1szh-TW!2s!4v1477659754872', 'middle08.jpg'),
+(45, '臺中市', '玩具牧場', '複合式餐飲桌遊店', '臺中市北區', '臺中市北區梅亭街227號', '(04)2235-9456', '平日低消100、假日低消150', '週一：11:00-22:00<br> 週二：11:00-22:00<br> 週三：11:00-22:00<br> 週四：11:00-22:00<br> 週五：11:00-22:00<br> 週六：11:00-22:00<br> 週日：11:00-22:00', '無', 'http://class.ruten.com.tw/user/index00.php?s=hikaru7f', 'https://www.facebook.com/GameFarm.OUR/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.3271857750156!2d120.67967411498917!3d24.16025558438902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d63cab00e8f%3A0xa361daea1cf3b1f8!2zNDA05Y-w54Gj5Y-w5Lit5biC5YyX5Y2A5qKF5Lqt6KGXMjI36Jmf!5e0!3m2!1szh-TW!2s!4v1477659754872', 'middle08.jpg'),
+(46, '臺中市', '快樂小屋', '桌遊專門店', '臺中市北區', '臺中市北區進化路641號', '(04)2237-5532', '平日一天80元(不限時間)，假日一天100元(不限時間)，飲料無限暢飲', '週一：11:00-23:00<br> 週二：11:00-23:00<br> 週三：11:00-23:00<br> 週四：11:00-23:00<br> 週五：11:00-23:00<br> 週六：11:00-23:00<br> 週日：11:00-23:00', '無', 'http://class.ruten.com.tw/user/index00.php?s=fyman_min', 'https://www.facebook.com/fymanmin/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.308220887232!2d120.69178731498916!3d24.160920984388564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346917e1e55b1229%3A0x56d7ac7d8e8b7480!2zNDA05Y-w54Gj5Y-w5Lit5biC5YyX5Y2A6YCy5YyW6LevNjQx6Jmf!5e0!3m2!1szh-TW!2s!4v1477659765433', 'middle09.jpg'),
+(47, '臺中市', '小密親子桌遊', '尚無資料', '臺中市西屯區', '臺中市西屯區工業區一路66號', '(04)2359-1088', '週五100元/人<br> 週六日3小時150元<br> 包日250元', '預約時間請參考粉絲專頁', '尚無資料', 'http://merrich999.pixnet.net/blog', 'https://www.facebook.com/merrichbg/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.823483516587!2d120.61211861498948!3d24.177922584380347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693e01ffe1e575%3A0x2fb218e981b5c524!2zNDA35Y-w54Gj5Y-w5Lit5biC6KW_5bGv5Y2A5bel5qWt5Y2A5LiA6LevNjbomZ8!5e0!3m2!1szh-TW!2s!4v1477659776881', 'middle10.jpg'),
+(48, '臺中市', '聖彼得堡', '複合式餐飲桌遊店', '臺中市西屯區', '臺中市西屯區永福路118巷35號', '(04)2463-4696', '每人低消100元', '週一：11:00-21:30<br> 週二：11:00-21:30<br> 週三：11:00-21:30<br> 週四：11:00-21:30<br> 週五：11:00-21:30<br> 週六：11:00-21:30<br> 週日：11:00-21:30', '無', 'http://0424634696.tranews.com/', 'https://www.facebook.com/StPetersburg8/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.6483626032514!2d120.61974031498958!3d24.184061984377397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3469160709050c25%3A0xad99c18ba73a4834!2zNDA35Y-w54Gj5Y-w5Lit5biC6KW_5bGv5Y2A5rC456aP6LevMTE45be3MzXomZ8!5e0!3m2!1szh-TW!2s!4v1477659786997', 'middle11.jpg'),
+(49, '臺中市', '牧羊人桌遊', '複合式餐飲桌遊店', '臺中市西屯區', '臺中市西屯區西安街172巷9號', '(04)2452-2685', '平日入場費$120 附無限暢飲<br> 假日入場費$150 附無限暢飲', '週一：13:00-22:00<br> 週二：13:00-22:00<br> 週三：13:00-22:00<br> 週四：13:00-22:00<br> 週五：13:00-22:00<br> 週六：13:00-22:00<br> 週日：13:00-22:00', '無', '', 'https://www.facebook.com/shepherdBG/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.722906912537!2d120.64338851498962!3d24.18144878437867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34691622d410a7e1%3A0x44bf2f48f414b296!2zNDA35Y-w54Gj5Y-w5Lit5biC6KW_5bGv5Y2A6KW_5a6J6KGXMTcy5be3OeiZnw!5e0!3m2!1szh-TW!2s!4v1477659799981', 'middle12.jpg'),
+(50, '臺中市', '書立得兒童書城', '尚無資料', '臺中市西屯區', '臺中市西屯區廣福路381-5號', '(04)2239-8897', '尚無資料', '尚無資料', '尚無資料', 'http://www.srbook.com.tw/', '', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.173905247363!2d120.64085431498994!3d24.20068818436932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346916427f51ca33%3A0x19faf790556ee997!2zNDA35Y-w54Gj5Y-w5Lit5biC6KW_5bGv5Y2A5buj56aP6LevMzgxLTXomZ8!5e0!3m2!1szh-TW!2s!4v1477659813365', 'default.jpg'),
+(51, '臺中市', 'Play or Die 啡玩聚', '複合式餐飲桌遊店', '臺中市西區', '臺中市西區五權西路一段57巷1弄9號', '0913-573-397', '前3小時每小時$120<br> 第4小時起每小時$60', '尚無資料', '尚無資料', '', 'https://www.facebook.com/playordie.tw', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.911302514262!2d120.66131681498875!3d24.1397528843989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693da72f35779b%3A0x6c57c3803d9216ed!2zNDAz5Y-w54Gj5Y-w5Lit5biC6KW_5Y2A5LqU5qyK6KW_6Lev5LiA5q61NTflt7cx5byEOeiZnw!5e0!3m2!1szh-TW!2s!4v1477659825306', 'middle14.jpg'),
+(52, '臺中市', '亞伯特桌遊基地（3F-A2）', '複合式餐飲桌遊店', '臺中市西區', '臺中市西區民權路185號', '(04)2222-1633', '週一至週四：餐飲低消100元<br> 週五至週日：入場費150元、學生證入場100元，可折抵50元飲料', '週一：13:00-22:30<br> 週二：13:00-22:30<br> 週三：13:00-22:30<br> 週四：13:00-22:30<br> 週五：13:00-24:00<br> 週六：13:00-24:00<br> 週日：13:00-24:00', '無', '', 'https://www.facebook.com/albert.boardgame/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.75027943083!2d120.66846841498882!3d24.145406484396112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d749781ed15%3A0x6364e358945fb232!2zNDAz5Y-w54Gj5Y-w5Lit5biC6KW_5Y2A5rCR5qyK6LevMTg16Jmf!5e0!3m2!1szh-TW!2s!4v1477659834639', 'middle15.jpg'),
+(53, '雲林縣', '圍桌趣桌遊 Weetokki', '桌遊專門店', '雲林縣斗六市', '雲林縣斗六市四維路66號', '(05)533-3327', '無低消<br>平日每人30/hr 超過四小時都以120計<br>假日每人40/hr 超過四小時都以160計', '週一：15:00-23:00<br>週二：未營業<br>週三：15:00-23:00<br>週四：15:00 - 23:00<br>週五：15:00-23:00週六：13:00-23:00<br>週日：13:00 - 23:00', '無', 'http://weetokki.blogspot.tw/', 'https://www.facebook.com/Weetokki/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.517491370795!2d120.52757611498025!3d23.693207284617515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec802cc6374f9%3A0x3da93fb482aa02d6!2zNjQw5Y-w54Gj6Zuy5p6X57ij5paX5YWt5biC5Zub57at6LevNjbomZ8!5e0!3m2!1szh-TW!2s!4v1477658893726', 'cloud02.jpg'),
+(54, '嘉義市', '玩坊MoreFun（嘉義店）', '複合式餐飲桌遊店', '嘉義市西區', '嘉義市西區博愛路一段365號', '(05)281-2990', '消費方式分2種<br>餐飲：平日每人100元，不限時。假日每人150元，三小時。費用折抵店內食物飲料，然而遊戲教學需另外收費。<br>純玩：平日每人99元，三小時。假日每人129元，三小時。有遊戲教學及特定飲料暢飲。', '週一：無<br>週二：14:00-22:30<br>週三：16:30-22:30<br>週四：14:00-22:30<br>週五：14:00-22:30<br>週六：12:00-22:00<br>週日：12:00-22:00', '每週一、每月第一個週二', 'http://morefun-games.com/2960922346220253268124215.html', 'https://www.facebook.com/MoreFun.Chiayi/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.248569350856!2d120.44233731497638!3d23.487554684719523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e95d2ddeb6539%3A0x9d3665025d627346!2zNjAw5Y-w54Gj5ZiJ576p5biC6KW_5Y2A5Y2a5oSb6Lev5LiA5q61MzY16Jmf!5e0!3m2!1szh-TW!2s!4v1477658907539', 'cloud03.jpg'),
+(55, '嘉義市', '曉魚河親子魔法樂園', '桌遊專門店', '嘉義市東區', '嘉義市東區民國路46號', '(05)275-6799', '尚無資料', '週一：09:00-11:30、14:00 - 21:00<br>週二：09:00-11:30、14:00 - 21:00<br>週三：09:00-11:30、14:00 - 21:00<br>週四：09:00-11:30、14:00 - 21:00<br>週五：09:00-11:30、14:00 - 21:00<br>週六：09:00-11:30、14:00 - 21:00<br>週日：無', '週日', '', 'https://www.facebook.com/%E6%9B%89%E9%AD%9A%E6%B2%B3%E8%A6%AA%E5%AD%90%E9%AD%94%E6%B3%95%E6%A8%82%E5%9C%92-248657655226282/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.574367871643!2d120.45865171497624!3d23.47581278472537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e9449b27027ff%3A0x2ba295be506ea96d!2zNjAw5Y-w54Gj5ZiJ576p5biC5p2x5Y2A5rCR5ZyL6LevNDbomZ8!5e0!3m2!1szh-TW!2s!4v1477658919878', 'default.jpg'),
+(56, '嘉義市', '元桌世紀', '桌遊專門店', '嘉義市西區', '嘉義市西區重慶路86號', '(05)283-8129', '一個人150/天<br>每個人都會有50元的回饋金可以折抵購買桌遊或租借桌遊的部分', '週一：13:00-22:00<br>週二：13:00-22:00<br>週三：13:00-22:00<br>週四：13:00-22:00<br>週五：13:00-22:00<br>週六：13:00-22:00<br>週日：13:00-22:00', '無', '', 'https://www.facebook.com/ChiayiARCV/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3659.856041352762!2d120.4361399!3d23.4656567!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e941f9c00ea03%3A0x9578da8b5589c6f9!2z5YWD5qGM5LiW57SA!5e0!3m2!1szh-TW!2s!4v1477658931026', 'cloud05.jpg'),
+(57, '臺南市', '懶日子桌遊餐廳（海安店）', '複合式餐飲桌遊店', '臺南市中西區', '臺南市中西區海安路二段313號', '(06)222-4313', '入場費平日每人90元/假日110元(暢玩3小時)<br> 餐點飲料另計', '週一：11:30-03:00<br>週二：11:30-03:00<br>週三：11:30-03:00<br>週四：11:30-03:00<br>週五：11:30-03:00<br>週六：11:30-03:00<br>週日：11:30-03:00', '無', '', 'https://www.facebook.com/Lazydayhiann/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.6674968309217!2d120.19568321496732!3d22.99925138496481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e7666e7fdd4e3%3A0x269ffe8a98ffd7d2!2zNzAw5Y-w54Gj5Y-w5Y2X5biC5Lit6KW_5Y2A5rW35a6J6Lev5LqM5q61MzEz6Jmf!5e0!3m2!1szh-TW!2s!4v1477658976232', 'cloud07.jpg'),
+(58, '臺南市', '懶日子桌遊（公園店）', '複合式餐飲桌遊店', '臺南市北區', '臺南市北區公園路155號', '(06)223-6278', '平日：30分鐘20$、1小時40$、3小時60$、包日130$<br> 假日：1小時60$、3小時110$、包日160$', '週一：14:00-23:00<br>週二：14:00-23:00<br>週三：14:00-23:00<br>週四：14:00-23:00<br>週五：14:00-23:00<br>週六：14:00-23:00<br>週日：14:00-23:00', '無', '', 'https://www.facebook.com/lazyday062236278/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3672.6873633371406!2d120.2048544!3d22.9985212!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x140772d30b9decff%3A0x98db294ecf7c07fa!2z5oe25pel5a2Q5qGM6YGK5qaC5b-16aSo!5e0!3m2!1szh-TW!2s!4v1477659007333', 'default.jpg'),
+(59, '臺南市', '玩坊MoreFun（臺南店）', '桌遊專門店', '臺南市北區', '臺南市北區文賢一路276號', '(06)358-0912', '入場費一人80可待三小時<br>超過為包日收150 平日包日為110', '週一：17:00-21:30<br>週二：無<br>週三：17:00-21:30<br>週四：17:00-21:30<br>週五：17:00-21:30<br>週六：13:30-22:00<br>週日：12:30-21:00', '週二', 'http://class.ruten.com.tw/user/index00.php?s=morefun_tn', 'https://www.facebook.com/MoreFun.Tainan/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.3437605801214!2d120.1931745149676!3d23.011147084958903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e765b1e0a91ef%3A0x608809d647a4dc82!2zNzA05Y-w54Gj5Y-w5Y2X5biC5YyX5Y2A5paH6LOi5LiA6LevMjc26Jmf!5e0!3m2!1szh-TW!2s!4v1477659016804', 'default.jpg'),
+(60, '臺南市', '御揚桌遊休閒館', '桌遊專門店', '臺南市北區', '臺南市北區長勝路23號', '(06)208-6293', '尚無資料', '週一：無<br>週二：17:00-22:00<br>週三：17:00-22:00<br>週四：13:00-22:00<br>週五：13:00-22:00<br>週六：13:00-22:00<br>週日：13:00-22:00', '週一', '', 'https://www.facebook.com/YuYangCentre/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.381479943194!2d120.2176092149676!3d23.009761384959585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e76e59bffc293%3A0x1a56c64f6a7cdabd!2zNzA05Y-w54Gj5Y-w5Y2X5biC5YyX5Y2A6ZW35Yud6LevMjPomZ8!5e0!3m2!1szh-TW!2s!4v1477659029269', 'cloud10.jpg'),
+(61, '臺南市', '主恩桌遊概念館', '桌遊專門店', '臺灣臺南市中西區', '臺灣臺南市中西區民族路二段76號（南方地下街B1）', '(06)225-7255', '平日：3小時100元<br> 假日：3小時120元/人，6人同行可享1人免費', '週一：14:00-22:00<br>週二：14:00-22:00<br>週三：14:00-22:00<br>週四：14:00-22:00<br>週五：14:00-22:00<br>週六：14:00-22:00<br>週日：14:00-22:00', '無', '', 'https://www.facebook.com/FHFunnyHouse/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.790067979359!2d120.20654111496727!3d22.994745984967242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e768962dacf49%3A0x2cac62957823f85b!2zNzAw5Y-w54Gj5Y-w5Y2X5biC5Lit6KW_5Y2A5rCR5peP6Lev5LqM5q61NzbomZ8!5e0!3m2!1szh-TW!2s!4v1477659042196', 'cloud11.jpg'),
+(62, '臺南市', '小路悠閒桌遊', '桌遊專門店', '臺南市永康區', '臺南市永康區大橋三街187號', '(06)302-0195', '平日：一小時40、包日160<br> 假日：一小時50、包日200<br> 打卡的話優惠折價20', '週一：14:00-24:00<br>週二：14:00-22:00<br>週三：14:00-22:00<br>週四：14:00-22:00<br>週五：14:00-22:00<br>週六：14:00-22:00<br>週日：14:00-22:00', '無', 'http://littleroad1205.blogspot.tw/', 'https://www.facebook.com/littleroad1205/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.0881149514967!2d120.22534801496766!3d23.02053668495406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e771f786df247%3A0x53f90b18c527a606!2zNzEw5Y-w54Gj5Y-w5Y2X5biC5rC45bq35Y2A5aSn5qmL5LiJ6KGXMTg36Jmf!5e0!3m2!1szh-TW!2s!4v1477659054050', 'cloud12.jpg'),
+(63, '臺南市', '一起趣17.to', '桌遊專門店', '臺南市南區', '臺南市南區西門路一段493號', '(06)221-6723', '會員1H 20、包日100 <br>非會員1H 30、包日150', '週一：09:00-21:00<br>週二：09:00-21:00<br>週三：09:00-21:00<br>週四：09:00-21:00<br>週五：09:00-21:00<br>週六：09:00-21:00<br>週日：09:00-21:00', '無', 'http://17.to/', 'https://www.facebook.com/17tofun/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3673.12394196632!2d120.1951885!3d22.9824694!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e7678915bf96f%3A0xdec1e1b41e859782!2z5LiA6LW36Laj5qGM6YGK6aSo!5e0!3m2!1szh-TW!2s!4v1477659065467', 'cloud13.jpg'),
+(64, '臺南市', '玩具部落客', '尚無資料', '臺南市佳里區', '臺南市佳里區佳北路123號', '(06)723-4796', '尚無資料', '尚無資料', '無', '', 'https://www.facebook.com/pages/%E5%8F%B0%E5%8D%97%E5%BD%B0%E5%8C%96%E7%8E%A9%E5%85%B7%E9%83%A8%E8%90%BD%E5%AE%A2/245547952281127', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.9931397007495!2d120.17788051497047!3d23.1704504848784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e7f470ed3a51d%3A0xd7081f2661e733d9!2zNzIy5Y-w54Gj5Y-w5Y2X5biC5L2z6YeM5Y2A5L2z5YyX6LevMTIz6Jmf!5e0!3m2!1szh-TW!2s!4v1477659075630', 'default.jpg'),
+(65, '臺南市', 'OurSpace奧爾斯貝絲', '尚無資料', '臺南市東區', '臺南市東區民族路一段27號', '(06)238-0889', '尚無資料', '尚無資料', '無', '', '', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.8061310768176!2d120.2126019149673!3d22.99415548496752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e768ddb7a496d%3A0xf436a45abfa4dc55!2zNzAx5Y-w54Gj5Y-w5Y2X5biC5p2x5Y2A5rCR5peP6Lev5LiA5q61MjfomZ8!5e0!3m2!1szh-TW!2s!4v1477659085051', 'default.jpg'),
+(66, '臺南市', 'Fun輕鬆親子桌遊寓樂館', '桌遊販賣店', '臺南市東區', '臺南市東區東寧路西段24號', '(06)208-9120', '尚無資料', '週一：13:30-22:00<br>週二：13:30-22:00<br>週三：13:30-24:00<br>週四：13:30-22:00<br>週五：13:30-24:00<br>週六：13:30-24:00<br>週日：13:30-22:00', '無', '', 'https://www.facebook.com/bonkingson/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3672.8464947890366!2d120.2137722!3d22.9926716!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e7691e1d95947%3A0xa791e2ca4834d347!2zRnVu5pS-6LyV6ayG6Kaq5a2Q5qGM6YGK5a-T5qiC6aSo!5e0!3m2!1szh-TW!2s!4v1477711094058', 'cloud16.jpg'),
+(67, '臺中市', '玩具牧場（靜宜宜園店）', '複合式餐飲桌遊店', '臺中市沙鹿區', '臺中市沙鹿區大道七段200號 (靜宜大學宜園餐廳)', '(04)2631-3161', '平日低消100、假日低消150', '尚無資料', '尚無資料', '', '', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3638.4124535788715!2d120.5773383149905!3d24.227348984356418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe8ad436cc85d70db!2zZXllUeecvOiJsiDpmrHlvaLnnLzpj6HlsIjos6Plupct5YWo5a626Z2c5a6c5bqX!5e0!3m2!1szh-TW!2s!4v1477659859928', 'default.jpg');
+INSERT INTO `store` (`no`, `storePlace`, `storeName`, `storeType`, `storeArea`, `storeAddress`, `storeNumber`, `storeSpend`, `storeTime`, `storeHoliday`, `webURL`, `fbURL`, `googleURL`, `storePhoto`) VALUES
+(68, '臺南市', 'Funking', '複合式餐飲桌遊店', '臺南市東區', '臺南市東區青年路378號', '(06)236-3159', '平日：週一、二、三、四，每人低消一份餐點或一杯飲料，桌遊時數是每人每小時$25<br> 假日：(五-日，國定假日及特殊節日)，每人低消一份餐點或一杯飲料，桌遊時數是每人每小時$35', '週一：11:00-23:00<br>週二：11:00-23:00<br>週三：11:00-23:00<br>週四：11:00-23:00<br>週五：11:00-23:00<br>週六：11:00-23:00<br>週日：11:00-23:00', '無', '', 'https://www.facebook.com/Funking.cafe/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3672.8884067812332!2d120.2134493!3d22.9911307!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e768e316698bb%3A0xd0efea33d64f36bf!2zRnVuS2luZyDmoYzpgYrmpoLlv7XovJXpo5_ppKg!5e0!3m2!1szh-TW!2s!4v1477711110718', 'cloud17.jpg'),
+(69, '臺南市', '桌遊小妹', '桌遊專門店', '臺南市東區', '臺南市東區青年路392號', '(06)208-6233', '無教學：<br> 會員 / 非會員 3 小時 $100 / 人， 附飲料一瓶<br> 有教學(約 1 - 3 款遊戲)：<br> 會員 2.5 小時 $100 / 人, 附飲料一瓶<br> 非會員 2 小時 $100 / 人, 附飲料一瓶', '週一：14:00-22:30<br>週二：無<br>週三：14:00-22:30<br>週四：14:00-22:30<br>週五：14:00-22:30<br>週六：12:00-22:30<br>週日：12:00-22:30', '週二', '', 'https://www.facebook.com/TainanBGs/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3672.888809323668!2d120.2137277!3d22.9911159!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e768e2e194a53%3A0x77a6b9d415351bc1!2z5qGM6YGK5bCP5aa5!5e0!3m2!1szh-TW!2s!4v1477711123969', 'cloud18.jpg'),
+(70, '臺南市', '冒險者營地-桌上遊戲專賣店', '桌遊專門店', '臺南市東區', '臺南市東區凱旋路197號', '(06)209-3225', '非會員：一人一小時40，一天120<br> 會員：一小時30，一天90', '週一：無<br>週二15:30-21:30<br>週三15:30-21:30<br>週四15:30-21:30<br>週五15:30-21:30<br>週六：13:30-21:30<br>週日：13:30-18:30', '週一', '', 'https://www.facebook.com/advantures.tw/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3672.8305115553985!2d120.2256012!3d22.9932592!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e76958405653b%3A0xa0c8307f0820614b!2z5YaS6Zqq6ICF54ef5Zyw5oiw5qOL5qGM6YGK!5e0!3m2!1szh-TW!2s!4v1477711131723', 'default.jpg'),
+(71, '臺南市', '兩人兩貓桌上遊戲專賣店', '桌遊專門店', '臺南市東區', '臺南市東區崇德二十二街73號', '(06)290-5428', '平日：消費每人80元(不限時間)18:00後每人50元<br> 假日：消費每人120元(不限時間)18:00後每人80元', '週一：13:00-21:00<br>週二：13:00-21:00<br>週三：13:00-21:00<br>週四：13:00-21:00<br>週五：13:00-21:00<br>週六：13:00-21:00<br>週日：13:00-21:00', '無', '', 'https://www.facebook.com/%E5%85%A9%E4%BA%BA%E5%85%A9%E8%B2%93%E6%A1%8C%E4%B8%8A%E9%81%8A%E6%88%B2%E5%B0%88%E8%B3%A3%E5%BA%97-1523005731346178/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3673.5481573219245!2d120.227106!3d22.966862!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e74188946b3d5%3A0xd09a1a111560b5f7!2z5YWp5Lq65YWp6LKT5qGM5LiK6YGK5oiy5bCI6LOj5bqX!5e0!3m2!1szh-TW!2s!4v1477711144194', 'cloud20.jpg'),
+(72, '臺中市', '桌謎藏遊戲休閒館', '桌遊專門店', '臺中市東區', '臺中市東區十甲路216號', '(04)2213-1134', '入場費100元，遊玩至打烊<br> 平日晚上6點後進來的客人，入場費7折', '週一：13:00-22:00<br> 週二：13:00-22:00<br> 週三：13:00-22:00<br> 週四：13:00-22:00<br> 週五：13:00-22:00<br> 週六：11:00-22:00<br> 週日：11:00-22:00', '週一', 'http://bghidenseek.strikingly.com/', 'https://www.facebook.com/bghideandseek/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.7776953911452!2d120.70122791498893!3d24.14444398439667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d4efdeebbd3%3A0x774468e27a8bea3b!2zNDAx5Y-w54Gj5Y-w5Lit5biC5p2x5Y2A5Y2B55Sy6LevMjE26Jmf!5e0!3m2!1szh-TW!2s!4v1477659870749', 'middle17.jpg'),
+(73, '臺南市', '瘋遊戲', '桌遊專門店', '臺南市中西區', '臺南市中西區萬昌街16號', '(06)221-3367', '平日：每人一杯飲料低銷130元起<br> 假日：低銷每人150元(附贈一杯飲料)<br> 平假日一律限3小時', '週一：14:00-22:00<br>週二：14:00-22:00<br>週三：14:00-22:00<br>週四：14:00-22:00<br>週五：14:00-23:00<br>週六：14:00-23:00<br>週日：14:00-23:00', '無', '', 'https://www.facebook.com/%E7%98%8B%E9%81%8A%E6%88%B2-395636387188336/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.932296471422!2d120.20773561496718!3d22.989516984969868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e7688a7153071%3A0x84f272c49236a8c8!2zNzAw5Y-w54Gj5Y-w5Y2X5biC5Lit6KW_5Y2A6JCs5piM6KGXMTbomZ8!5e0!3m2!1szh-TW!2s!4v1477711155977', 'cloud21.jpg'),
+(74, '臺中市', '烏嘎嘎桌遊', '桌遊專門店', '臺中市東區', '臺中市東區自由路四段309號', '(04)2215-4321', '非會員收費方式調整為平日100元、假日120元<br> 會員收費則採計時制，3小時60元<br> 之後20元/hr，平日最多100元，假日最多120元', '週一：13:00-00:00<br> 週二：13:00-00:00<br> 週三：13:00-00:00<br> 週四：13:00-00:00<br> 週五：13:00-00:00<br> 週六：13:00-00:00<br> 週日：13:00-00:00', '無', '', 'https://www.facebook.com/UGGBG/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.8210546612822!2d120.70286661498875!3d24.142921684397344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d4ebefb7107%3A0x5559d5187c72a93!2zNDAx5Y-w54Gj5Y-w5Lit5biC5p2x5Y2A6Ieq55Sx6Lev5Zub5q61MzA56Jmf!5e0!3m2!1szh-TW!2s!4v1477659881022', 'middle18.jpg'),
+(75, '臺南市', '六角桌遊', '桌遊專門店', '臺南市東區', '臺南市東區裕農路314號', '(06)208-0186', '平日：一小時40、三小時100、包日130<br> 假日：一小時50、三小時130、包日180', '週一：14:00-22:00<br>週二：14:00-22:00<br>週三：14:00-22:00<br>週四：14:00-22:00<br>週五：14:00-22:00<br>週六：12:00-23:00<br>週日：12:00-23:00', '無', '', 'https://www.facebook.com/HexagonBG/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.008111964728!2d120.22667971496702!3d22.986729184971125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e76bd5d652793%3A0xd9049789ce83a09e!2zNzAx5Y-w54Gj5Y-w5Y2X5biC5p2x5Y2A6KOV6L6y6LevMzE06Jmf!5e0!3m2!1szh-TW!2s!4v1477711170640', 'cloud22.jpg'),
+(76, '臺中市', '遊樂園主題餐廳', '複合式餐飲桌遊店', '臺中市南區', '臺中市南區南門路59巷81號', '(04)2285-8599', '平日低消70，假日低消120', '週一：11:00-22:00<br> 週二：11:00-22:00<br> 週三：11:00-22:00<br> 週四：11:00-22:00<br> 週五：11:00-22:00<br> 週六：11:00-22:00<br> 週日：11:00-22:00', '無', '', 'https://www.facebook.com/wanderland5981/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3641.4733065136666!2d120.67898681498839!3d24.12001088440857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693ce2772d17a7%3A0x77fc188db8a6fdba!2zNDAy5Y-w54Gj5Y-w5Lit5biC5Y2X5Y2A5Y2X6ZaA6LevNTnlt7c4MeiZnw!5e0!3m2!1szh-TW!2s!4v1477659900643', 'default.jpg'),
+(77, '臺中市', '玩具牧場（東海店）', '複合式餐飲桌遊店', '臺中市西屯區', '臺中市西屯區大道二段919號1樓', '0912-960-636', '平日低消100、假日低消150', '週一：11:00-22:00<br> 週二：11:00-22:00<br> 週三：11:00-22:00<br> 週四：11:00-22:00<br> 週五：11:00-22:00<br> 週六：11:00-22:00<br> 週日：11:00-22:00', '無', 'https://www.facebook.com/groups/670021019713784/', 'https://www.facebook.com/GameFarm.TH/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.738900489834!2d120.58938861498953!3d24.180888084378918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693e20d4537727%3A0x928699683edf1482!2zNDM05Y-w54Gj5Y-w5Lit5biC6b6N5LqV5Y2A5paw6IiI6LevN-W3tzjomZ8!5e0!3m2!1szh-TW!2s!4v1477659911142', 'middle20.jpg'),
+(78, '臺中市', '意象樹歡聚桌遊館', '桌遊專門店', '臺中市豐原區', '臺中市豐原區成功路148號', '(04)2526-4533', '只要100元不限時間再送飲料一罐‬', '週一：17:00-22:00<br> 週二：17:00-22:00<br> 週三：17:00-22:00<br> 週四：17:00-22:00<br> 週五：17:00-22:00<br> 週六：13:00-22:00<br> 週日：13:00-22:00', '無', 'http://imagerytree.weebly.com/', 'https://www.facebook.com/imagerytree/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3637.920885467678!2d120.70787251499091!3d24.244545684348168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346910aaf12e5485%3A0xbdaf39b1c1a6e8cd!2zNDIw5Y-w54Gj5Y-w5Lit5biC6LGQ5Y6f5Y2A5oiQ5Yqf6LevMTQ46Jmf!5e0!3m2!1szh-TW!2s!4v1477659937150', 'default.jpg'),
+(79, '臺中市', '小禾町親子育樂中心', '桌遊專門店', '臺中市豐原區', '臺中市豐原區圓環東路602號', '(04)2525-1683', '入場費100/人(不限時數)送30元飲茶<br> 學生價50/人', '週一：無<br> 週二：16:00-21:00<br> 週三：16:00-21:00<br> 週四：16:00-21:00<br> 週五：16:00-21:00<br> 週六：11:30-21:00<br> 週日：11:30-21:00', '週一', 'http://0425251683.tranews.com/', 'https://www.facebook.com/%E5%B0%8F%E7%A6%BE%E7%94%BA%E8%A6%AA%E5%AD%90%E8%82%B2%E6%A8%82%E4%B8%AD%E5%BF%83-662600730508708/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3637.782577803545!2d120.72569361499077!3d24.24938208434565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34691a10a2139ef1%3A0x5233fe5bb5e1df6c!2zNDIw5Y-w54Gj5Y-w5Lit5biC6LGQ5Y6f5Y2A5ZyT55Kw5p2x6LevNjAy6Jmf!5e0!3m2!1szh-TW!2s!4v1477659946933', 'middle22.jpg'),
+(80, '臺東縣', '桌遊記', '複合式餐飲桌遊店', '臺東縣臺東市', '臺東縣臺東市中華路二段347號', '(08)935-8693', '平日入場費135(學生120/VIP100)<br> 假日入場費150(學生130/VIP120)', '週一：無<br> 週二：13:30-22:30<br> 週三：13:30-22:30<br> 週四：13:30-22:30<br> 週五：13:30-23:45<br> 週六：13:30-23:45<br> 週日：13:30-22:30', '週一', '', 'https://www.facebook.com/tgtaitung/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3679.6041950550725!2d121.1330777!3d22.7429484!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346fb9033dfc0dbb%3A0x5579e9456069f76a!2z5qGM6YGK6KiY!5e0!3m2!1szh-TW!2s!4v1477659576969', 'middle44.jpg'),
+(81, '臺北市', '卡卡城桌上遊戲休閒館（士林店）', '桌遊專門店', '臺北市士林區', '臺北市士林區承德路四段80巷52號', '(02)2886-6617', '每人每一小時50元，每人最多收到200元', '週二：14:00~22:00<br>週三：14:00~22:00<br>週四：14:00~22:00<br>週五：14:00~22:00<br>週六：12:00~22:00<br>週日：12:00~22:00', '週ㄧ', 'http://www.cacacity.tw/', 'https://www.facebook.com/Shilin.CacaCity/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.548646100159!2d121.51939471500731!3d25.083282783949336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442aeb3c3efd1bf%3A0xb606e741f0987347!2zMTEx5Y-w54Gj5Y-w5YyX5biC5aOr5p6X5Y2A5om_5b636Lev5Zub5q61ODDlt7c1MuiZnw!5e0!3m2!1szh-TW!2s!4v1477656505029', 'taipei05.jpg'),
+(82, '彰化縣', '蓋亞桌遊 Gaia Board Game', '桌遊專門店', '彰化縣員林市', '彰化縣員林市大同路一段285巷35號', '(04)839-0451', '*平日：<br> 非會員40元/時；120元/天（不限時）<br> 會員30元/時；100元/天（不限時）<br> *假日：<br> 非會員50元/時；150元/時段<br> 會員40元/時；120元/時段<br> *時段：<br> 《下午場》13:00~18:00<br> 《夜光場》18:00~22:00<br>', '週一：13:00-22:00<br> 週二：無<br> 週三：13:00-22:00<br> 週四：13:00-22:00<br> 週五：13:00-22:00<br> 週六：13:00-22:00<br> 週日：13:00-22:00', '週二', 'http://www.gaia-bg.com/', 'https://www.facebook.com/GAIABOARDGAME/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3645.9671940302937!2d120.57666481498548!3d23.961600184485754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346936f9f095844f%3A0x6fd3222e64952e4a!2zNTEw5Y-w54Gj5b2w5YyW57ij5ZOh5p6X5biC5aSn5ZCM6Lev5LiA5q61Mjg15be3MzXomZ8!5e0!3m2!1szh-TW!2s!4v1477659959240', 'middle23.jpg'),
+(83, '彰化縣', '桌遊饗樂會館', '桌遊專門店', '彰化縣員林市', '彰化縣員林市員東路一段378號', '(04)838-0818', '平日(方案任選)：A.30元/人/小時、B.100元/人/不限時<br> 假日(方案任選)：A.40元/人/小時、B.100元/人/3小時、C.150元/人/不限時', '每日不固定，請先電話或網路洽詢', '每日不固定，請先電話或網路洽詢', '', 'https://www.facebook.com/happyclub8380818/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3645.9559721792252!2d120.58943931498537!3d23.961996984485555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346936e69939d15d%3A0xb9d5a88c7b6dca6a!2zNTEw5Y-w54Gj5b2w5YyW57ij5ZOh5p6X5biC5ZOh5p2x6Lev5LiA5q61Mzc46Jmf!5e0!3m2!1szh-TW!2s!4v1477659969536', 'middle24.jpg'),
+(84, '彰化縣', '魔豆桌上遊戲專賣店', '複合式餐飲桌遊店', '彰化縣彰化市', '彰化縣彰化市成功路320號', '(04)728-6325', '每時段低消至少100元', '週一：無<br> 週二：11:00-20:30<br> 週三：11:00-20:30<br> 週四：11:00-20:30<br> 週五：11:00-20:30<br> 週六：11:00-20:30<br> 週日：11:00-20:30', '週一', '', 'https://www.facebook.com/magicbean20080707/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3642.5229164950965!2d120.53912981498765!3d24.083099584426385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693897164223b1%3A0x3082ac66339bdd1a!2zNTAw5Y-w54Gj5b2w5YyW57ij5b2w5YyW5biC5oiQ5Yqf6LevMzIw6Jmf!5e0!3m2!1szh-TW!2s!4v1477659985428', 'middle25.jpg'),
+(85, '彰化縣', '小桌子桌遊（彰化店）', '桌遊專門店', '彰化縣彰化市', '彰化縣彰化市進德路2巷31號', '0975-824-080', '每人4小時100元含暢飲', '週一：無<br> 週二：17:00-22:00<br> 週三：17:00-22:00<br> 週四：17:00-22:00<br> 週五：17:00-22:00<br> 週六：13:00-18:00<br> 週日：13:00-18:00', '週一', '', 'https://www.facebook.com/%E5%B0%8F%E6%A1%8C%E5%AD%90%E6%A1%8C%E9%81%8A-%E5%BD%B0%E5%8C%96%E5%BA%97-1406289802923868/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3642.526897500088!2d120.55715111498765!3d24.08295948442647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346938e9d5a28081%3A0xfcb61fb5d5faf17d!2zNTAw5Y-w54Gj5b2w5YyW57ij5b2w5YyW5biC6YCy5b636LevMuW3tzMx6Jmf!5e0!3m2!1szh-TW!2s!4v1477659996147', 'default.jpg'),
+(86, '臺中市', '卡牌屋（臺中店）', '桌遊專門店', '臺中市西屯區', '臺中市西屯區玉門路486號', '(04)2461-5616', '平日40、會員30元/時<br> 假日50、會員40元/時<br> (包日)平日150、會員120元/時<br> (包日)假日180、會員150元/時', '週一：13:00-22:00<br> 週二：13:00-22:00<br> 週三：無<br> 週四：13:00-22:00<br> 週五：13:00-22:00<br> 週六：13:00-22:00<br> 週日：13:00-22:00', '週三', 'http://bghut.com/', 'https://www.facebook.com/bghuttaichung/', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3639.433644116762!2d120.6088911!3d24.1915876!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346915e503952823%3A0x7fb5fc54593e421d!2z5Y2h54mM5bGL5Y-w5Lit5bqX!5e0!3m2!1szh-TW!2s!4v1477660007550', 'middle27.jpg'),
+(87, '臺中市', 'in 桌遊雜誌 肆號寓所', '複合式餐飲桌遊店', '臺中市北區', '臺中市北區西屯路一段492巷54弄4號', '(04)2208-0408', '尚無資料', '週一：12:00-14:00、18:00-20:00<br> 週二：12:00-14:00、18:00-20:00<br> 週三：12:00-14:00、18:00-20:00<br> 週四：12:00-14:00、18:00-20:00<br> 週五：12:00-14:00、18:00-20:00<br> 週六：12:00-14:00、18:00-20:00<br> 週日：12:00-14:00、18:00-20:00', '無', '', '', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.2650564088117!2d120.66335041498915!3d24.162435384387916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d81e717da59%3A0xafcdda29c5a4585b!2zNDA05Y-w54Gj5Y-w5Lit5biC5YyX5Y2A6KW_5bGv6Lev5LiA5q61NDky5be3NTTlvIQ06Jmf!5e0!3m2!1szh-TW!2s!4v1477660018489', 'default.jpg'),
+(89, '臺北市', 'Room桌上遊戲店', '桌遊專門店', '臺北市士林區', '臺北市士林區華榮街37號', '(02)2831-6275', '時段制：<br> 平日13:00~22:00<br> 150元/4hr<br>  假日 13:00~22:30<br> 200元/4hr<br> ', '週二：13:00-22:00<br>週三：13:00-22:00<br>週四：13:00-22:00<br>週五：13:00-22:00<br>週六：13:00-22:30<br>週日：13:00-22:30', '週一', '', 'https://www.facebook.com/roomboardgame/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.174828896179!2d121.52122111500748!3d25.09594258394339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442aebcf20e1a27%3A0x5316169e30aa9fdc!2zMTEx5Y-w54Gj5Y-w5YyX5biC5aOr5p6X5Y2A6I-v5qau6KGXMzfomZ8!5e0!3m2!1szh-TW!2s!4v1477656565045', 'taipei06.jpg'),
+(90, '彰化縣', '迦南音樂藝術學苑', '桌遊專門店', '彰化縣彰化市', '彰化縣彰化市中正路二段511號', '(04)722-4533', '兩小時40元', '尚無資料', '尚無資料', 'http://blog.xuite.net/kalam1010409/twblog', 'https://www.facebook.com/kalam.ukulele/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3642.8652061607427!2d120.5339123149874!3d24.071050884432285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346938868c178b3b%3A0x1202a7c434adaf7c!2zNTAw5Y-w54Gj5b2w5YyW57ij5b2w5YyW5biC5Lit5q2j6Lev5LqM5q61NTEx6Jmf!5e0!3m2!1szh-TW!2s!4v1477660029461', 'middle29.jpg'),
+(91, '彰化縣', '舞山林戶外休閒生活館', '桌遊販賣店', '彰化縣彰化市', '彰化縣彰化市中山路一段285號', '(04)761-7530', '尚無資料', '週一：10:00-21:00<br> 週二：10:00-21:00<br> 週三：10:00-21:00<br> 週四：10:00-21:00<br> 週五：10:00-21:00<br> 週六：10:00-17:00<br> 週日：10:00-17:00', '無', 'http://www.rv530.com.tw/', 'https://www.facebook.com/530RV530/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3643.1836382227707!2d120.53232131498726!3d24.059836884437726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3469387bc5122cd9%3A0xbbffd48765c0a392!2zNTAw5Y-w54Gj5b2w5YyW57ij5b2w5YyW5biC5Lit5bGx6Lev5LiA5q61Mjg16Jmf!5e0!3m2!1szh-TW!2s!4v1477660040111', 'default.jpg'),
+(92, '臺北市', '貓咪貓咪 Catcat 桌遊咖啡屋', '複合式餐飲桌遊店', '臺北市大同區', '臺北市大同區民生西路171巷8號', '(02)2553-0086', ' 60元/hr', '週一：2:00-10:00<br>週二：2:00-10:00<br>週五：2:00-10:00<br>週六：12:00-0:30<br>週日：12:00-0:30<br>', '週三、週四', 'http://happycatcat.weebly.com/', 'https://www.facebook.com/catcat1718/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.3095007772677!2d121.51482431500673!3d25.057496983961368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a96a8a9e33c9%3A0x922554ae4ed3de7f!2zMTAz5Y-w54Gj5Y-w5YyX5biC5aSn5ZCM5Y2A5rCR55Sf6KW_6LevMTcx5be3OOiZnw!5e0!3m2!1szh-TW!2s!4v1477656578856', 'taipei07.jpg'),
+(93, '臺中市', '玩具牧場（愛買中港店）', '複合式餐飲桌遊店', '臺中市西屯區', '臺中市西屯區大道二段919號1樓', '0912-960-636', '平日低消100、假日低消150', '尚無資料', '尚無資料', '', '', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.2863881421713!2d120.64784681498931!3d24.161686984388286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d8e608a66e7%3A0x7c20d0885fefe1c5!2zNDA35Y-w54Gj5Y-w5Lit5biC6KW_5bGv5Y2A5Y-w54Gj5aSn6YGT5LqM5q61OTE56Jmf!5e0!3m2!1szh-TW!2s!4v1477660064209', 'default.jpg'),
+(94, '臺中市', '玩具牧場（愛買豐原店）', '複合式餐飲桌遊店', '臺中市豐原區', '臺中市豐原區水源路420號1樓', '0912-960-636', '平日低消100、假日低消150', '尚無資料', '尚無資料', '', '', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3637.6035091866665!2d120.73207131499103!3d24.255642484342715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb2dd1fa1aa930471!2z5oSb6LK36LGQ5Y6f5bqX!5e0!3m2!1szh-TW!2s!4v1477660078961', 'default.jpg'),
+(95, '臺中市', '玩具牧場（愛買復興店）', '複合式餐飲桌遊店', '臺中市南區', '臺中市南區復興路一段359號1樓', '0912-960-636', '平日低消100、假日低消150', '尚無資料', '尚無資料', '', '', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3641.624488675678!2d120.65226861498823!3d24.114697584411125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693c454cd39481%3A0xa39d8cc13421b0e5!2zNDAy5Y-w54Gj5Y-w5Lit5biC5Y2X5Y2A5b6p6IiI6Lev5LiA5q61MzU56Jmf!5e0!3m2!1szh-TW!2s!4v1477660101045', 'default.jpg'),
+(96, '臺中市', '玩具牧場（太平洋豐原店）', '複合式餐飲桌遊店', '臺中市豐原區', '臺中市豐原區復興路2號5樓', '0912-960-636', '平日低消100、假日低消150', '尚無資料', '尚無資料', '', '', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3637.736650632851!2d120.71841741499091!3d24.250987884344934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34691a0f82489ecb%3A0xb3a2bf10ddebc369!2zNDIw5Y-w54Gj5Y-w5Lit5biC6LGQ5Y6f5Y2A5b6p6IiI6LevMuiZnw!5e0!3m2!1szh-TW!2s!4v1477660111941', 'default.jpg'),
+(97, '臺中市', '玩不累實驗室', '桌遊專門店', '臺中市霧峰區', '臺中市霧峰區樹仁路126號', '(04)2332-9399', '尚無資料', '尚無資料', '尚無資料', '', 'https://www.facebook.com/playlabtaiwan/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3643.1442208702724!2d120.69433661498736!3d24.061225284437025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693b44f3e6db6f%3A0xd7cda0edcc02a0d8!2zNDEz5Y-w54Gj5Y-w5Lit5biC6Zyn5bOw5Y2A5qi55LuB6LevMTI26Jmf!5e0!3m2!1szh-TW!2s!4v1477660123060', 'default.jpg'),
+(98, '臺北市', '貝克街桌遊專賣店', '桌遊專門店', '臺北市大同區', '臺北市大同區錦西街84號', '(02)2552-9059', '桌遊收費方式：<br> 平日下午、晚上皆120，假日下午、晚上皆150<br> 餐飲收費方式：<br> 店內飲料無限暢飲每人加收30元。', '週一：13:00-20:00<br>週二：13:00-20:00<br>週三：13:00-20:00<br>週四：13:00-20:00<br>週五：13:00-20:00<br>週六：13:00-23:00<br>週日：13:00-23:00', '無', 'http://diagonalleyandbakerstreetbg.blogspot.tw/', 'https://www.facebook.com/pg/BakerStreetBGstore/about/?entry_point=page_nav_about_item&ref=page_internal', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.231899150607!2d121.51684121500682!3d25.060128083960212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a9419043a54d%3A0x4b7b9ad343422191!2zMTAz5Y-w54Gj5Y-w5YyX5biC5aSn5ZCM5Y2A6Yym6KW_6KGXODTomZ8!5e0!3m2!1szh-TW!2s!4v1477656590632', 'taipei08.jpg'),
+(99, '臺中市', '勃根地NOVA東海店', '桌遊販賣店', '臺中市西屯區', '臺中市西屯區大道四段1086號102門市', '(04)2462-3606', '無', '週一：10:00-22:00<br> 週二：10:00-22:00<br> 週三：10:00-22:00<br> 週四：10:00-22:00<br> 週五：10:00-22:00<br> 週六：10:00-22:00<br> 週日：10:00-22:00', '無', 'http://www.bgleisure.com/', '', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.6530154257457!2d120.6127241149896!3d24.1838988843774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346915fc0fdd30e3%3A0x8863d16d8f19d69e!2zNDA35Y-w54Gj5Y-w5Lit5biC6KW_5bGv5Y2A5Y-w54Gj5aSn6YGT5Zub5q61MTA4NuiZnw!5e0!3m2!1szh-TW!2s!4v1477660135877', 'middle36.jpg'),
+(100, '臺中市', '勃根地大魯閣新時代店', '桌遊專門店', '臺中市東區', '臺中市東區復興路四段186號6樓', '(04)2223-0663', '平日100元/人，假日150元/人<br> 含無限暢飲，不限時間', '週一：11:00-22:00<br> 週二：11:00-22:00<br> 週三：11:00-22:00<br> 週四：11:00-22:00<br> 週五：11:00-22:00<br> 週六：11:00-22:00<br> 週日：11:00-22:00', '無', 'http://www.bgleisure.com/', '', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3641.0094523523753!2d120.68552801498876!3d24.1363061844005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d15953327b3%3A0xca7fffd135072f07!2zNDAx5Y-w54Gj5Y-w5Lit5biC5p2x5Y2A5b6p6IiI6Lev5Zub5q61MTg26Jmf!5e0!3m2!1szh-TW!2s!4v1477660148419', 'middle37.jpg'),
+(101, '臺北市', '桌遊地下城Bungeon', '桌遊專門店', '臺北市大安區', '臺北市大安區延吉街110號B1', '(02)2778-7947', '入場 = 1時段，1時段 = 3小時<br>   平日180元/人<br> 假日249元/人，會員199元/人<br>   1時段後，每加時1小時計60元/人，<br> 最多加收3小時/每人。', '週一：:14:30-23:30<br>週二：:14:30-23:30<br>週三：:14:30-23:30<br>週四：:14:30-23:30<br>週五：:14:30-23:30<br>週六：12:30-23:45<br>週日：12:30-23:45', '無', 'http://www.bungeon.com/', 'https://www.facebook.com/bungeon', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.8028452690105!2d121.5523153150064!3d25.04076398396913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abc6737c05d1%3A0x293a223dbf5d54a8!2zMTA25Y-w54Gj5Y-w5YyX5biC5aSn5a6J5Y2A5bu25ZCJ6KGXMTEw6Jmf!5e0!3m2!1szh-TW!2s!4v1477656604318', 'taipei09.jpg'),
+(102, '臺中市', '勃根地南和店', '桌遊專門店', '臺中市南區', '臺中市南區南和二街11號', '(04)2261-3282', '平日100元/人，假日150元/人<br> 含無限暢飲，不限時間', '週一：11:30-22:30<br> 週二：11:30-22:30<br> 週三：11:30-22:30<br> 週四：11:30-22:30<br> 週五：11:30-22:30<br> 週六：11:30-22:30<br> 週日：11:30-22:30', '無', 'http://www.bgleisure.com/', 'https://www.facebook.com/pages/%E5%8B%83%E6%A0%B9%E5%9C%B0%E6%A1%8C%E9%81%8A%E4%BC%91%E9%96%92%E9%A4%A8%E5%8D%97%E5%92%8C%E4%BA%94%E5%BA%97/992777297507444?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3641.6655587871574!2d120.66684631498826!3d24.1132539844116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693cf9ccf378f1%3A0x87262e8ebb7003f7!2zNDAy5Y-w54Gj5Y-w5Lit5biC5Y2X5Y2A5Y2X5ZKM5LqM6KGXMTHomZ8!5e0!3m2!1szh-TW!2s!4v1477660169166', 'middle38.jpg'),
+(103, '雲林縣', '桌遊樁', '桌遊專門店', '雲林縣虎尾鎮', '雲林縣虎尾鎮新吉里立德路121號', '(05)631-1008', '*平日時段：<br> 週一至週四 : 30元/1hr ，4hr以上皆為120元。<br> *假日時段：<br> 週五至週日 : 40元/1hr ，4hr以上皆為160元。<br> *包廂(6-12適用)：<br> 平日 :400/1hr， 900/3hr之後100/1hr。<br> 假日: 500/1hr，1200/3hr之後150/1hr。<br> *包場(可容納30-40人)：<br> 平日 : 2000/2hr。假日 : 4000/2hr。<br> 時段為09:00-23:00', '週一：無<br> 週二：18:00-23:00<br> 週三：18:00-23:00<br> 週四：18:00-23:00<br> 週五：18:00-23:00<br> 週六：18:00-23:00<br> 週日：18:00-23:00', '無', '', 'https://www.facebook.com/ZER0company/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.130339871934!2d120.42152021498053!3d23.707039084610823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346eb0a7dd85d2a3%3A0x371ce622c8451aaf!2zNjMy5Y-w54Gj6Zuy5p6X57ij6JmO5bC-6Y6u56uL5b636LevMTIx6Jmf!5e0!3m2!1szh-TW!2s!4v1477660183488', 'middle39.jpg'),
+(104, '臺中市', '諾貝兒南屯店', '桌遊販賣店', '臺中市南屯區', '臺中市南屯區河南路四段441號', '(04)2255-1008', '無', '週一：11:00-22:00<br> 週二：無<br> 週三：11:00-22:00<br> 週四：11:00-22:00<br> 週五：11:00-22:00<br> 週六：11:00-22:00<br> 週日：11:00-22:00', '週二', 'http://nobeltoy.com/', 'https://www.facebook.com/nobeltoys/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.643796067322!2d120.635746614989!3d24.149144484394412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693dc185185101%3A0x6758193d3f6802e9!2zNDA45Y-w54Gj5Y-w5Lit5biC5Y2X5bGv5Y2A5rKz5Y2X6LevNOautTQ0MeiZnw!5e0!3m2!1szh-TW!2s!4v1477660196046', 'middle40.jpg'),
+(105, '臺中市', '大千書局', '尚無資料', '臺中市南區', '臺中市南區南門路123號', '(04)2285-2381', '尚無資料', '尚無資料', '尚無資料', '', '', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3641.413343400282!2d120.6774883149885!3d24.122117984407385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d1d0d6110a5%3A0x715b4799d212f126!2zNDAy5Y-w54Gj5Y-w5Lit5biC5Y2X5Y2A5Y2X6ZaA6LevMTIz6Jmf!5e0!3m2!1szh-TW!2s!4v1477660206809', 'default.jpg'),
+(106, '花蓮縣', '卡牌屋（花蓮店）', '桌遊專門店', '花蓮縣花蓮市', '花蓮縣花蓮市中山路291號', '(03)832-9251', '*非會員計時：<br> 平日40元/1小時<br> 假日50元/1小時<br> *非會員包日：<br> 平日150元/1日<br> 假日200元/1日<br> *會員計時：<br> 平日30元/1小時<br>       假日40元/1小時<br> *會員包日：<br> 平日120元/1日<br> 假日150元/1日<br> 包日送飲料一罐', '週一：無<br> 週二：14:00-22:00<br> 週三：14:00-22:00<br> 週四：14:00-22:00<br> 週五：14:00-22:00<br> 週六：14:00-22:00<br> 週日：14:00-22:00', '週一', 'http://bghut.com/', 'https://www.facebook.com/%E8%8A%B1%E8%93%AE-%E5%8D%A1%E7%89%8C%E5%B1%8B%E6%A1%8C%E4%B8%8A%E9%81%8A%E6%88%B2%E9%A4%A8-129201689944/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3645.4673750724514!2d121.60520431498568!3d23.979267584477064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34689fc0ee25c927%3A0x4ea2882db9538ca9!2zOTcw5Y-w54Gj6Iqx6JOu57ij6Iqx6JOu5biC5Lit5bGx6LevMjkx6Jmf!5e0!3m2!1szh-TW!2s!4v1477660245292', 'middle42.jpg'),
+(107, '花蓮縣', '清春文創', '桌遊販賣店', '花蓮縣花蓮市', '花蓮縣花蓮市中華路144號', '(03)833-0093', '無', '尚無資料', '尚無資料', 'https://www.youtube.com/channel/UCnEFotOcnkBBcWb2KMxsTCA', 'https://www.facebook.com/tsingsalon/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3645.5560372131135!2d121.60235891498564!3d23.976134484478646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34689f955b0f154d%3A0xb259bded7c6708bc!2zOTcw5Y-w54Gj6Iqx6JOu57ij6Iqx6JOu5biC5Lit6I-v6LevMTQ06Jmf!5e0!3m2!1szh-TW!2s!4v1477660256301', 'middle43.jpg'),
+(108, '臺北市', '艾客米桌上遊戲世界', '桌遊專門店', '臺北市大安區', '臺北市大安區忠孝東路三段305號9F-1', '(02)2741-9964', '平日 30 元/hr<br> 假日 40 元/hr', '週ㄧ：無<br> 週二：無<br> 週三：15:00-21:00<br> 週四：15:00-21:00<br> 週五：15:00-22:00<br> 週六：13:00-23:00<br> 週日：13:00-22:00', '週一週二', '', 'https://www.facebook.com/akmigames/?fref=ts', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.769406178427!2d121.54133291500645!3d25.041898483968723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abd0a7f4e223%3A0x3144789dab47f282!2zMTA25Y-w54Gj5Y-w5YyX5biC5aSn5a6J5Y2A5b-g5a2d5p2x6Lev5LiJ5q61MzA16Jmf!5e0!3m2!1szh-TW!2s!4v1477656616900', 'default.jpg'),
+(109, '臺北市', '卡卡城桌上遊戲休閒館（東門店）', '桌遊專門店', '臺北市大安區', '臺北市大安區金山南路二段12號4F-2', '(02)2322-3992', '50元/hr，最多收到200元', '週ㄧ：無<br> 週二：13:00-22:00<br> 週三：13:00-22:00<br> 週四：13:00-22:00<br> 週五：13:00-22:00<br> 週六：13:00-22:00<br> 週日：13:00-22:00', '週一', 'http://www.cacacity.tw/', 'https://www.facebook.com/cacacitydon/', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.017467195265!2d121.52478511500622!3d25.03348128397266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a982c2015047%3A0x6ccf6ef142183407!2zMTA25Y-w54Gj5Y-w5YyX5biC5aSn5a6J5Y2A6YeR5bGx5Y2X6Lev5LqM5q61MTLomZ8!5e0!3m2!1szh-TW!2s!4v1477656628655', 'taipei11.jpg');
 
 -- --------------------------------------------------------
 
@@ -216,7 +334,7 @@ INSERT INTO `store` (`storePlace`, `storeName`, `storeType`, `storeArea`, `store
 -- 資料表結構 `user`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE IF NOT EXISTS `user` (
   `no` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
   `pri` int(11) NOT NULL,
   `account` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
@@ -227,7 +345,9 @@ CREATE TABLE `user` (
   `photo` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `gender` text COLLATE utf8_unicode_ci NOT NULL,
   `favorite` text COLLATE utf8_unicode_ci NOT NULL,
-  `goodAt` text COLLATE utf8_unicode_ci NOT NULL
+  `goodAt` text COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`account`),
+  UNIQUE KEY `account` (`account`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -236,7 +356,9 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`no`, `pri`, `account`, `password`, `name`, `email`, `introduction`, `photo`, `gender`, `favorite`, `goodAt`) VALUES
 ('009YF', 0, '000', '000', '000', 'uncleben006@gmail.com', '源源', '474525.jpg', '', '000', '000'),
+('666WI', 2, '0606', '0606', 'WII', 'wii840606@gmail.com', 'hihi', '99809.jpg', '女', '', ''),
 ('006GQ', 0, '111', '111', '你怎麼沒暱稱', 'uncleben006@gmail.com', '哈哈哈', '625589.png', '', '222', '222'),
+('666LM', 2, '1114', '1114', '俐孟', 'aavail007@gmail.com', '哈哈', '725775.jpg', '女', '', ''),
 ('003MG', 1, '222', '222', '阿元元阿', 'uncleben006@gmail.com', 'ㄎㄎㄎ', '704642.png', '男', '桌末狂歡', '沒有QQ幫QQ'),
 ('007XJ', 0, '333', '333', '超過五個字', 'uncleben006@gmail.com', '', 'iMac-icon.png', '', '', ''),
 ('007FW', 1, '777', '777', '元元', 'uncleben004@gmail.com', '源源元', '45724.jpg', '', '', ''),
@@ -245,45 +367,10 @@ INSERT INTO `user` (`no`, `pri`, `account`, `password`, `name`, `email`, `introd
 ('008PF', 1, 'abc', 'abc', 'abc', 'uncleben006@gmail.com', 'abc', '660161.jpg', '', '', ''),
 ('010UN', 0, 'benny', 'benny', 'Ben', 'uncleben006@gmail.com', '我喜歡虧妹', '813724.jpg', '', '', ''),
 ('015DH', 1, 'iii', 'iii', '郭信凱', 'uncleben006@gmail.com', 'LOOOOOOOOOL', '551566.jpg', '男', 'LOL', 'LOL'),
-('011ZX', 2, 'pipi', 'pipi', '皮皮君', 'uncleben006@gmail.com', '我是管理員', 'pipi.png', '', '', '');
+('011ZX', 2, 'pipi', 'pipi', '皮皮君', 'uncleben006@gmail.com', '我是管理員', 'pipi.png', '', '', ''),
+('666UB', 2, 'uncleben006', 'ken0426', '王柏元', 'uncleben006@gmail.com', '我是管理員', '57173.jpg', '男', '電力公司', '阿瓦隆'),
+('666SU', 2, 'vivi', 'vivi', '熊哥', 'vivian901641@gmail.com', '我是管理員', '832729.png', '其他', 'CSI犯罪現場', '德國心臟病');
 
---
--- 已匯出資料表的索引
---
-
---
--- 資料表索引 `game`
---
-ALTER TABLE `game`
-  ADD PRIMARY KEY (`no`);
-
---
--- 資料表索引 `room`
---
-ALTER TABLE `room`
-  ADD PRIMARY KEY (`no`);
-
---
--- 資料表索引 `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`account`),
-  ADD UNIQUE KEY `account` (`account`);
-
---
--- 在匯出的資料表使用 AUTO_INCREMENT
---
-
---
--- 使用資料表 AUTO_INCREMENT `game`
---
-ALTER TABLE `game`
-  MODIFY `no` int(10) NOT NULL AUTO_INCREMENT;
---
--- 使用資料表 AUTO_INCREMENT `room`
---
-ALTER TABLE `room`
-  MODIFY `no` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
