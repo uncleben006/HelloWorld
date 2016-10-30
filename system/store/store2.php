@@ -4,23 +4,26 @@
 	<title>jomor桌末狂歡</title>
 	<link href="../../style.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="../../javascript.js"></script>
+	<script type="text/javascript" src="../../include/redips-scroll.js"></script>
 	<meta charset="utf-8">
+	<link rel="icon" href="jomor_html/img/jomorparty_logo.png" type="image/ico" />
 </head>
 	<body id="body0">
 		<?php 
 			include('../../include/link.php');
-			include('../../include/sessionCheck.php');
+			include('../../include/sessionCheck.php');			
+
 			if(isset($_POST['close'])){
 				if(isset($_GET['storePlace'])){
 					$storePlace = $_GET['storePlace'];
-					header('location:store2.php?storePlace='.$storePlace);
+					header("refresh:0 ; url='store2.php?storePlace=$storePlace'");
 				}
 				else{
 					header('location:store2.php');
 				}
 			}
 			include('../../include/storeHeader.php'); 
-		?>
+		?>		
 		<section>
 			<!--最新活動跑馬燈-->
 			<div class="store_marquee_div">
@@ -62,14 +65,14 @@
 							<a href="store2.php" class="store_select_myButton">全部</a>
 						</span>
 						<span class="store_select_button2">
-							<a class="store_select_myButton" onClick="openlocal(local)">地區</a>
+							<a class="store_select_myButton" onClick="openlocal(local)">縣市</a>
 							<!--地區按鈕跳出的地區選單-->
 								<div id="local" style="position:absolute; visibility: hidden;">
 								  <div class="local_fram">
 								    <div class="local_scroll">
 								      <div>
 									        <div class="local_place">北部</div>
-									        <button onclick="window.location.href='store2.php?storePlace=台北市'" class="css-input">台北市</button>
+									        <button onclick="window.location.href='store2.php?storePlace=臺北市'" class="css-input">臺北市</button>
 									        <div onclick="window.location.href='store2.php?storePlace=新北市'" class="css-input">新北市</div>
 									        <div onclick="window.location.href='store2.php?storePlace=基隆市'" class="css-input">基隆市</div>
 									        <div onclick="window.location.href='store2.php?storePlace=桃園縣'" class="css-input">桃園縣</div>
@@ -114,6 +117,7 @@
 			</div>
 		</section>
 		<section class="store_section2">
+			<!--右上角藍字 → 依照選取的縣市顯示-->
 			<table class="store_page_name" cellpadding="7">
 				<tr>
 					<td>
@@ -170,7 +174,7 @@
 										<td class="store_info_p2" title="<?php echo $storePlace['storeNumber'];?>">
 											<?php 
 												$str=$storePlace['storeNumber']; 
-												echo ((mb_strlen($str,'utf8')>12) ? mb_substr($str,0,12,'utf8') : $str).' '.((mb_strlen($str,'utf8')>12) ? " ..." : "");
+												echo ((mb_strlen($str,'utf8')>20) ? mb_substr($str,0,20,'utf8') : $str).' '.((mb_strlen($str,'utf8')>20) ? " ..." : "");
 											?>		
 										</td>
 									</tr>
@@ -179,7 +183,9 @@
 										<td class="store_info_p2"><?php echo $storePlace['storeHoliday']?></td>
 									</tr>
 								</table>
-								<div class="store_triangle" onClick="window.location.href='store2.php?storePlace=<?php echo $_GET['storePlace'];?>&storeName=<?php echo $storePlace['storeName'];?>'"><!-- 三角形開啟按鍵 -->
+								<!-- 三角形開啟按鍵 -->
+								<!--my_scroll方法會回復上一頁position-->
+								<div class="store_triangle" onclick="my_scroll('store2.php?storeName=<?php echo $storePlace['storeName'];?>'); return false">
              					</div>
 							</div>
 						</div> 
@@ -224,7 +230,7 @@
 										<td class="store_info_p2" title="<?php echo $store['storeNumber'];?>">
 											<?php 
 												$str=$store['storeNumber']; 
-												echo ((mb_strlen($str,'utf8')>10) ? mb_substr($str,0,11,'utf8') : $str).' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
+												echo ((mb_strlen($str,'utf8')>20) ? mb_substr($str,0,20,'utf8') : $str).' '.((mb_strlen($str,'utf8')>20) ? " ..." : "");
 											?>		
 										</td>
 									</tr>
@@ -233,7 +239,9 @@
 										<td class="store_info_p2"><?php echo $store['storeHoliday']?></td>
 									</tr>
 								</table>
-								<div class="store_triangle" onClick="window.location.href='store2.php?storeName=<?php echo $store['storeName'];?>'"><!-- 三角形開啟按鍵 -->
+								<!-- 三角形開啟按鍵 -->
+								<!--my_scroll方法會回復上一頁position-->								
+								<div class="store_triangle" onclick="my_scroll('store2.php?storeName=<?php echo $store['storeName'];?>'); return false"></div>
              					</div>
 							</div>
 						</div> 

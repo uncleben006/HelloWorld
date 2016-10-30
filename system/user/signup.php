@@ -254,7 +254,7 @@
 			include('../../include/userHeader.php'); 
 			
 
-		?>
+		?>		
 		<section><!--註冊框-->
 			<div class="register_div">
 				<div class="register_bg"><!--註冊黃色框-->

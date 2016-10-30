@@ -108,23 +108,7 @@
 						</div>
 					</div>
 				</div>
-				<!--下方白區塊-->
-				<div class="bottom_div">
-					<div class="privacy_div">
-						<p class="privacy">隱私資訊</p>
-					</div>
-					<hr color="#4EBABF" size="5" width="95%">
-					<div class="privacy_info_div">
-						<div>
-							<p class="privacy_info1">信箱</p>
-							<p class="privacy_info2"><?php echo $userAccount['email'] ?></p>
-						</div>
-						<div>
-							<p class="privacy_info1">密碼</p>
-							<p class="privacy_info2"><?php echo $userAccount['password'] ?></p>
-						</div>
-					</div>
-				</div>
+				<!--下方白區塊-->				
 			</div>				
 		</section>
 	</body>

@@ -1187,15 +1187,18 @@ input:focus{outline:none}
 	bottom: 0px;
 }
 .div_store_card-02{
-	position: relative;
-	top:2%;
+    position: relative;
+    top: 2%;
+    /* width: 95%; */
+    overflow: auto;
+    height: 200px;
 }
 .div_store_info_card02_table{
-	margin: 3%;
-	width: 400px;
+    padding: 3% 0 3% 3%;
+    width: 330px;
 }
 .div_store_info_card02_td01{
-	width:21%;
+	width:26%;
 	font-family: Microsoft JhengHei;
 	color: #911F23;
 	vertical-align:text-top;
@@ -3311,7 +3314,7 @@ position: relative;
 	position: absolute;
    	background-color: #4EBABF;
 	width: 1280px;
-	height: 1000px;
+	height: 750px;
 	margin: 7% 0 0 0;
 }
 .edit_bt_div{
@@ -4397,9 +4400,7 @@ position: relative;
 
 /*管理員上傳後台*/
 .upload_yellow{
-	background-color: #F0EB71;
 	width: 1280px;
-    height: 600px;
     margin: 7% 0 0 0;	
 }
 .upload_white{
@@ -4470,7 +4471,7 @@ position: relative;
 /*管理員編輯後台*/
 .manage_white{
 	position: relative;
-	background-color: #Ffffff;
+	background-color: #f1ec71;
 	width: 85%;
 	padding:10px;
 	padding-bottom: 50px;
