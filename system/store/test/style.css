@@ -1,0 +1,23 @@
+/*
+Darko Bunic
+http://www.redips.net/
+Feb, 2012.
+*/
+
+body {
+	font-family: arial;
+	margin: 0px; /* for IE6 / IE7 */
+}
+
+/* tables */
+table {
+	background-color: #fff;
+	border-collapse: collapse;
+	margin: 10px 0 200px 10px;
+}
+
+/* table cells */
+td {
+	border: 1px solid #ccc;
+	text-align: center;
+}
