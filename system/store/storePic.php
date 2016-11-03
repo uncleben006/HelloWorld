@@ -23,14 +23,14 @@
 			if(isset($_POST['close'])){
 				if(isset($_GET['storePlace'])){
 					$storePlace = $_GET['storePlace'];
-					header('location:store2.php?storePlace=$storePlace');
+					header('location:storePic.php?storePlace=$storePlace');
 				}
 				if(isset($_GET['storeType'])){
 					$storeType = $_GET['storeType'];
-					header('location:store2.php?storeType=$storeType');
+					header('location:storePic.php?storeType=$storeType');
 				}
 				else{
-					header('location:store2.php');
+					header('location:storePic.php');
 				}
 			}
 			include('../../include/storeHeader.php'); 
@@ -52,7 +52,7 @@
 		<section>
 			<div class="mapbutton_frame">
 				<a href="store1-2.php" class="map_myButton">店家地圖</a>
-				<a href="store2.php" class="map_myButton">店家列表</a>
+				<a href="storePic.php" class="map_myButton">店家列表</a>
 				<?php
 					if(isset($_SESSION['account'])){
 						$account = $_SESSION['account'];
@@ -75,7 +75,7 @@
 					<div class="store_select_word">店家篩選</div>
 					<div class="store_select_button0">
 						<span class="store_select_button1">
-							<a href="store2.php" class="store_select_myButton">全部</a>
+							<a href="storePic.php" class="store_select_myButton">全部</a>
 						</span>
 						<span class="store_select_button2">
 							<a class="store_select_myButton" onClick="openlocal(local)">縣市</a>
@@ -85,37 +85,37 @@
 								    <div class="local_scroll">
 								      <div>
 									        <div class="local_place">北部</div>
-									        <button onclick="window.location.href='store2.php?storePlace=臺北市'" class="css-input">臺北市</button>
-									        <div onclick="window.location.href='store2.php?storePlace=新北市'" class="css-input">新北市</div>
-									        <div onclick="window.location.href='store2.php?storePlace=基隆市'" class="css-input">基隆市</div>
-									        <div onclick="window.location.href='store2.php?storePlace=桃園縣'" class="css-input">桃園縣</div>
-									        <div onclick="window.location.href='store2.php?storePlace=新竹市'" class="css-input">新竹市</div>
-									        <div onclick="window.location.href='store2.php?storePlace=新竹縣'" class="css-input">新竹縣</div>
-											<div onclick="window.location.href='store2.php?storePlace=宜蘭縣'" class="css-input">宜蘭縣</div>
+									        <button onclick="window.location.href='storePic.php?storePlace=臺北市'" class="css-input">臺北市</button>
+									        <div onclick="window.location.href='storePic.php?storePlace=新北市'" class="css-input">新北市</div>
+									        <div onclick="window.location.href='storePic.php?storePlace=基隆市'" class="css-input">基隆市</div>
+									        <div onclick="window.location.href='storePic.php?storePlace=桃園縣'" class="css-input">桃園縣</div>
+									        <div onclick="window.location.href='storePic.php?storePlace=新竹市'" class="css-input">新竹市</div>
+									        <div onclick="window.location.href='storePic.php?storePlace=新竹縣'" class="css-input">新竹縣</div>
+											<div onclick="window.location.href='storePic.php?storePlace=宜蘭縣'" class="css-input">宜蘭縣</div>
 								      </div>
 								      <div>
 								          <div class="local_place">中部</div>
-								          <div onclick="window.location.href='store2.php?storePlace=苗栗縣'" class="css-input">苗栗縣</div>
-								          <div onclick="window.location.href='store2.php?storePlace=台中市'" class="css-input">台中市</div>
-								          <div onclick="window.location.href='store2.php?storePlace=彰化縣'" class="css-input">彰化縣</div>
+								          <div onclick="window.location.href='storePic.php?storePlace=苗栗縣'" class="css-input">苗栗縣</div>
+								          <div onclick="window.location.href='storePic.php?storePlace=台中市'" class="css-input">台中市</div>
+								          <div onclick="window.location.href='storePic.php?storePlace=彰化縣'" class="css-input">彰化縣</div>
 								      </div>
 								      <div>
 								          <div class="local_place">南部</div>
-								          <div onclick="window.location.href='store2.php?storePlace=雲林縣'" class="css-input">雲林縣</div>
-								          <div onclick="window.location.href='store2.php?storePlace=嘉義市'" class="css-input">嘉義市（縣）</div>
-								          <div onclick="window.location.href='store2.php?storePlace=台南市'" class="css-input">台南市</div>
-								          <div onclick="window.location.href='store2.php?storePlace=高雄市'" class="css-input">高雄市</div>
-								          <div onclick="window.location.href='store2.php?storePlace=屏東縣'" class="css-input">屏東縣</div>
+								          <div onclick="window.location.href='storePic.php?storePlace=雲林縣'" class="css-input">雲林縣</div>
+								          <div onclick="window.location.href='storePic.php?storePlace=嘉義市'" class="css-input">嘉義市（縣）</div>
+								          <div onclick="window.location.href='storePic.php?storePlace=台南市'" class="css-input">台南市</div>
+								          <div onclick="window.location.href='storePic.php?storePlace=高雄市'" class="css-input">高雄市</div>
+								          <div onclick="window.location.href='storePic.php?storePlace=屏東縣'" class="css-input">屏東縣</div>
 								      </div>
 								      <div>
 								          <div class="local_place">東部</div>
-								          <div onclick="window.location.href='store2.php?storePlace=花蓮縣'" class="css-input">花蓮縣</div>
-								          <div onclick="window.location.href='store2.php?storePlace=台東縣'" class="css-input">台東縣</div>
+								          <div onclick="window.location.href='storePic.php?storePlace=花蓮縣'" class="css-input">花蓮縣</div>
+								          <div onclick="window.location.href='storePic.php?storePlace=台東縣'" class="css-input">台東縣</div>
 								      </div>
 								      <div>
 								          <div class="local_place">外島</div>
-								          <div onclick="window.location.href='store2.php?storePlace=澎湖縣'" class="css-input">澎湖縣</div>
-								          <div onclick="window.location.href='store2.php?storePlace=金門縣'" class="css-input">金門縣</div>
+								          <div onclick="window.location.href='storePic.php?storePlace=澎湖縣'" class="css-input">澎湖縣</div>
+								          <div onclick="window.location.href='storePic.php?storePlace=金門縣'" class="css-input">金門縣</div>
 								      </div>
 								    </div>
 								  </div>   
@@ -128,11 +128,11 @@
 							  <div class="stype_fram">
 							    <div class="stype_scroll">
 							      <div>
-								        <div onclick="window.location.href='store2.php?storeType=桌遊專門店'" class="css-input">桌遊專門店</div>
-								        <div onclick="window.location.href='store2.php?storeType=複合式餐飲店'" class="css-input">複合式餐飲店</div>
-								        <div onclick="window.location.href='store2.php?storeType=桌遊販賣店'" class="css-input">桌遊販賣店</div>
-								        <div onclick="window.location.href='store2.php?storeType=拼圖專賣店'" class="css-input">拼圖專賣店</div>
-								        <div onclick="window.location.href='store2.php?storeType=其他'" class="css-input">其他</div>
+								        <div onclick="window.location.href='storePic.php?storeType=桌遊專門店'" class="css-input">桌遊專門店</div>
+								        <div onclick="window.location.href='storePic.php?storeType=複合式餐飲店'" class="css-input">複合式餐飲店</div>
+								        <div onclick="window.location.href='storePic.php?storeType=桌遊販賣店'" class="css-input">桌遊販賣店</div>
+								        <div onclick="window.location.href='storePic.php?storeType=拼圖專賣店'" class="css-input">拼圖專賣店</div>
+								        <div onclick="window.location.href='storePic.php?storeType=其他'" class="css-input">其他</div>
 							      </div>
 							    </div>
 							  </div>   
@@ -183,10 +183,10 @@
 					$selectStorePlace = mysql_query($selectStorePlace);
 					while($storePlace = mysql_fetch_assoc($selectStorePlace)){
 						?>
-						<div class="store_info_card-0">
+						<div class="store_info_card-0" style="height: 360px">
 							<div class="store_info_card01"><!--店家資訊卡店名與圖片部分-->
-								<div class="store_name" onclick="my_scroll('store2.php?no=<?php echo $storePlace['no']; ?>&storePlace=<?php echo $storePlace['storePlace']; ?>'); return false"><?php echo $storePlace['storeName']?></div>
-								<div><img class="store_img" src="../../jomor_html/img/swancafe01.jpg" onclick="my_scroll('store2.php?no=<?php echo $storePlace['no']; ?>&storePlace=<?php echo $storePlace['storePlace']; ?>'); return false"></div><!--圖片連結等有圖片了之後再補上，不然現在太醜了-->
+								<div class="store_name" onclick="my_scroll('storePic.php?no=<?php echo $storePlace['no']; ?>&storePlace=<?php echo $storePlace['storePlace']; ?>'); return false"><?php echo $storePlace['storeName']?></div>
+								<div><img class="store_img" src="../../jomor_html/img/swancafe01.jpg" onclick="my_scroll('storePic.php?no=<?php echo $storePlace['no']; ?>&storePlace=<?php echo $storePlace['storePlace']; ?>'); return false"></div><!--圖片連結等有圖片了之後再補上，不然現在太醜了-->
 							</div>
 							<!--店家資訊卡文字部分-->
 							<div class="store_info_card02">
@@ -222,11 +222,7 @@
 											?>
 										</td>
 									</tr>
-								</table>
-								<!-- 三角形開啟按鍵 -->
-								<!--my_scroll方法會回復上一頁position-->
-								<div class="store_triangle" onclick="my_scroll('store2.php?no=<?php echo $storePlace['no']; ?>&storePlace=<?php echo $storePlace['storePlace']; ?>'); return false">
-             					</div>
+								</table>								
 							</div>
 						</div> 
 						<?php
@@ -244,10 +240,10 @@
 					$selectStore = mysql_query($selectStore);
 					while($store = mysql_fetch_assoc($selectStore)){
 						?>
-						<div class="store_info_card-0">
+						<div class="store_info_card-0" style="height: 360px">
 							<div class="store_info_card01"><!--店家資訊卡店名與圖片部分-->
-								<div title="<?php echo $store['storeName']?>" class="store_name" onclick="my_scroll('store2.php?no=<?php echo $store['no']; ?>'); return false"><?php echo $store['storeName']?></div>
-								<div><img class="store_img" src="../../jomor_html/img/swancafe01.jpg" onclick="my_scroll('store2.php?no=<?php echo $store['no']; ?>'); return false"></div><!--圖片連結等有圖片了之後再補上，不然現在太醜了-->
+								<div title="<?php echo $store['storeName']?>" class="store_name" onclick="my_scroll('storePic.php?no=<?php echo $store['no']; ?>'); return false"><?php echo $store['storeName']?></div>
+								<div><img class="store_img" src="../../jomor_html/img/swancafe01.jpg" onclick="my_scroll('storePic.php?no=<?php echo $store['no']; ?>'); return false"></div><!--圖片連結等有圖片了之後再補上，不然現在太醜了-->
 							</div>
 							<!--店家資訊卡文字部分-->
 							<div class="store_info_card02">
@@ -284,10 +280,6 @@
 										</td>
 									</tr>
 								</table>
-								<!-- 三角形開啟按鍵 -->
-								<!--my_scroll方法會回復上一頁position-->								
-								<div class="store_triangle" onclick="my_scroll('store2.php?no=<?php echo $store['no']; ?>'); return false"></div>
-             					</div>
 							</div>
 						</div> 
 						<?php
@@ -387,12 +379,12 @@
 			        			if(isset($_GET['storePlace'])){
 			        				$storePlace = $_GET['storePlace'];
 			        				?>
-			        				<button name="close" class="btn" onclick="my_scroll('store2.php?storePlace=<?php echo $storePlace; ?>'); return false">關閉</button>
+			        				<button name="close" class="btn" onclick="my_scroll('storePic.php?storePlace=<?php echo $storePlace; ?>'); return false">關閉</button>
 			        				<?php 
 			        			} 
 			        			else{
 			        				?>
-			        				<button name="close" class="btn" onclick="my_scroll('store2.php'); return false">關閉</button>
+			        				<button name="close" class="btn" onclick="my_scroll('storePic.php'); return false">關閉</button>
 			        				<?php
 			        			}
 			        		?>

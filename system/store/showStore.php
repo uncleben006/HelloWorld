@@ -36,8 +36,8 @@
 
 			//刪除店家資料		
 			if(isset($_POST['delete'])){
-				$storeNumber = $_POST['delete'];
-				$deleteStoreNumber = "DELETE FROM `store` WHERE `storeNumber` = '".$storeNumber."'";
+				$no = $_POST['delete'];
+				$deleteStoreNumber = "DELETE FROM `store` WHERE `no` = '".$no."'";
 				$deleteStoreNumber = mysql_query($deleteStoreNumber);
 			}	
 			include('../../include/storeHeader.php'); 
@@ -65,7 +65,7 @@
 									<select name="place" class="manage_select"><!--onchange="window.open(this.options[this.selectedIndex].value)"可以讓select直接打開的語法-->
 										<option value="*" >全部列出</option>
 										<optgroup selected="true" label="北部"> 
-										<option value="台北市" >台北市</option>
+										<option value="臺北市" >臺北市</option>
 										<option value="新北市" >新北市</option>
 										<option value="基隆市" >基隆市</option>
 										<option value="桃園縣" >桃園縣</option>
@@ -94,7 +94,8 @@
 							</div>
 							<hr color="#A0920D" size="3" width="95%">	
 							<table class="manage_table" border=1>
-								<tr>
+								<tr>	
+									<th>編碼</th>
 									<th>縣市</th>
 									<th>店家名稱</th>
 									<th>店家型態</th>
@@ -130,6 +131,7 @@
 										while($storePlace = mysql_fetch_assoc($selectStorePlace)){
 											?>
 											<tr>
+												<td><?php echo $storePlace['no']; ?></td>
 												<td><?php echo $storePlace['storePlace']; ?></td>
 												<td><?php echo $storePlace['storeName']; ?></td>
 												<td><?php echo $storePlace['storeType']; ?></td>
@@ -163,8 +165,8 @@
 													?>														
 												</td>
 												<td><?php echo $storePlace['storePhoto']; ?></td>
-												<td><button name="edit" type="submit" class="manage_button" value="<?php echo $store['storeNumber']; ?>">修改</button></td>
-												<td><button name="delete" type="submit" class="manage_button" value="<?php echo $store['storeNumber']; ?>">刪除</button></td>
+												<td><button name="edit" type="submit" class="manage_button" value="<?php echo $storePlace['no']; ?>">修改</button></td>
+												<td><button name="delete" type="submit" class="manage_button" value="<?php echo $storePlace['no']; ?>">刪除</button></td>
 											</tr>
 											<?php
 										}
@@ -181,6 +183,7 @@
 										while($store = mysql_fetch_assoc($selectStore)){
 											?>
 											<tr>
+												<td class="break_word"><?php echo $store['no']; ?></td>
 												<td class="break_word"><?php echo $store['storePlace']; ?></td>
 												<td class="break_word"><?php echo $store['storeName']; ?></td>
 												<td class="break_word"><?php echo $store['storeType']; ?></td>
@@ -193,7 +196,7 @@
 														echo ((mb_strlen($str,'utf8')>20) ? mb_substr($str,0,20,'utf8') : $str).' '.((mb_strlen($str,'utf8')>10) ? " ..." : "");
 													?>	
 												</td>
-												<td class="break_word"><?php echo $store['storeTime']; ?></td>
+												<td class="break_word_200"><?php echo $store['storeTime']; ?></td>
 												<td class="break_word"><?php echo $store['storeHoliday']; ?></td>												
 												<td class="break_word" title="<?php echo $store['webURL'];?>">
 													<?php
@@ -214,8 +217,8 @@
 													?>														
 												</td>
 												<td><?php echo $store['storePhoto']; ?></td>
-												<td><button name="edit" type="submit" class="manage_button" value="<?php echo $store['storeNumber']; ?>">修改</button></td>
-												<td><button name="delete" type="submit" class="manage_button" value="<?php echo $store['storeNumber']; ?>">刪除</button></td>
+												<td><button name="edit" type="submit" class="manage_button" value="<?php echo $store['no']; ?>">修改</button></td>
+												<td><button name="delete" type="submit" class="manage_button" value="<?php echo $store['no']; ?>">刪除</button></td>
 											</tr>
 											<?php
 										}

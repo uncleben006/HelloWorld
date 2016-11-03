@@ -14,6 +14,7 @@ button{
 	position: relative;
 	width: 1280px;
 	margin:0 auto;
+	cursor: default;
 }
 .header_bg{
 	position: fixed;
@@ -106,7 +107,7 @@ button{
 }
 .pp{
 	font-size: 1.4em;
-	font-family:Microsoft JhengHei;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	color: #545454;
 	text-decoration: none;	
 }
@@ -132,25 +133,25 @@ button{
 }
 .lognin:link{
 	color:#EA6363;
-	font-family:Microsoft JhengHei;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size: 1em;
 	text-decoration:none;
 }
 .lognin:visited{
 	color:#EA6363;
-	font-family:Microsoft JhengHei;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size: 1em;
 	text-decoration:none;
 }
 .lognin:hover{
 	color:#444444;
-	font-family:Microsoft JhengHei;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size: 1em;
 	text-decoration:none;
 }
 .lognin:active{
 	color:#666666;
-	font-family:Microsoft JhengHei;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size: 1em;
 	text-decoration:none;
 }
@@ -190,7 +191,7 @@ button{
 	display:inline-block;
 	cursor:pointer;
 	color: #ffffff;
-	font-family:Arial;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size:1em;
 	padding:10px 18px;
 	text-decoration:none;
@@ -210,7 +211,7 @@ button{
 	display:inline-block;
 	cursor:pointer;
 	color: #ffffff;
-	font-family:Arial;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size:1em;
 	padding:10px 34px;
 	text-decoration:none;
@@ -338,7 +339,7 @@ input:focus{outline:none}
 	border-radius:30px;
 	display:inline-block;
 	cursor:pointer;
-	font-family:Arial;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size:14px;
 	padding:2px 3px;
 	text-decoration:none;
@@ -351,7 +352,7 @@ input:focus{outline:none}
 	border-radius:30px;
 	display:inline-block;
 	cursor:pointer;
-	font-family:Arial;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size:14px;
 	padding:2px 3px;
 	text-decoration:none;
@@ -378,7 +379,7 @@ input:focus{outline:none}
 	border-radius:30px;
 	display:inline-block;
 	cursor:pointer;
-	font-family:Arial;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size:14px;
 	padding:2px 3px;
 	text-decoration:none;
@@ -391,7 +392,7 @@ input:focus{outline:none}
 	border-radius:30px;
 	display:inline-block;
 	cursor:pointer;
-	font-family:Arial;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size:14px;
 	padding:2px 3px;
 	text-decoration:none;
@@ -665,7 +666,7 @@ input:focus{outline:none}
 	-webkit-border-radius:22px;
 	border-radius:21px;
 	display:inline-block;
-	font-family:Arial;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size:21px;
 	padding:8px 17px;
 	margin: 10px 0 10px 0;
@@ -677,7 +678,7 @@ input:focus{outline:none}
 	-webkit-border-radius:22px;
 	border-radius:21px;
 	display:inline-block;
-	font-family:Arial;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size:21px;
 	padding:8px 17px;
 	margin: 10px 0 10px 0;
@@ -685,21 +686,21 @@ input:focus{outline:none}
 .border_bottom{
 	border-bottom:#FFB7DD 2px solid;
 	padding:2px;
-	font-family:Microsoft JhengHei;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size: 25px;
 	font-weight:bold;
 }
 .border_bottom_2{
 	border-bottom:#FFB7DD 2px solid;
 	padding:2px;
-	font-family:Microsoft JhengHei;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size: 16px;
 	font-weight:bold;
 }
 .rows{
 	border-bottom:#FFB7DD 2px solid;
 	padding:15px;
-	font-family:Microsoft JhengHei;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size: 21px;
 	margin: 0 0 20px 0;
 }
@@ -742,7 +743,7 @@ input:focus{outline:none}
 	color:#FFFFFF;
 	background-color:#4EBDC2;
 	border-radius:21px;
-	font-family:Arial;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size:18px;
 	width: 110px;
 	padding:4px 10px;
@@ -754,7 +755,7 @@ input:focus{outline:none}
 	height: 5px;
 }
 .store_marquee{
-	font-family:Arial;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size: 18px;
 	background-color: #4EBDC2;
 	border-radius:20px;	
@@ -774,7 +775,7 @@ input:focus{outline:none}
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Arial;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size:16px;
 	font-weight:bold;
 	padding:8px 24px;
@@ -822,7 +823,7 @@ input:focus{outline:none}
 	color: #545454;
 	text-align: center;
 	padding: 9% 0 ;
-	font-family:Microsoft JhengHei ;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 }
 .aside_store00{
 	padding: 5% 7%;
@@ -876,7 +877,7 @@ input:focus{outline:none}
 }
 .store_select_button2{
 	position: relative;
-	padding: 0 0 0 5%;
+	padding: 0 0 0 3%;
 }
 .store_select_myButton {
 	background-color:#f2ee71;
@@ -886,9 +887,9 @@ input:focus{outline:none}
 	display:inline-block;
 	cursor:pointer;
 	color:#000000;
-	font-family:Arial;
-	font-size:32px;
-	padding:27px 15px;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	font-size:1.3em;
+	padding:23px 17px;
 	text-decoration:none;
 }
 .store_select_myButton:hover{
@@ -898,9 +899,31 @@ input:focus{outline:none}
 	position:relative;
 	top:1px;
 }
+
+.store_select_myButton2 {
+	background-color:#f2ee71;
+	-moz-border-radius:42px;
+	-webkit-border-radius:42px;
+	border-radius:50px;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	font-size:1.0em;
+	padding:15px 22px;
+	text-decoration:none;
+	vertical-align:bottom;
+}
+.store_select_myButton2:hover{
+	background-color:#4EBDC2;
+}
+.store_select_myButton2:active {
+	position:relative;
+	top:1px;
+}
 .store_search_div{
 	position: relative;
-	bottom: 60px;
+	bottom: 50px;
 	left: 63%;
 	background-color: #767777;
 	border-radius:20px;
@@ -940,10 +963,12 @@ input:focus{outline:none}
 }
 .store_page_name{
 	color: #4EBDC2;
-	font-family: Microsoft JhengHei;
-	font-size: 28px;
-	margin: 1% 0 0 87%;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	font-size: 1.5em;
+	width: 100px;
+	margin: 1% 0 0 91%;
 	border-bottom:5px #4EBDC2 solid;
+	text-align: center;
 }
 /* table */
 .div_table {  
@@ -1000,12 +1025,16 @@ input:focus{outline:none}
 }
 .store_name{
 	color: #545354;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size: 19px;
 	position: relative;
 	text-align: center;
-	top: 3%;
+	top: 5%;
 	cursor: pointer;
+	white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    overflow: hidden;
 }
 .store_img{
 	height: 175px;
@@ -1026,12 +1055,13 @@ input:focus{outline:none}
 	margin: 3%;
 }
 .store_info_card02_td01{
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	color: #911F23;
 	vertical-align:text-top;
+	line-height: 23px;
 }
 .store_info_p2{
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	color: #ffffff;
 }
 .store_triangle{
@@ -1041,8 +1071,10 @@ input:focus{outline:none}
 	width: 0;
 	height: 0;
 	border-style: solid;
-	border-width: 20px 10px 0 10px;
+	border-width: 15px 10px 0 10px;
 	border-color: #901f23 transparent transparent transparent;
+	cursor: pointer;
+	bottom: 1px;
 }
 .store_triangle:hover{
 	border-color: #eda4a9 transparent transparent transparent;
@@ -1067,46 +1099,73 @@ input:focus{outline:none}
   padding-left: 10px; 
 }
 /*店家列表中的“地區”按鈕跳出的地區選單*/
-.local_fram {
-    border-width: : 2px;
-    background: rgba(242, 238, 113, 0.6);
-    border-radius: 30px;
-    width: 350px;
-    height: 140px;
-    position: relative;
-    left: 159%;
-    top: 10px;
-    z-index: 1;
+.local_fram{
+      border-width: : 2px;
+      background: rgba(242,238,113,0.6);
+      border-radius: 30px;
+      width: 330px;
+      height: 120px;
+      position: relative;
+      left: 140%;
+      top: 10px; 
+      z-index: 1; 
+    }
+    .local_fram:after {
+	  content: "";
+	  display: block; /* reduce the damage in FF3.0 */
+	  position: absolute;
+	  top: -10px;
+	  left: 160px;
+	  width: 0;
+	  border-width: 0px 15px 10px;
+	  border-style: solid;
+	  border-color: rgba(242,238,113,0.4) transparent;
+	  z-index: 0;
 }
+    .local_scroll{
+      overflow:auto;/*超出框顯示捲軸*/
+      height: 100px;
+      width: 90%;
+      margin: 0 auto;
+      text-align: left;
+    }
 
-.local_fram:after {
-    content: "";
-    display: block;
-    /* reduce the damage in FF3.0 */
-    position: absolute;
-    top: -10px;
-    left: 150px;
-    width: 0;
-    border-width: 0px 15px 10px;
-    border-style: solid;
-    border-color: rgba(242, 238, 113, 0.4) transparent;
-    z-index: 0;
-}
-
-.local_scroll {
-    overflow: auto;
-    /*超出框顯示捲軸*/
-    height: 130px;
-    width: 90%;
-    margin: 0 auto;
-    text-align: left;
-}
-
-.local_place {
+.local_place{
     position: relative;
     margin: 4% 0 0 5%;
+    }
+.stype_fram{
+      border-width: : 2px;
+      background: rgba(242,238,113,0.6);
+      border-radius: 30px;
+      width: 280px;
+      height: 120px;
+      position: relative;
+      left: 218%;
+      top: 10px; 
+      z-index: 1; 
+    }
+    .stype_fram:after {
+	  content: "";
+	  display: block; /* reduce the damage in FF3.0 */
+	  position: absolute;
+	  top: -10px;
+	  left: 130px;
+	  width: 0;
+	  border-width: 0px 15px 10px;
+	  border-style: solid;
+	  border-color: rgba(242,238,113,0.4) transparent;
+	  z-index: 0;
 }
-
+    .stype_scroll{
+      position: relative;
+      overflow:auto;/*超出框顯示捲軸*/
+      height: 100px;
+      width: 90%;
+      margin: 0 auto;
+      text-align: left;
+      top: 10px;
+    }
 .css-input {
     display: inline-block;
     background-color: #F2EE71;
@@ -1161,6 +1220,7 @@ input:focus{outline:none}
 	height: 300px;
 	border-top-right-radius: 15px;
 	border-top-left-radius: 15px;	
+	text-align: center;
 }
 .div_love_img{
 	position: relative;
@@ -1173,18 +1233,16 @@ input:focus{outline:none}
 }
 .div_store_name{
 	color: #545354;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size: 1.3em;
 	position: relative;
-	text-align: center;
-	left: 17%;
 	top:16px;
 }
 .div_store_img{
 	height: 240px;
 	width: 350px;
-	position: absolute;
-	bottom: 0px;
+	position: relative;
+	top: 38px;
 }
 .div_store_card-02{
     position: relative;
@@ -1198,14 +1256,15 @@ input:focus{outline:none}
     width: 330px;
 }
 .div_store_info_card02_td01{
-	width:26%;
-	font-family: Microsoft JhengHei;
+	width:29%;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	color: #911F23;
 	vertical-align:text-top;
 }
 .div_store_info_p2{
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	color: #ffffff;
+	line-height: 23px;
 }
 .div_store_triangle{
 	margin: -3% 0 0 88%;
@@ -1222,7 +1281,7 @@ input:focus{outline:none}
 /*關閉店家資訊卡按鈕*/
 .div_store_btn{
 	position: relative;
-	top: 5%;
+	top: 2%;
 	left: 78%;
 }
 .btn {
@@ -1230,7 +1289,7 @@ input:focus{outline:none}
 	-webkit-border-radius: 16;
 	-moz-border-radius: 16;
 	border-radius: 16px;
-	font-family: Arial;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	color: #545354;
 	font-size: 20px;
 	padding: 6px 15px 6px 15px;
@@ -1247,7 +1306,7 @@ input:focus{outline:none}
 	-webkit-border-radius: 16;
 	-moz-border-radius: 16;
 	border-radius: 16px;
-	font-family: Arial;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	color: #545354;
 	font-size: 20px;
 	padding: 6px 15px 6px 15px;
@@ -1278,7 +1337,7 @@ input:focus{outline:none}
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Arial;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size:22px;
 	font-weight:bold;
 	padding:8px 20px;
@@ -1380,7 +1439,7 @@ input:focus{outline:none}
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Arial;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size:1.3em;
 	font-weight:bold;
 	padding:8px 24px;
@@ -1493,6 +1552,7 @@ input:focus{outline:none}
 	margin: -27% 0 0 26%;
 	line-height: 30px;
 	font-size: 18px;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 }
 .aboutus_p2{
 	position: relative;
@@ -1501,6 +1561,7 @@ input:focus{outline:none}
 	margin: 3% 0 0 26%;
 	line-height: 30px;
 	font-size: 22px;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 }
 .mail{
 	color: #5C7FC0;
@@ -1632,7 +1693,8 @@ input:focus{outline:none}
 	top: 17%;
 	margin: 0 3% 0 0;
 	color: #5C5D5D;
-	font-family: Microsoft JhengHei ;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	cursor: pointer;
 }
 
 .jo_btn:hover {
@@ -1640,6 +1702,23 @@ input:focus{outline:none}
 	background: #4EBCC1;
 	text-decoration: none;
 }
+
+/*top按鈕*/
+#goTop{
+	position: fixed;
+	right: 1%;
+	bottom: 7%;
+	z-index: 100;
+}
+.gotop_img{
+	width: 60px;
+	height: 60px;
+	opacity: 0.9;
+}
+.gotop_img:hover{
+	opacity:1; 
+}
+
 /*揪團房間區塊*/
 .jo_card{
 	margin: 5% 9% 5% 9%;
@@ -1683,7 +1762,6 @@ input:focus{outline:none}
 	/*這裡不用指定width，因為上面那個.jo_info_card-0的class已經指定過了，而且這邊指定不會有效*/
 	/*width: 310px;*/
 	height: 50px;
-	cursor: pointer;
 }
 .jo_number_div{
 	background-color: #F2B9A7;
@@ -1699,7 +1777,7 @@ input:focus{outline:none}
 	/*left: 25%;*/
 	font-size: 30px;
 	color: #5C5D5D;
-	font-family: Microsoft JhengHei ;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 }
 .jo_room_name_div{
 	background-color: #EA6363;
@@ -1757,7 +1835,7 @@ input:focus{outline:none}
 	border-radius: 30px;
 	font-size: 14px;
 	color: #5C5D5D;
-	font-family: Microsoft JhengHei ;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	width: 60px;
 	height: 40px;
 
@@ -1774,7 +1852,7 @@ input:focus{outline:none}
 	border-top-right-radius:30px;
 	font-size: 14px;
 	color: #5C5D5D;
-	font-family: Microsoft JhengHei ;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	width: 180px;
 	height: 40px;
 	display:block; /* 將資料內容分段顯示 */
@@ -1830,12 +1908,15 @@ input:focus{outline:none}
 	-webkit-border-radius: 28;
 	-moz-border-radius: 28;
 	border-radius: 28px;
-	font-family: Arial;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	color: #56959A;
 	font-size: 20px;
 	background: #ffffff;
 	padding: 10px 20px 10px 20px;
-	text-decoration: none;}
+	text-decoration: none;
+	cursor: pointer;
+}
+
 
 .goroom_btn:hover {
 	background: #4EBCC1;
@@ -1896,6 +1977,7 @@ input:focus{outline:none}
     line-height: 50px;
     color: #5C5D5D;
     font-size: 1.5em;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	
 }
 .rule_fram02{
@@ -1955,7 +2037,7 @@ input:focus{outline:none}
 	position: relative;
 	color: #5C5D5D;
 	font-size: 22px;
-	font-family: Microsoft JhengHei ;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	width: 420px;
 
 }
@@ -1963,7 +2045,7 @@ input:focus{outline:none}
 	position: relative;
 	color: #5C5D5D;
 	font-size: 28px;
-	font-family: Microsoft JhengHei ;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-style: bold;
 	cursor: pointer;
 	width: 50px;
@@ -1997,7 +2079,7 @@ input:focus{outline:none}
 	width: 100px;
 	font-size: 16px;
 	color: #5C5D5D;
-	font-family: Microsoft JhengHei ;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 }
 .openroom_info_input_td{
 	color: #FF6464;
@@ -2050,16 +2132,16 @@ input:focus{outline:none}
 	-webkit-border-radius: 60;
 	-moz-border-radius: 60;
 	border-radius: 60px;
-	font-family: Arial;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	color: #000000;
 	font-size: 22px;
 	background: #F2ED71;
-	padding: 25px 15px 25px 15px;
+	padding: 24px 18px 24px 18px;
 	border: solid #ffffff 5px;
 	text-decoration: none;
 	position: relative;
 	color: #5C5D5D;
-	font-family: Microsoft JhengHei ;
+	cursor: pointer;
 	/*left: 60%;*/
 	/*bottom:15px;*/
 }
@@ -2068,70 +2150,15 @@ input:focus{outline:none}
 	background: #4EBCC1;
 	text-decoration: none;
 }
+
 /*創建房間裡的店家資訊卡(與店家選擇做連動）*/
-.jo_build_store_info_card-0{
+
+.select_store_img{
 	position: relative;
-	z-index: 0;
-	background-color: #DE6160;
-	width: 280px;
-	height: 350px;
-	border-radius: 10px;
-	margin: 0px auto;
+	width: 300px;
+	height: 350px;	
 }
-.jo_build_store_info_card01{
-	position: relative;
-	top: 3%;
-	z-index:1;
-	background-color: #F2B9A7;
-	width: 260px;
-	height: 220px;
-	border-top-right-radius: 15px;
-	border-top-left-radius: 15px;
-	margin: 0px auto;	
-	cursor: pointer;
-}
-.jo_build_span_love_img{
-	position: relative;
-	top: 8px;
-	left: 6%;	
-}
-.jo_build_love_img{
-	height:29px; 
-	width:29px;
-}
-.jo_build_store_name{
-	color: #545354;
-	font-family: Microsoft JhengHei ;
-	font-size: 19px;
-	position: relative;
-	left: 7%;
-	cursor: pointer;
-}
-.jo_build_store_img{
-	height: 175px;
-	width: 260px;
-	position: absolute;
-	bottom: 0px;
-	cursor: pointer;
-}
-.jo_build_store_info_card02{
-	position: relative;
-	top:2%;
-}
-.jo_build_store_info_card02_table{
-	position: relative;
-	margin: 3%;
-}
-.jo_build_store_info_card02_td01{
-	width:33%;
-	font-family: Microsoft JhengHei ;
-	color: #911F23;
-	vertical-align:text-top;
-}
-.jo_build_store_info_p2{
-	font-family: Microsoft JhengHei ;
-	color: #ffffff;
-}
+
 /*瀏覽房間div*/
 #view_room{
 	position: absolute;
@@ -2173,7 +2200,7 @@ input:focus{outline:none}
 	position: relative;
 	color: #5C5D5D;
 	font-size: 22px;
-	font-family: Microsoft JhengHei ;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	width: 90%;
 
 }
@@ -2181,7 +2208,7 @@ input:focus{outline:none}
 	position: relative;
 	color: #5C5D5D;
 	font-size: 22px;
-	font-family: Microsoft JhengHei ;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	text-align: center;
 	bottom:7px;
 	margin: 1% 0 0 0;
@@ -2190,7 +2217,7 @@ input:focus{outline:none}
 	position: relative;
 	color: #5C5D5D;
 	font-size: 28px;
-	font-family: Microsoft JhengHei ;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-style: bold;
 	cursor: pointer;
 	width: 50px;
@@ -2241,7 +2268,7 @@ input:focus{outline:none}
 	border-radius: 30px;
 	font-size: 14px;
 	color: #5C5D5D;
-	font-family: Microsoft JhengHei ;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	width: 60px;
 	height: 36px;
 
@@ -2258,7 +2285,7 @@ input:focus{outline:none}
 	border-top-right-radius:30px;
 	font-size: 14px;
 	color: #5C5D5D;
-	font-family: Microsoft JhengHei ;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	height: 36px;
 	width: 175px;
 	display:block; /* 將資料內容分段顯示 */
@@ -2283,7 +2310,7 @@ input:focus{outline:none}
 	border-radius: 20px;
 	font-size: 14px;
 	color: #5C5D5D;
-	font-family: Microsoft JhengHei ;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	height: 248px;
 	width: 175px;
 }
@@ -2314,7 +2341,7 @@ input:focus{outline:none}
 }
 .jo_store_name{
 	color: #545354;
-	font-family: Microsoft JhengHei ;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size: 16px;
 	position: relative;
 	left: 9%;
@@ -2337,13 +2364,13 @@ input:focus{outline:none}
 }
 .jo_store_info_card02_td01{
 	width:33%;
-	font-family: Microsoft JhengHei ;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	color: #911F23;
 	vertical-align:text-top;
 	font-size: 15px;
 }
 .jo_store_info_p2{
-	font-family: Microsoft JhengHei ;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	color: #ffffff;
 	font-size: 14px;
 }
@@ -2447,7 +2474,7 @@ input:focus{outline:none}
 	position: relative;
 	text-align: center;
 	font-size: 14px;
-	font-family: Microsoft JhengHei ;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	color: #5D5D5D;
 	top: 43%;
 }
@@ -2455,7 +2482,7 @@ input:focus{outline:none}
 	position: relative;
 	margin: 4% 0 0 2%;
 	color: #569499;
-	font-family: Microsoft JhengHei ;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 }
 .chat_block{
 	height: 22px;
@@ -2478,7 +2505,7 @@ input:focus{outline:none}
 	border: none;
 	background-color: #ffffff;
 	color: #5D5D5D;
-	font-family: Microsoft JhengHei ;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	height: 30px;
 	width: 60px;
 	border-radius: 15px;
@@ -2488,7 +2515,7 @@ input:focus{outline:none}
 	border: none;
 	background-color: #4EBBC0;
 	color: #ffffff;
-	font-family: Microsoft JhengHei ;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	height: 30px;
 	width: 60px;
 	border-radius: 15px;
@@ -2558,20 +2585,20 @@ input:focus{outline:none}
 	float: right;
 	position: relative;
 	right: 3px;
-    top: 3px;
+    top: 5px;
     border-left: 2px solid;
     border-style: solid;
-	border-width: 20px 8px 0 8px;
+	border-width: 15px 8px 0 8px;
 	border-color: #645a59 transparent transparent transparent;
 }
 .player_select_div:hover{
 	float: right;
 	position: relative;
 	right: 3px;
-    top: 4px;
+    top: 6px;
     border-left: 2px solid;
 	border-style: solid;
-	border-width: 20px 8px 0 8px;
+	border-width: 15px 8px 0 8px;
 	border-color: #c1c1c1 transparent transparent transparent;
 }
 .player_select{
@@ -2656,7 +2683,7 @@ input:focus{outline:none}
 	background-color:#ffffff;
 	height: 25px;
 	font-size:12px;
-	font-family: Microsoft JhengHei ;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	color:#8b8a8a;
 	text-align: center;
 }
@@ -2676,7 +2703,7 @@ input:focus{outline:none}
 	-webkit-border-radius: 60;
 	-moz-border-radius: 60;
 	border-radius: 60px;
-	font-family: Microsoft JhengHei ;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size: 24px;
 	background: #F2ED71;
 	padding: 24px 16px 24px 16px;
@@ -2718,7 +2745,7 @@ input:focus{outline:none}
 	-webkit-border-radius: 60;
 	-moz-border-radius: 60;
 	border-radius: 60px;
-	font-family: Microsoft JhengHei ;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size: 24px;
 	background: #F2ED71;
 	padding: 7px 15px;
@@ -2893,7 +2920,7 @@ input:focus{outline:none}
 	position: relative;
 	color: #5C5D5D;
 	font-size: 22px;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	left: 35%;
 	line-height: 50px;
 
@@ -2936,7 +2963,7 @@ position: relative;
 	width: auto;
 	font-size: 16px;
 	color: #5C5D5D;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 }
 .jo_info_input_td{
 	color: #FF6464;
@@ -2953,7 +2980,7 @@ position: relative;
 	-webkit-border-radius: 60;
 	-moz-border-radius: 60;
 	border-radius: 60px;
-	font-family: Arial;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	color: #000000;
 	font-size: 20px;
 	background: #F2ED71;
@@ -2962,7 +2989,7 @@ position: relative;
 	text-decoration: none;
 	position: relative;
 	color: #5C5D5D;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	left: 80%;
 	bottom: 35px;
 }
@@ -2999,7 +3026,7 @@ position: relative;
 	color: #5D5D5D;
 	font-size: 2em;
 	text-align: center;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 }
 .headph_div{
 	position: relative;
@@ -3075,14 +3102,14 @@ position: relative;
 	color:  #5C5D5D;
 	text-align: left;
 	vertical-align: bottom;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 }
 .register_td2{
 	font-size: 1em;
 	height: 30px;
 	color:  #E86363;
 	text-align: right;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	vertical-align: bottom;
 }
 .register_td3{
@@ -3142,7 +3169,7 @@ position: relative;
 	display:inline-block;
 	cursor:pointer;
 	color: #ffffff;
-	font-family:Arial;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size:1.4em;
 	padding:8px 12px;
 	text-decoration:none;
@@ -3186,7 +3213,7 @@ position: relative;
 	position: relative;
 	background-color: #Ffffff;
 	width: 50%;
-    height: 550px;
+    height: 570px;
     border-radius: 30px;
     margin: 0 auto;
     top: 3%;
@@ -3201,7 +3228,7 @@ position: relative;
 	color: #5D5D5D;
 	font-size: 2em;
 	text-align: center;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 }
 .login_fb_div{
 	position: relative;
@@ -3216,14 +3243,14 @@ position: relative;
 	position: relative;
 	color: #848484;
 	font-size: 1.2em;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	margin: 2% 0;
 }
 .login_p3{
 	position: relative;
 	color: #848484;
 	font-size: 1.2em;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	margin: 2% 0;
 	text-align: center;
 }
@@ -3257,7 +3284,7 @@ position: relative;
 .login_bt_err{
 	margin-bottom: 10px;
 	color:red;
-	font-family:Microsoft JhengHei;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 }
 .login_bt{
 	background-color:#A0920D;
@@ -3267,7 +3294,7 @@ position: relative;
 	display:inline-block;
 	cursor:pointer;
 	color: #ffffff;
-	font-family:Arial;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size:1.4em;
 	padding:10px 30px;
 	text-decoration:none;
@@ -3286,12 +3313,12 @@ position: relative;
 	width: 100%;
 	text-decoration:none;
 	text-align: center;
-	top: 3%;
+	top: 5%;
 }
 .login_register{
 	color: #848484;
 	font-size: 1em;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	text-decoration:none;
 }
 .login_register:hover {
@@ -3330,7 +3357,7 @@ position: relative;
 	display:inline-block;
 	cursor:pointer;
 	color: #ffffff;
-	font-family:Arial;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size:1em;
 	padding:10px 30px;
 	text-decoration:none;
@@ -3348,7 +3375,7 @@ position: relative;
 	display:inline-block;
 	cursor:pointer;
 	color: #ffffff;
-	font-family:Arial;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size:1em;
 	padding:10px 30px;
 	text-decoration:none;
@@ -3399,7 +3426,7 @@ position: relative;
 	margin-top:20%;
 	font-size: 1.3em;
 	text-align: center;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-weight:bold;
 	color: #535354;
 }
@@ -3411,7 +3438,7 @@ position: relative;
 	position: relative;
 	font-size: 1.5em;
 	text-align: center;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-weight:bold;
 	color: #535354;	
 }
@@ -3420,7 +3447,7 @@ position: relative;
 	width: 60%;
 	margin: 0 0 0 20%;
 	font-size: 1em;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	color: #727272;	
 	line-height: 25px;
 }
@@ -3453,7 +3480,7 @@ position: relative;
 	position: relative;
 	margin: 3% 0 0 7%;
 	font-size: 1.6em;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-weight:bold;
 	color: #535354;	
 }
@@ -3465,7 +3492,7 @@ position: relative;
 	position: relative;
 	margin: 3% 0 0 7%;
 	font-size: 1.3em;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	color: #535354;	
 	font-weight:bold;
 	line-height: 15px;
@@ -3474,7 +3501,7 @@ position: relative;
 	position: relative;
 	margin: 3% 0 0 7%;
 	font-size: 1em;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	color: #727272;	
 	line-height: 18px;
 }
@@ -3518,7 +3545,7 @@ position: relative;
 	position: relative;
 	margin: 0 0 0 7%;
 	font-size: 1.6em;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-weight:bold;
 	color: #535354;	
 }
@@ -3529,7 +3556,7 @@ position: relative;
 	position: relative;
 	margin: 3% 0 0 7%;
 	font-size: 1.3em;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	color: #535354;	
 	font-weight:bold;
 	line-height: 12px;
@@ -3538,7 +3565,7 @@ position: relative;
 	position: relative;
 	margin: 2% 0 0 7%;
 	font-size: 1em;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	color: #727272;	
 	line-height: 14px;
 }
@@ -3630,7 +3657,7 @@ position: relative;
 	display: table;
 	width: 60%;
 	color: #535354;
-	font-family:Microsoft JhengHei;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 }
 .edit_tr{	
 	height: 40px;
@@ -3728,13 +3755,13 @@ position: relative;
 	color: #5D5D5D;
 	font-size: 2em;
 	text-align: center;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 }
 .forget_p3{
 	position: relative;
 	color: #848484;
 	font-size: 1em;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	margin: 4% 0 3% 0;
 	text-align: center;
 }
@@ -3775,7 +3802,7 @@ position: relative;
 	display:inline-block;
 	cursor:pointer;
 	color: #ffffff;
-	font-family:Arial;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size:1.4em;
 	padding:10px 30px;
 	text-decoration:none;
@@ -3799,7 +3826,7 @@ position: relative;
 .login_register{
 	color: #848484;
 	font-size: 1em;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	text-decoration:none;
 }
 .login_register:hover {
@@ -3839,13 +3866,13 @@ position: relative;
 	color: #5D5D5D;
 	font-size: 2em;
 	text-align: center;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 }
 .receive_p3{
 	position: relative;
 	color: #848484;
 	font-size: 1em;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	margin: 6% 0 3% 0;
 	text-align: center;
 	line-height: 10px;
@@ -3873,7 +3900,7 @@ position: relative;
 	display:inline-block;
 	cursor:pointer;
 	color: #ffffff;
-	font-family:Arial;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size:1.4em;
 	padding:10px 30px;
 	text-decoration:none;
@@ -3958,7 +3985,7 @@ position: relative;
 	position: relative;
 	color: #5C5D5D;
 	font-size: 1.3em;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	left: 2%;
 	line-height: 50px;
 
@@ -3994,7 +4021,7 @@ position: relative;
 	top: 2%;
 	text-align: center;
 	color: #5D5D5D;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	line-height: 14px;
 }
 .rank_div{
@@ -4113,7 +4140,7 @@ position: relative;
 	top: 17%;
 	margin: 0 1% 0 0;
 	color: #5C5D5D;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 }
 .grade_btn:hover {
 	color: #ffffff;
@@ -4157,7 +4184,7 @@ position: relative;
 	position: relative;
 	color: #5C5D5D;
 	font-size: 1.3em;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	left: 2%;
 	line-height: 50px;
 
@@ -4193,7 +4220,7 @@ position: relative;
 	top: 8%;
 	text-align: center;
 	color: #5D5D5D;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	line-height: 14px;
 	font-size: 1.1em;
 	color: #000000;
@@ -4203,7 +4230,7 @@ position: relative;
 	top: 8%;
 	text-align: center;
 	color: #5D5D5D;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	line-height: 14px;
 	font-size: 1.1em;
 	color: #E96363;
@@ -4227,7 +4254,7 @@ position: relative;
 	top: 17%;
 	margin: 0 1% 0 0;
 	color: #5C5D5D;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 }
 .sure_btn:hover {
 	color: #ffffff;
@@ -4271,7 +4298,7 @@ position: relative;
 	position: relative;
 	color: #5C5D5D;
 	font-size: 1.3em;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	left: 2%;
 	line-height: 50px;
 
@@ -4326,7 +4353,7 @@ position: relative;
 	border-radius: 30px;
 	font-size: 14px;
 	color: #5C5D5D;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	width: 60px;
 }
 .success_info_td01-3{
@@ -4337,7 +4364,7 @@ position: relative;
 	border-radius: 30px;
 	font-size: 14px;
 	color: #5C5D5D;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	width: 60px;
 	top: 0px;
 
@@ -4354,7 +4381,7 @@ position: relative;
 	border-top-right-radius:30px;
 	font-size: 14px;
 	color: #5C5D5D;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	width: 175px;
 	/*overflow:scroll;*/
 	/*超出框顯示捲軸*/
@@ -4383,7 +4410,7 @@ position: relative;
 	border-radius: 20px;
 	font-size: 14px;
 	color: #5C5D5D;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	height: 100px;
 	left: 80px;
 	top: 0px;
@@ -4491,7 +4518,7 @@ position: relative;
 	color: #5D5D5D;
 	font-size: 2em;
 	text-align: center;
-	font-family: Microsoft JhengHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 }
 .manage_select_div{
 	display: inline-block;
@@ -4548,6 +4575,10 @@ position: relative;
 }
 .break_word{
 	word-break: break-all;
+}
+.break_word_200{
+	word-break: break-all;
+	width: 200px;
 }
 .edit_td{
 	width: 800px;

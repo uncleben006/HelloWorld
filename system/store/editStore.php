@@ -45,7 +45,7 @@
 				`fbURL`= "'.$_POST['fbURL'].'",
 				`googleURL`= "'.$_POST['googleURL'].'",
 				`storePhoto`= "'.$_POST['storePhoto'].'" 
-				WHERE `storeNumber` = "'.$_POST['storeNumber'].'" OR `storeName` = "'.$_POST['storeName'].'" OR `storePhoto` = "'.$_POST['storePhoto'].'" OR `storeAddress` = "'.$_POST['storeAddress'].'"';
+				WHERE `no` = "'.$_POST['no'].'"';
 				echo $updateStoreNumber;
 				mysql_query("SET NAMES'UTF8'");
 				mysql_query("SET CHARACTER SET UTF8");
@@ -80,14 +80,18 @@
 							<!--編輯頁面的呈現區塊-->		
 							<table class="manage_table" border=1>
 								<?php
-									$storeNumber = $_GET['storeNumber'];
-									$selectStoreNumber = "SELECT * FROM `store` WHERE `storeNumber` = '".$storeNumber."'";
+									$no = $_GET['storeNumber'];
+									$selectStoreNumber = "SELECT * FROM `store` WHERE `no` = '".$no."'";
 									mysql_query("SET NAMES'UTF8'");
 									mysql_query("SET CHARACTER SET UTF8");
 									mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
 									$selectStoreNumber = mysql_query($selectStoreNumber);
 									$storeNumber = mysql_fetch_assoc($selectStoreNumber);
 								?>
+									<tr>
+										<td>編碼</td>
+										<td class="edit_td"><input type="text" name="no" value="<?php echo $storeNumber['no'] ?>" class="manage_input" readonly></td>
+									</tr>
 									<tr>
 										<td>縣市</td>
 										<td class="edit_td"><input type="text" name="storePlace" value="<?php echo $storeNumber['storePlace'] ?>" class="manage_input"></td>

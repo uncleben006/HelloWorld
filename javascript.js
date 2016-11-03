@@ -94,6 +94,13 @@ function openroom(divID) {
     divID.style.left = (document.body.clientWidth - 240) / 2;
     divID.style.top = (document.body.clientHeight - 139) / 2;
 }
+
+/*創建房間時選擇店家連動到旁邊的店家卡*/
+    function select_storecard(o){
+      ss.src="../../jomor_html/img/store_card/"+o.value+".png";
+      }
+
+ /*”如何玩“的跳出div*/     
 function openrule(divID) {
     //根據傳遞的參數確定顯示的層
     divID.style.visibility = 'visible';
@@ -226,11 +233,29 @@ function openlocal(divID) {
     if (divID.style.visibility == 'hidden') {
         //根據傳遞的參數確定顯示的層
         divID.style.visibility = 'visible';
+        stype.style.visibility='hidden';
         divID.style.left = (document.body.clientWidth - 240) / 2;
         divID.style.top = (document.body.clientHeight - 139) / 2;
     } else {
         divID.style.visibility = 'hidden';
         divID.style.left = (document.body.clientWidth - 240) / 2;
         divID.style.top = (document.body.clientHeight - 139) / 2;
+    }
+}
+
+/*店家列表的類型選單div*/
+function openstype(divID)
+    { 
+      if (divID.style.visibility=='hidden') {
+        //根據傳遞的參數確定顯示的層
+      divID.style.visibility='visible';
+      local.style.visibility='hidden';
+      divID.style.left=(document.body.clientWidth-240)/2;
+      divID.style.top=(document.body.clientHeight-139)/2;
+    }
+    else{
+      divID.style.visibility='hidden';
+      divID.style.left=(document.body.clientWidth-240)/2;
+      divID.style.top=(document.body.clientHeight-139)/2;
     }
 }

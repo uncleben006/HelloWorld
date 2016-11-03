@@ -208,7 +208,7 @@
 							else{
 								?>
 								<td rowspan="2" class="top_notify_td02"><!--圓形頭貼照-->
-									<img src="system/user/photo/iMac-icon.png" class="notify_img02">
+									<img src="system/user/photo/default.png" class="notify_img02">
 								</td>
 								<td><a href="system/user/login.php" class="lognin">登入</a></td>
 								<td><a href="system/user/signup.php" class="lognin">註冊</a></td>

@@ -195,7 +195,7 @@
 		 			$account = $_SESSION['account'];
 		 			$room = $_POST['room'];
 					//依照房間名稱來指定經緯度
-					$store = $_POST['store'];
+					$storePhoto = $_POST['storePhoto'];
 			 		if($store=="swan caf'e"){
 						$x = 25.088419;
 						$y = 121.463863;	
@@ -205,7 +205,16 @@
 					$time2 = $_POST['time2'];
 					$people = $_POST['people'];	
 					
-					$setSQL = 'INSERT INTO `room`(`host`,`room`,`store`,`x`,`y`,`game`,`date`,`time`,`time2`,`people`,`spend`,`remark`) VALUES ("'.$account.'","'.$room.'","'.$store.'","'.$x.'","'.$y.'","'.$game.'","'.$date.'","'.$time.'","'.$time2.'","'.$people.'","'.$spend.'","'.$remark.'")';
+					$selectStorePhoto = "SELECT * FROM `store` WHERE `storePhoto` = '".$storePhoto."'";
+					mysql_query("SET NAMES'UTF8'");
+					mysql_query("SET CHARACTER SET UTF8");
+					mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+					echo $selectStorePhoto;
+					$selectStorePhoto = mysql_query($selectStorePhoto);
+					$storePhoto = mysql_fetch_assoc($selectStorePhoto);
+					echo $storePhoto['storeName'];
+
+					$setSQL = 'INSERT INTO `room`(`host`,`room`,`store`,`x`,`y`,`game`,`date`,`time`,`time2`,`people`,`spend`,`remark`) VALUES ("'.$account.'","'.$room.'","'.$storePhoto['storeName'].'","'.$x.'","'.$y.'","'.$game.'","'.$date.'","'.$time.'","'.$time2.'","'.$people.'","'.$spend.'","'.$remark.'")';
 					echo $setSQL;
 					mysql_query("SET NAMES'UTF8'");
 					mysql_query("SET CHARACTER SET UTF8");
@@ -224,7 +233,7 @@
 
 					$setSQL1 = 'INSERT INTO `member`(`no`,`people`,`name`,`account`,`email`,`photo`)VALUES("'.$roomHost['no'].'","'.$people.'","'.$user['name'].'","'.$account.'","'.$user['email'].'","'.$user['photo'].'")';
 					mysql_query($setSQL1);
-					header("Location:jo.php");
+					//header("Location:jo.php");
 				}			
 	 		}	 		
 				
@@ -535,32 +544,7 @@
 							        <td class="openroom_info_input_td"><input type="text" name="room" class="jo_text01">&nbsp;&nbsp;*必填</td>
 							        <td rowspan="9">
 										<!--創建房間裡的店家資訊卡-->
-										<div class="jo_build_store_info_card-0">
-											<div class="jo_build_store_info_card01"><!--店家資訊卡店名與圖片部分-->
-												<span class="jo_build_span_love_img">
-													<img class="jo_build_love_img" src="../../jomor_html/img/love.png">
-												</span>
-												<span class="jo_build_store_name" onClick="opendiv(Store_inf)">Swancafe天鵝咖啡館</span>
-												<div><img class="jo_build_store_img" src="../../jomor_html/img/swancafe01.jpg" onClick="opendiv(Store_inf)"></div>
-											</div> 
-											<!--店家資訊卡文字部分-->
-											<div class="jo_build_store_info_card02">
-												<table class="jo_build_store_info_card02_table">
-													<tr>
-														<td class="jo_build_store_info_card02_td01">店家地址｜</td>
-														<td class="jo_build_store_info_p2">台北市羅斯福路五段170巷37號一樓</td>
-													</tr>
-													<tr>
-														<td class="jo_build_store_info_card02_td01">店家電話｜</td>
-														<td class="jo_build_store_info_p2">(02)2930-8983</td>
-													</tr>
-													<tr>
-														<td class="jo_build_store_info_card02_td01">營業時間｜</td>
-														<td class="jo_build_store_info_p2">每天10:00-22:00</td>
-													</tr>
-												</table>
-											</div>
-										</div> 
+											<img id="ss" src="../../jomor_html/img/store_card/staipei02.png" class="select_store_img">
 							        </td>
 							    </tr>
 							    <!--加上form，資料回傳到此頁最頂。-->				    
@@ -581,12 +565,13 @@
 								<tr class="openroom_info_tr">
 									<td class="openroom_info_td">地點</td>
 									<td class="openroom_info_input_td">
-									<select name="store" class="jo_text04">
-										<option value="#" >無</option>
-										<option value="swan caf'e">swancafe天鵝咖啡館</option>
-										<option value="#">女巫店</option>
-										<option value="#">卡卡城</option>
-									</select>
+									<select name="storePhoto" class="jo_text04" onchange="select_storecard(this)">
+							          	<optgroup label="台北市">
+							          		<option>無</option>
+								            <option value="taipei02.jpg">swancafe天鵝咖啡館</option>
+								            <option value="staipei01.png">女巫店</option>
+								            <option value="staipei03.png">萊斯樂</option>		            
+						          </select>
 								</tr>
 								<tr class="openroom_info_tr">
 									<td class="openroom_info_td">遊玩遊戲</td>
@@ -625,13 +610,21 @@
 
 			 		$selectMemberNo = mysql_query("SELECT * FROM `member` WHERE `no` = '".$no."'");
 					$num = mysql_num_rows($selectMemberNo);
+
+					$selectStore = "SELECT * FROM `store` WHERE `storeName` = '".$roomNo['store']."'";
+					mysql_query("SET NAMES'UTF8'");
+					mysql_query("SET CHARACTER SET UTF8");
+					mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+					$selectStore = mysql_query($selectStore);
+					$store = mysql_fetch_assoc($selectStore);
+
 					?>
 				    <div id="view_room"><!--瀏覽房間-->
 					    <div class="view_room_center">
 					        <div class="view_room_fram01">
 					          	<table class="view_room_fram01_table">
 					            	<tr>
-						            	<td class="view_room_title"><?php echo $no ?>號房-就是要揪團~</td>
+						            	<td class="view_room_title"><?php echo $no ?>號房-<?php echo $roomNo['room'] ?></td>
 						              	<td class="view_room_close" onClick="javascript:window.location.href='jo.php';">X</td>
 					            	</tr>
 					          	</table>
@@ -713,7 +706,7 @@
 						                  	<div class="jo_store_info_card-02">
 							                    <div class="jo_info_card01"><!--店家資訊卡店名與圖片部分-->
 							                      	
-							                      	<span class="jo_store_name">Swancafe天鵝咖啡館</span>
+							                      	<span class="jo_store_name"><?php echo $roomNo['store']; ?></span>
 							                      	<div><img class="jo_store_img" src="../../jomor_html/img/swancafe01.jpg"></div>
 							                    </div>
 						                    	<!--店家資訊卡文字部分-->
@@ -721,15 +714,26 @@
 							                    	<table class="jo_store_info_card02_table">
 								                        <tr>
 								                          <td class="jo_store_info_card02_td01">店家地址｜</td>
-								                          <td class="jo_store_info_p2">台北市羅斯福路五段170巷37號一樓</td>
+								                          <td colspan="2" class="jo_store_info_p2"><?php echo $store['storeAddress']; ?></td>
 								                        </tr>
 								                        <tr>
 								                          <td class="jo_store_info_card02_td01">店家電話｜</td>
-								                          <td class="jo_store_info_p2">(02)2930-8983</td>
+								                          <td colspan="2" class="jo_store_info_p2"><?php echo $store['storeNumber']; ?></td>
 								                        </tr>
 								                        <tr>
-								                          <td class="jo_store_info_card02_td01">營業時間｜</td>
-								                          <td class="jo_store_info_p2">每天10:00-22:00</td>
+								                          <td class="jo_store_info_card02_td01">網站連結｜</td>
+								                          <?php
+								                          	if(isset($store['fbURL'])){
+								                          		?>
+								                          		<td class="jo_store_info_p2"><a href="<?php echo $store['fbURL']; ?>" target="_blank">臉書連結</a></td>
+								                          		<?php
+								                          	}
+								                          	else if(isset($store['webURL'])){
+								                          		?>
+								                          		<td class="jo_store_info_p2"><a href="<?php echo $store['webURL']; ?>" target="_blank">網站連結</a></td>
+								                          		<?php
+								                          	}
+								                          ?>	
 								                        </tr>
 							                      	</table>
 						                    	</div>
