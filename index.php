@@ -52,6 +52,9 @@
 			  	    	<li>
 			  	    	    <img src="jomor_html/img/f2.png" />
 			  	    	</li>
+			  	    	<li>
+			  	    	    <img src="jomor_html/img/f3.jpg" />
+			  	    	</li>
 			          </ul>
 			        </div>
 			      </section>

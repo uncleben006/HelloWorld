@@ -88,7 +88,6 @@
 						alert("抱歉人數已滿~~去加別房啦~");
 					</script>
 					<?php
-					header("Location:jo.php");
 				}
 				else{
 					header("Location:jo.php?no=".$no."&confirm=".$no);			
@@ -360,7 +359,7 @@
 					 	
 					 	<?php
 
-					 	$setSQL = 'SELECT * FROM `room` ORDER BY `no`';
+					 	$setSQL = 'SELECT * FROM `room` ORDER BY `no` DESC';
 						mysql_query("SET NAMES'UTF8'");
 						mysql_query("SET CHARACTER SET UTF8");
 						mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");

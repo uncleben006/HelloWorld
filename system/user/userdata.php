@@ -31,10 +31,23 @@
 		?>
 		<section>
 			<div class="individual_self_bg">
-				<div class="edit_bt_div">
-					<a href="edit.php" class="edit_bt">編輯個人資料</a>
-				</div>
-			<!--左邊欄位的頭像白框-->
+				<?php
+					if($userAccount['pri']==2){
+						?>
+						<div class="edit_bt_div">
+							<a href="edit_fb.php" class="edit_bt">編輯個人資料</a>
+						</div>
+						<?php
+					}
+					else{
+						?>
+						<div class="edit_bt_div">
+							<a href="edit.php" class="edit_bt">編輯個人資料</a>
+						</div>
+						<?php
+					}
+				?>				
+				<!--左邊欄位的頭像白框-->
 				<div class="aside_l">
 					<div class="individual_head_ph_div">
 						<span class="individual_head_ph_img_span">

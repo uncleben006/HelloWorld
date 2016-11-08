@@ -51,20 +51,20 @@
 							<span><a href="aboutus.php" class="pp">聯絡我們</a></span>
 						</td>
 						<td rowspan="2" class="top_notify_td01"><!--通知欄-->
-							<?php
-								if(isset($_SESSION['account'])){
-									$account = $_SESSION['account'];
-									$selectRemindAccount = "SELECT * FROM `remind` WHERE `account` = '".$account."'";
-									mysql_query("SET NAMES'UTF8'");
-									mysql_query("SET CHARACTER SET UTF8");
-									mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
-									$selectRemindAccount = mysql_query($selectRemindAccount);
-									$remindNum = mysql_num_rows($selectRemindAccount);
-									if($remindNum>0){
-										?>
-										<img src="jomor_html/img/notify2.png" class="notify_img01" onClick="openNotify()">
-										<!--通知欄跳出的div框-->
-										<div id="notify" style="position:absolute; visibility:hidden ">
+							<img src="jomor_html/img/notify.png" class="notify_img01" onClick="openNotify()">
+							<!--通知欄跳出的div框-->
+							<div id="notify" style="position:absolute; visibility:hidden ">
+								<?php
+									if(isset($_SESSION['account'])){
+										$account = $_SESSION['account'];
+										$selectRemindAccount = "SELECT * FROM `remind` WHERE `account` = '".$account."'";
+										mysql_query("SET NAMES'UTF8'");
+										mysql_query("SET CHARACTER SET UTF8");
+										mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+										$selectRemindAccount = mysql_query($selectRemindAccount);
+										$remindNum = mysql_num_rows($selectRemindAccount);
+										if($remindNum>0){
+											?>
 											<div class="notify_fram">
 												<?php
 												//做提醒判定，
@@ -89,7 +89,7 @@
 													              	<img src="system/user/photo/<?php echo $photo; ?>" class="notify_headph">
 													            </div>
 													            <div class="notify_div_p">
-													                <p>您於剛剛正式加入<font color="#EB6363"><?php echo $name; ?></font>所創建的房間<font color="#EB6363"><?php echo $remindAccount['room']; ?></font>，提醒您<font color="#EB6363"><?php echo $date; ?></font> <font color="#EB6363"><?php echo $time; ?></font>，在<font color="red"><?php echo $remindAccount['store'] ?></font>，別遲到囉~</p>
+													                <p>您於剛剛正式加入<font color="#EB6363"><?php echo $name; ?></font>所創建的房間<font color="#EB6363"><?php echo $remindAccount['room']; ?></font>，提醒您<font color="#EB6363"><?php echo $date; ?></font> <font color="#EB6363"><?php echo $time; ?></font>在天鵝咖啡館別遲到囉～</p>
 													            </div>
 															</div>
 													  	<?php   
@@ -120,17 +120,12 @@
 													}
 												}
 												?>
-											</div> 
-										</div>  
-										<?php
-									}	
-									else{
-										?>
-										<img src="jomor_html/img/notify1.png" class="notify_img01">
-										<?php
-									}									
-								}
-							?>
+											</div>  
+											<?php
+										}										
+									}
+								?>	
+							</div> 
 						</td>
 						
 						<?php

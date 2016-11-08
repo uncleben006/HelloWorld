@@ -194,7 +194,7 @@
 					}
 					else if(isset($_GET['storeWord'])){
 						$storeWord = $_GET['storeWord'];
-						$selectStorePlace = "SELECT * FROM `store` WHERE `storePlace` LIKE '%$storeWord%' OR `storeType` LIKE '%$storeWord%' OR `storeName` LIKE '%$storeWord%'";
+						$selectStorePlace = "SELECT * FROM `store` WHERE `storePlace` LIKE '%$storeWord%' OR `storeType` LIKE '%$storeWord%' OR `storeName` LIKE '%$storeWord%' OR `storeHoliday` LIKE '%$storeWord%' OR `storeNumber` LIKE '%$storeWord%'";
 
 					}					
 					mysql_query("SET NAMES'UTF8'");

@@ -212,6 +212,24 @@
 					echo "window.location.href='$url'";
 					echo "</script>";
 				}
+				else if(strlen($account)>10){
+					$url = "signup.php?wrong=7";
+					echo "<script type='text/javascript'>";
+					echo "window.location.href='$url'";
+					echo "</script>";
+				}
+				else if(strlen($account)>10){
+					$url = "signup.php?wrong=7";
+					echo "<script type='text/javascript'>";
+					echo "window.location.href='$url'";
+					echo "</script>";
+				}
+				else if(!preg_match("/^([0-9A-Za-z]+)$/", $account)){
+					$url = "signup.php?wrong=8";
+					echo "<script type='text/javascript'>";
+					echo "window.location.href='$url'";
+					echo "</script>";
+				}
 				else{
 					$url = 'http://www.jomorparty.com/system/user/confirm.php?no='.$no;
 					$ahref = '<a href= '. $url . '>' . $url . '</a>';
@@ -318,12 +336,21 @@
 											else if($wrong==3){
 												?>
 												<div><font color="#E86363"><?php echo "帳號重複，請重新輸入" ?></font></div>
-												</td>
+												<?php
+											}
+											else if($wrong==7){
+												?>
+												<div><font color="#E86363"><?php echo "帳號最多10個字元" ?></font></div>
+												<?php
+											}
+											else if($wrong==8){
+												?>
+												<div><font color="#E86363"><?php echo "帳號只能英文或數字" ?></font></div>
 												<?php
 											}
 											else{
 												?>
-												<div><font color="#E86363"><?php echo "*必填" ?></font></div>
+												<div><font color="#E86363"><?php echo "*需填英文" ?></font></div>
 												<?php
 											}
 										?>						
