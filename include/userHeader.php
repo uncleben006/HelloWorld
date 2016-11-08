@@ -133,10 +133,10 @@
 									<td rowspan="2" class="top_notify_td02"><!--圓形頭貼照-->
 										<div class="nav_userImg" >
 											<img src="../user/photo/<?php echo $photo ?>" class="notify_img02" onClick="openNav()">
-											<div class="nav_select" onClick="openNav()"></div>
+											<!--頭像旁三角形選單<div class="nav_select" onClick="openNav()"></div>-->
 										</div>
 
-										<!--頭貼點他跳出的div選單-->
+										<!--頭貼點他跳出的div選單
 										
 									   	<div id="nav" style="position:absolute;width:200px; height:400px;visibility:hidden">
 								  			<div class="nav_div">
@@ -148,6 +148,7 @@
 										        </div>
 								  			</div>   
 										</div> 
+										頭貼點他跳出的div選單-->
 									</td>
 									<td><a href="userdata.php" class="lognin">會員</a></td>
 									<td><a href="logout.php" class="lognin">登出</a></td>
@@ -158,21 +159,48 @@
 									<td rowspan="2" class="top_notify_td02"><!--圓形頭貼照-->
 										<div class="nav_userImg" >
 											<img src="../user/photo/<?php echo $photo ?>" class="notify_img02" onClick="openNav()">
-											<div class="nav_select" onClick="openNav()"></div>
+											<!--頭像旁三角形選單<div class="nav_select" onClick="openNav()"></div>-->
 										</div>
 
-										<!--頭貼點他跳出的div選單-->
+										<!--頭貼點他跳出的div選單
 										
 									   	<div id="nav" style="position:absolute;width:200px; height:400px;visibility:hidden">
 								  			<div class="nav_div">
 										        <div class="nav_bt_div">
-										            <a href="individual_self.php" class="nav_bt">我的檔案</a>
+										            <a href="userdata.php" class="nav_bt">我的檔案</a>
 										        </div>
 										        <div class="nav_bt_div">
-										            <a href="system/user/logout.php" class="nav_bt2">登出</a>
+										            <a href="logout.php" class="nav_bt2">登出</a>
 										        </div>
 								  			</div>   
 										</div> 
+										頭貼點他跳出的div選單-->
+									</td>
+									<td><a href="userdata.php" class="lognin">會員</a></td>
+									<td><a href="logout.php" class="lognin">登出</a></td>
+									<?php
+								}
+								else if($pri==2){//fb登入會員
+									?>
+									<td rowspan="2" class="top_notify_td02"><!--圓形頭貼照-->
+										<div class="nav_userImg" >
+											<img src="<?php echo $photo ?>" class="notify_img02" onClick="openNav()">
+											<!--頭像旁三角形選單<div class="nav_select" onClick="openNav()"></div>-->
+										</div>
+
+										<!--頭貼點他跳出的div選單
+										
+									   	<div id="nav" style="position:absolute;width:200px; height:400px;visibility:hidden">
+								  			<div class="nav_div">
+										        <div class="nav_bt_div">
+										            <a href="userdata.php" class="nav_bt">我的檔案</a>
+										        </div>
+										        <div class="nav_bt_div">
+										            <a href="logout.php" class="nav_bt2">登出</a>
+										        </div>
+								  			</div>   
+										</div> 
+										頭貼點他跳出的div選單-->
 									</td>
 									<td><a href="userdata.php" class="lognin">會員</a></td>
 									<td><a href="logout.php" class="lognin">登出</a></td>
@@ -183,21 +211,22 @@
 									<td rowspan="2" class="top_notify_td02"><!--圓形頭貼照-->
 										<div class="nav_userImg" >
 											<img src="../user/photo/<?php echo $photo ?>" class="notify_img02" onClick="openNav()">
-											<div class="nav_select" onClick="openNav()"></div>
+											<!--頭像旁三角形選單<div class="nav_select" onClick="openNav()"></div>-->
 										</div>
 
-										<!--頭貼點他跳出的div選單-->
+										<!--頭貼點他跳出的div選單
 										
 									   	<div id="nav" style="position:absolute;width:200px; height:400px;visibility:hidden">
 								  			<div class="nav_div">
 										        <div class="nav_bt_div">
-										            <a href="individual_self.php" class="nav_bt">我的檔案</a>
+										            <a href="userdata.php" class="nav_bt">我的檔案</a>
 										        </div>
 										        <div class="nav_bt_div">
-										            <a href="system/user/logout.php" class="nav_bt2">登出</a>
+										            <a href="logout.php" class="nav_bt2">登出</a>
 										        </div>
 								  			</div>   
 										</div> 
+										頭貼點他跳出的div選單-->
 									</td>
 									<td><a href="userdata.php" class="lognin">管理</a></td>
 									<td><a href="logout.php" class="lognin">登出</a></td>

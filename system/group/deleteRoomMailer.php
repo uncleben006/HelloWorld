@@ -15,7 +15,7 @@ $mail->SetFrom("ics.jomorparty@gmail.com");
 $mail->Subject = mb_encode_mimeheader('A message from JOMO', "UTF-8");
 
 //先insert進remind，再用while迴圈從remind table提取各個資料出來
-$selectRemind = "SELECT * FROM `remind` WHERE `no` = '".$no."' AND `decide` = '2'";
+$selectRemind = "SELECT * FROM `remind` WHERE `no` = ".$no." AND `decide` = '2'";
 $selectRemind = mysql_query($selectRemind);
 while($remind = mysql_fetch_assoc($selectRemind)){
 	$email = $remind['email'];
@@ -55,10 +55,12 @@ while($remind = mysql_fetch_assoc($selectRemind)){
 	} 
 	else{
 		echo "Message has been sent";
-		$url = "jo.php?no=$no";
+		$url = "jo.php?";
 		echo "<script type='text/javascript'>";
 		echo "window.location.href='$url'";
 		echo "</script>";
+		//clearAddresses才不會有重複寄信的問題
+		$mail->clearAddresses($email);
 	}
 }
 

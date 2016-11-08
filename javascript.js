@@ -97,7 +97,7 @@ function openroom(divID) {
 
 /*創建房間時選擇店家連動到旁邊的店家卡*/
     function select_storecard(o){
-      ss.src="../../jomor_html/img/store_card/"+o.value+".png";
+      ss.src="../../jomor_html/img/jo_store_card/"+o.value;
       }
 
  /*”如何玩“的跳出div*/     

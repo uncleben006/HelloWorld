@@ -7,7 +7,7 @@
 	<script type="text/javascript" src="../../javascript.js"></script>
 	<script src="jquery.min.js"></script>
 	<meta charset="utf-8">
-	<link rel="icon" href="jomor_html/img/jomorparty_logo.png" type="image/ico" />
+	<link rel="icon" href="../../jomor_html/img/jomorparty_logo.png" type="image/ico" />
 </head>
 	<body id="body0">
 		<?php
@@ -179,27 +179,29 @@
 							</tr>
 							<!--第四行-->
 							<tr class="edit_tr"><!--tr-->
-								<td class="edit_td0">確認新密碼</td>
-								<td class="edit_td1"></td><!--表格中間空格-->
 								<td class="edit_td0">關於我</td>
+								<td class="edit_td1"></td><!--表格中間空格-->
+								<td class="edit_td0">確認新密碼</td>
 							</tr>
 							<tr class="edit_tr"><!--tr-->
-								<td class="edit_td2">
-									<div class="edit_text_div">
-										<input type="password" name="repass" class="edit_text">
-									</div>
-								</td>
-								<td class="edit_td1"></td><!--表格中間空格-->
 								<td class="edit_td2" rowspan="2">
 									<div class="edit_text_div0">
 										<textarea class="edit_text0" name="introduction" wrap="physical" onKeypress="if (this.value.length >= 20) {return false;}" ><?php if($userAccount['introduction']!=""){echo $userAccount['introduction']; } ?></textarea>
+									</div>
+								</td>
+								
+								<td class="edit_td1"></td><!--表格中間空格-->
+								<td class="edit_td2">
+									<div class="edit_text_div">
+										<input type="password" name="repass" class="edit_text">
 									</div>
 								</td>
 							</tr>
 							<tr class="edit_tr2">
 								<td class="edit_td3" colspan="3">
 									<button type="submit" name="edit" class="edit_bt1">確定</button>
-									<div style="position: relative; top:105px"><?php if(isset($errMsg)){echo $errMsg;} ?></div>
+									<div style="position: relative; top:105px"><?php if(isset($errMsg)){echo $errMsg;} ?>
+									</div>
 								</td>
 							</tr>
 						</table>

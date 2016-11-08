@@ -48,10 +48,29 @@
   display: none;
   -webkit-backface-visibility: hidden;
 }
+@media screen and (max-width: 1980px) {
 .flexslider .slides img {
   width: 100%;
   height: 580px;
   display: block;
+   -moz-user-select: none;
+  }
+}
+@media screen and (max-width: 980px) {
+.flexslider .slides img {
+  width: 100%;
+  height: 400px;
+  display: block;
+   -moz-user-select: none;
+  }
+}
+@media screen and (max-width: 480px) {
+.flexslider .slides img {
+  width: 100%;
+  height: 250px;
+  display: block;
+   -moz-user-select: none;
+  }
 }
 .flexslider .slides:after {
   content: "\0020";
@@ -79,10 +98,6 @@ html[xmlns] .flexslider .slides {
 }
 .flexslider .slides {
   zoom: 1;
-}
-.flexslider .slides img {
- 
-  -moz-user-select: none;
 }
 .flex-viewport {
   max-height: 2000px;

@@ -7,7 +7,7 @@
 	<script type="text/javascript" src="../../javascript.js"></script>
 	<script src="jquery.min.js"></script>	
 	<meta charset="utf-8">
-	<link rel="icon" href="jomor_html/img/jomorparty_logo.png" type="image/ico" />
+	<link rel="icon" href="../../jomor_html/img/jomorparty_logo.png" type="image/ico" />
 </head>
 	<body id="body0">
 		<?php 
@@ -68,23 +68,23 @@
 										<option value="臺北市" >臺北市</option>
 										<option value="新北市" >新北市</option>
 										<option value="基隆市" >基隆市</option>
-										<option value="桃園縣" >桃園縣</option>
+										<option value="桃園市" >桃園市</option>
 										<option value="新竹市" >新竹市</option>
 										<option value="新竹縣" >新竹縣</option>
 										<option value="宜蘭縣" >宜蘭縣</option>
 										<optgroup selected="true" label="中部"> 
 										<option value="苗栗縣" >苗栗縣</option>
-										<option value="台中市" >台中市</option>
+										<option value="臺中市" >臺中市</option>
 										<option value="彰化縣" >彰化縣</option>
 										<optgroup selected="true" label="南部"> 
 										<option value="雲林縣" >雲林縣</option>
 										<option value="嘉義市" >嘉義市(縣)</option>
-										<option value="台南市" >台南市</option>
+										<option value="臺南市" >臺南市</option>
 										<option value="高雄市" >高雄市</option>
 										<option value="屏東縣" >屏東縣</option>
 										<optgroup selected="true" label="東部"> 
 										<option value="花蓮縣" >花蓮縣</option>
-										<option value="台東縣" >台東縣</option>
+										<option value="臺東縣" >臺東縣</option>
 										<optgroup selected="true" label="外島"> 
 										<option value="澎湖縣" >澎湖縣</option>
 										<option value="金門縣" >金門縣</option>
@@ -95,7 +95,8 @@
 							<hr color="#A0920D" size="3" width="95%">	
 							<table class="manage_table" border=1>
 								<tr>	
-									<th>編碼</th>
+									<th style="width: 25px">流水號</th>
+									<th>店家編碼</th>
 									<th>縣市</th>
 									<th>店家名稱</th>
 									<th>店家型態</th>
@@ -132,6 +133,7 @@
 											?>
 											<tr>
 												<td><?php echo $storePlace['no']; ?></td>
+												<td><?php echo $storePlace['storeNo']; ?></td>
 												<td><?php echo $storePlace['storePlace']; ?></td>
 												<td><?php echo $storePlace['storeName']; ?></td>
 												<td><?php echo $storePlace['storeType']; ?></td>
@@ -184,6 +186,7 @@
 											?>
 											<tr>
 												<td class="break_word"><?php echo $store['no']; ?></td>
+												<td class="break_word"><?php echo $store['storeNo']; ?></td>
 												<td class="break_word"><?php echo $store['storePlace']; ?></td>
 												<td class="break_word"><?php echo $store['storeName']; ?></td>
 												<td class="break_word"><?php echo $store['storeType']; ?></td>

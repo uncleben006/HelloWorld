@@ -7,7 +7,8 @@
 	<script type="text/javascript" src="../../javascript.js"></script>
 	<script src="jquery.min.js"></script>	
 	<meta charset="utf-8">
-	<link rel="icon" href="jomor_html/img/jomorparty_logo.png" type="image/ico" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="../../jomor_html/img/jomorparty_logo.png" type="image/ico" />
 </head>
 	<body id="body0">
 		<?php 
@@ -212,7 +213,7 @@
 					echo "</script>";
 				}
 				else{
-					$url = 'http://localhost:8080/JOMO/system/user/confirm.php?no='.$no;
+					$url = 'http://www.jomorparty.com/system/user/confirm.php?no='.$no;
 					$ahref = '<a href= '. $url . '>' . $url . '</a>';
 					/*
 					$htmlurl = '<table><tr><td>welcome and please link the following url</td><td>' . $ahref . '</td></tr></table>';
@@ -286,7 +287,7 @@
 										if($wrong==4){
 										?>
 										<div class="alert" >
-											<font color="red"><?php echo $_SESSION['errMSG'] ?></font>
+											<font color="#E86363"><?php echo $_SESSION['errMSG'] ?></font>
 										</div>
 										<?php
 									}
@@ -311,18 +312,18 @@
 										<?php
 											if($wrong==0){
 												?>
-												<div><font color="red"><?php echo "*必填" ?></font></div>
+												<div><font color="#E86363"><?php echo "*必填" ?></font></div>
 												<?php
 											} 
 											else if($wrong==3){
 												?>
-												<div><font color="red"><?php echo "帳號重複，請重新輸入" ?></font></div>
+												<div><font color="#E86363"><?php echo "帳號重複，請重新輸入" ?></font></div>
 												</td>
 												<?php
 											}
 											else{
 												?>
-												<div><font color="red"><?php echo "*必填" ?></font></div>
+												<div><font color="#E86363"><?php echo "*必填" ?></font></div>
 												<?php
 											}
 										?>						
@@ -333,22 +334,22 @@
 										<?php
 											if($wrong==0){
 												?>
-												<div><font color="red"><?php echo "*最多五個字" ?></font></div>
+												<div><font color="#E86363"><?php echo "*最多五個字" ?></font></div>
 												<?php
 											} 
 											else if($wrong==5){
 												?>
-												<div><font color="red"><?php echo "超過五個字，請刪減字數" ?></font></div>
+												<div><font color="#E86363"><?php echo "超過五個字，請刪減字數" ?></font></div>
 												<?php
 											}
 											else if($wrong==6){
 												?>
-												<div><font color="red"><?php echo "暱稱重複了，請換一個" ?></font></div>
+												<div><font color="#E86363"><?php echo "暱稱重複了，請換一個" ?></font></div>
 												<?php
 											}
 											else{
 												?>
-												<div><font color="red"><?php echo "*最多五個字" ?></font></div>
+												<div><font color="#E86363"><?php echo "*最多五個字" ?></font></div>
 												<?php
 											}
 										?>
@@ -406,18 +407,18 @@
 										<?php
 											if($wrong==0){
 												?>
-												<div><font color="red"><?php echo "*必填" ?></font></div>
+												<div><font color="#E86363"><?php echo "*必填" ?></font></div>
 												<?php
 											} 
 											else if($wrong==2){
 												?>
-												<div><font color="red"><?php echo "請填入正確的信箱" ?></font></div>
+												<div><font color="#E86363"><?php echo "請填入正確的信箱" ?></font></div>
 												</td>
 												<?php
 											}
 											else{
 												?>
-												<div><font color="red"><?php echo "*必填" ?></font></div>
+												<div><font color="#E86363"><?php echo "*必填" ?></font></div>
 												<?php
 											}
 										?>
@@ -472,18 +473,18 @@
 										<?php
 											if($wrong==0){
 												?>
-												<div><font color="red"><?php echo "*必填" ?></font></div>
+												<div><font color="#E86363"><?php echo "*必填" ?></font></div>
 												<?php
 											} 
 											else if($wrong==1){
 												?>
-												<div><font color="red"><?php echo "請再確認一次密碼" ?></font></div>
+												<div><font color="#E86363"><?php echo "請再確認一次密碼" ?></font></div>
 												</td>
 												<?php
 											}
 											else{
 												?>
-												<div><font color="red"><?php echo "*必填" ?></font></div>
+												<div><font color="#E86363"><?php echo "*必填" ?></font></div>
 												<?php
 											}
 										?>

@@ -1,40 +1,52 @@
+<!--行動裝置rwd的視窗變小nav變小圖示可展開-->
+		<nav class="rwd_nav">
+			    <a id="menu-toggle" href="javascript:void(0);">&#9776;</a>
+			    <ul>
+			        <li><a href="system/store/store1-2.php">店家地圖</a></li>
+			        <li><a href="system/group/jo.php">揪團</a></li>
+			        <li><a href="discussion.php">討論區</a></li>
+			        <li><a href="hblog.php">桌遊專欄</a></li>
+			        <li><a href="aboutus.php">聯絡我們</a></li>
+			    </ul>
+		</nav>
+		
 <header class="header_bg">
-			<!--頂部圖案-->
+			<!--網頁版頂部圖案-->
 			<div class="top">
 				<table class="top_table">
 					<tr class="top_tr">
 						<td rowspan="2" class="top_td0"><!--桌末狂歡logo-->
 							<a href="index.php">
-								<img src="jomor_html/img/jomorparty_logo.png" alt="logo" title="logo" width="65px" height="65px">
+								<img src="jomor_html/img/jomorparty_logo.png" alt="logo" title="logo" class="top_logo_img0">
 							</a>
 						</td>
 						<td rowspan="2" class="top_td1">
 							<a href="system/store/store1-2.php" class="top_a">
-								<img src="jomor_html/img/animal-01.png" alt="logo" title="store" width="70px" height="50px">
+								<img src="jomor_html/img/animal-01.png" alt="logo" title="store" class="top_logo_img1">
 							</a>
-							<span><a href="system/store/store1-2.php"" class="pp">店家地圖</a></span>
+							<span><a href="system/store/store1-2.php" class="pp">店家地圖</a></span>
 						</td>
 						<td rowspan="2" class="top_td2">
 							<a href="system/group/jo.php" class="top_a">
-								<img src="jomor_html/img/animal-02.png" alt="logo" title="store" width="70px" height="50px">
+								<img src="jomor_html/img/animal-02.png" alt="logo" title="store" class="top_logo_img1">
 							</a>
 							<span><a href="system/group/jo.php" class="pp">揪團</a></span>
 						</td>
 						<td rowspan="2" class="top_td3">
 							<a href="discussion.php" class="top_a">
-								<img src="jomor_html/img/animal-03.png" alt="logo" title="store" width="70px" height="50px">
+								<img src="jomor_html/img/animal-03.png" alt="logo" title="store" class="top_logo_img1">
 							</a>
 							<span><a href="discussion.php" class="pp">討論區</a></span>
 						</td>
 						<td rowspan="2" class="top_td1">
 							<a href="blog.php" class="top_a">
-								<img src="jomor_html/img/animal-04.png" alt="logo" title="store" width="70px" height="50px">
+								<img src="jomor_html/img/animal-04.png" alt="logo" title="store" class="top_logo_img1">
 							</a>
 							<span><a href="blog.php" class="pp">桌遊專欄</a></span>
 						</td>
 						<td rowspan="2" class="top_td1">
 							<a href="aboutus.php" class="top_a">
-								<img src="jomor_html/img/animal-05.png" alt="logo" title="store" width="70px" height="50px">
+								<img src="jomor_html/img/animal-05.png" alt="logo" title="store" class="top_logo_img1">
 							</a>
 							<span><a href="aboutus.php" class="pp">聯絡我們</a></span>
 						</td>
@@ -77,7 +89,7 @@
 													              	<img src="system/user/photo/<?php echo $photo; ?>" class="notify_headph">
 													            </div>
 													            <div class="notify_div_p">
-													                <p>您於剛剛正式加入<font color="red"><?php echo $name; ?></font>所創建的房間<font color="red"><?php echo $remindAccount['room']; ?></font>，提醒您<font color="red"><?php echo $date; ?></font> <font color="red"><?php echo $time; ?></font>在天鵝咖啡館別遲到囉～</p>
+													                <p>您於剛剛正式加入<font color="#EB6363"><?php echo $name; ?></font>所創建的房間<font color="#EB6363"><?php echo $remindAccount['room']; ?></font>，提醒您<font color="#EB6363"><?php echo $date; ?></font> <font color="#EB6363"><?php echo $time; ?></font>在天鵝咖啡館別遲到囉～</p>
 													            </div>
 															</div>
 													  	<?php   
@@ -89,7 +101,7 @@
 													              	<img src="jomor_html/img/attention.png" class="notify_attention">
 													            </div>
 													            <div class="notify_div_p">
-													                <p>您於剛剛被<font color="red"><?php echo $name; ?></font>踢出了房間，房名為<font color="red"><?php echo $remindAccount['room']; ?></font></p>
+													                <p>您於剛剛被<font color="#EB6363"><?php echo $name; ?></font>踢出了房間，房名為<font color="#EB6363"><?php echo $remindAccount['room']; ?></font></p>
 													            </div>
 															</div>
 													  	<?php  
@@ -101,7 +113,7 @@
 													              	<img src="jomor_html/img/attention.png" class="notify_attention">
 													            </div>
 													            <div class="notify_div_p">
-													                <p><font color="red"><?php echo $name; ?></font>因為個人因素刪除了房間，房名為<font color="red"><?php echo $remindAccount['room']; ?></font></p>
+													                <p><font color="#EB6363"><?php echo $name; ?></font>因為個人因素刪除了房間，房名為<font color="#EB6363"><?php echo $remindAccount['room']; ?></font></p>
 													            </div>
 															</div>
 													  	<?php  
@@ -134,10 +146,10 @@
 									<td rowspan="2" class="top_notify_td02"><!--圓形頭貼照-->
 										<div class="nav_userImg" >
 											<img src="system/user/photo/<?php echo $photo ?>" class="notify_img02" onClick="openNav()">
-											<div class="nav_select" onClick="openNav()"></div>
+											<!--頭像旁三角形選單<div class="nav_select" onClick="openNav()"></div>-->
 										</div>
 
-										<!--頭貼點他跳出的div選單-->
+										<!--頭貼點他跳出的div選單
 										
 									   	<div id="nav" style="position:absolute;width:200px; height:400px;visibility:hidden">
 								  			<div class="nav_div">
@@ -149,6 +161,7 @@
 										        </div>
 								  			</div>   
 										</div> 
+										頭貼點他跳出的div選單結束-->
 									</td>
 									<td><a href="system/user/userdata.php" class="lognin">會員</a></td>
 									<td><a href="system/user/logout.php" class="lognin">登出</a></td>
@@ -159,21 +172,48 @@
 									<td rowspan="2" class="top_notify_td02"><!--圓形頭貼照-->
 										<div class="nav_userImg" >
 											<img src="system/user/photo/<?php echo $photo ?>" class="notify_img02" onClick="openNav()">
-											<div class="nav_select" onClick="openNav()"></div>
+											<!--頭像旁三角形選單<div class="nav_select" onClick="openNav()"></div>-->
 										</div>
 
-										<!--頭貼點他跳出的div選單-->
+										<!--頭貼點他跳出的div選單
 										
 									   	<div id="nav" style="position:absolute;width:200px; height:400px;visibility:hidden">
 								  			<div class="nav_div">
 										        <div class="nav_bt_div">
-										            <a href="individual_self.php" class="nav_bt">我的檔案</a>
+										            <a href="system/user/userdata.php" class="nav_bt">我的檔案</a>
 										        </div>
 										        <div class="nav_bt_div">
 										            <a href="system/user/logout.php" class="nav_bt2">登出</a>
 										        </div>
 								  			</div>   
 										</div> 
+										頭貼點他跳出的div選單-->
+									</td>
+									<td><a href="system/user/userdata.php" class="lognin">會員</a></td>
+									<td><a href="system/user/logout.php" class="lognin">登出</a></td>
+									<?php
+								}
+								else if($pri==2){//fb登入會員
+									?>
+									<td rowspan="2" class="top_notify_td02"><!--圓形頭貼照-->
+										<div class="nav_userImg" >
+											<img src="<?php echo $photo ?>" class="notify_img02" onClick="openNav()">
+											<!--頭像旁三角形選單<div class="nav_select" onClick="openNav()"></div>-->
+										</div>
+
+										<!--頭貼點他跳出的div選單
+										
+									   	<div id="nav" style="position:absolute;width:200px; height:400px;visibility:hidden">
+								  			<div class="nav_div">
+										        <div class="nav_bt_div">
+										            <a href="system/user/userdata.php" class="nav_bt">我的檔案</a>
+										        </div>
+										        <div class="nav_bt_div">
+										            <a href="system/user/logout.php" class="nav_bt2">登出</a>
+										        </div>
+								  			</div>   
+										</div> 
+										頭貼點他跳出的div選單-->
 									</td>
 									<td><a href="system/user/userdata.php" class="lognin">會員</a></td>
 									<td><a href="system/user/logout.php" class="lognin">登出</a></td>
@@ -184,21 +224,22 @@
 									<td rowspan="2" class="top_notify_td02"><!--圓形頭貼照-->
 										<div class="nav_userImg" >
 											<img src="system/user/photo/<?php echo $photo ?>" class="notify_img02" onClick="openNav()">
-											<div class="nav_select" onClick="openNav()"></div>
+											<!--頭像旁三角形選單<div class="nav_select" onClick="openNav()"></div>-->
 										</div>
 
-										<!--頭貼點他跳出的div選單-->
+										<!--頭貼點他跳出的div選單
 										
 									   	<div id="nav" style="position:absolute;width:200px; height:400px;visibility:hidden">
 								  			<div class="nav_div">
 										        <div class="nav_bt_div">
-										            <a href="individual_self.php" class="nav_bt">我的檔案</a>
+										            <a href="system/user/userdata.php" class="nav_bt">我的檔案</a>
 										        </div>
 										        <div class="nav_bt_div">
 										            <a href="system/user/logout.php" class="nav_bt2">登出</a>
 										        </div>
 								  			</div>   
 										</div> 
+										頭貼點他跳出的div選單-->
 									</td>
 									<td><a href="system/user/userdata.php" class="lognin">管理</a></td>
 									<td><a href="system/user/logout.php" class="lognin">登出</a></td>

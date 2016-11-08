@@ -15,55 +15,50 @@ $mail->SetFrom("ics.jomorparty@gmail.com");
 $mail->Subject = mb_encode_mimeheader('A message from JOMO', "UTF-8");
 
 
-$url = 'http://localhost:8080/JOMO/system/group/jo.php?no='.$no;
-$ahref = '<a href= '. $url . '>' . $url . '</a>';
 
-//先insert進remind，再用while迴圈從remind table提取各個資料出來
-$selectRemind = "SELECT * FROM `remind` WHERE `no` = ".$no."";
+$selectRemind = "SELECT * FROM `remind` WHERE `no` = ".$no." AND `decide` = '0'";
 $selectRemind = mysql_query($selectRemind);
 while($remind = mysql_fetch_assoc($selectRemind)){
-	$email = $remind['email'];
+
+	$url = 'http://www.jomorparty.com/system/group/jo.php?no='.$no;
+	$ahref = '<a href= '. $url . '>' . $url . '</a>';	
+	$email = $remind['email'];	
 	$date = date("m/d",strtotime($remind['date']));
-	$time = date("H/i",strtotime($remind['time']));
-
-	$selectUserAccount = "SELECT * FROM `user` WHERE `account` = '".$remind['account']."' AND `decide` = '0' ";
-	mysql_query("SET NAMES'UTF8'");
-	mysql_query("SET CHARACTER SET UTF8");
-	mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
-	$selectUserAccount = mysql_query($selectUserAccount);
-	$userAccount = mysql_fetch_assoc($selectUserAccount);
-
+	$time = date("H:i",strtotime($remind['time']));
 	$htmlurl = 
 	"
-	<!DOCTYPE html>
-	<html>
-	<head>
-		<title>email</title>
-	</head>
-	<body>
-		<div style=\"width:60%;margin:0 auto;background-color:#cee6f5;padding:10px;\">
-			<div>".$userAccount['name']."您好</div>
-			<div>您參加了一次揪團</div>
-			<div>時間是".$date." ".$time."</div>
-			<div>地點是".$remind['store']."</div>
-			<div>共多詳細資訊請看".$ahref."</div>
-		</div>
-	</body>
-	</html>
+		<!DOCTYPE html>
+		<html>
+		<head>
+			<title>email</title>
+		</head>
+		<body>
+			<div style=\"width:60%;margin:0 auto;background-color:#cee6f5;padding:10px;\">
+				<div>".$remind['account']."您好</div>
+				<div>您參加了一次揪團</div>
+				<div>時間是".$date." ".$time."</div>
+				<div>地點是".$remind['store']."</div>
+				<div>共多詳細資訊請看".$ahref."</div>
+			</div>
+		</body>
+		</html>
 	";
-	$mail->Body = $htmlurl;
+	
+	$mail->Body = $htmlurl;		
 	$mail->AddAddress($email);
-
 	if(!$mail->Send()) {
 	    echo "Mailer Error: " . $mail->ErrorInfo;
 	} 
-	else{
+	else{		
 		echo "Message has been sent";
 		$url = "jo.php?no=$no";
 		echo "<script type='text/javascript'>";
 		echo "window.location.href='$url'";
 		echo "</script>";
-	}
+		//clearAddresses才不會有重複寄信的問題
+		$mail->clearAddresses($email);
+	}		
 }
+
 
 ?>

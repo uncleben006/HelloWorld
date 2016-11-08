@@ -6,7 +6,7 @@
 	<link href="../../style.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="../../javascript.js"></script>
 	<meta charset="utf-8">
-	<link rel="icon" href="jomor_html/img/jomorparty_logo.png" type="image/ico" />
+	<link rel="icon" href="../../jomor_html/img/jomorparty_logo.png" type="image/ico" />
 </head>
 	<body id="body0">
 		<?php 
@@ -38,12 +38,22 @@
 				<div class="aside_l">
 					<div class="individual_head_ph_div">
 						<span class="individual_head_ph_img_span">
-							<img src="photo/<?php echo $userAccount['photo'] ?>" class="individual_head_ph_img">
+							<?php
+								if($userAccount['pri']==2){
+									?>
+									<img src="<?php echo $userAccount['photo'] ?>" class="individual_head_ph_img">
+									<?php
+								}
+								else{
+									?>
+									<img src="photo/<?php echo $userAccount['photo'] ?>" class="individual_head_ph_img">
+									<?php
+								}
+							?>							
 						</span>
 					</div>
 					<div class="individual_score">
 						<p><?php echo $account ?></p>
-						<p>評價：5分</p>
 					</div>
 					<hr color="#4EBABF" size="5" width="95%">
 					<div class="aboutme">

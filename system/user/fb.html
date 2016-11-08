@@ -40,7 +40,7 @@
         function login() {
             FB.login(function(response) {
                 if (response.status === 'connected') {
-                    document.getElementById('status').innerHTML = scope;
+                    document.getElementById('status').innerHTML = 'We are connected.';
                     document.getElementById('login').style.visibility = 'hidden';
                 } else if (response.status === 'not_authorized') {
                     document.getElementById('status').innerHTML = 'We are not logged in.'
@@ -52,14 +52,14 @@
         
         // getting basic user info
         function getInfo() {
-            FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id'}, function(response) {
-                document.getElementById('status').innerHTML = response.id;
+            FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id,picture.width(150).height(150)'}, function(response) {
+                document.getElementById('status').innerHTML = "<img src='" + response.picture.data.url + "'>";
             });
         }
     </script>
 
     <div id="status"></div>
-    <button onclick="getInfo()">Get Info</button>
+    <button onclick="getInfo()">Get info with picture</button>
     <button onclick="login()" id="login">Login</button>
 </body>
 </html>

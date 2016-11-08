@@ -4,28 +4,161 @@ input['text']{
 	color: #569499;
 	font-size: 16px;
 }
+
 :hover{
 	transition: all 0.5s;/*所有hover漸進0.5秒*/
 }
 button{
 	border-style: hidden;
 }
+
+/*行動裝置rwd的視窗變小nav變小圖示可展開*/
+a {
+    color: #888888;
+    text-decoration: none;
+}
+
+nav {
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+     z-index: 100;
+}
+nav ul {
+    margin: 0;
+    padding: 0;
+    background: rgba(255,255,255,0.9);
+}
+nav ul li {
+    list-style-type: none;
+    padding: 6px 12px;
+    border-bottom: 1px solid #FFF;
+}
+nav ul li:hover {
+    background: #EB6363;
+}
+nav ul li:hover a {
+    color: #FFF;
+}
+.rwd_nav{
+		display: none;
+	}
+#menu-toggle {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    display: none;
+    background: rgba(255,255,255,0.9);
+    text-align: center;
+    line-height: 30px;
+    z-index: 100;
+    top: 0;
+}
+
+@media only screen and (max-width: 990px) {
+	.rwd_nav{
+		display: block;
+	}
+    nav {
+        position: fixed;
+    }
+    nav > ul {
+        display: none;
+    }
+    #menu-toggle {
+        display: block;
+    }
+    nav:hover > ul {
+        display: block;
+        margin-top: 30px;
+    }
+}
+
+@media screen and (max-width: 1980px) {
 #body0{
 	position: relative;
 	width: 1280px;
 	margin:0 auto;
 	cursor: default;
+	z-index: 100;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	}
 }
+@media screen and (max-width: 1280px) {
+#body0{
+	position: relative;
+	width: 100%;
+	margin:0 auto;
+	cursor: default;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	}
+}
+@media screen and (max-width: 1024px) {
+#body0{
+	position: relative;
+	width: 100%;
+	margin:0 auto;
+	cursor: default;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	}
+}
+@media screen and (max-width: 768px) {
+#body0{
+	position: relative;
+	width: 100%;
+	margin:0 auto;
+	cursor: default;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	}
+}
+@media screen and (max-width: 480px) {
+#body0{
+	position: relative;
+	width: 100%;
+	margin:0 auto;
+	cursor: default;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	}
+}
+@media screen and (max-width: 320px) {
+#body0{
+	position: relative;
+	width: 100%;
+	margin:0 auto;
+	cursor: default;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	}
+}
+@media screen and (max-width: 1980px) {
+.header_bg{
+	position: fixed;
+	z-index: 20;
+	width: 1280px;
+	top: 0px;
+	}
+}
+@media screen and (max-width: 1281px) {
 .header_bg{
 	position: fixed;
 	z-index: 20;
 	width: 100%;
 	top: 0px;
+	}
 }
+@media screen and (max-width: 990px) {
+.header_bg{
+	display: none;
+	position: fixed;
+	z-index: 20;
+	width: 100%;
+	top: 0px;
+	}
+}
+@media screen and (max-width: 1980px) {
 .top{
 	position: relative;
 	height: 90px;
-	width: 1280px;
+	width: 100%;
 	background: rgba(255,255,255,0.9);
 }
 .top_table{
@@ -41,6 +174,14 @@ button{
 .top_td0{
 	position: relative;
 	width: 10%;
+}
+.top_logo_img0{
+	width: 65px;
+	height: 65px;
+}
+.top_logo_img1{
+	width: 70px;
+	height: 50px;
 }
 .top_td1{
 	position: relative;
@@ -77,12 +218,13 @@ button{
 .nav_userImg{
 	position: relative;
 	left: 5px;
-	
+	top: 8px;
 }
 .notify_img02{
-	width: 76%;
+	width: 75px;
+	height: 75px;
+	border-radius: 50%;
 	/*height:15%;*/
-	cursor: pointer;
 }
 .nav_select{
 	width: 0;
@@ -92,10 +234,12 @@ button{
 	border-color: #535454 transparent transparent transparent;
 	display: inline-block;
 	position: relative;
-	right: 10px;
+	right: 5px;
+	cursor: pointer;
 }
 .nav_select:hover{
 	border-color: #71848d transparent transparent transparent;
+
 }
 .top_td3{
 	position: relative;
@@ -275,147 +419,289 @@ button{
 	right: 2%;
 	text-align: left;
 	display: inline-block;
+	}
 }
+/*banner在768-1280之間的大小*/
+/*banner在768-1280之間的大小*/
+@media screen and (max-width: 1279px) {
+.top{
+	position: relative;
+	height: auto;
+	width: 100%;
+	background: rgba(255,255,255,0.9);
+}
+.top_table{
+	position: relative;
+	width:100%;
+	margin: 0 auto;
+	text-align: center;
+}
+.top_tr{
+	position: relative;
+	width: 100%;
+}
+.top_td0{
+	position: relative;
+	width: 8%;
+}
+.top_logo_img0{
+	width: 55px;
+	height: 55px;
+}
+.top_logo_img1{
+	width: 60px;
+	height: 43px;
+}
+.top_td1{
+	position: relative;
+	text-align: right;
+	width: 13%;
+}
+.top_td2{
+	position: relative;
+	text-align: right;
+	width: 10%;
+}
+.top_td4{
+	position: relative;
+	text-align: right;
+	width: 10%;
+}
+.top_notify_td01{
+	position: relative;
+	text-align: right;
+	vertical-align: bottom;
+	width: 5%;
+	bottom: 5px;
+}
+.notify_img01{
+	width: 70%;
+	height:auto;
+	cursor: pointer;
+}
+.top_notify_td02{
+	position: relative;
+	text-align: center;	
+	width: 7%;
+}
+.nav_userImg{
+	position: relative;
+	left: 5px;
+	
+}
+.notify_img02{
+	width: 80%;
+	height: auto;
+	cursor: pointer;
+}
+.nav_select{
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 8px 7.5px 0 7.5px;
+	border-color: #535454 transparent transparent transparent;
+	display: inline-block;
+	position: relative;
+	right: 10px;
+}
+.nav_select:hover{
+	border-color: #71848d transparent transparent transparent;
+}
+.top_td3{
+	position: relative;
+	text-align: right;
+	width: 12%;
+}
+.top_a{
+	text-decoration: none;	
+}
+.pp{
+	font-size: 1em;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	color: #545454;
+	text-decoration: none;	
+}
+.pp:hover{
+	color: #EB6363;
+}
+.top_td4{
+	text-align: left;
+	width: 8%;
+}
+.index_search{
+	background-color: #EB6363;
+	border: 0;	
+	border-radius:10px;
+	height: 18px;
+}
+.top_td5{
+	text-align: left;
+	width: 3%;
+}
+.button{
+	width:55%;
+	height:auto;
+}
+.lognin:link{
+	color:#EA6363;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	font-size: 1em;
+	text-decoration:none;
+}
+.lognin:visited{
+	color:#EA6363;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	font-size: 1em;
+	text-decoration:none;
+}
+.lognin:hover{
+	color:#444444;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	font-size: 1em;
+	text-decoration:none;
+}
+.lognin:active{
+	color:#666666;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	font-size: 1em;
+	text-decoration:none;
+}
+.top_line{
+	color: #545454;
+}
+
+/*首頁選單*/
+.nav_div{
+	position:relative;
+	left: 25%;
+	background: rgba(235,99,99,0.7);
+	border-radius: 10px;
+	width: 100px;
+	height: 76px;
+}
+/*
+	.nav_tra{
+	position: absolute;
+	border-left: 10px solid white;
+	border-bottom: 10px solid #2D89EF;
+	border-right: 10px solid white;
+	display: inline-block;
+	margin: 0 auto;
+	background-color:;
+}
+*/
+.nav_bt_div{
+	position: relative;
+	width: 100%;
+	text-decoration:none;
+	text-align: center;
+	margin-top: 0%;
+}
+.nav_bt{
+	border-top-left-radius:10px;
+	border-top-right-radius: 10px;
+	display:inline-block;
+	cursor:pointer;
+	color: #ffffff;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	font-size:1em;
+	padding:10px 18px;
+	text-decoration:none;
+	text-align: center;
+}
+.nav_bt:hover {
+	background-color:#EB6363;
+	color: #ffffff;
+}
+.nav_bt:active {
+	position:relative;
+	top:1px;
+}
+.nav_bt2{
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius: 10px;
+	display:inline-block;
+	cursor:pointer;
+	color: #ffffff;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	font-size:1em;
+	padding:10px 34px;
+	text-decoration:none;
+	text-align: center;
+}
+.nav_bt2:hover {
+	background-color:#EB6363;
+	color: #ffffff;
+}
+.nav_bt2:active {
+	position:relative;
+	top:1px;
+}
+/*首頁通知欄跳出的div*/
+.notify_fram{
+	position: relative;
+	background-color: #ffffff;
+	border-width: : 2px;
+	border-color: #EB6363;
+	border-style: solid;
+	border-radius: 10px;
+	width: 300px;
+	height: 130px;
+	overflow:auto;/*超出框顯示捲軸*/
+	right:80%;
+	top: 10px;
+}
+.notify_div01{
+	position: relative;
+	display: inline-block;
+	background-color: #ffffff;
+	width: 100%;
+	border-bottom-style:solid; 
+	border-color: #EB6363; 
+}
+.notify_div_img{
+	float: left;
+	width: 26%;
+	height: 100%;
+	text-align: center;
+	position: relative;
+	vertical-align: middle;
+}
+.notify_headph{
+	position: relative;
+	top: 10px;
+	width: 60%;
+	height: 84%;
+}
+.notify_attention{
+	position: relative;
+	top: 5px;
+	width: 60%;
+	height: 84%;
+}
+.notify_div_p{
+	position: relative;
+	width: 66%;
+	font-size: 0.5em;
+	float: right;
+	right: 2%;
+	text-align: left;
+	display: inline-block;
+	}
+}
+/*banner在768-1280之間所呈現的樣子結束*/
+/*banner在768-1280之間所呈現的樣子結束*/
+/*banner在768-1280之間所呈現的樣子結束*/
+
+
 /*針對input點擊會出現藍框做消除*/
 input:focus{outline:none}
-/*第一版首頁的大富翁首頁第二版改版完後從此刪除*/
-/*第一版首頁的大富翁首頁第二版改版完後從此刪除*/
-/*第一版首頁的大富翁首頁第二版改版完後從此刪除*/
-.Monopoly{
-	background-color:#4DBDC2;
-	padding:9% 0 5% 0;
-	height: 515px;
-}
-.Monopoly_frame{
-	margin: 0 5%;
-	width:95%;
-}
-.img-monopoly{
-	position:relative;
-	width:95%;
-	height:40%;
-    z-index:0;
-}
-.monopoly_button01{
-	position:relative;
-    z-index:1;
-	bottom: 545px;
-	left: 7px;
-	width: 170px;
-}
-.monopoly_button02{
-	position:relative;
-    z-index:1;
-	bottom: 696px;
-	left: 974.5px;
-	width: 176px;
-}
-.monopoly_button03{
-	position:relative;
-    z-index:1;
-	bottom: 465px;
-	left: 7px;
-	width: 170px;
-}
-.monopoly_button04{
-	position:relative;
-    z-index:1;
-	bottom: 618px;
-	left: 972.5px;
-	width: 176px;
-}
-.news{
-	padding: 6% 10% 0% 10%;
-}
-.triangle_css{
-	width:90px;
-	height:25px;
-}
-.myButton:link{
-	color:#FFFFFF;
-	background-color:#59b0b3;
-	-moz-border-radius:30px;
-	-webkit-border-radius:30px;
-	border-radius:30px;
-	display:inline-block;
-	cursor:pointer;
-	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-	font-size:14px;
-	padding:2px 3px;
-	text-decoration:none;
-}
-.myButton:visited{
-	color:#FFFFFF;
-	background-color:#59b0b3;
-	-moz-border-radius:30px;
-	-webkit-border-radius:30px;
-	border-radius:30px;
-	display:inline-block;
-	cursor:pointer;
-	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-	font-size:14px;
-	padding:2px 3px;
-	text-decoration:none;
-}
-.myButton:hover {
-	background-color:#069;
-	font-size:14px;
-	color:#FFFFFF;
-	text-decoration:none;
-}
-.myButton:active {
-	position:relative;
-	top:1px;
-	font-size:14px;
-	text-decoration:none;
-}
 
-
-.myButton2:link{
-	color:#FFFFFF;
-	background-color:#00AA55;
-	-moz-border-radius:30px;
-	-webkit-border-radius:30px;
-	border-radius:30px;
-	display:inline-block;
-	cursor:pointer;
-	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-	font-size:14px;
-	padding:2px 3px;
-	text-decoration:none;
-}
-.myButton2:visited{
-	color:#FFFFFF;
-	background-color:#00AA55;
-	-moz-border-radius:30px;
-	-webkit-border-radius:30px;
-	border-radius:30px;
-	display:inline-block;
-	cursor:pointer;
-	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-	font-size:14px;
-	padding:2px 3px;
-	text-decoration:none;
-}
-.myButton2:hover {
-	background-color:#008844;
-	font-size:14px;
-	color:#FFFFFF;
-	text-decoration:none;
-}
-.myButton2:active {
-	position:relative;
-	top:1px;
-	font-size:14px;
-	text-decoration:none;
-}
-/*以上第一版首頁的大富翁首頁第二版改版完後刪除到這邊停止！！*/
-/*以上第一版首頁的大富翁首頁第二版改版完後刪除到這邊停止！！*/
-/*以上第一版首頁的大富翁首頁第二版改版完後刪除到這邊停止！！*/
-
-
+/*輪播圖1980以上是創呈現*/
+/*輪播圖1980以上是創呈現*/
 /*輪播圖*/
 /* --Clearfix */
+@media screen and (max-width: 1980px) {
 .cf{
 	position: relative;
 	background-color: #F2EE71;
@@ -439,7 +725,66 @@ input:focus{outline:none}
   	top: 30px;
   	margin:0 auto;
   	background-color: #F2EE71;
+	}
+}
 
+/*輪播圖980以下是創呈現*/
+/*輪播圖980以下是創呈現*/
+/* --Clearfix */
+@media screen and (max-width: 990px) {
+.cf{
+	position: relative;
+	background-color: #F2EE71;
+	height: 460px;
+	width: 100%;
+	margin: 0 0 8% 0%;
+}
+.cf:before,
+.cf:after {content:""; display:table;}
+.cf:after {clear:both;}
+.cf {zoom:1;}
+/* Layout
+***********************/
+#container {
+
+}
+#main {
+	position: relative;
+	overflow: hidden;
+	width:94%;
+  	top: 30px;
+  	margin:0 auto;
+  	background-color: #F2EE71;
+	}
+}
+/*輪播圖480以下是創呈現結束*/
+/*輪播圖480以下是創呈現結束*/
+
+@media screen and (max-width: 480px) {
+.cf{
+	position: relative;
+	background-color: #F2EE71;
+	height: 310px;
+	width: 100%;
+	margin: 0 0 8% 0%;
+}
+.cf:before,
+.cf:after {content:""; display:table;}
+.cf:after {clear:both;}
+.cf {zoom:1;}
+/* Layout
+***********************/
+#container {
+
+}
+#main {
+	position: relative;
+	overflow: hidden;
+	width:98%;
+  	top: 30px;
+  	margin:0 auto;
+  	background-color: #F2EE71;
+	}
 }
 
 /*以下是首頁第二版吉祥物區塊1016正在寫*/
@@ -450,12 +795,60 @@ input:focus{outline:none}
 	position: relative;
 	bottom: 130px;
 }
+@media screen and (max-width: 1980px) {
 .mascot_fram{
 	position: relative;
-	height: 250px;
+	height: 180px;
 	z-index: 2;
-	top: 150px;
+	top:140px;
 	margin-top: -100px;
+	}
+}
+@media screen and (max-width: 1280px) {
+.mascot_fram{
+	position: relative;
+	height: 150px;
+	z-index: 2;
+	top:110px;
+	margin-top: -100px;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+.mascot_fram{
+	position: relative;
+	height: 110px;
+	z-index: 2;
+	top: 110px;
+	margin-top: -100px;
+	}
+}
+@media screen and (max-width: 768px) {
+.mascot_fram{
+	position: relative;
+	height: 110px;
+	z-index: 2;
+	top: 75px;
+	margin-top: -100px;
+	}
+}
+@media screen and (max-width: 480px) {
+.mascot_fram{
+	position: relative;
+	height: 95px;
+	z-index: 2;
+	top: 58px;
+	margin-top: -100px;
+	}
+}
+@media screen and (max-width: 320px) {
+.mascot_fram{
+	position: relative;
+	height: 50px;
+	z-index: 2;
+	top: 90px;
+	margin-top: -100px;
+	}
 }
 .mascot_span{
 	margin:11%;
@@ -478,47 +871,156 @@ input:focus{outline:none}
 .mascot_img00{
 	position: absolute;
 	width: 16%;
-	height: 210px;
+	height: auto;
 	bottom: 0px;
 	cursor: pointer;
 }
 .mascot_img01{
 	position: absolute;
 	width: 16%;
-	height: 230px;
+	height: auto;
 	bottom: 0px;
 	cursor: pointer;
 }
+@media screen and (max-width: 1980px) {
 .index_red{
 	background-color: #EB6363;
 	width: 100%;
-	height: 200px;
+	height: 170px;
 	z-index: 1;
+	}
 }
+@media screen and (max-width: 1280px) {
+.index_red{
+	background-color: #EB6363;
+	width: 100%;
+	height: 150px;
+	z-index: 1;
+	}
+}
+@media screen and (max-width: 1024px) {
+.index_red{
+	background-color: #EB6363;
+	width: 100%;
+	height: 140px;
+	z-index: 1;
+	}
+}
+@media screen and (max-width: 768px) {
+.index_red{
+	background-color: #EB6363;
+	width: 100%;
+	height: 100px;
+	z-index: 1;
+	}
+}
+@media screen and (max-width: 480px) {
+.index_red{
+	background-color: #EB6363;
+	width: 100%;
+	height: 80px;
+	z-index: 1;
+	}
+}
+@media screen and (max-width: 320px) {
+.index_red{
+	background-color: #EB6363;
+	width: 100%;
+	height: 50px;
+	z-index: 1;
+	}
+}
+@media screen and (max-width: 1980px) {
 .index_yellow{
 	background-color: #F3EE9F;
 	width: 100%;
 	height: 40px;
 	z-index: 1;
+	}
 }
 
+@media screen and (max-width: 480px) {
+.index_yellow{
+	background-color: #F3EE9F;
+	width: 100%;
+	height: 50px;
+	z-index: 1;
+	}
+}
+@media screen and (max-width: 1980px) {
 .footer_bt_div{
 	position: relative;
 	float: right;
-	width: 250px;
+	width: 19%;
 	right: 4%;
 	margin-top:-60px;
+	}
 }
+
+@media screen and (max-width: 768px) {
+.footer_bt_div{
+	position: relative;
+	float: right;
+	width: 28%;
+	right: 4%;
+	margin-top:-60px;
+	}
+}
+@media screen and (max-width: 480px) {
+.footer_bt_div{
+	position: relative;
+	text-align: center;
+	width: 90%;
+	margin-top:-100px;
+	}
+}
+@media screen and (max-width: 1980px) {
 .index_footer_bt{
-	width: 50px;
-	height: 50px;
+	position: relative;
+	width: 53px;
+	height: auto;
+	}
 }
+@media screen and (max-width: 1280px) {
+.index_footer_bt{
+	position: relative;
+	width: 50px;
+	height: auto;
+	}
+}
+@media screen and (max-width: 1024px) {
+.index_footer_bt{
+	position: relative;
+	width: 40px;
+	height: auto;
+	}	
+}
+
+@media screen and (max-width: 768px) {
+.index_footer_bt{
+	position: relative;
+	width: 35px;
+	height: auto;
+	}	
+}
+@media screen and (max-width: 480px) {
+.index_footer_bt{
+	position: relative;
+	width: 65px;
+	height: auto;
+	}	
+}
+
 .footer_span{
+	position: relative;
 	margin:0 10% 0 0;
+
 }
 
 .footer_a{
+	position: relative;
 	text-decoration: none;
+
 }
 
 
@@ -540,20 +1042,21 @@ input:focus{outline:none}
   opacity:0; /*滑鼠滑入時，透明度變0*/
 }
 /*跳出皮皮君吉祥物介紹div*/
+
 #aboutmascot01{
 	position: relative;
 	width: 100%;
-	height: 100%;
+	height: 90%;
     top: 0px;
-    z-index: 3;
-    visibility: hidden;
+    z-index: 10;
+    visibility: hidden;	
 }
 #aboutmascot02{
 	position: relative;
 	width: 100%;
 	height: 100%;
     top: 0px;
-    z-index: 3;
+    z-index: 10;
     visibility: hidden;
 }
 #aboutmascot03{
@@ -561,7 +1064,7 @@ input:focus{outline:none}
 	width: 100%;
 	height: 100%;
     top: 0px;
-    z-index: 3;
+    z-index: 10;
     visibility: hidden;
 }
 #aboutmascot04{
@@ -569,22 +1072,35 @@ input:focus{outline:none}
 	width: 100%;
 	height: 100%;
     top: 0px;
-    z-index: 3;
+    z-index: 10;
     visibility: hidden;
 }
+@media screen and (max-width: 1980px) {
 .aboutmascot_position{
     position: fixed;
     width: 1280px;
-    height: 1200px;
+    height: 100%;
     margin:0px auto;
-    top: 90px;
+    top: 0px;
     background: rgba(255,255,255,0.7);
+	}
 }
+@media screen and (max-width: 1280px) {
+.aboutmascot_position{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    margin:0px auto;
+    top: 0px;
+    background: rgba(255,255,255,0.7);
+	}
+}
+@media screen and (max-width: 1980px) {
 .aboutmascot_fram01{
     position: relative;
     background-color: #ffffff;
-    height: 50px;
-    width: 900px;
+    height: 42px;
+    width: 70%;
     border-top-right-radius: 40px;
     border-top-left-radius: 40px;
     border-style: solid;
@@ -593,36 +1109,156 @@ input:focus{outline:none}
     background: rgba(255,255,255,0.9);
     margin: 0 auto;
     text-align: center;
-	top: 5px;
-
+	top: 16%;
+	}
 }
+@media screen and (max-width: 1280px) {
+.aboutmascot_fram01{
+    position: relative;
+    background-color: #ffffff;
+    height: 40px;
+    width: 70%;
+    border-top-right-radius: 40px;
+    border-top-left-radius: 40px;
+    border-style: solid;
+    border-width: 4px;
+    border-color: #5D5D5D;
+    background: rgba(255,255,255,0.9);
+    margin: 0 auto;
+    text-align: center;
+	top: 16%;
+	}
+}
+@media screen and (max-width: 1024px) {
+.aboutmascot_fram01{
+    position: relative;
+    background-color: #ffffff;
+    height: 35px;
+    width: 75%;
+    border-top-right-radius: 40px;
+    border-top-left-radius: 40px;
+    border-style: solid;
+    border-width: 3.5px;
+    border-color: #5D5D5D;
+    background: rgba(255,255,255,0.9);
+    margin: 0 auto;
+    text-align: center;
+	top: 16%;
+	}
+}
+@media screen and (max-width: 768px) {
+.aboutmascot_fram01{
+    position: relative;
+    background-color: #ffffff;
+    height: 30px;
+    width: 85%;
+    border-top-right-radius: 40px;
+    border-top-left-radius: 40px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #5D5D5D;
+    background: rgba(255,255,255,0.9);
+    margin: 0 auto;
+    text-align: center;
+	top: 16%;
+	}
+}
+@media screen and (max-width: 480px) {
+.aboutmascot_fram01{
+    position: relative;
+    background-color: #ffffff;
+    height: 25px;
+    width: 95%;
+    border-top-right-radius: 40px;
+    border-top-left-radius: 40px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #5D5D5D;
+    background: rgba(255,255,255,0.9);
+    margin: 0 auto;
+    text-align: center;
+	top: 16%;
+	}
+}
+@media screen and (max-width: 1980px) {
 .aboutmascot_title{
 	position: relative;
 	color: #5C5D5D;
 	font-size: 1.3em;
 	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	left: 2%;
-	line-height: 50px;
-
+	line-height: 40px;
+	}
 }
+@media screen and (max-width: 1024px) {
+.aboutmascot_title{
+	position: relative;
+	color: #5C5D5D;
+	font-size: 1em;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	left: 2%;
+	line-height: 30px;
+	}
+}
+@media screen and (max-width: 480px) {
+.aboutmascot_title{
+	position: relative;
+	color: #5C5D5D;
+	font-size: 0.6em;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	left: 2%;
+	line-height: 22px;
+	}
+}
+@media screen and (max-width: 1980px) {
 .aboutmascot_close{
     position: absolute;
     cursor: pointer;
     height: 90%;
     right: 5%;
     text-align: right;
-    line-height: 50px;
-	
+    line-height: 40px;
+	}	
+}
+@media screen and (max-width: 1280px) {
+.aboutmascot_close{
+    position: absolute;
+    cursor: pointer;
+    height: 90%;
+    right: 5%;
+    text-align: right;
+    line-height: 38px;
+	}	
+}
+@media screen and (max-width: 1024px) {
+.aboutmascot_close{
+    position: absolute;
+    cursor: pointer;
+    height: 90%;
+    right: 5%;
+    text-align: right;
+    line-height: 30px;
+	}	
+}
+@media screen and (max-width: 480px) {
+.aboutmascot_close{
+    position: absolute;
+    cursor: pointer;
+    right: 5%;
+    text-align: right;
+    line-height: 22px;
+	}	
 }
 .aboutmascot_close_img{
 	width: 8%;
-	height: 40%;
+	height: auto;
 }
+@media screen and (max-width: 1980px) {
 .aboutmascot_fram02{
 	position: relative;
     background-color: #ffffff;
-    height: 520px;
-    width: 900px;
+    width: 70%;
+    height: 480px;
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
     border-style: solid;
@@ -630,106 +1266,119 @@ input:focus{outline:none}
     border-color: #5D5D5D;
     margin: 0 auto;
     background: rgba(255,255,255,0.9);
-    top: 0px;
+    top: 15%;
+	}
 }
+@media screen and (max-width: 1280px) {
+.aboutmascot_fram02{
+	position: relative;
+    background-color: #ffffff;
+    width: 70%;
+    height: 460px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-style: solid;
+    border-width: 4px;
+    border-color: #5D5D5D;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.9);
+    top: 15%;
+	}
+}
+@media screen and (max-width: 1024px) {
+.aboutmascot_fram02{
+	position: relative;
+    background-color: #ffffff;
+    width: 75%;
+    height: auto;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-style: solid;
+    border-width: 3.5px;
+    border-color: #5D5D5D;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.9);
+    top: 15%;
+	}
+}
+@media screen and (max-width: 768px) {
+.aboutmascot_fram02{
+	position: relative;
+    background-color: #ffffff;
+    width: 85%;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #5D5D5D;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.9);
+    top: 15%;
+	}
+}
+@media screen and (max-width: 480px) {
+.aboutmascot_fram02{
+	position: relative;
+    background-color: #ffffff;
+    width: 95%;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #5D5D5D;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.9);
+    top: 15%;
+	}
+}
+@media screen and (max-width: 320px) {
+.aboutmascot_fram02{
+	position: relative;
+    background-color: #ffffff;
+    width: 95%;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-style: solid;
+    border-width: 2.5px;
+    border-color: #5D5D5D;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.9);
+    top: 15%;
+	}
+}
+@media screen and (max-width: 1980px) {
 .aboutmascot_img{
+	position: relative;
 	width: 100%;
-	height: 520px;
-	position: relative;
-	top: 0px;
+	height: 478px;
+	border-bottom-left-radius: 45px;
+    border-bottom-right-radius: 45px;
+	top: 1px;
 	cursor: pointer;
+	}
 }
-
-/*以上是首頁第二版吉祥物區塊1016正在寫*/
-/*以上是首頁第二版吉祥物區塊1016正在寫*/
-/*以上是首頁第二版吉祥物區塊1016正在寫*/
-
-
-
-/*以下第一版首頁的內容，第二版改版完後從此開始刪除！！*/
-/*以下第一版首頁的內容，第二版改版完後從此開始刪除！！*/
-/*以下第一版首頁的內容，第二版改版完後從此開始刪除！！*/
-
-
-/*輪播圖右下方圖片*/
-.img_flexslider{
-	margin: -60px 0 0 940px;
-	width: 220px;
-	height: 155px;
+@media screen and (max-width: 1280px) {
+.aboutmascot_img{
 	position: relative;
-    z-index:3;
+	width: 100%;
+	height: 458px;
+	border-bottom-left-radius: 45px;
+    border-bottom-right-radius: 45px;
+	top: 1px;
+	cursor: pointer;
+	}
 }
-.date_bg{
-	color:#FFFFFF;
-	background-color:#59b0b3;
-	-moz-border-radius:22px;
-	-webkit-border-radius:22px;
-	border-radius:21px;
-	display:inline-block;
-	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-	font-size:21px;
-	padding:8px 17px;
-	margin: 10px 0 10px 0;
-}
-.date_bg_2{
-	color:#FFFFFF;
-	background-color:#00AA55;
-	-moz-border-radius:22px;
-	-webkit-border-radius:22px;
-	border-radius:21px;
-	display:inline-block;
-	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-	font-size:21px;
-	padding:8px 17px;
-	margin: 10px 0 10px 0;
-}
-.border_bottom{
-	border-bottom:#FFB7DD 2px solid;
-	padding:2px;
-	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-	font-size: 25px;
-	font-weight:bold;
-}
-.border_bottom_2{
-	border-bottom:#FFB7DD 2px solid;
-	padding:2px;
-	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-	font-size: 16px;
-	font-weight:bold;
-}
-.rows{
-	border-bottom:#FFB7DD 2px solid;
-	padding:15px;
-	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-	font-size: 21px;
-	margin: 0 0 20px 0;
-}
-.footer_bg{
-	margin: 30px 0 0 0;
-}
-.footer_nav{
+@media screen and (max-width: 1024px) {
+.aboutmascot_img{
 	position: relative;
-	background-color:#EA6363;
-	margin:-50px 30% 0 38%;
+	width: 100%;
+	height: auto;
+	border-bottom-left-radius: 45px;
+    border-bottom-right-radius: 45px;
+	top: 1px;
+	cursor: pointer;
+	}
 }
-.fnav0{
-	display: inline;
-	color:#FFFFFF;
-}
-.fnav1{
-	display: inline;
-	color:#FFFFFF;
-	font-size:10px;
-}
-.fnav0 a:link {	color:#FFFFFF; font-size:16px; font-family:DFKai-sb; text-decoration:none;}    //設定尚未點閱過的連結樣式
-.fnav0 a:visited {color:#FFFFFF;font-family:DFKai-sb; text-decoration:none;} //設定過去曾經閱過的連結 
-.fnav0 a:hover {color:#444444;; font-size:16px; font-family:DFKai-sb; text-decoration:none;}  // 設定滑鼠游標指在連結位置上的樣式
-
-/*以上第一版首頁的內容，第二版改版完後刪除到這裡結束！！*/
-/*以上第一版首頁的內容，第二版改版完後刪除到這裡結束！！*/
-/*以上第一版首頁的內容，第二版改版完後刪除到這裡結束！！*/
-
-
 /*store1  店家地圖CSS開始*/
 
 .store_section{
@@ -844,6 +1493,7 @@ input:focus{outline:none}
 	cursor: pointer;
 	opacity: 0.7;
 }
+
 /*store1  店家列表CSS開始*/
 .store_select{
 	position: relative;
@@ -867,6 +1517,7 @@ input:focus{outline:none}
 	z-index: 4;
 	font-size: 1.8em;
 	width: 200px;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 }
 .store_select_button0{
 	position: relative;
@@ -939,11 +1590,12 @@ input:focus{outline:none}
     width: 80%;
 }
 .store_search_button{
-	width: 35px;
-	height: 35px;
-	position: relative;
-	bottom: 108%;
-	left:50% ;
+    background-color: rgba(0, 0, 0, 0);
+    width: 35px;
+    height: 34px;
+    position: relative;
+    bottom: 111%;
+    left: 40%;
 }
 .aside02{
 	float: right;
@@ -1164,7 +1816,7 @@ input:focus{outline:none}
       width: 90%;
       margin: 0 auto;
       text-align: left;
-      top: 10px;
+      top: 20px;
     }
 .css-input {
     display: inline-block;
@@ -1194,8 +1846,21 @@ input:focus{outline:none}
 	z-index: 20;
 	width: 1280px;
 	height: 1000px;
+	z-index: 21;
 }
 .div_store_card-0{
+	position: relative;
+	z-index: 100;
+	background-color: #DE6160;
+	width: 900px;
+	height: 530px;
+	border-radius: 10px;
+	bottom: 52%;
+	margin: 8% 15% 0% 15%;
+	background: rgba(235,99,99,0.9);
+}
+/*store1-2地圖的跳出推薦店家卡的視窗*/
+.div_store_card-0222{
 	position: relative;
 	z-index: 21;
 	background-color: #DE6160;
@@ -1203,7 +1868,7 @@ input:focus{outline:none}
 	height: 530px;
 	border-radius: 10px;
 	bottom: 52%;
-	margin: 8% 15% 0% 15%;
+	margin: 35% 15% 0% 15%;
 	background: rgba(235,99,99,0.9);
 }
 .div_store_section{
@@ -1253,7 +1918,7 @@ input:focus{outline:none}
 }
 .div_store_info_card02_table{
     padding: 3% 0 3% 3%;
-    width: 330px;
+    width: 346px;
 }
 .div_store_info_card02_td01{
 	width:29%;
@@ -1277,6 +1942,74 @@ input:focus{outline:none}
 	float: right;
 	position: relative;
 	top: 3%;
+}
+/*店家資訊卡內的臉書按鈕*/
+
+.store_fb_bt{
+	position: relative;
+	width: 38px;
+	height: auto;
+	}	
+}
+
+.fb_a{
+	position: relative;
+	text-decoration: none;
+
+}
+
+.fb_hover {
+	position:relative;
+}
+
+.fb_hover img {
+  position:absolute;
+  /* CSS3淡出淡入效果,1秒 */
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+}
+
+
+.fb_hover img:nth-of-type(2):hover{
+  opacity:0; /*滑鼠滑入時，透明度變0*/
+
+}
+
+/*店家資訊卡內的官網按鈕*/
+
+.store_web_bt{
+	position: relative;
+	width: 38px;
+	height: auto;
+	}	
+}
+
+.web_a{
+	position: relative;
+	text-decoration: none;
+
+}
+
+.web_hover {
+	position:relative;
+	
+}
+
+.web_hover img {
+  position:absolute;
+  /* CSS3淡出淡入效果,1秒 */
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+}
+
+
+.web_hover img:nth-of-type(2):hover{
+  opacity:0; /*滑鼠滑入時，透明度變0*/
+
 }
 /*關閉店家資訊卡按鈕*/
 .div_store_btn{
@@ -1375,7 +2108,7 @@ input:focus{outline:none}
 .eassy_date{
 	position: relative;
 	text-align: center;
-	top: 35%;
+	top: 20%;
 	color: #5D5D5D;
 	font-size: 1.5em;
 }
@@ -1387,7 +2120,7 @@ input:focus{outline:none}
 }
 .eassy_title{
 	position: relative;
-	top: 35%;
+	top: 20%;
 	color: #ffffff;
 	font-size: 1.5em;
 }
@@ -1426,8 +2159,7 @@ input:focus{outline:none}
 .eassy_img{
 	height: 190px;
 	width: 270px; 
-	border-bottom-right-radius: 65px;
-	border-top-right-radius: 65px;
+	border-radius: 20px;
 	margin: 7% 0 0 4%;
 }
 .read_eassy_Button {
@@ -1478,7 +2210,7 @@ input:focus{outline:none}
 	text-align: center;
 	color: #ffffff;
 	font-size: 2em;
-	top: 30%;
+	top: 20%;
 }
 .moreeassy_pink{
 	background-color: #E7BBB2;
@@ -1490,7 +2222,7 @@ input:focus{outline:none}
 	color: #5D5D5D;
 	font-size: 1.6em;
 	left: 3%;
-	top: 28%;
+	top: 20%;
 	font-weight: bold;
 }
 .moreeassy_times{
@@ -1526,6 +2258,32 @@ input:focus{outline:none}
 	width: 480px;
 	height: 300px;
 	margin-bottom:5%;
+}
+
+.blog_back_Button {
+	position: relative;
+	background-color:#de6160;
+	-moz-border-radius:25px;
+	-webkit-border-radius:25px;
+	border-radius:25px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	font-size:1.3em;
+	font-weight:bold;
+	padding:8px 24px;
+	text-decoration:none;
+	float: right;
+	right: 4%;
+    bottom: 40px;
+    margin: 8% 0 0 0;
+}
+.blog_back_Button:hover {
+	background-color:#e8a7a7;
+}
+.blog_back_Button:active {
+	position:relative;
 }
 /*聯絡我們css*/
 .about_blue_section{
@@ -1775,8 +2533,10 @@ input:focus{outline:none}
 	position: relative;
 	line-height: 50px;
 	/*left: 25%;*/
-	font-size: 30px;
+	font-size: 1.7em;
 	color: #5C5D5D;
+	left: 4%;
+
 	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 }
 .jo_room_name_div{
@@ -1910,9 +2670,9 @@ input:focus{outline:none}
 	border-radius: 28px;
 	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	color: #56959A;
-	font-size: 20px;
+	font-size: 15px;
 	background: #ffffff;
-	padding: 10px 20px 10px 20px;
+	padding: 8px 20px 8px 20px;
 	text-decoration: none;
 	cursor: pointer;
 }
@@ -2092,6 +2852,7 @@ input:focus{outline:none}
 	width: 120px;
 	margin: 0 0 0 1%;
 }
+
 .jo_text02{
 	background-color: #F1EC71;
 	border-style:none;
@@ -2121,12 +2882,20 @@ input:focus{outline:none}
 	max-width: 10em;
 	margin: 0 0 0 1%;
 }
+.jo_text07{
+	background-color: #F1EC71;
+	border-style:none;
+	height: 20px;
+	width: 120px;
+	margin: 4% 0 0 1%;
+}
 .jo_text06{
 	background-color: #F1EC71;
 	border-style:none;
-	height: 50px;
+	height: 70px;
 	width: 200px;
-	margin: 0 0 0 1%;
+	margin: 3% 0 0 1%;
+	resize: none;
 }
 .jo_btn02 {
 	-webkit-border-radius: 60;
@@ -2155,7 +2924,7 @@ input:focus{outline:none}
 
 .select_store_img{
 	position: relative;
-	width: 300px;
+	width: 280px;
 	height: 350px;	
 }
 
@@ -2192,17 +2961,14 @@ input:focus{outline:none}
 	border-width: 5px;
 	border-color: #5D5D5D;
 	background: rgba(255,255,255,0.9);
-}
-.view_room_fram01_table{
-	float: right;
+	text-align: center;
 }
 .view_room_title{
 	position: relative;
 	color: #5C5D5D;
 	font-size: 22px;
 	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-	width: 90%;
-
+	line-height: 50px;
 }
 .view_room_title02{
 	position: relative;
@@ -2220,8 +2986,9 @@ input:focus{outline:none}
 	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-style: bold;
 	cursor: pointer;
-	width: 50px;
-
+	float: right;
+	right: 3%;
+	line-height: 50px;
 }
 .viewroom_fram02{
 	position: relative;
@@ -2332,7 +3099,8 @@ input:focus{outline:none}
 	height: 180px;
 	border-top-right-radius: 15px;
 	border-top-left-radius: 15px;
-	margin: 0px auto;	
+	margin: 0px auto;
+	text-align: center;	
 	cursor: pointer;
 }
 .jo_love_img{
@@ -2344,15 +3112,15 @@ input:focus{outline:none}
 	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size: 16px;
 	position: relative;
-	left: 9%;
-	top: 2px;
 	cursor: pointer;
+	line-height: 40px;
 }
 .jo_store_img{
 	height: 140px;
 	width: 250px;
 	position: absolute;
 	bottom: 0px;
+	left: 0px;
 	cursor: pointer;
 }
 .jo_store_info_card02{
@@ -2374,6 +3142,80 @@ input:focus{outline:none}
 	color: #ffffff;
 	font-size: 14px;
 }
+
+
+/*揪團房間內的店家資訊卡內的臉書按鈕*/
+
+.jo_fb_bt{
+	position: relative;
+	width: 25px;
+	height: auto;
+	}	
+}
+
+.jofb_a{
+	position: relative;
+	text-decoration: none;
+
+}
+
+.jofb_hover {
+	position:relative;
+}
+
+.jofb_hover img {
+  position:absolute;
+  margin-top: -12px;
+  /* CSS3淡出淡入效果,1秒 */
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+}
+
+
+.jofb_hover img:nth-of-type(2):hover{
+  opacity:0; /*滑鼠滑入時，透明度變0*/
+
+}
+
+/*揪團房間內的店家資訊卡內的官網按鈕*/
+
+.jo_web_bt{
+	position: relative;
+	width: 25px;
+	height: auto;
+	}	
+}
+
+.joweb_a{
+	position: relative;
+	text-decoration: none;
+
+}
+
+.joweb_hover {
+	position:relative;
+	
+}
+
+.joweb_hover img {
+  position:absolute;
+  margin-top: -12px;
+  /* CSS3淡出淡入效果,1秒 */
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+}
+
+
+.joweb_hover img:nth-of-type(2):hover{
+  opacity:0; /*滑鼠滑入時，透明度變0*/
+
+}
+
+
 /*第三欄”參與成員“欄位*/
 .view_room_fram03{
 	position: relative;
@@ -2538,7 +3380,7 @@ input:focus{outline:none}
 	margin: 0% 0 2% 2%;
 	/*刪掉!*/
 	/*float: left;*/
-	overflow:scroll;/*超出框顯示捲軸*/
+	overflow:auto;/*超出框顯示捲軸*/
 
 }
 .player_table{
@@ -2551,7 +3393,7 @@ input:focus{outline:none}
 }
 .player_tr{
 	/*display: table-row*/
-	margin:0px 15px 30px 0px;
+	margin:0px 15px 10px 0px;
 	display:inline-block;
 }
 .player_tr_frame{
@@ -2998,21 +3840,22 @@ position: relative;
 	text-decoration: none;
 }
 /*註冊畫面*/
+@media screen and (max-width: 1980px) {
 .register_div{
    	position: relative;
 }
 .register_bg{
-   	position: fixed;
+   	position: absolute;
 	background-color: #F0EB71;
-	width: 1280px;
+	width: 100%;
     height: 700px;
-    margin: 5% 0 0 0;
+    margin: 7% 0 0 0;
 }
 .register_white{
 	position: relative;
 	background-color: #Ffffff;
 	width: 50%;
-    height: 550px;
+    height: 580px;
     border-radius: 30px;
     margin: 0 auto;
     top: 3%;
@@ -3059,8 +3902,8 @@ position: relative;
 .alert{
 	position: relative;
 	left: 15px;
-}
-
+	}
+}/*註冊畫面1980視窗結束*/
 /*
 .browse_photo {
 	background-color:#F0EB71;
@@ -3198,26 +4041,28 @@ position: relative;
 	color: #5C5D5D;
 	font-size: 0.9em;
 }
-/*登入畫面*/
+/*登入畫面1980視窗*/
+@media screen and (max-width: 1980px) {
 .login_div{
    	position: relative;
 }
 .login_bg{
-   	position: fixed;
+   	position: absolute;
 	background-color: #F0EB71;
-	width: 1280px;
+	width: 100%;
     height: 700px;
-    margin: 6% 0 0 0;
+    margin: 7% 0 0 0;
 }
 .login_white{
 	position: relative;
 	background-color: #Ffffff;
 	width: 50%;
-    height: 570px;
+    height: 580px;
     border-radius: 30px;
     margin: 0 auto;
     top: 3%;
 }
+
 .login_p_div{
 	position: relative;
 	width: 100%;
@@ -3280,10 +4125,11 @@ position: relative;
 	width: 100%;
 	text-decoration:none;
 	text-align: center;
+	top: 10px;
 }
 .login_bt_err{
 	margin-bottom: 10px;
-	color:red;
+	color:#E86363;
 	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 }
 .login_bt{
@@ -3327,7 +4173,416 @@ position: relative;
 .login_register:active {
 	position:relative;
 	top:1px;
+	}
 }
+
+/*登入畫面1024視窗*/
+@media screen and (max-width: 1024px) {
+.login_div{
+   	position: relative;
+}
+.login_bg{
+   	position: absolute;
+	background-color: #F0EB71;
+	width: 100%;
+    height: 700px;
+    margin: 10% 0 0 0;
+}
+.login_white{
+	position: relative;
+	background-color: #Ffffff;
+	width: 65%;
+    height: 560px;
+    border-radius: 30px;
+    margin: 0 auto;
+    top: 3%;
+}
+
+.login_p_div{
+	position: relative;
+	width: 100%;
+	top: 1.5%;
+}
+.login_p{
+	position: relative;
+	color: #5D5D5D;
+	font-size: 2em;
+	text-align: center;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+}
+.login_fb_div{
+	position: relative;
+	text-align: center;
+}
+.login_fb_img{
+	position: relative;
+	width: 18%;
+	height: 18%;
+}
+.login_p2{
+	position: relative;
+	color: #848484;
+	font-size: 1.2em;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	margin: 2% 0;
+}
+.login_p3{
+	position: relative;
+	color: #848484;
+	font-size: 1.2em;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	margin: 2% 0;
+	text-align: center;
+}
+.login_text_div{
+	position: relative;
+	background-color: #F1EC71;
+	border-style:none;
+	width: 35%;
+	height: 40px;
+	border-radius: 50px;
+	text-align: center;
+	margin: 0 auto;
+	margin-bottom: 2%;
+}
+.login_text{
+	position: relative;
+	background-color: #F1EC71;
+	border-style:none;
+	width: 90%;
+	height: 20px;
+	text-align: left;
+	top: 20%;
+	font-size: 1em;
+}
+.login_bt_div{
+	position: relative;
+	width: 100%;
+	text-decoration:none;
+	text-align: center;
+	top: 10px;
+}
+.login_bt_err{
+	margin-bottom: 10px;
+	color:#E86363;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+}
+.login_bt{
+	background-color:#A0920D;
+	-moz-border-radius:25px;
+	-webkit-border-radius:25px;
+	border-radius:25px;
+	display:inline-block;
+	cursor:pointer;
+	color: #ffffff;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	font-size:1.4em;
+	padding:10px 30px;
+	text-decoration:none;
+	text-align: center;
+}
+.login_bt:hover {
+	background-color:#605611;
+	color: #ffffff;
+}
+.login_bt:active {
+	position:relative;
+	top:1px;
+}
+.login_forget{
+	position: relative;
+	width: 100%;
+	text-decoration:none;
+	text-align: center;
+	top: 5%;
+}
+.login_register{
+	color: #848484;
+	font-size: 1em;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	text-decoration:none;
+}
+.login_register:hover {
+	color:#81CAF2;
+}
+.login_register:active {
+	position:relative;
+	top:1px;
+	}
+}
+
+
+/*登入畫面768視窗*/
+@media screen and (max-width: 769px) {
+.login_div{
+   	position: relative;
+}
+.login_bg{
+   	position: absolute;
+	background-color: #F0EB71;
+	width: 100%;
+    height: 700px;
+    margin: 14% 0 0 0;
+}
+.login_white{
+	position: relative;
+	background-color: #Ffffff;
+	width: 80%;
+    height: 540px;
+    border-radius: 30px;
+    margin: 0 auto;
+    top: 3%;
+}
+
+.login_p_div{
+	position: relative;
+	width: 100%;
+	top: 1.5%;
+}
+.login_p{
+	position: relative;
+	color: #5D5D5D;
+	font-size: 2em;
+	text-align: center;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+}
+.login_fb_div{
+	position: relative;
+	text-align: center;
+}
+.login_fb_img{
+	position: relative;
+	width: 18%;
+	height: 18%;
+}
+.login_p2{
+	position: relative;
+	color: #848484;
+	font-size: 1.2em;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	margin: 2% 0;
+}
+.login_p3{
+	position: relative;
+	color: #848484;
+	font-size: 1.2em;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	margin: 2% 0;
+	text-align: center;
+}
+.login_text_div{
+	position: relative;
+	background-color: #F1EC71;
+	border-style:none;
+	width: 35%;
+	height: 40px;
+	border-radius: 50px;
+	text-align: center;
+	margin: 0 auto;
+	margin-bottom: 2%;
+}
+.login_text{
+	position: relative;
+	background-color: #F1EC71;
+	border-style:none;
+	width: 90%;
+	height: 20px;
+	text-align: left;
+	top: 20%;
+	font-size: 1em;
+}
+.login_bt_div{
+	position: relative;
+	width: 100%;
+	text-decoration:none;
+	text-align: center;
+	top: 10px;
+}
+.login_bt_err{
+	margin-bottom: 10px;
+	color:#E86363;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+}
+.login_bt{
+	background-color:#A0920D;
+	-moz-border-radius:25px;
+	-webkit-border-radius:25px;
+	border-radius:25px;
+	display:inline-block;
+	cursor:pointer;
+	color: #ffffff;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	font-size:1.4em;
+	padding:10px 30px;
+	text-decoration:none;
+	text-align: center;
+}
+.login_bt:hover {
+	background-color:#605611;
+	color: #ffffff;
+}
+.login_bt:active {
+	position:relative;
+	top:1px;
+}
+.login_forget{
+	position: relative;
+	width: 100%;
+	text-decoration:none;
+	text-align: center;
+	top: 5%;
+}
+.login_register{
+	color: #848484;
+	font-size: 1em;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	text-decoration:none;
+}
+.login_register:hover {
+	color:#81CAF2;
+}
+.login_register:active {
+	position:relative;
+	top:1px;
+	}
+}
+
+/*登入畫面480視窗*/
+@media screen and (max-width: 480px) {
+.login_div{
+   	position: relative;
+}
+.login_bg{
+   	position: absolute;
+	background-color: #F0EB71;
+	width: 100%;
+    height: 600px;
+    margin: 0% 0 0 0;
+}
+.login_white{
+	position: relative;
+	background-color: #Ffffff;
+	width: 98%;
+    height: 500px;
+    border-radius: 30px;
+    margin: 0 auto;
+    margin-bottom: 3%;
+    top: 3%;
+}
+
+.login_p_div{
+	position: relative;
+	width: 100%;
+	top: 1.5%;
+}
+.login_p{
+	position: relative;
+	color: #5D5D5D;
+	font-size: 2em;
+	text-align: center;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+}
+.login_fb_div{
+	position: relative;
+	text-align: center;
+}
+.login_fb_img{
+	position: relative;
+	width: 18%;
+	height: 18%;
+}
+.login_p2{
+	position: relative;
+	color: #848484;
+	font-size: 1.2em;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	margin: 2% 0;
+}
+.login_p3{
+	position: relative;
+	color: #848484;
+	font-size: 1.2em;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	margin: 2% 0;
+	text-align: center;
+}
+.login_text_div{
+	position: relative;
+	background-color: #F1EC71;
+	border-style:none;
+	width: 58%;
+	height: 40px;
+	border-radius: 50px;
+	text-align: center;
+	margin: 0 auto;
+	margin-bottom: 2%;
+}
+.login_text{
+	position: relative;
+	background-color: #F1EC71;
+	border-style:none;
+	width: 85%;
+	height: 20px;
+	text-align: left;
+	top: 20%;
+	font-size: 1em;
+}
+.login_bt_div{
+	position: relative;
+	width: 100%;
+	text-decoration:none;
+	text-align: center;
+	top: 10px;
+}
+.login_bt_err{
+	margin-bottom: 10px;
+	color:#E86363;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+}
+.login_bt{
+	background-color:#A0920D;
+	-moz-border-radius:25px;
+	-webkit-border-radius:25px;
+	border-radius:25px;
+	display:inline-block;
+	cursor:pointer;
+	color: #ffffff;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	font-size:1.4em;
+	padding:10px 30px;
+	text-decoration:none;
+	text-align: center;
+}
+.login_bt:hover {
+	background-color:#605611;
+	color: #ffffff;
+}
+.login_bt:active {
+	position:relative;
+	top:1px;
+}
+.login_forget{
+	position: relative;
+	width: 100%;
+	text-decoration:none;
+	text-align: center;
+	top: 5%;
+}
+.login_register{
+	color: #848484;
+	font-size: 1em;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	text-decoration:none;
+}
+.login_register:hover {
+	color:#81CAF2;
+}
+.login_register:active {
+	position:relative;
+	top:1px;
+	}
+}
+
 /*個人檔案 individual*/
 .individual_bg{
    	position: absolute;
@@ -3405,7 +4660,7 @@ position: relative;
 }
 .individual_head_ph_div{
 	position: relative;
-	top: 8%;
+	top: 10%;
 
 }
 .individual_head_ph_img_span{
@@ -3414,8 +4669,9 @@ position: relative;
 	top: 10%;
 }
 .individual_head_ph_img{
-	width: 55%;
-	height: 33%;
+	width: 180px;
+	height: 180px;
+	border-radius: 50%;
 }
 .individual_head_ph_upload_span{
 	position: relative;
@@ -3423,12 +4679,13 @@ position: relative;
 }
 .individual_score{
 	position: relative;
-	margin-top:20%;
+	margin-top:25%;
 	font-size: 1.3em;
 	text-align: center;
 	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-weight:bold;
 	color: #535354;
+	margin-bottom: 11.5%;
 }
 .aboutme{
 	position: relative;
@@ -3815,13 +5072,6 @@ position: relative;
 .forget_bt:active {
 	position:relative;
 	top:1px;
-}
-.login_forget{
-	position: relative;
-	width: 100%;
-	text-decoration:none;
-	text-align: center;
-	top: 8%;
 }
 .login_register{
 	color: #848484;

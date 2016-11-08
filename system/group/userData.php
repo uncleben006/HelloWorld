@@ -31,12 +31,23 @@
 				<div class="aside_l">
 					<div class="individual_head_ph_div">
 						<span class="individual_head_ph_img_span">
-							<img src="../user/photo/<?php echo $userAccount['photo'] ?>" class="individual_head_ph_img">
+							<?php
+								if($userAccount['pri']==2){
+									?>
+									<img src="<?php echo $userAccount['photo'] ?>" class="individual_head_ph_img">
+									<?php
+								}
+								else{
+									?>
+									<img src="../user/photo/<?php echo $userAccount['photo'] ?>" class="individual_head_ph_img">
+									<?php
+								}
+							?>
+							
 						</span>
 					</div>
 					<div class="individual_score">
 						<p><?php echo $userAccount['account'] ?></p>
-						<p>評價：5分</p>
 					</div>
 					<hr color="#4EBABF" size="5" width="95%">
 					<div class="aboutme">

@@ -28,16 +28,12 @@
 	  	</script>
 		<!--css-->
 		<link href="style.css" rel="stylesheet" type="text/css" />
-		<!--大富翁按鍵的圖片的javascript-->
-		<script type="text/javascript">
-			$(function() {
-	    		$('.banner').unslider();
-		});
-		</script>
 		<script type="text/javascript" src="javascript.js"></script>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" href="jomor_html/img/jomorparty_logo.png" type="image/ico" />
 	</head>
+
 	<body id="body0">
 		<?php 
 			include('include/link.php');
@@ -56,12 +52,6 @@
 			  	    	<li>
 			  	    	    <img src="jomor_html/img/f2.png" />
 			  	    	</li>
-			  	    	<li>
-			  	    	    <img src="jomor_html/img/kitchen_adventurer_donut.jpg" />
-			  	    	</li>
-			  	    	<li>
-			  	    	    <img src="jomor_html/img/kitchen_adventurer_caramel.jpg" />
-			  	    	</li>
 			          </ul>
 			        </div>
 			      </section>
@@ -71,16 +61,16 @@
 				<!--跳出皮皮君介紹-->
 					    <div id="aboutmascot01">
 					    <div class="aboutmascot_position">
-					        <div class="aboutmascot_fram01">
-					            <span class="aboutmascot_title">皮皮君簡介</span>
-					            <!--關掉的xx-->
-					            <span class="aboutmascot_close" onClick="javascript:window.location.href='index.php';">
-					            <img src="jomor_html/img/close.png" class="sure_close_img">
-					            </span>
-					        </div> 
-					            <div class="aboutmascot_fram02">
-					               <img src="jomor_html/img/aboutmascot1.png" class="aboutmascot_img">
-					            </div>
+						        <div class="aboutmascot_fram01">
+						            <span class="aboutmascot_title">皮皮君簡介</span>
+						            <!--關掉的xx-->
+						            <span class="aboutmascot_close" onClick="javascript:window.location.href='index.php';">
+						            <img src="jomor_html/img/close.png" class="sure_close_img">
+						            </span>
+						        </div> 
+						            <div class="aboutmascot_fram02">
+						               <img src="jomor_html/img/aboutmascot1.png" class="aboutmascot_img">
+						            </div>
 					    </div> 
 					    </div><!--跳出熊哥介紹結束-->
 						<!--跳出熊哥介紹-->

@@ -7,7 +7,7 @@
 	<script type="text/javascript" src="../../javascript.js"></script>
 	<script src="jquery.min.js"></script>	
 	<meta charset="utf-8">
-	<link rel="icon" href="jomor_html/img/jomorparty_logo.png" type="image/ico" />
+	<link rel="icon" href="../../jomor_html/img/jomorparty_logo.png" type="image/ico" />
 </head>
 	<body id="body0">
 		<?php 
@@ -33,6 +33,7 @@
 			if(isset($_POST['confirm'])){
 				$updateStoreNumber = 'UPDATE `store` SET 
 				`storePlace`= "'.$_POST['storePlace'].'",
+				`storeNo` = "'.$_POST['storeNo'].'",
 				`storeName`= "'.$_POST['storeName'].'",
 				`storeType`= "'.$_POST['storeType'].'",
 				`storeArea` = "'.$_POST['storeArea'].'",
@@ -89,8 +90,12 @@
 									$storeNumber = mysql_fetch_assoc($selectStoreNumber);
 								?>
 									<tr>
-										<td>編碼</td>
+										<td>流水號</td>
 										<td class="edit_td"><input type="text" name="no" value="<?php echo $storeNumber['no'] ?>" class="manage_input" readonly></td>
+									</tr>
+									<tr>
+										<td>店家編碼</td>
+										<td class="edit_td"><input type="text" name="storeNo" value="<?php echo $storeNumber['storeNo'] ?>" class="manage_input"></td>
 									</tr>
 									<tr>
 										<td>縣市</td>

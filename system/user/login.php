@@ -7,9 +7,56 @@
 	<script type="text/javascript" src="../../javascript.js"></script>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta charset="utf-8">
-	<link rel="icon" href="jomor_html/img/jomorparty_logo.png" type="image/ico" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="../../jomor_html/img/jomorparty_logo.png" type="image/ico" />
 </head>
 	<body id="body0">
+		 <script>
+	        // initialize and setup facebook js sdk
+	        window.fbAsyncInit = function() {
+	            FB.init({
+	              appId      : '1776470922608272',
+	              xfbml      : true,
+	              version    : 'v2.8'
+	            });
+
+	            FB.getLoginStatus(function(response) {
+	            	/*這段其實不需要
+	                if (response.status === 'connected') {
+
+	                } else if (response.status === 'not_authorized') {
+	                    document.getElementById('status').innerHTML = 'We are not logged in.'
+	                } else {
+	                    document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
+	                }
+	                */
+	            });
+	        };
+
+	        (function(d, s, id){
+	            var js, fjs = d.getElementsByTagName(s)[0];
+	            if (d.getElementById(id)) {return;}
+	            js = d.createElement(s); js.id = id;
+	            js.src = "//connect.facebook.net/en_US/sdk.js";
+	            fjs.parentNode.insertBefore(js, fjs);
+	        }(document, 'script', 'facebook-jssdk'));
+	        
+	        // login with facebook with extra permissions
+	        function login() {
+	            FB.login(function(response) {
+	                if (response.status === 'connected') {
+	                	FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id,email,picture.width(150).height(150)'}, function(response){
+	                		window.location.href="signFB.php?name="+response.name+"&email="+response.email+"&id="+response.id+"&picture="+response.picture.data.url;
+	                    });
+	                    
+	                } else if (response.status === 'not_authorized') {
+	                    document.getElementById('status').innerHTML = 'We are not logged in.'
+	                } else {
+	                    document.getElementById('status').innerHTML = 'You are not logged into Facebook.';
+	                }
+	            }, {scope: 'email'});
+	        }	        
+	    </script>
 		<?php 
 			include('../../include/link.php');
 			//include('../../include/sessionCheck.php');

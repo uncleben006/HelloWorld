@@ -29,10 +29,31 @@
 		</section>-->
 		<!--文章區塊-->
 		<section class="essay_section">
-			<div class="essay_fram"><!--div表格法(第一篇的藍底區塊）-->
+				<div class="essay_fram"><!--div表格法(第一篇的藍底區塊）-->
+					<div class="eassy_row">
+						<div class="eassy_pink"><!--粉紅日期區塊-->
+							<div class="eassy_date">2016/11/07</div>
+						</div>
+						<div class="eassy_green"><!--綠色標題區塊-->
+							<div class="eassy_title">新天鵝堡十大派對桌遊排行(下)</div>
+						</div>
+					</div>
+					<div class="eassy_row"><!--圖片區塊-->
+						<div class="eassy_img_div">
+							<a href="blog_more.php" class="blog_imghover">
+								<img class="eassy_img" src="jomor_html/img/blogimg/blogdm2.jpg">
+							</a>
+						</div>
+						<div class="eassy_artical_div"><!--文章部分內文區塊-->
+							<div class="eassy_artical">矮人礦坑是一款規則簡單、容易上手的派對陣營遊戲，很適合剛入門的新手玩。遊戲目標：好矮人- 挖取金礦；壞矮人- 阻止好矮人挖礦。</div>
+							<div><a href="blog_more2.php" class="read_eassy_Button">閱讀全文</a></div>
+						</div>
+					</div>
+				</div>
+				<div class="essay_fram"><!--div表格法(第二篇的藍底區塊）-->
 				<div class="eassy_row">
 					<div class="eassy_pink"><!--粉紅日期區塊-->
-						<div class="eassy_date">2016/10/23</div>
+						<div class="eassy_date">2016/11/06</div>
 					</div>
 					<div class="eassy_green"><!--綠色標題區塊-->
 						<div class="eassy_title">新天鵝堡十大派對桌遊排行(上)</div>
@@ -41,7 +62,7 @@
 				<div class="eassy_row"><!--圖片區塊-->
 					<div class="eassy_img_div">
 						<a href="blog_more.php" class="blog_imghover">
-								<img class="eassy_img" src="jomor_html/img/swancafe01.jpg">
+								<img class="eassy_img" src="jomor_html/img/blogimg/blogdm1.jpg">
 						</a>
 					</div>
 					<div class="eassy_artical_div"><!--文章部分內文區塊-->
@@ -50,69 +71,6 @@
 					</div>
 				</div>
 			</div>
-				<div class="essay_fram"><!--div表格法(第二篇的藍底區塊）-->
-					<div class="eassy_row">
-						<div class="eassy_pink"><!--粉紅日期區塊-->
-							<div class="eassy_date">2016/09/10</div>
-						</div>
-						<div class="eassy_green"><!--綠色標題區塊-->
-							<div class="eassy_title">派對型桌遊熱門TOP10！！</div>
-						</div>
-					</div>
-					<div class="eassy_row"><!--圖片區塊-->
-						<div class="eassy_img_div">
-							<a href="blog_more.php" class="blog_imghover">
-								<img class="eassy_img" src="jomor_html/img/swancafe01.jpg">
-							</a>
-						</div>
-						<div class="eassy_artical_div"><!--文章部分內文區塊-->
-							<div class="eassy_artical">到底是哪時款桌遊入選呢..............好期待好期待～今天要介紹的是專門推薦給新手玩的～</div>
-							<div><a href="blog_more.php" class="read_eassy_Button">閱讀全文</a></div>
-						</div>
-					</div>
-				</div>
-				<div class="essay_fram"><!--div表格法(第三篇的藍底區塊）-->
-					<div class="eassy_row">
-						<div class="eassy_pink"><!--粉紅日期區塊-->
-							<div class="eassy_date">2016/09/09</div>
-						</div>
-						<div class="eassy_green"><!--綠色標題區塊-->
-							<div class="eassy_title">陣營型桌遊熱門TOP10！！</div>
-						</div>
-					</div>
-					<div class="eassy_row"><!--圖片區塊-->
-						<div class="eassy_img_div">
-							<a href="blog_more.php" class="blog_imghover">
-								<img class="eassy_img" src="jomor_html/img/swancafe01.jpg">
-							</a>
-						</div>
-						<div class="eassy_artical_div"><!--文章部分內文區塊-->
-							<div class="eassy_artical">哇哇哇哇哇嗚～～～～好期待好期待～到底是哪時款桌遊入選呢.今天要介紹的是專門推薦給新手玩的～.</div>
-							<div><a href="blog_more.php" class="read_eassy_Button">閱讀全文</a></div>
-						</div>
-					</div>
-				</div>
-				<div class="essay_fram"><!--div表格法(第四篇的藍底區塊）-->
-					<div class="eassy_row">
-						<div class="eassy_pink"><!--粉紅日期區塊-->
-							<div class="eassy_date">2016/09/09</div>
-						</div>
-						<div class="eassy_green"><!--綠色標題區塊-->
-							<div class="eassy_title">陣營型桌遊熱門TOP10！！</div>
-						</div>
-					</div>
-					<div class="eassy_row"><!--圖片區塊-->
-						<div class="eassy_img_div">
-							<a href="blog_more.php" class="blog_imghover">
-								<img class="eassy_img" src="jomor_html/img/swancafe01.jpg">
-							</a>
-						</div>
-						<div class="eassy_artical_div"><!--文章部分內文區塊-->
-							<div class="eassy_artical">哇哇哇哇哇嗚～～～～好期待好期待～到底是哪時款桌遊入選呢.今天要介紹的是專門推薦給新手玩的～.</div>
-							<div><a href="blog_more.php" class="read_eassy_Button">閱讀全文</a></div>
-						</div>
-					</div>
-				</div>
 		</section>
 </body>
 </html>

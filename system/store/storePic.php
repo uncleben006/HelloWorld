@@ -88,7 +88,7 @@
 									        <button onclick="window.location.href='storePic.php?storePlace=臺北市'" class="css-input">臺北市</button>
 									        <div onclick="window.location.href='storePic.php?storePlace=新北市'" class="css-input">新北市</div>
 									        <div onclick="window.location.href='storePic.php?storePlace=基隆市'" class="css-input">基隆市</div>
-									        <div onclick="window.location.href='storePic.php?storePlace=桃園縣'" class="css-input">桃園縣</div>
+									        <div onclick="window.location.href='storePic.php?storePlace=桃園市'" class="css-input">桃園市</div>
 									        <div onclick="window.location.href='storePic.php?storePlace=新竹市'" class="css-input">新竹市</div>
 									        <div onclick="window.location.href='storePic.php?storePlace=新竹縣'" class="css-input">新竹縣</div>
 											<div onclick="window.location.href='storePic.php?storePlace=宜蘭縣'" class="css-input">宜蘭縣</div>
@@ -96,21 +96,21 @@
 								      <div>
 								          <div class="local_place">中部</div>
 								          <div onclick="window.location.href='storePic.php?storePlace=苗栗縣'" class="css-input">苗栗縣</div>
-								          <div onclick="window.location.href='storePic.php?storePlace=台中市'" class="css-input">台中市</div>
+								          <div onclick="window.location.href='storePic.php?storePlace=臺中市'" class="css-input">臺中市</div>
 								          <div onclick="window.location.href='storePic.php?storePlace=彰化縣'" class="css-input">彰化縣</div>
 								      </div>
 								      <div>
 								          <div class="local_place">南部</div>
 								          <div onclick="window.location.href='storePic.php?storePlace=雲林縣'" class="css-input">雲林縣</div>
 								          <div onclick="window.location.href='storePic.php?storePlace=嘉義市'" class="css-input">嘉義市（縣）</div>
-								          <div onclick="window.location.href='storePic.php?storePlace=台南市'" class="css-input">台南市</div>
+								          <div onclick="window.location.href='storePic.php?storePlace=臺南市'" class="css-input">臺南市</div>
 								          <div onclick="window.location.href='storePic.php?storePlace=高雄市'" class="css-input">高雄市</div>
 								          <div onclick="window.location.href='storePic.php?storePlace=屏東縣'" class="css-input">屏東縣</div>
 								      </div>
 								      <div>
 								          <div class="local_place">東部</div>
 								          <div onclick="window.location.href='storePic.php?storePlace=花蓮縣'" class="css-input">花蓮縣</div>
-								          <div onclick="window.location.href='storePic.php?storePlace=台東縣'" class="css-input">台東縣</div>
+								          <div onclick="window.location.href='storePic.php?storePlace=臺東縣'" class="css-input">臺東縣</div>
 								      </div>
 								      <div>
 								          <div class="local_place">外島</div>
@@ -186,7 +186,7 @@
 						<div class="store_info_card-0" style="height: 360px">
 							<div class="store_info_card01"><!--店家資訊卡店名與圖片部分-->
 								<div class="store_name" onclick="my_scroll('storePic.php?no=<?php echo $storePlace['no']; ?>&storePlace=<?php echo $storePlace['storePlace']; ?>'); return false"><?php echo $storePlace['storeName']?></div>
-								<div><img class="store_img" src="../../jomor_html/img/swancafe01.jpg" onclick="my_scroll('storePic.php?no=<?php echo $storePlace['no']; ?>&storePlace=<?php echo $storePlace['storePlace']; ?>'); return false"></div><!--圖片連結等有圖片了之後再補上，不然現在太醜了-->
+								<div><img class="store_img" src="photo/<?php echo $storePlace['storePhoto'];?>" onclick="my_scroll('storePic.php?no=<?php echo $storePlace['no']; ?>&storePlace=<?php echo $storePlace['storePlace']; ?>'); return false"></div><!--圖片連結等有圖片了之後再補上，不然現在太醜了-->
 							</div>
 							<!--店家資訊卡文字部分-->
 							<div class="store_info_card02">
@@ -243,7 +243,7 @@
 						<div class="store_info_card-0" style="height: 360px">
 							<div class="store_info_card01"><!--店家資訊卡店名與圖片部分-->
 								<div title="<?php echo $store['storeName']?>" class="store_name" onclick="my_scroll('storePic.php?no=<?php echo $store['no']; ?>'); return false"><?php echo $store['storeName']?></div>
-								<div><img class="store_img" src="../../jomor_html/img/swancafe01.jpg" onclick="my_scroll('storePic.php?no=<?php echo $store['no']; ?>'); return false"></div><!--圖片連結等有圖片了之後再補上，不然現在太醜了-->
+								<div><img class="store_img" src="photo/<?php echo $store['storePhoto'];?>" onclick="my_scroll('storePic.php?no=<?php echo $store['no']; ?>'); return false"></div><!--圖片連結等有圖片了之後再補上，不然現在太醜了-->
 							</div>
 							<!--店家資訊卡文字部分-->
 							<div class="store_info_card02">
