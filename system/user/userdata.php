@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>jomor桌末狂歡</title>
+	<title>桌末狂歡 JOMOR - 桌遊資訊平台</title>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<link href="../../style.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="../../javascript.js"></script>
@@ -12,7 +12,7 @@
 		<?php 
 		header("Content-Type:text/html; charset=utf-8");
 		include('../../include/link.php');
-		include('../../include/sessionCheck.php');
+		include('../../include/sessionCheck.php');		
 		$no = $_SESSION["no"];
 		$pri = $_SESSION["pri"];
 		$account = $_SESSION["account"];

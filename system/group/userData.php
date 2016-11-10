@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>jomor桌末狂歡</title>
+	<title>桌末狂歡 JOMOR - 桌遊資訊平台</title>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<link href="../../style.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="../../javascript.js"></script>
@@ -27,6 +27,11 @@
 			$userAccount = mysql_fetch_assoc($selectUserAccount);
 			?>
 			<div class="individual_bg">
+
+				<div class="edit_bt_div">
+					<a href="javascript:history.back()" class="edit_bt">返回</a>
+				</div>
+
 				<!--左邊欄位的頭像白框-->
 				<div class="aside_l">
 					<div class="individual_head_ph_div">
@@ -52,7 +57,7 @@
 					<hr color="#4EBABF" size="5" width="95%">
 					<div class="aboutme">
 						<p class="aboutme_p">關於我</p>
-						<p class="aboutme_introduce"><?php echo $userAccount['introduction'] ?></p>
+						<p class="aboutme_introduce"><?php echo $userAccount['introduction']; ?></p>
 					</div>
 				</div>
 				<!--右邊欄位的第一行-->

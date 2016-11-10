@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>jomor桌末狂歡</title>
+		<title>桌末狂歡 JOMOR - 桌遊資訊平</title>
 		<!--輪播圖-->
 		<!-- Demo CSS -->
 		<link rel="stylesheet" href="flexslider.css" type="text/css" media="screen" />
@@ -30,7 +30,7 @@
 		<link href="style.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" src="javascript.js"></script>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
 		<link rel="icon" href="jomor_html/img/jomorparty_logo.png" type="image/ico" />
 	</head>
 
@@ -133,8 +133,8 @@
 							<img src="jomor_html/img/mascot02.png" class="mascot_img01" onClick="op_aboutmascot01(aboutmascot02)">
 						</span>
 						<span class="mascot_span">
-							<img src="jomor_html/img/mascot03-2.png" class="mascot_img00">
-							<img src="jomor_html/img/mascot03.png" class="mascot_img00" onClick="op_aboutmascot01(aboutmascot03)">
+							<img src="jomor_html/img/mascot03-2.png" class="mascot_img02">
+							<img src="jomor_html/img/mascot03.png" class="mascot_img02" onClick="op_aboutmascot01(aboutmascot03)">
 						</span>
 						<span class="mascot_span">
 							<img src="jomor_html/img/mascot04-2.png" class="mascot_img00">

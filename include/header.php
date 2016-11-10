@@ -1,15 +1,11 @@
-<!--行動裝置rwd的視窗變小nav變小圖示可展開-->
-		<nav class="rwd_nav">
-			    <a id="menu-toggle" href="javascript:void(0);">&#9776;</a>
-			    <ul>
-			        <li><a href="system/store/store1-2.php">店家地圖</a></li>
-			        <li><a href="system/group/jo.php">揪團</a></li>
-			        <li><a href="discussion.php">討論區</a></li>
-			        <li><a href="hblog.php">桌遊專欄</a></li>
-			        <li><a href="aboutus.php">聯絡我們</a></li>
-			    </ul>
-		</nav>
-		
+<!--xampp-->
+<?php
+if(isset($_GET['search'])){
+	$storeWord = $_GET['storeWord'];
+	header("Location:../system/store/store2.php?storeWord=".$storeWord."");
+}
+?>
+
 <header class="header_bg">
 			<!--網頁版頂部圖案-->
 			<div class="top">
@@ -263,11 +259,14 @@
 						?>
 					</tr><!--tr-->
 					<tr>
-						<td colspan="2" class="top_td4"><input class="index_search" type="text" name="search" size="15"></td>
+					<form>
+						<td colspan="2" class="top_td4"><input class="index_search" type="text" name="storeWord" size="15"></td>
 						<td class="top_td5" valign="center">
-							<input class="button" name="submit" type="image" value="search" src="jomor_html/img/button.png">
+							<button type="submit" name="search" style="background-color: #ffffff"><img src="jomor_html/img/button.png" class="button"></button>
 						</td>
+					</form>
 					</tr>
 				</table>
+				
 			</div>
 		</header>

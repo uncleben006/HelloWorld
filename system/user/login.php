@@ -7,7 +7,7 @@
 	<script type="text/javascript" src="../../javascript.js"></script>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
 	<link rel="icon" href="../../jomor_html/img/jomorparty_logo.png" type="image/ico" />
 </head>
 	<body id="body0">
@@ -63,68 +63,38 @@
 			if(isset($_POST['login'])){
 				$account = $_POST["account"];
 				$pass = $_POST["password"];
-				$setSQL1 = "SELECT * FROM `user` WHERE `account` = '".$account."'";
-				mysql_query("SET NAMES'UTF8'");
-				mysql_query("SET CHARACTER SET UTF8");
-				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
-				$result1 = mysql_query($setSQL1);
-				$row1 = mysql_fetch_assoc($result1);
-				echo $row1['password'];
-
-				$setSQL2 = "SELECT * FROM `admin` WHERE `account` = '".$account."'";
-				mysql_query("SET NAMES'UTF8'");
-				mysql_query("SET CHARACTER SET UTF8");
-				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
-				$result2 = mysql_query($setSQL2);
-				$row2 = mysql_fetch_assoc($result2);
-
-				
-				if($pass==$row1['password']){
-					session_set_cookie_params(600);
-					session_start();
-					$_SESSION["no"] = $row1["no"];
-					$_SESSION["pri"] = $row1["pri"];
-					$_SESSION["account"] = $row1["account"];
-					$_SESSION["password"] = $row1["password"];
-					$_SESSION["name"] = $row1["name"];
-					$_SESSION["email"] = $row1["email"];
-					$_SESSION["photo"] = $row1["photo"];
-					$_SESSION["introduction"] = $row1["introduction"];
-					session_write_close();
-					header("Location:../../index.php");
+				if($account==''){
+					$errMsg = "請填入帳號";
 				}
-				else if($pass==$row2['password']){
-					session_set_cookie_params(600);
-					session_start();
-					$_SESSION["no"] = $row2["no"];
-					$_SESSION["pri"] = $row2["pri"];
-					$_SESSION["account"] = $row2["account"];
-					$_SESSION["password"] = $row2["password"];
-					$_SESSION["name"] = $row2["name"];
-					$_SESSION["email"] = $row2["email"];
-					$_SESSION["photo"] = $row2["photo"];
-					$_SESSION["introduction"] = $row2["introduction"];
-					session_write_close();						
-					header("Location:../../index.php");
-				}
+				else if($pass==''){
+					$errMsg = "請填入密碼";
+				}	
 				else{
-					$errMsg = "帳號或密碼有誤";
-				}
+					$selectUserAccount = "SELECT * FROM `user` WHERE `account` = '".$account."'";
+					mysql_query("SET NAMES'UTF8'");
+					mysql_query("SET CHARACTER SET UTF8");
+					mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+					$selectUserAccount = mysql_query($selectUserAccount);
+					$userAccount = mysql_fetch_assoc($selectUserAccount);	
+					if($pass==$userAccount['password']){
+						session_set_cookie_params(600);
+						session_start();
+						$_SESSION["no"] = $userAccount["no"];
+						$_SESSION["pri"] = $userAccount["pri"];
+						$_SESSION["account"] = $userAccount["account"];
+						$_SESSION["password"] = $userAccount["password"];
+						$_SESSION["name"] = $userAccount["name"];
+						$_SESSION["email"] = $userAccount["email"];
+						$_SESSION["photo"] = $userAccount["photo"];
+						$_SESSION["introduction"] = $userAccount["introduction"];
+						session_write_close();
+						header("Location:../../index.php");
+					}
+					else{
+						$errMsg = "帳號或密碼有誤";
+					}
+				}		
 			}
-			/*if(isset($_GET['fb'])){
-				$fb = new phpSDK\src\Facebook\Facebook\Facebook([
-				    'app_id' => '1776470922608272',
-				    'app_secret' => '717ff345aa85c2610170f79ac6a5c841',
-				    'default_graph_version' => 'v2.8',
-				]);
-				
-				$helper = $fb->getRedirectLoginHelper();
-				$permissions = ['email', 'user_likes']; // optional
-				$loginUrl = $helper->getLoginUrl('http://{your-website}/login-callback.php', $permissions);
-
-				echo '<a href="' . $loginUrl . '">Log in with Facebook!</a>';
-			}
-			*/
 			
 			include('../../include/userHeader.php'); 
 		?>

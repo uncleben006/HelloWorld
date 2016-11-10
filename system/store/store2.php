@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>jomor桌末狂歡</title>
+	<title>桌末狂歡 JOMOR - 桌遊資訊平台</title>
 	<link href="../../style.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="../../javascript.js"></script>
 	<script type="text/javascript" src="../../include/redips-scroll.js"></script>
@@ -38,14 +38,16 @@
 		<section>
 			<!--最新活動跑馬燈-->
 			<div class="store_marquee_div">
-				<span class="store_news01">最新活動</span>
-				<span class="store_span">
-					<content>
-						<marquee class="store_marquee">
-							<div style="margin-top:4px">桌末狂歡上線囉～～快來一起玩桌遊！</div>
-						</marquee>
-					</content>
-				</span>
+				<div class="marquee_bg">
+					<span class="store_news01">最新活動 |</span>
+					<span class="store_span">
+						<content>
+							<marquee class="store_marquee">
+								<div >桌末狂歡上線囉～～快來一起玩桌遊！</div>
+							</marquee>
+						</content>
+					</span>
+				</div>
 			</div>
 		</section>
 			<!--地圖切換頁籤-->
@@ -375,8 +377,10 @@
 				                    <td class="div_store_info_card02_td01">消費模式｜</td>
 				                    <td class="div_store_info_p2" ><?php echo $store['storeSpend'];?></td>
 				                </tr>
+				                 <!--店家資訊卡內臉書與網站的icon-->
 				                <tr>
-				                	<td>
+				                	<td colspan="2">
+				                		<span class="span_aa">
 				                		<?php
 				                			if($store['fbURL']!=''){
 				                				?>
@@ -388,9 +392,9 @@
 				                				</a>
 				                				<?php
 				                			}
-				                		?>				                			
-				                	</td>
-				                	<td>
+				                		?>	
+				                		</span>	
+				                		<span class="span_aa">	                			
 				                		<?php
 				                			if($store['webURL']!=''){
 				                				?>
@@ -402,7 +406,8 @@
 				                				</a>
 				                				<?php
 				                			}
-				                		?>				                			
+				                		?>	
+				                		</span>				                			
 				                	</td>
 				                </tr>
 				            </table>

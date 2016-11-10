@@ -51,7 +51,6 @@
 @media screen and (max-width: 1980px) {
 .flexslider .slides img {
   width: 100%;
-  height: 580px;
   display: block;
    -moz-user-select: none;
   }
