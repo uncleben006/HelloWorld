@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>桌末狂歡 JOMOR - 桌遊資訊平</title>
+	<title>桌末狂歡 JOMOR - 桌遊資訊平台</title>
 	<link href="style.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="javascript.js"></script>
 	<meta charset="utf-8">

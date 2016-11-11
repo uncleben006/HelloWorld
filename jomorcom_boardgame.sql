@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: localhost:3306
--- 建立日期: 2016 年 11 月 10 日 17:18
+-- 建立日期: 2016 年 11 月 11 日 13:18
 -- 伺服器版本: 5.5.52-cll
 -- PHP 版本: 5.6.20
 
@@ -71,9 +71,7 @@ INSERT INTO `chat` (`no`, `account`, `name`, `now`, `chat`) VALUES
 (1, 'eric810815', '小e', '2016-11-08 21:22:16', '３'),
 (1, 'eric810815', '小e', '2016-11-08 21:22:22', 'a'),
 (1, 'fbuser27HK', 'Andy Lai', '2016-11-09 19:08:45', '安安'),
-(1, 'fbuser25XG', '皮皮君', '2016-11-09 19:47:12', '安安'),
-(1, 'bear', '熊哥', '2016-11-09 20:03:03', '嗨'),
-(1, 'bear', '熊哥', '2016-11-09 20:03:20', '我是柏元');
+(1, 'fbuser25XG', '皮皮君', '2016-11-09 19:47:12', '安安');
 
 -- --------------------------------------------------------
 
@@ -149,12 +147,12 @@ INSERT INTO `member` (`no`, `people`, `name`, `account`, `email`, `photo`) VALUE
 (61, 6, '俐孟', '1114', 'aavail007@gmail.com', '725775.jpg'),
 (61, 6, '陳波吉', 'fbuser23PB', 'aavail007@gmail.com', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/11751869_730092180452290_4578879045156836968_n.jpg?oh=2c66b2dc7ff4ac855253094b847c3f68&oe=588D844E'),
 (1, 10, '熊哥', 'bear', '6666666@gmail.com', '655836.png'),
-(1, 10, '暴躁小貓', 'home5063', 'home5063@gmail.com', '336628.png'),
 (1, 10, '妤妤', 'fbuser22PU', 'linda901641@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/13892203_1162317477121935_1013107249612352314_n.jpg?oh=80c490f416b30e935af75b8b9bdd20d6&oe=5899F766'),
 (1, 10, '王柏元', 'fbuser25PV', 'uncleben006@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/12799176_1266694493344919_7910972604712821508_n.jpg?oh=a5e1d0363600c391cb7b2ebc2bf3c1fe&oe=58CC4F31'),
 (1, 10, '小e', 'eric810815', 'eric810815@hotmail.com.tw', '823618.jpg'),
 (4, 4, '連莊', 'a12776', 'a12776sf974636@gmail.com', '549364.jpg'),
-(1, 10, 'Andy Lain', 'fbuser27HK', 'a29575710@gmail.com', 'https://scontent.xx.fbcdn.net/v/t1.0-1/c40.0.160.160/p160x160/12963948_1179691022041705_6200834732114341782_n.jpg?oh=e13a91c6fd8e8ecb268a746c1da1e32d&oe=588DC36B');
+(1, 10, 'Andy Lain', 'fbuser27HK', 'a29575710@gmail.com', 'https://scontent.xx.fbcdn.net/v/t1.0-1/c40.0.160.160/p160x160/12963948_1179691022041705_6200834732114341782_n.jpg?oh=e13a91c6fd8e8ecb268a746c1da1e32d&oe=588DC36B'),
+(1, 10, '王柏元', 'uncleben006', 'uncleben006@gmail.com', '57173.jpg');
 
 -- --------------------------------------------------------
 
@@ -183,7 +181,14 @@ INSERT INTO `remind` (`no`, `account`, `email`, `host`, `room`, `date`, `time`, 
 (1, 'eric810815', 'eric810815@hotmail.com.tw', 'bear', '範例', '2016-11-17', '15:00:00', 'Swan Cafe 天鵝桌遊館', 1),
 (1, 'uncleben006', 'uncleben006@gmail.com', 'bear', '範例', '2016-11-17', '15:00:00', 'Swan Cafe 天鵝桌遊館', 1),
 (1, 'fbuser25XG', 'orz840710@gmail.com', 'bear', '範例', '2016-11-17', '15:00:00', 'Swan Cafe 天鵝桌遊館', 1),
-(1, 'fbuser25XG', 'orz840710@gmail.com', 'bear', '範例', '2016-11-17', '15:00:00', 'Swan Cafe 天鵝桌遊館', 1);
+(1, 'fbuser25XG', 'orz840710@gmail.com', 'bear', '範例', '2016-11-17', '15:00:00', 'Swan Cafe 天鵝桌遊館', 1),
+(1, 'uncleben006', 'uncleben006@gmail.com', 'bear', '範例', '2016-11-17', '15:00:00', 'Swan Cafe 天鵝桌遊館', 1),
+(1, 'home5063', 'home5063@gmail.com', 'bear', '範例', '2016-11-17', '15:00:00', 'Swan Cafe 天鵝桌遊館', 1),
+(5, 'uncleben006', 'uncleben006@gmail.com', 'uncleben006', '測試刪除', '2016-11-11', '15:16:00', 'Legend Fun 樂聚坊桌上遊戲', 2),
+(6, 'uncleben006', 'uncleben006@gmail.com', 'uncleben006', '測試刪除', '2016-11-11', '15:16:00', '桌遊地下城Bungeon', 2),
+(6, 'bear', '6666666@gmail.com', 'uncleben006', '測試刪除', '2016-11-11', '15:16:00', '桌遊地下城Bungeon', 2),
+(7, 'fbuser25PV', 'uncleben006@yahoo.com.tw', 'fbuser25PV', '測試刪除', '2016-11-12', '15:16:00', '貓咪貓咪 Catcat 桌遊咖啡屋', 2),
+(7, 'uncleben006', 'uncleben006@gmail.com', 'fbuser25PV', '測試刪除', '2016-11-12', '15:16:00', '貓咪貓咪 Catcat 桌遊咖啡屋', 2);
 
 -- --------------------------------------------------------
 
@@ -205,7 +210,7 @@ CREATE TABLE IF NOT EXISTS `room` (
   `spend` text COLLATE utf8_unicode_ci NOT NULL,
   `remark` text COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`no`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
 
 --
 -- 資料表的匯出資料 `room`
@@ -506,10 +511,12 @@ INSERT INTO `user` (`no`, `pri`, `account`, `password`, `name`, `email`, `introd
 ('1796934683896611', 2, 'fbuser25XG', 'passOO', '皮皮君', 'orz840710@gmail.com', '這是一個FB用戶', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/14463054_1773191899604223_3518445055119868318_n.jpg?oh=cf0b7ff14a01d26610e5ce49fcce59d6&oe=588D4BD8', '', '', ''),
 ('10154785442568274', 2, 'fbuser26FE', 'passEK', 'Sheng Yangyen', 'gn02066465@hotmail.com', '這是一個FB用戶', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/9596_10154129907983274_8253062328188047127_n.jpg?oh=49e06dd6088c6713dd41f66ef577b5f7&oe=589A6F45', '', '', ''),
 ('1350684121609060', 2, 'fbuser27HK', 'passRM', 'Andy Lain', 'a29575710@gmail.com', '這是一個FB用戶', 'https://scontent.xx.fbcdn.net/v/t1.0-1/c40.0.160.160/p160x160/12963948_1179691022041705_6200834732114341782_n.jpg?oh=e13a91c6fd8e8ecb268a746c1da1e32d&oe=588DC36B', '男', '', ''),
+('1491403554209781', 2, 'fbuser28KE', 'passZT', 'Jou Shiuan Chen', 'q105812@yahoo.com.tw', '這是一個FB用戶', 'https://scontent.xx.fbcdn.net/v/t1.0-1/c0.0.160.160/p160x160/14947862_1487089931307810_7330588202960283591_n.jpg?oh=62c965f4c972a4099ae1b3485c752b10&oe=58C76BD8', '', '', ''),
 ('1480370865309897', 2, 'fbuser28MG', 'passMK', 'Aveline Wang', 'catkin08@hotmail.com', '這是一個FB用戶', 'https://scontent.xx.fbcdn.net/v/t1.0-1/c0.41.160.160/p160x160/13906686_1397940053552979_7426429662255620235_n.jpg?oh=ce397991d1800d5d5e4d61b59044e621&oe=58D34258', '', '', ''),
 ('015AI', 1, 'home5063', 'qaz10', '暴躁小貓', 'home5063@gmail.com', '我室友得諾羅病毒，她程式寫不出來', '336628.png', '女', '聰明的人什麼都玩', '聰明的人玩什麼都厲害'),
 ('019PJ', 0, 'loki789251', '62141424', '阿楓', 'loki789251@yahoo.com.tw', '出沒於新竹 龍潭地區 喜\r\n歡玩奇幻類遊戲 或是有模\r\n型的遊戲 不喜歡玩陣營遊\r\n戲 極度討厭農家樂&神秘\r\n大地', 'default.png', '', '', ''),
 ('021QL', 1, 'maki83101', '123465', '女王麻希', 'g83101@yahoo.com.tw', '就是我得諾羅病毒啦', '559195.png', '', '', ''),
+('029MA', 1, 'o073351229', 'aa255103', '阿蠻', 'o073351229@gmail.com', '大家好，我是阿蠻，玩過不\r\n少桌遊，希望可以認識很多\r\n朋友。', 'default.png', '', '', ''),
 ('666UB', 3, 'uncleben006', '000', '王柏元', 'uncleben006@gmail.com', '我是管理員', '57173.jpg', '男', '電力公司', '阿瓦隆'),
 ('666SU', 3, 'vivi', 'mzxopoio', '魚魚', 'vivian901641@gmail.com', '我是管理員哈哈哈哈哈', '832729.png', '其他', 'CSI犯罪現場', '德國心臟病'),
 ('023FN', 1, 'zx910519', 'zxzx8498', '笨蛋慈', 'zx910519@yahoo.com.tw', '我想認識桌遊', '377750.jpg', '', '', ''),

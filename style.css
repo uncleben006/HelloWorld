@@ -5096,6 +5096,22 @@ position: relative;
 .discussion_img{
 	width: 100%;
 }
+/*房主刪除成員的原因*/
+.result{
+	border-radius: 15px;
+    position: relative;
+    background-color: #F1EC71;
+    border-style: none;
+    width: 80%;
+    height: 90px;
+    text-align: left;
+    top: 8%;
+    font-size: 1em;
+    resize: none;
+    outline: none;
+    padding: 15px;
+    margin: 10px;
+}
 
 /*管理員上傳後台*/
 .upload_yellow{

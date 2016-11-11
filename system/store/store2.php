@@ -60,7 +60,7 @@
 						$account = $_SESSION['account'];
 						$selectUserAccount = mysql_query("SELECT * FROM `user` WHERE `account` = '".$account."'");
 						$userAccount = mysql_fetch_assoc($selectUserAccount);
-						if($userAccount['pri']==2){
+						if($userAccount['pri']==3){
 							?>
 							<a href="uploadStore.php" class="map_myButton">輸入店家資訊</a>
 							<?php						

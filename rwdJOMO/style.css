@@ -22,10 +22,10 @@ nav {
     display: inline-block;
     vertical-align: top;
     text-align: left;
-     z-index: 100;
+     z-index: 20;
 }
 nav ul {
-    top: 10px;
+    top: 20px;
     padding: 10px 15px;
     background: rgba(255,255,255,0.9);
     position: relative;
@@ -82,6 +82,38 @@ nav ul li:hover a {
     nav > ul {
         display: none;
     }
+
+    .rwd_nav_table{
+    position: relative;
+    float: left;
+    left: 12px;
+    top: 3px;
+    }
+    .rwd_nav_hd{
+    position: absolute;
+    float: right;
+    right: 10px;
+    width: 180px;
+    z-index: 100;
+    }
+    .rwd_nav_userImg{
+    position: relative;
+    float: left;
+    top: 10px;
+    left: 10px;
+    }
+    .rwd_nav_ppp{
+    position: absolute;
+    float: right;
+    left: 100px;
+    line-height: 50px; 	
+    }
+    .rwd_nav_ppp2{
+    position: absolute;
+    float: right;
+    left: 140px;
+    line-height: 50px;
+    }
     #menu-toggle {
         display: block;
     }
@@ -91,44 +123,44 @@ nav ul li:hover a {
     }
 	/*通知欄與頭像縮小rwd*/
     .rwd_notify_img01{
-	width: 5%;
-	/*height:7%;*/
+    position: relative;
+	width: 40px;
+	height: 40px;
+	top: 2px;
 	cursor: pointer;
 	}
 	.rwd_notify_img01:hover{
-	width: 5%;
 	cursor: pointer;
 	transition: all 0s;
 	}
 	.rwd_notify_img02{
+	position: relative;
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
 	cursor: pointer;
-	line-height: 40px;
+	bottom: 5px;
 	}
-	.lognin:link{
-	color:#EA6363;
+	.rwd_lognin:link{
+	color:#ffffff;
 	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-	font-size: 0.5em;
+	font-size: 1em;
+	text-decoration:none;
+	width: 90px;
+	}
+	.rwd_lognin:visited{
+	color:#ffffff;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	text-decoration:none;
 	}
-	.lognin:visited{
-	color:#EA6363;
-	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-	font-size: 0.5em;
-	text-decoration:none;
-	}
-	.lognin:hover{
+	.rwd_lognin:hover{
 	color:#444444;
 	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-	font-size: 0.5em;
 	text-decoration:none;
 	}
-	.lognin:active{
-	color:#666666;
+	.rwd_lognin:active{
+	color:#ffffff;
 	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-	font-size: 0.5em;
 	text-decoration:none;
 	}
 }
@@ -199,7 +231,7 @@ nav ul li:hover a {
 	}
 }
 
-@media screen and (max-width: 1281px) {
+@media screen and (max-width: 1279px) {
 .header_bg{
 	position: fixed;
 	z-index: 20;
@@ -344,25 +376,25 @@ nav ul li:hover a {
 	height:1.5em;
 	background-color: #ffffff;
 }
-.rwd_lognin:link{
+.lognin:link{
 	color:#EA6363;
 	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size: 1em;
 	text-decoration:none;
 }
-.rwd_lognin:visited{
+.lognin:visited{
 	color:#EA6363;
 	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size: 1em;
 	text-decoration:none;
 }
-.rwd_lognin:hover{
+.lognin:hover{
 	color:#444444;
 	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size: 1em;
 	text-decoration:none;
 }
-.rwd_lognin:active{
+.lognin:active{
 	color:#666666;
 	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size: 1em;
@@ -484,7 +516,7 @@ nav ul li:hover a {
 /*banner在768-1280之間的大小*/
 
 
-@media screen and (max-width: 1281px) {
+@media screen and (max-width: 1279px) {
 .top{
 	position: relative;
 	height: 90px;
@@ -744,6 +776,11 @@ nav ul li:hover a {
 /*banner在768-1280之間所呈現的樣子結束*/
 /*banner在768-1280之間所呈現的樣子結束*/
 
+@media screen and (max-width: 990px) {
+.top{
+	display: none;
+	}
+}
 
 /*針對input點擊會出現藍框做消除*/
 input:focus{outline:none}
@@ -790,6 +827,7 @@ input:focus{outline:none}
 	background-color: #F2EE71;
 	height: 460px;
 	width: 100%;
+	top: 100px;
 	margin: 0 0 8% 0%;
 }
 .cf:before,
@@ -882,35 +920,19 @@ input:focus{outline:none}
 	margin-top: -100px;
 	}
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 990px) {
 .mascot_fram{
-	position: relative;
-	height: 110px;
-	z-index: 2;
-	top: 75px;
-	margin-top: -100px;
-		float: left;
-	display: inline-block;
+	display: none;
 	}
 }
 @media screen and (max-width: 480px) {
 .mascot_fram{
-	position: relative;
-	height: 95px;
-	z-index: 2;
-	top: 58px;
-	margin-top: -100px;
-	display: inline-block;
+	display: none;
 	}
 }
 @media screen and (max-width: 320px) {
 .mascot_fram{
-	position: relative;
-	height: 50px;
-	z-index: 2;
-	top: 90px;
-	margin-top: -100px;
-	display: inline-block;
+	display: none;
 	}
 }
 
@@ -945,19 +967,22 @@ input:focus{outline:none}
 	width: 16%;
 	bottom: 0px;
 	cursor: pointer;
+	height: 210px;
 }
 .mascot_img02{
 	position: absolute;
 	width: 17%;
 	bottom: 0px;
 	cursor: pointer;
+	height: 210px;
 	}
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 1279px) {
 .mascot_img00{
 	position: absolute;
-	width: 50%;
+	width: 16%;
+	height: auto;
 	bottom: 0px;
 	cursor: pointer;
 
@@ -965,12 +990,39 @@ input:focus{outline:none}
 .mascot_img01{
 	position: absolute;
 	width: 16%;
+	height: auto;
 	bottom: 0px;
 	cursor: pointer;
 }
 .mascot_img02{
 	position: absolute;
 	width: 17%;
+	height: auto;
+	bottom: 0px;
+	cursor: pointer;
+	}
+}
+
+@media screen and (max-width: 768px) {
+.mascot_img00{
+	position: absolute;
+	width: 16%;
+	height: auto;
+	bottom: 0px;
+	cursor: pointer;
+
+}
+.mascot_img01{
+	position: absolute;
+	width: 16%;
+	height: auto;
+	bottom: 0px;
+	cursor: pointer;
+}
+.mascot_img02{
+	position: absolute;
+	width: 17%;
+	height: auto;
 	bottom: 0px;
 	cursor: pointer;
 	}
@@ -1012,9 +1064,10 @@ input:focus{outline:none}
 @media screen and (max-width: 480px) {
 .index_red{
 	background-color: #EB6363;
-	width: 100%;
-	height: 80px;
-	z-index: 1;
+    width: 100%;
+    height: 50px;
+    z-index: 1;
+    margin: 150px 0 0 0;
 	}
 }
 @media screen and (max-width: 320px) {
@@ -1040,7 +1093,7 @@ input:focus{outline:none}
 .index_yellow{
 	background-color: #F3EE9F;
 	width: 100%;
-	height: 50px;
+	height: 40px;
 	z-index: 1;
 	}
 }
@@ -1068,8 +1121,8 @@ input:focus{outline:none}
 .footer_bt_div{
 	position: relative;
 	text-align: center;
-	width: 90%;
-	margin-top:-100px;
+	width: 84%;
+	margin-top:-80px;
 	}
 }
 
@@ -1142,7 +1195,7 @@ input:focus{outline:none}
   opacity:0; /*滑鼠滑入時，透明度變0*/
 }
 /*跳出皮皮君吉祥物介紹div*/
-
+@media screen and (max-width: 1980px) {
 #aboutmascot01{
 	position: relative;
 	width: 100%;
@@ -1174,6 +1227,7 @@ input:focus{outline:none}
     top: 0px;
     z-index: 10;
     visibility: hidden;
+	}
 }
 @media screen and (max-width: 1980px) {
 .aboutmascot_position{
@@ -1628,7 +1682,7 @@ input:focus{outline:none}
 /*店家地圖1980視窗結束*/
 
 /*店家地圖1280視窗*/
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1279px) {
 .store_section{
 	clear: both;
 	width: 100%;
@@ -1638,22 +1692,21 @@ input:focus{outline:none}
 
 }
 .mapbutton_frame{
-	margin: -740px 0 0 2%;
+	margin: 120px 0 0 2%;
 	position: relative;
 	z-index:0;
-	width: 900px;
-	height: 880px;
 }
 .map{
-	width: 100%;
-	margin:0 auto;
+	width: 90%;
+	text-align: center;
+	margin:0 5%;
 }
 .google_map{
 	position: relative;
 	bottom: 16px;
 	z-index:1;
-	padding: 14% 0 0 0%;
-	width: 100%;
+	padding: 8% 0 0 0%;
+	width: 90%;
 }
 .mapframe{
 	display: none;
@@ -1679,15 +1732,16 @@ input:focus{outline:none}
 	display: none;
 }
 .map{
-	width: 100%;
-	margin:0 auto;
+	width: 90%;
+	text-align: center;
+	margin:0 5%;
 }
 .google_map{
 	position: relative;
 	bottom: 16px;
 	z-index:1;
-	padding: 14% 0 0 0%;
-	width: 100%;
+	padding: 8% 0 0 0%;
+	width: 90%;
 }
 .mapframe{
 	display: none;
@@ -1696,6 +1750,70 @@ input:focus{outline:none}
 	display: none;
 	}
 }
+
+@media screen and (max-width: 768px) {
+.store_section{
+	clear: both;
+	width: 100%;
+}
+.store_marquee_div{
+	display: none;
+
+}
+.mapbutton_frame{
+	display: none;
+}
+.map{
+	width: 90%;
+	text-align: center;
+	margin:0 4%;
+}
+.google_map{
+	position: relative;
+	bottom: 16px;
+	z-index:1;
+	padding: 12% 0 0 0%;
+	width: 92%;
+}
+.mapframe{
+	display: none;
+}
+.aside01{
+	display: none;
+	}
+}
+
+@media screen and (max-width:414px) {
+.store_section{
+	clear: both;
+	width: 100%;
+}
+.store_marquee_div{
+	display: none;
+
+}
+.mapbutton_frame{
+	display: none;
+}
+.map{
+	width: 90%;
+	text-align: center;
+}
+.google_map{
+	position: relative;
+	bottom: 16px;
+	z-index:1;
+	padding: 18% 0 0 0%;
+	width: 96%;
+}
+.mapframe{
+	display: none;
+}
+.aside01{
+	display: none;
+	}
+}
+
 
 /*店家地圖990視窗結束*/
 
@@ -2495,6 +2613,7 @@ input:focus{outline:none}
 	position:relative;
 }
 /*聯絡我們css*/
+@media only screen and (max-width: 1980px) {
 .about_blue_section{
 	position: relative;
 	padding: 8% 0 0 0;
@@ -2502,14 +2621,25 @@ input:focus{outline:none}
 .about_blue_bg{
 	position: relative;
 	background-color: #4EBDC2;
-	height: 490px;
+	width: 100%;
+	height: 500px;
 	padding: 1% 0% 1% 0;
 }
+
 .aboutus_img{
 	position: relative;
 	z-index: 1;
 	height: 480px;
 	margin: 0% 10% 0 14%; 
+}
+.aboutus_img3{
+	display: none;
+}
+.aboutus_img2{
+	display: none;
+}
+.aboutus_img4{
+	display: none;
 }
 .aboutus_p{
 	position: relative;
@@ -2518,7 +2648,7 @@ input:focus{outline:none}
 	width: 600px;
 	margin: -27% 0 0 26%;
 	line-height: 30px;
-	font-size: 18px;
+	font-size: 1.1em;
 	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 }
 .aboutus_p2{
@@ -2527,7 +2657,7 @@ input:focus{outline:none}
 	width: 610px;
 	margin: 3% 0 0 26%;
 	line-height: 30px;
-	font-size: 22px;
+	font-size: 1.4em;
 	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 }
 .mail{
@@ -2540,7 +2670,262 @@ input:focus{outline:none}
 	margin:-1% auto;
 	margin-bottom: 6%;
 	text-align: center;
+	}
+
+}/*1980視窗聯絡我們css結束*/
+
+
+@media only screen and (max-width: 1280px) {
+.about_blue_section{
+	position: relative;
+	padding: 8% 0 0 0;
 }
+.about_blue_bg{
+	position: relative;
+	background-color: #4EBDC2;
+	width: 100%;
+	padding: 1% 0% 1% 0;
+}
+
+.aboutus_img{
+	position: relative;
+	z-index: 1;
+	width: 75%;
+	height: 500px;
+	margin: 0% 10% 0 18%; 
+}
+.aboutus_img3{
+	display: none;
+}
+.aboutus_img2{
+	display: none;
+}
+.aboutus_img4{
+	display: none;
+}
+.aboutus_p{
+	position: relative;
+	color: #5D5D5D;
+	z-index: 2;
+	width: 53%;
+	margin: -350px 0 0 26%;
+	line-height: 30px;
+	font-size: 1em;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+}
+.aboutus_p2{
+	position: relative;
+	z-index: 2;
+	width: 53%;
+	margin: 15px 0 0 26%;
+	line-height: 30px;
+	font-size: 1.2em;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+}
+.mail{
+	color: #5C7FC0;
+	text-decoration:none;
+}
+/*聯絡我們改用圖片呈現的csss*/
+.aboutall{
+	position: relative;
+	margin:-1% auto;
+	margin-bottom: 6%;
+	text-align: center;
+	}
+
+}/*1280視窗聯絡我們css結束*/
+
+
+@media only screen and (max-width: 990px) {
+.about_blue_section{
+	position: relative;
+	padding: 8% 0 0 0;
+}
+.about_blue_bg{
+	position: relative;
+	background-color: #4EBDC2;
+	width: 100%
+	padding: 1% 0% 1% 0;
+}
+
+.aboutus_img{
+	display: none;
+}
+.aboutus_img3{
+	display: block;
+	position: relative;
+	z-index: 1;
+	width:60%; 
+	height: 500px;
+	margin: 0% 10% 0 17%;
+}
+.aboutus_img4{
+	display: none;
+}
+.aboutus_img2{
+	display: none;
+}
+.aboutus_p{
+	position: relative;
+	color: #5D5D5D;
+	z-index: 2;
+	width: 43%;
+	margin: -400px 0 0 26%;
+	line-height: 30px;
+	font-size: 1em;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+}
+.aboutus_p2{
+	position: relative;
+	z-index: 2;
+	width: 36%;
+	margin:0 auto;
+	margin-top: 3%;
+	line-height: 30px;
+	font-size: 1.1em;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+}
+.mail{
+	color: #5C7FC0;
+	text-decoration:none;
+}
+/*聯絡我們改用圖片呈現的csss*/
+.aboutall{
+	position: relative;
+	margin:-1% auto;
+	margin-bottom: 6%;
+	text-align: center;
+	}
+
+}/*990視窗聯絡我們css結束*/
+
+
+@media only screen and (max-width: 768px) {
+.about_blue_section{
+	position: relative;
+	padding: 8% 0 0 0;
+}
+.about_blue_bg{
+	position: relative;
+	background-color: #4EBDC2;
+	width: 100%
+	padding: 1% 0% 1% 0;
+}
+
+.aboutus_img{
+	display: none;
+}
+.aboutus_img3{
+	display: none;
+}
+.aboutus_img2{
+	display: block;
+	position: relative;
+	z-index: 1;
+	width:60%; 
+	height: 500px;
+	margin: 0% 10% 0 17%;
+}
+.aboutus_img4{
+	display: none;
+}
+.aboutus_p{
+	position: relative;
+	color: #5D5D5D;
+	z-index: 2;
+	width: 43%;
+	margin: -400px 0 0 26%;
+	line-height: 30px;
+	font-size: 1em;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+}
+.aboutus_p2{
+	position: relative;
+	z-index: 2;
+	width: 40%;
+	margin: 3% 0 0 25%;
+	line-height: 30px;
+	font-size: 1.1em;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+}
+.mail{
+	color: #5C7FC0;
+	text-decoration:none;
+}
+/*聯絡我們改用圖片呈現的csss*/
+.aboutall{
+	position: relative;
+	margin:-1% auto;
+	margin-bottom: 6%;
+	text-align: center;
+	}
+
+}/*768視窗聯絡我們css結束*/
+
+@media only screen and (max-width: 480px) {
+.about_blue_section{
+	position: relative;
+	padding: 8% 0 0 0;
+}
+.about_blue_bg{
+	position: relative;
+	background-color: #4EBDC2;
+	width: 100%
+	padding: 1% 0% 1% 0;
+}
+
+.aboutus_img{
+	display: none;
+}
+.aboutus_img3{
+	display: none;
+}
+.aboutus_img2{
+	display: none;
+}
+.aboutus_img4{
+	display: block;
+	position: relative;
+	z-index: 1;
+	width:60%; 
+	height: 800px;
+	margin: 0% 10% 0 17%;
+}
+.aboutus_p{
+	position: relative;
+	color: #5D5D5D;
+	z-index: 2;
+	width: 43%;
+	margin: -400px 0 0 26%;
+	line-height: 30px;
+	font-size: 1em;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+}
+.aboutus_p2{
+	position: relative;
+	z-index: 2;
+	width: 40%;
+	margin: 3% 0 0 25%;
+	line-height: 30px;
+	font-size: 1.1em;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+}
+.mail{
+	color: #5C7FC0;
+	text-decoration:none;
+}
+/*聯絡我們改用圖片呈現的csss*/
+.aboutall{
+	position: relative;
+	margin:-1% auto;
+	margin-bottom: 6%;
+	text-align: center;
+	}
+
+}/*480視窗聯絡我們css結束*/
+
+
 /*聯絡我們程式寫出的css(後改為圖片）
 .aboutus_photo_div1{
 	display: table;

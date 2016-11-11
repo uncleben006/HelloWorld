@@ -1,20 +1,9 @@
 <!--行動裝置rwd的視窗變小nav變小圖示可展開-->
 		<nav class="rwd_nav">
 				<a><img src="../../jomor_html/img/rwdlogo.png" class="rwdlogo"></a>
-			    <a id="menu-toggle" href="javascript:void(0);">&#9776;</a>
-			    <ul class="rwd_nav_ul">
-			    	<li><a href="../../index.php">首頁</a></li>
-			        <li><a href="../../system/store/store1-2.php">店家地圖</a></li>
-			        <li><a href="../../system/store/store2.php">店家列表</a></li>
-			        <li><a href="../../system/group/jo.php">揪團</a></li>
-			        <li><a href="../../discussion.php">討論區</a></li>
-			        <li><a href="../../blog.php">桌遊專欄</a></li>
-			        <li><a href="../../aboutus.php">聯絡我們</a></li>
-			    </ul>
 				<!--rwd右邊的通知欄與頭像-->
-				<table>
-					<tr>
-						<td>
+				<div class="rwd_nav_hd" >
+				<div class="rwd_nav_table">
 			    			<?php
 								if(isset($_SESSION['account'])){
 									$account = $_SESSION['account'];
@@ -95,7 +84,8 @@
 									}									
 								}
 							?>								
-						</td>
+						</div>
+						
 						<?php
 							if(isset($_SESSION['pri'])){
 								?>
@@ -111,8 +101,8 @@
 								$photo = $userAccount['photo'];
 								if($pri==0){//會員註冊但尚未驗證
 									?>
-									<td rowspan="2" class="top_notify_td02"><!--圓形頭貼照-->
-										<div class="nav_userImg" >
+									<!--圓形頭貼照-->
+										<div class="rwd_nav_userImg" >
 											<img src="../user/photo/<?php echo $photo ?>" class="rwd_notify_img02" onClick="openNav()">
 											<!--頭像旁三角形選單<div class="nav_select" onClick="openNav()"></div>-->
 										</div>
@@ -130,15 +120,18 @@
 								  			</div>   
 										</div> 
 										頭貼點他跳出的div選單-->
-									</td>
-									<td><a href="../user/userdata.php" class="rwd_lognin">會員</a></td>
-									<td><a href="../user/logout.php" class="rwd_lognin">登出</a></td>
+									<div class="rwd_nav_ppp">
+										<a href="../user/userdata.php" class="rwd_lognin">會員</a>
+									</div>
+									<div class="rwd_nav_ppp2">
+										<a href="../user/logout.php" class="rwd_lognin">登出</a>
+									</div>
 									<?php
 								}
 								else if($pri==1){//正式會員
 									?>
-									<td rowspan="2" class="top_notify_td02"><!--圓形頭貼照-->
-										<div class="nav_userImg" >
+									<!--圓形頭貼照-->
+										<div class="rwd_nav_userImg" >
 											<img src="../user/photo/<?php echo $photo ?>" class="img_notify_img02" onClick="openNav()">
 											<!--頭像旁三角形選單<div class="nav_select" onClick="openNav()"></div>-->
 										</div>
@@ -156,15 +149,18 @@
 								  			</div>   
 										</div> 
 										頭貼點他跳出的div選單-->
-									</td>
-									<td><a href="../user/userdata.php" class="rwd_lognin">會員</a></td>
-									<td><a href="../user/logout.php" class="rwd_lognin">登出</a></td>
+									<div class="rwd_nav_ppp">
+										<a href="../user/userdata.php" class="rwd_lognin">會員</a>
+									</div>
+									<div class="rwd_nav_ppp2"> 
+										<a href="../user/logout.php" class="rwd_lognin">登出</a>
+									</div>
 									<?php
 								}
 								else if($pri==2){//fb登入會員
 									?>
-									<td rowspan="2" class="top_notify_td02"><!--圓形頭貼照-->
-										<div class="nav_userImg" >
+									<!--圓形頭貼照-->
+										<div class="rwd_nav_userImg" >
 											<img src="<?php echo $photo ?>" class="rwd_notify_img02" onClick="openNav()">
 											<!--頭像旁三角形選單<div class="nav_select" onClick="openNav()"></div>-->
 										</div>
@@ -182,15 +178,18 @@
 								  			</div>   
 										</div> 
 										頭貼點他跳出的div選單-->
-									</td>
-									<td><a href="../user/userdata.php" class="rwd_lognin">會員</a></td>
-									<td><a href="../user/logout.php" class="rwd_lognin">登出</a></td>
+									<div class="rwd_nav_ppp">
+										<a href="../user/userdata.php" class="rwd_lognin">會員</a>
+									</div>
+									<div class="rwd_nav_ppp2">
+										<a href="../user/logout.php" class="rwd_lognin">登出</a>
+									</div>
 									<?php
 								}
 								else{//管理員
 									?>
-									<td rowspan="2" class="top_notify_td02"><!--圓形頭貼照-->
-										<div class="nav_userImg" >
+									<!--圓形頭貼照-->
+										<div class="rwd_nav_userImg" >
 											<img src="../user/photo/<?php echo $photo ?>" class="rwd_notify_img02" onClick="openNav()">
 											<!--頭像旁三角形選單<div class="nav_select" onClick="openNav()"></div>-->
 										</div>
@@ -208,25 +207,42 @@
 								  			</div>   
 										</div> 
 										頭貼點他跳出的div選單-->
-									</td>
-									<td><a href="../user/userdata.php" class="rwd_lognin">管理</a></td>
-									<td><a href="../user/logout.php" class="rwd_lognin">登出</a></td>
+									<div class="rwd_nav_ppp">
+										<a href="../user/userdata.php" class="rwd_lognin">管理</a>
+									</div>
+									<div class="rwd_nav_ppp2">
+										<a href="../user/logout.php" class="rwd_lognin">登出</a>
+									</div>
 									<?php
 								}
 							}
 							else{
 								?>
-								<td rowspan="2" class="top_notify_td02"><!--圓形頭貼照-->
+								<!--圓形頭貼照-->
+								<div class="rwd_nav_userImg" >
 									<img src="../user/photo/default.png" class="rwd_notify_img02">
-								</td>
-								<td><a href="../user/login.php" class="rwd_lognin">登入</a></td>
-								<td><a href="../user/signup.php" class="rwd_lognin">註冊</a></td>
+								</div>
+								<div class="rwd_nav_ppp">
+									<a href="../user/login.php" class="rwd_lognin">登入</a>
+								</div>
+								<div class="rwd_nav_ppp2">
+									<a href="../user/signup.php" class="rwd_lognin">註冊</a>
+								</div>
 								<?php
 							}
 						?>
-						</td>
-					</tr>
-				</table>
+						</div>
+			    <a id="menu-toggle" href="javascript:void(0);">&#9776;</a>
+			    <ul class="rwd_nav_ul">
+			    	<li><a href="../../index.php">首頁</a></li>
+			        <li><a href="../../system/store/store1-2.php">店家地圖</a></li>
+			        <li><a href="../../system/store/store2.php">店家列表</a></li>
+			        <li><a href="../../system/group/jo.php">揪團</a></li>
+			        <li><a href="../../discussion.php">討論區</a></li>
+			        <li><a href="../../blog.php">桌遊專欄</a></li>
+			        <li><a href="../../aboutus.php">聯絡我們</a></li>
+			    </ul>
+				
 		</nav>
 
 
