@@ -7,6 +7,7 @@
 	<script type="text/javascript" src="../../javascript.js"></script>
 	<script type="text/javascript" src="../../include/redips-scroll.js"></script>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" href="../../jomor_html/img/jomorparty_logo.png" type="image/ico" />
 </head>
 	<body id="body0">
@@ -328,7 +329,7 @@
 			//鎖定房間
 			//鎖定房間
 			//鎖定房間
-			if(isset($_POST['lockRoom'])){
+			if(isset($_GET['lockRoom'])){
 				$no = $_GET['no'];
 				
 				//已經鎖定
@@ -1710,7 +1711,7 @@
 	        <!--如何玩圖片教學div-->
 	        <!--如何玩圖片教學div-->
 	        <!--如何玩圖片教學div-->
-			<div id="rule">
+			<div id="rule" onClick="window.location.href='jo.php'">
 				<div class="rule_center">
 				  <div class="rule_fram01">
 						<span class="rule_title">如何揪團</span>

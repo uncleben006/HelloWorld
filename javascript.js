@@ -220,6 +220,14 @@ function openNotify() {
     }
 }
 
+function openNotify_rwd() {
+    var x = document.getElementById('notify_rwd');
+    if (x.style.visibility === 'hidden') {
+        x.style.visibility = 'visible';
+    } else {
+        x.style.visibility = 'hidden';
+    }
+}
 /*第二版首頁吉祥物跳出的自我介紹*/
 function op_aboutmascot01(divID) {
     //根據傳遞的參數確定顯示的層
@@ -257,5 +265,19 @@ function openstype(divID)
       divID.style.visibility='hidden';
       divID.style.left=(document.body.clientWidth-240)/2;
       divID.style.top=(document.body.clientHeight-139)/2;
+    }
+}
+
+/*rwd選單按鈕點擊隱藏*/
+function rwdbt(divID) {
+    if (divID.style.display== 'block') {
+        //根據傳遞的參數確定顯示的層
+        divID.style.display = 'none';
+        divID.style.left = (document.body.clientWidth - 240) / 2;
+        divID.style.top = (document.body.clientHeight - 139) / 2;
+    } else {
+        divID.style.display = 'block';
+        divID.style.left = (document.body.clientWidth - 240) / 2;
+        divID.style.top = (document.body.clientHeight - 139) / 2;
     }
 }

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: localhost:3306
--- 建立日期: 2016 年 11 月 11 日 13:18
+-- 建立日期: 2016 年 11 月 21 日 15:26
 -- 伺服器版本: 5.5.52-cll
 -- PHP 版本: 5.6.20
 
@@ -62,16 +62,13 @@ CREATE TABLE IF NOT EXISTS `chat` (
 --
 
 INSERT INTO `chat` (`no`, `account`, `name`, `now`, `chat`) VALUES
-(1, 'eric810815', '小e', '2016-11-08 21:21:42', '？？'),
-(1, 'eric810815', '小e', '2016-11-08 21:21:44', ''),
-(1, 'eric810815', '小e', '2016-11-08 21:21:57', '１'),
-(1, 'eric810815', '小e', '2016-11-08 21:21:58', ''),
-(1, 'eric810815', '小e', '2016-11-08 21:22:00', '２'),
-(1, 'eric810815', '小e', '2016-11-08 21:22:10', '為啥會空白'),
-(1, 'eric810815', '小e', '2016-11-08 21:22:16', '３'),
-(1, 'eric810815', '小e', '2016-11-08 21:22:22', 'a'),
-(1, 'fbuser27HK', 'Andy Lai', '2016-11-09 19:08:45', '安安'),
-(1, 'fbuser25XG', '皮皮君', '2016-11-09 19:47:12', '安安');
+(36, 'fbuser37IO', '王淑婷', '2016-11-18 22:46:46', '有嗎？？'),
+(36, 'fbuser38LW', '郭丁全', '2016-11-18 22:47:36', 'come '),
+(36, 'fbuser37IO', '王淑婷', '2016-11-18 22:49:36', '哇'),
+(36, 'fbuser36JB', '張雅榕', '2016-11-18 22:49:47', '有了～'),
+(36, 'fbuser36JB', '張雅榕', '2016-11-18 22:50:25', '佳蓉姊姊去洗澡了喔？'),
+(37, 'fbuser21SG', '朱紹瑋', '2016-11-21 00:46:14', '安安'),
+(37, 'a12776', '連莊', '2016-11-21 13:58:54', '你好呀~');
 
 -- --------------------------------------------------------
 
@@ -130,7 +127,7 @@ INSERT INTO `member` (`no`, `people`, `name`, `account`, `email`, `photo`) VALUE
 (51, 5, '王柏元', 'fbuser19GC', 'uncleben006@yahoo.com.tw', '38827.jpg'),
 (51, 5, '俐孟', '1114', 'aavail007@gmail.com', '725775.jpg'),
 (51, 5, '朱紹瑋', 'fbuser21SG', 'orz840710@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/14900390_1247769618606674_64131082936381349_n.jpg?oh=d63dcb52bb8f6d3eb71f474b179ea93c&oe=58C61032'),
-(53, 7, '皮皮君', 'pipi', 'uncleben006@gmail.com', 'pipi.png'),
+(53, 7, '皮皮君', 'pipi', 'uncleben006@gmail.com', '597552.png'),
 (53, 7, '王柏元', 'uncleben006', 'uncleben006@gmail.com', '57173.jpg'),
 (53, 7, '超過五個字', '333', 'uncleben006@gmail.com', 'iMac-icon.png'),
 (53, 7, '朱紹瑋', 'fbuser21SG', 'orz840710@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/14900390_1247769618606674_64131082936381349_n.jpg?oh=d63dcb52bb8f6d3eb71f474b179ea93c&oe=58C61032'),
@@ -146,13 +143,53 @@ INSERT INTO `member` (`no`, `people`, `name`, `account`, `email`, `photo`) VALUE
 (54, 12, '俐孟', '1114', 'aavail007@gmail.com', '725775.jpg'),
 (61, 6, '俐孟', '1114', 'aavail007@gmail.com', '725775.jpg'),
 (61, 6, '陳波吉', 'fbuser23PB', 'aavail007@gmail.com', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/11751869_730092180452290_4578879045156836968_n.jpg?oh=2c66b2dc7ff4ac855253094b847c3f68&oe=588D844E'),
-(1, 10, '熊哥', 'bear', '6666666@gmail.com', '655836.png'),
-(1, 10, '妤妤', 'fbuser22PU', 'linda901641@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/13892203_1162317477121935_1013107249612352314_n.jpg?oh=80c490f416b30e935af75b8b9bdd20d6&oe=5899F766'),
-(1, 10, '王柏元', 'fbuser25PV', 'uncleben006@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/12799176_1266694493344919_7910972604712821508_n.jpg?oh=a5e1d0363600c391cb7b2ebc2bf3c1fe&oe=58CC4F31'),
-(1, 10, '小e', 'eric810815', 'eric810815@hotmail.com.tw', '823618.jpg'),
-(4, 4, '連莊', 'a12776', 'a12776sf974636@gmail.com', '549364.jpg'),
-(1, 10, 'Andy Lain', 'fbuser27HK', 'a29575710@gmail.com', 'https://scontent.xx.fbcdn.net/v/t1.0-1/c40.0.160.160/p160x160/12963948_1179691022041705_6200834732114341782_n.jpg?oh=e13a91c6fd8e8ecb268a746c1da1e32d&oe=588DC36B'),
-(1, 10, '王柏元', 'uncleben006', 'uncleben006@gmail.com', '57173.jpg');
+(13, 45, '俐孟', '1114', 'aavail007@gmail.com', '725775.jpg'),
+(15, 10, '俐孟', '1114', 'aavail007@gmail.com', '725775.jpg'),
+(15, 10, '妤妤', 'fbuser22PU', 'linda901641@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/13892203_1162317477121935_1013107249612352314_n.jpg?oh=80c490f416b30e935af75b8b9bdd20d6&oe=5899F766'),
+(17, 15, '俐孟', '1114', 'aavail007@gmail.com', '725775.jpg'),
+(17, 15, '妤妤', 'fbuser22PU', 'linda901641@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/13892203_1162317477121935_1013107249612352314_n.jpg?oh=80c490f416b30e935af75b8b9bdd20d6&oe=5899F766'),
+(18, 6, '妤妤', 'fbuser22PU', 'linda901641@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/13892203_1162317477121935_1013107249612352314_n.jpg?oh=80c490f416b30e935af75b8b9bdd20d6&oe=5899F766'),
+(18, 6, '俐孟', '1114', 'aavail007@gmail.com', '725775.jpg'),
+(13, 45, '暴躁小貓', 'home5063', 'home5063@gmail.com', '336628.png'),
+(20, 5, 'WII', '0606', 'wii840606@gmail.com', '99809.jpg'),
+(20, 5, '妤妤', 'fbuser22PU', 'linda901641@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/13892203_1162317477121935_1013107249612352314_n.jpg?oh=80c490f416b30e935af75b8b9bdd20d6&oe=5899F766'),
+(15, 10, '陳俐孟', 'fbuser20MC', 'aavail007tw@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/14358977_1200323503364746_4066080164953089897_n.jpg?oh=6900f2ecbc2f6215b1ee461a45fc91a2&oe=5891271C'),
+(17, 15, '陳俐孟', 'fbuser20MC', 'aavail007tw@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/14358977_1200323503364746_4066080164953089897_n.jpg?oh=6900f2ecbc2f6215b1ee461a45fc91a2&oe=5891271C'),
+(22, 4, '妤妤', 'fbuser22PU', 'linda901641@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/13892203_1162317477121935_1013107249612352314_n.jpg?oh=80c490f416b30e935af75b8b9bdd20d6&oe=5899F766'),
+(22, 4, '熊哥', 'bear', '6666666@gmail.com', '655836.png'),
+(18, 6, '陳俐孟', 'fbuser20MC', 'aavail007tw@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/14358977_1200323503364746_4066080164953089897_n.jpg?oh=6900f2ecbc2f6215b1ee461a45fc91a2&oe=5891271C'),
+(20, 5, '陳俐孟', 'fbuser20MC', 'aavail007tw@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/14358977_1200323503364746_4066080164953089897_n.jpg?oh=6900f2ecbc2f6215b1ee461a45fc91a2&oe=5891271C'),
+(22, 4, '俐孟', '1114', 'aavail007@gmail.com', '725775.jpg'),
+(22, 4, '陳俐孟', 'fbuser20MC', 'aavail007tw@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/14358977_1200323503364746_4066080164953089897_n.jpg?oh=6900f2ecbc2f6215b1ee461a45fc91a2&oe=5891271C'),
+(25, 8, '妤妤', 'fbuser22PU', 'linda901641@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/13892203_1162317477121935_1013107249612352314_n.jpg?oh=80c490f416b30e935af75b8b9bdd20d6&oe=5899F766'),
+(25, 8, '陳俐孟', 'fbuser20MC', 'aavail007tw@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/14358977_1200323503364746_4066080164953089897_n.jpg?oh=6900f2ecbc2f6215b1ee461a45fc91a2&oe=5891271C'),
+(25, 8, '熊哥', 'bear', '6666666@gmail.com', '655836.png'),
+(13, 45, '妤妤', 'fbuser22PU', 'linda901641@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/13892203_1162317477121935_1013107249612352314_n.jpg?oh=80c490f416b30e935af75b8b9bdd20d6&oe=5899F766'),
+(25, 8, '俐孟', '1114', 'aavail007@gmail.com', '725775.jpg'),
+(26, 7, '熊哥', 'bear', '6666666@gmail.com', '655836.png'),
+(27, 8, '熊哥', 'bear', '6666666@gmail.com', '655836.png'),
+(28, 9, '熊哥', 'bear', '6666666@gmail.com', '655836.png'),
+(27, 8, '陳俐孟', 'fbuser20MC', 'aavail007tw@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/14358977_1200323503364746_4066080164953089897_n.jpg?oh=6900f2ecbc2f6215b1ee461a45fc91a2&oe=5891271C'),
+(28, 9, '妤妤', 'fbuser22PU', 'linda901641@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/13892203_1162317477121935_1013107249612352314_n.jpg?oh=80c490f416b30e935af75b8b9bdd20d6&oe=5899F766'),
+(29, 50, '妤妤', 'fbuser22PU', 'linda901641@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/13892203_1162317477121935_1013107249612352314_n.jpg?oh=80c490f416b30e935af75b8b9bdd20d6&oe=5899F766'),
+(27, 8, '妤妤', 'fbuser22PU', 'linda901641@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/13892203_1162317477121935_1013107249612352314_n.jpg?oh=80c490f416b30e935af75b8b9bdd20d6&oe=5899F766'),
+(29, 50, '陳俐孟', 'fbuser20MC', 'aavail007tw@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/14358977_1200323503364746_4066080164953089897_n.jpg?oh=6900f2ecbc2f6215b1ee461a45fc91a2&oe=5891271C'),
+(26, 7, '陳俐孟', 'fbuser20MC', 'aavail007tw@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/14358977_1200323503364746_4066080164953089897_n.jpg?oh=6900f2ecbc2f6215b1ee461a45fc91a2&oe=5891271C'),
+(31, 20, '妤妤', 'fbuser22PU', 'linda901641@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/13892203_1162317477121935_1013107249612352314_n.jpg?oh=80c490f416b30e935af75b8b9bdd20d6&oe=5899F766'),
+(31, 20, '陳俐孟', 'fbuser20MC', 'aavail007tw@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/14358977_1200323503364746_4066080164953089897_n.jpg?oh=6900f2ecbc2f6215b1ee461a45fc91a2&oe=5891271C'),
+(32, 7, '妤妤', 'fbuser22PU', 'linda901641@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/13892203_1162317477121935_1013107249612352314_n.jpg?oh=80c490f416b30e935af75b8b9bdd20d6&oe=5899F766'),
+(33, 6, '陳俐孟', 'fbuser20MC', 'aavail007tw@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/14358977_1200323503364746_4066080164953089897_n.jpg?oh=6900f2ecbc2f6215b1ee461a45fc91a2&oe=5891271C'),
+(32, 7, '陳俐孟', 'fbuser20MC', 'aavail007tw@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/14358977_1200323503364746_4066080164953089897_n.jpg?oh=6900f2ecbc2f6215b1ee461a45fc91a2&oe=5891271C'),
+(35, 8, '陳俐孟', 'fbuser20MC', 'aavail007tw@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/14358977_1200323503364746_4066080164953089897_n.jpg?oh=6900f2ecbc2f6215b1ee461a45fc91a2&oe=5891271C'),
+(35, 8, '妤妤', 'fbuser22PU', 'linda901641@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/13892203_1162317477121935_1013107249612352314_n.jpg?oh=80c490f416b30e935af75b8b9bdd20d6&oe=5899F766'),
+(29, 50, '熊哥', 'bear', '6666666@gmail.com', '655836.png'),
+(36, 4, '張雅榕', 'fbuser36JB', 'annie229118@gmail.com', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/14222195_1055367181220683_7731272424054825144_n.jpg?oh=185bb7c284543f41112ade966fb223cf&oe=588D6F62'),
+(36, 4, '王淑婷', 'fbuser37IO', 'f508775@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/14516572_1564962056862822_3643643370398939985_n.jpg?oh=316679c0f11eee834c2c323bb899d0bf&oe=58BEF17B'),
+(36, 4, '郭丁全', 'fbuser38LW', 'joe99456@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/13407123_1260335143999742_8827102450526965352_n.jpg?oh=0a97acd8bd4cc86dfb0d588495e0fa88&oe=58CB307B'),
+(37, 7, '連莊', 'a12776', 'a12776sf974636@gmail.com', '549364.jpg'),
+(38, 5, '張雅榕', 'fbuser36JB', 'annie229118@gmail.com', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/14222195_1055367181220683_7731272424054825144_n.jpg?oh=185bb7c284543f41112ade966fb223cf&oe=588D6F62'),
+(37, 7, '朱紹瑋', 'fbuser21SG', 'orz840710@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/14900390_1247769618606674_64131082936381349_n.jpg?oh=d63dcb52bb8f6d3eb71f474b179ea93c&oe=58C61032'),
+(37, 7, '王柏元', 'fbuser25PV', 'uncleben006@yahoo.com.tw', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/12799176_1266694493344919_7910972604712821508_n.jpg?oh=a5e1d0363600c391cb7b2ebc2bf3c1fe&oe=58CC4F31');
 
 -- --------------------------------------------------------
 
@@ -188,7 +225,26 @@ INSERT INTO `remind` (`no`, `account`, `email`, `host`, `room`, `date`, `time`, 
 (6, 'uncleben006', 'uncleben006@gmail.com', 'uncleben006', '測試刪除', '2016-11-11', '15:16:00', '桌遊地下城Bungeon', 2),
 (6, 'bear', '6666666@gmail.com', 'uncleben006', '測試刪除', '2016-11-11', '15:16:00', '桌遊地下城Bungeon', 2),
 (7, 'fbuser25PV', 'uncleben006@yahoo.com.tw', 'fbuser25PV', '測試刪除', '2016-11-12', '15:16:00', '貓咪貓咪 Catcat 桌遊咖啡屋', 2),
-(7, 'uncleben006', 'uncleben006@gmail.com', 'fbuser25PV', '測試刪除', '2016-11-12', '15:16:00', '貓咪貓咪 Catcat 桌遊咖啡屋', 2);
+(7, 'uncleben006', 'uncleben006@gmail.com', 'fbuser25PV', '測試刪除', '2016-11-12', '15:16:00', '貓咪貓咪 Catcat 桌遊咖啡屋', 2),
+(1, '1114', 'aavail007@gmail.com', 'bear', '範例', '2016-11-17', '15:00:00', 'Swan Cafe 天鵝桌遊館', 1),
+(1, 'fbuser21SG', 'orz840710@yahoo.com.tw', 'bear', '範例', '2016-11-17', '15:00:00', 'Swan Cafe 天鵝桌遊館', 1),
+(8, 'fbuser20MC', 'aavail007tw@yahoo.com.tw', 'fbuser20MC', '1115畢展測試', '2016-11-19', '01:00:00', 'Legend Fun 樂聚坊桌上遊戲', 2),
+(8, '1114', 'aavail007@gmail.com', 'fbuser20MC', '1115畢展測試', '2016-11-19', '01:00:00', 'Legend Fun 樂聚坊桌上遊戲', 2),
+(11, '1114', 'aavail007@gmail.com', '1114', '999', '2016-11-16', '15:58:00', '動桌遊 Dong Board Game', 0),
+(1, 'bear', '6666666@gmail.com', 'bear', '範例', '2016-11-17', '15:00:00', 'Swan Cafe 天鵝桌遊館', 0),
+(1, 'fbuser22PU', 'linda901641@yahoo.com.tw', 'bear', '範例', '2016-11-17', '15:00:00', 'Swan Cafe 天鵝桌遊館', 0),
+(1, 'fbuser25PV', 'uncleben006@yahoo.com.tw', 'bear', '範例', '2016-11-17', '15:00:00', 'Swan Cafe 天鵝桌遊館', 0),
+(1, 'eric810815', 'eric810815@hotmail.com.tw', 'bear', '範例', '2016-11-17', '15:00:00', 'Swan Cafe 天鵝桌遊館', 0),
+(1, 'fbuser27HK', 'a29575710@gmail.com', 'bear', '範例', '2016-11-17', '15:00:00', 'Swan Cafe 天鵝桌遊館', 0),
+(1, 'uncleben006', 'uncleben006@gmail.com', 'bear', '範例', '2016-11-17', '15:00:00', 'Swan Cafe 天鵝桌遊館', 0),
+(1, 'fbuser20MC', 'aavail007tw@yahoo.com.tw', 'bear', '範例', '2016-11-17', '15:00:00', 'Swan Cafe 天鵝桌遊館', 0),
+(23, 'fbuser22PU', 'linda901641@yahoo.com.tw', 'fbuser22PU', '來一發桌遊', '2016-11-17', '21:59:00', '貓咪貓咪 Catcat 桌遊咖啡屋', 2),
+(23, 'fbuser20MC', 'aavail007tw@yahoo.com.tw', 'fbuser22PU', '來一發桌遊', '2016-11-17', '21:59:00', '貓咪貓咪 Catcat 桌遊咖啡屋', 2),
+(23, '1114', 'aavail007@gmail.com', 'fbuser22PU', '來一發桌遊', '2016-11-17', '21:59:00', '貓咪貓咪 Catcat 桌遊咖啡屋', 2),
+(22, 'fbuser22PU', 'linda901641@yahoo.com.tw', 'fbuser22PU', '好好玩～', '2016-12-31', '01:00:00', '女巫店', 0),
+(22, 'bear', '6666666@gmail.com', 'fbuser22PU', '好好玩～', '2016-12-31', '01:00:00', '女巫店', 0),
+(22, '1114', 'aavail007@gmail.com', 'fbuser22PU', '好好玩～', '2016-12-31', '01:00:00', '女巫店', 0),
+(22, 'fbuser20MC', 'aavail007tw@yahoo.com.tw', 'fbuser22PU', '好好玩～', '2016-12-31', '01:00:00', '女巫店', 0);
 
 -- --------------------------------------------------------
 
@@ -210,15 +266,16 @@ CREATE TABLE IF NOT EXISTS `room` (
   `spend` text COLLATE utf8_unicode_ci NOT NULL,
   `remark` text COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`no`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=39 ;
 
 --
 -- 資料表的匯出資料 `room`
 --
 
 INSERT INTO `room` (`no`, `decide`, `host`, `room`, `store`, `game`, `date`, `time`, `time2`, `people`, `spend`, `remark`) VALUES
-(1, 0, 'bear', '範例', 'Swan Cafe 天鵝桌遊館', '電力公司', '2016-11-17', '15:00:00', '18:00:00', '10', '無', '電力公司超好玩'),
-(4, 0, 'a12776', '人生大富翁', '卡卡城桌上遊戲休閒館（士林店）', 'CV桌遊人生/石器時代', '2016-11-13', '13:30:00', '18:30:00', '4', '無', '想要玩的快加進來吧');
+(36, 0, 'fbuser36JB', '4個ㄎㄧㄤ', '女巫店', '三國殺', '2016-11-23', '17:00:00', '19:00:00', '4', '無', '無'),
+(37, 0, 'a12776', '專題設計者請進2.0', '卡卡城桌上遊戲休閒館（士林店）', '盜夢都市、盜夢都市2銀河', '2016-11-26', '13:00:00', '22:00:00', '7', '無', '請帶著愉悅的心來嘴砲遊戲~'),
+(38, 0, 'fbuser36JB', 'JOMOR', '晴天喵喵', '說書人', '2016-11-21', '13:00:00', '20:00:00', '5', '無', '無');
 
 -- --------------------------------------------------------
 
@@ -493,30 +550,39 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`no`, `pri`, `account`, `password`, `name`, `email`, `introduction`, `photo`, `gender`, `favorite`, `goodAt`) VALUES
 ('666WI', 3, '0606', '0606', 'WII', 'wii840606@gmail.com', 'hihi', '99809.jpg', '女', '', ''),
-('666LM', 3, '1114', '1114007', '俐孟', 'aavail007@gmail.com', '哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈\r\n哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈\r\n哈哈哈哈哈哈哈哈', '725775.jpg', '女', '', ''),
+('666LM', 3, '1114', '1114007', '俐孟', 'aavail007@gmail.com', '謝謝來看我的畢展作品～', '725775.jpg', '女', '', ''),
 ('022QJ', 1, 'a12776', 'a918323403', '連莊', 'a12776sf974636@gmail.com', '希望可以有更多人玩桌遊，\r\n最近再挑戰情境式桌遊', '549364.jpg', '男', '帝國曙光', '四季物語'),
 ('666BB', 3, 'bear', 'bro', '熊哥', '6666666@gmail.com', '我是熊哥我最屌', '655836.png', '其他', '電力公司', '矮人礦坑'),
+('032KN', 1, 'chenyichen', 'lollipop', '益琛', 'ddan40411tw@gmail.com', '', 'default.png', '', '', ''),
 ('016KS', 1, 'eric810815', 'handsome15', '小e', 'eric810815@hotmail.com.tw', '我昨天夢到林思妤在游泳池\r\n門口吐的一蹋糊塗。', '823618.jpg', '', '', ''),
 ('1212810478758403', 2, 'fbuser13BZ', 'passYF', '林零總總', 'sunny26062299@yahoo.com.tw', '跟我pk阿瓦隆阿', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/13615255_1108022752570510_7032590067287616649_n.jpg?oh=b693a2144df07357bf46e797ac886a42&oe=58881993', '女', '阿瓦隆', '阿瓦隆'),
 ('1451591994858906', 2, 'fbuser16MW', 'passQX', '郭信凱齁', 'k10055960@yahoo.com.tw', '這是一個FB用戶', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/13782282_1324571834227590_907613451856110791_n.jpg?oh=0ebb42d1225bb618eb1121b7c3416738&oe=58C9172C', '', '', ''),
 ('10153856386352680', 2, 'fbuser17RR', 'passAM', '李明相', 'mysterio_068@msn.com', '這是一個FB用戶', 'https://scontent.xx.fbcdn.net/v/t1.0-1/c0.0.160.160/p160x160/12321402_10153350659422680_2129102879922238034_n.jpg?oh=2f9a7f040824e0bed43c41364107fff2&oe=5899452A', '', '', ''),
 ('', 1, 'fbuser18KJ', 'passSQ', '', '', '這是一個FB用戶', '&oe=', '', '', ''),
 ('1716981741956872', 2, 'fbuser20KQ', 'passHJ', '楊芷宜', 'g83101@gmail.com', '這是一個FB用戶', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/13880378_1657648224556891_3403152126841177086_n.jpg?oh=b1b8de0d5925cbe700f54e2edefb4766&oe=5887FF6A', '', '', ''),
-('1241951149201981', 2, 'fbuser20MC', 'passMW', '陳俐孟', 'aavail007tw@yahoo.com.tw', '這是一個FB用戶', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/14358977_1200323503364746_4066080164953089897_n.jpg?oh=6900f2ecbc2f6215b1ee461a45fc91a2&oe=5891271C', '', '', ''),
+('1241951149201981', 2, 'fbuser20MC', 'passMW', '陳俐孟', 'aavail007tw@yahoo.com.tw', '大家好～感謝使用我們畢展的網站～', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/14358977_1200323503364746_4066080164953089897_n.jpg?oh=6900f2ecbc2f6215b1ee461a45fc91a2&oe=5891271C', '女', '電力公司', '閃靈快手'),
 ('1252559704794332', 2, 'fbuser21SG', 'passOP', '朱紹瑋', 'orz840710@yahoo.com.tw', '這是一個FB用戶', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/14900390_1247769618606674_64131082936381349_n.jpg?oh=d63dcb52bb8f6d3eb71f474b179ea93c&oe=58C61032', '', '', ''),
 ('1248223475198001', 2, 'fbuser22PU', 'passKZ', '妤妤', 'linda901641@yahoo.com.tw', '我跟你說你不要跟人家說，我的同學吃太多螃蟹結果得了諾羅病毒。', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/13892203_1162317477121935_1013107249612352314_n.jpg?oh=80c490f416b30e935af75b8b9bdd20d6&oe=5899F766', '女', '德國心臟病', 'CSI犯罪現場'),
 ('1003921243069381', 2, 'fbuser23PB', 'passKN', '陳波吉', 'aavail007@gmail.com', '這是一個FB用戶', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/11751869_730092180452290_4578879045156836968_n.jpg?oh=2c66b2dc7ff4ac855253094b847c3f68&oe=588D844E', '女', '', ''),
 ('1108926159145343', 2, 'fbuser25FA', 'passPS', '吳怡瑩', 'wii840606@gmail.com', '這是一個FB用戶', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/13524523_1015359301835363_8511728031479993285_n.jpg?oh=3e41965551454992a4beb7d64aa9f7de&oe=5888A400', '', '', ''),
-('1449223221758711', 2, 'fbuser25PV', 'passXF', '王柏元', 'uncleben006@yahoo.com.tw', '這是一個FB用戶', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/12799176_1266694493344919_7910972604712821508_n.jpg?oh=a5e1d0363600c391cb7b2ebc2bf3c1fe&oe=58CC4F31', '男', '123', '123'),
+('1449223221758711', 2, 'fbuser25PV', 'passXF', '王柏元', 'uncleben006@yahoo.com.tw', '我是一個什麼都不會的大學生', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/12799176_1266694493344919_7910972604712821508_n.jpg?oh=a5e1d0363600c391cb7b2ebc2bf3c1fe&oe=58CC4F31', '男', '電力公司', '我什麼都不擅長啦嗚嗚嗚'),
 ('1796934683896611', 2, 'fbuser25XG', 'passOO', '皮皮君', 'orz840710@gmail.com', '這是一個FB用戶', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/14463054_1773191899604223_3518445055119868318_n.jpg?oh=cf0b7ff14a01d26610e5ce49fcce59d6&oe=588D4BD8', '', '', ''),
 ('10154785442568274', 2, 'fbuser26FE', 'passEK', 'Sheng Yangyen', 'gn02066465@hotmail.com', '這是一個FB用戶', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/9596_10154129907983274_8253062328188047127_n.jpg?oh=49e06dd6088c6713dd41f66ef577b5f7&oe=589A6F45', '', '', ''),
 ('1350684121609060', 2, 'fbuser27HK', 'passRM', 'Andy Lain', 'a29575710@gmail.com', '這是一個FB用戶', 'https://scontent.xx.fbcdn.net/v/t1.0-1/c40.0.160.160/p160x160/12963948_1179691022041705_6200834732114341782_n.jpg?oh=e13a91c6fd8e8ecb268a746c1da1e32d&oe=588DC36B', '男', '', ''),
 ('1491403554209781', 2, 'fbuser28KE', 'passZT', 'Jou Shiuan Chen', 'q105812@yahoo.com.tw', '這是一個FB用戶', 'https://scontent.xx.fbcdn.net/v/t1.0-1/c0.0.160.160/p160x160/14947862_1487089931307810_7330588202960283591_n.jpg?oh=62c965f4c972a4099ae1b3485c752b10&oe=58C76BD8', '', '', ''),
 ('1480370865309897', 2, 'fbuser28MG', 'passMK', 'Aveline Wang', 'catkin08@hotmail.com', '這是一個FB用戶', 'https://scontent.xx.fbcdn.net/v/t1.0-1/c0.41.160.160/p160x160/13906686_1397940053552979_7426429662255620235_n.jpg?oh=ce397991d1800d5d5e4d61b59044e621&oe=58D34258', '', '', ''),
+('1332694086743867', 2, 'fbuser31QD', 'passKJ', '李汪隆', 'undefined', '這是一個FB用戶', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/13062257_1174605619219382_6611915893134447504_n.jpg?oh=ce6d528bb9ba212f635c49e416cc306e&oe=588D5D52', '', '', ''),
+('1243786758997434', 2, 'fbuser33ZI', 'passUR', 'Lisa Chou', 'chonmln72.ls@gmail.com', '這是一個FB用戶', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/10615955_760446637331451_8258398328544229978_n.jpg?oh=d01abbf07a5d7b62e20e0603604b2b92&oe=58C0FADE', '', '', ''),
+('1328124460545578', 2, 'fbuser34ZF', 'passWL', '周雨萱', 'tpefabc1@yahoo.com.tw', '', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/14947725_1321673717857319_3524996391619089967_n.jpg?oh=14d6e4417e3f91bf3ee27615ddbe9eb6&oe=58D4EA83', '女', '', ''),
+('1154763367933362', 2, 'fbuser35HA', 'passLR', 'Zhen Zhen', 'sa900315@yahoo.com.tw', '這是一個FB用戶', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/14900370_1137716952971337_1365405182893907547_n.jpg?oh=18933b575fb7902fa22c8efd0b86bc94&oe=58BFB2D5', '', '', ''),
+('1127781193979281', 2, 'fbuser36JB', 'passND', '張雅榕', 'annie229118@gmail.com', '這是一個FB用戶', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/14222195_1055367181220683_7731272424054825144_n.jpg?oh=185bb7c284543f41112ade966fb223cf&oe=588D6F62', '', '', ''),
+('1626641267361567', 2, 'fbuser37IO', 'passXS', '王淑婷', 'f508775@yahoo.com.tw', '這是一個FB用戶', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/14516572_1564962056862822_3643643370398939985_n.jpg?oh=316679c0f11eee834c2c323bb899d0bf&oe=58BEF17B', '', '', ''),
+('1405252839507971', 2, 'fbuser38LW', 'passVQ', '郭丁全', 'joe99456@yahoo.com.tw', '這是一個FB用戶', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p160x160/13407123_1260335143999742_8827102450526965352_n.jpg?oh=0a97acd8bd4cc86dfb0d588495e0fa88&oe=58CB307B', '', '', ''),
 ('015AI', 1, 'home5063', 'qaz10', '暴躁小貓', 'home5063@gmail.com', '我室友得諾羅病毒，她程式寫不出來', '336628.png', '女', '聰明的人什麼都玩', '聰明的人玩什麼都厲害'),
 ('019PJ', 0, 'loki789251', '62141424', '阿楓', 'loki789251@yahoo.com.tw', '出沒於新竹 龍潭地區 喜\r\n歡玩奇幻類遊戲 或是有模\r\n型的遊戲 不喜歡玩陣營遊\r\n戲 極度討厭農家樂&神秘\r\n大地', 'default.png', '', '', ''),
 ('021QL', 1, 'maki83101', '123465', '女王麻希', 'g83101@yahoo.com.tw', '就是我得諾羅病毒啦', '559195.png', '', '', ''),
 ('029MA', 1, 'o073351229', 'aa255103', '阿蠻', 'o073351229@gmail.com', '大家好，我是阿蠻，玩過不\r\n少桌遊，希望可以認識很多\r\n朋友。', 'default.png', '', '', ''),
+('666PI', 3, 'pipi', 'pii', '皮皮君', 'pipi@gmail.com', '我是管理員', '597552.png', '男', '', ''),
 ('666UB', 3, 'uncleben006', '000', '王柏元', 'uncleben006@gmail.com', '我是管理員', '57173.jpg', '男', '電力公司', '阿瓦隆'),
 ('666SU', 3, 'vivi', 'mzxopoio', '魚魚', 'vivian901641@gmail.com', '我是管理員哈哈哈哈哈', '832729.png', '其他', 'CSI犯罪現場', '德國心臟病'),
 ('023FN', 1, 'zx910519', 'zxzx8498', '笨蛋慈', 'zx910519@yahoo.com.tw', '我想認識桌遊', '377750.jpg', '', '', ''),

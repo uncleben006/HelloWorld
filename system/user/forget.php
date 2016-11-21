@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>桌末狂歡 JOMOR - 桌遊資訊平</title>
+	<title>桌遊資訊平台 - 桌末狂歡 JOMOR</title>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<link href="../../style.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="../../javascript.js"></script>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" href="../../jomor_html/img/jomorparty_logo.png" type="image/ico" />
 </head>
 	<body id="body0">
@@ -99,8 +100,10 @@
 							</span>
 						</div>
 					</div>
+
 				</div>
+				
 			</div>
-		</section>		
+		</section>	
 	</body>
 </html>

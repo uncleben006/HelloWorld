@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>桌末狂歡 JOMOR - 桌遊資訊平台</title>
+	<title>桌遊資訊平台 - 桌末狂歡 JOMOR</title>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<link href="../../style.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="../../javascript.js"></script>
@@ -590,6 +590,38 @@
 				</div>
 			</div>
 		</section>
+		<footer class="footer_css_login">
+				<div class="footer_white"></div>
+				<div class="index_yellow"> 
+					<div class="index_yellow_pp">｜桌遊資訊平台｜桌末狂歡｜</div>
+				</div>
+				<div class="footer_bt_div">
+					<span class="footer_span">
+						<a href="https://www.facebook.com/jomor.party/?fref=nf" class="footer_a"  target=_blank>
+							<span class="footer_hover">
+								<img src="../../jomor_html/img/fb2.png" class="index_footer_bt">
+								<img src="../../jomor_html/img/fb.png" class="index_footer_bt">
+							</span>
+						</a>
+					</span>
+					<span class="footer_span">
+						<a href="mailto:ics.jomorparty@gmail.com" class="footer_a">
+							<span class="footer_hover">
+								<img src="../../jomor_html/img/mailus2.png" class="index_footer_bt">
+								<img src="../../jomor_html/img/mailus.png" class="index_footer_bt">
+							</span>
+						</a>
+					</span>
+					<span class="footer_span">
+						<a href="http://www.swanpanasia.com/" class="footer_a" target=_blank>
+							<span class="footer_hover">
+								<img src="../../jomor_html/img/heaven2.png" class="index_footer_bt">
+								<img src="../../jomor_html/img/heaven.png" class="index_footer_bt">
+							</span>
+						</a>
+					</span>
+				</div>
+		</footer>
 	</body>
 <script>  
 /**

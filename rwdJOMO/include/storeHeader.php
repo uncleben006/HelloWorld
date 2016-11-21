@@ -232,15 +232,14 @@
 							}
 						?>
 						</div>
-			    <a id="menu-toggle" href="javascript:void(0);">&#9776;</a>
-			    <ul class="rwd_nav_ul">
-			    	<li><a href="../../index.php">首頁</a></li>
-			        <li><a href="../../system/store/store1-2.php">店家地圖</a></li>
-			        <li><a href="../../system/store/store2.php">店家列表</a></li>
-			        <li><a href="../../system/group/jo.php">揪團</a></li>
-			        <li><a href="../../discussion.php">討論區</a></li>
-			        <li><a href="../../blog.php">桌遊專欄</a></li>
-			        <li><a href="../../aboutus.php">聯絡我們</a></li>
+			    <a id="menu-toggle" href="javascript:void(0);" onClick="rwdbt(rwdul)">&#9776;</a>
+			    <ul id="rwdul">
+			    	<a href="../../index.php"><li>首頁</li></a>
+			        <a href="../../system/store/store1-2.php"><li>店家地圖</li></a>
+			        <a href="../../system/group/jo.php"><li>揪團</li></a>
+			        <a href="../../discussion.php"><li>討論區</li></a>
+			        <a href="../../blog.php"><li>桌遊專欄</li></a>
+			        <a href="../../aboutus.php"><li>聯絡我們</li></a>
 			    </ul>
 				
 		</nav>

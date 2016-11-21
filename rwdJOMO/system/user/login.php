@@ -7,7 +7,7 @@
 	<script type="text/javascript" src="../../javascript.js"></script>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta charset="utf-8">
-	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" href="../../jomor_html/img/jomorparty_logo.png" type="image/ico" />
 </head>
 	<body id="body0">

@@ -50,6 +50,9 @@
 			  	    	    <img src="jomor_html/img/f1.png" />
 			  	    	</li>
 			  	    	<li>
+			  	    	    <img src="jomor_html/img/f4.jpg" />
+			  	    	</li>
+			  	    	<li>
 			  	    	    <img src="jomor_html/img/f2.png" />
 			  	    	</li>
 			  	    	<li>
@@ -60,6 +63,18 @@
 			      </section>
 			    </div>
 			</div><!--輪播圖結束-->
+
+			<!--藍綠色標語-->
+			<div class="index_green_title">
+				<div class="index_green_title_pp">
+					<h1>More Fun on Table!</h1>
+					<p>&nbsp;</p>
+					<p>迅速找到最近最方便的店家</p>
+					<p>與新同好展開一場桌遊冒險</p>
+					<p>&nbsp;</p>
+					<p>桌末狂歡讓你狂歡週末</p>
+				</div>		
+			</div>
 
 				<!--跳出皮皮君介紹-->
 					    <div id="aboutmascot01">
@@ -144,7 +159,9 @@
 					
 				</div>
 				<div class="index_red"></div>
-				<div class="index_yellow"></div>
+				<div class="index_yellow"> 
+					<div class="index_yellow_pp">｜桌遊資訊平台｜桌末狂歡｜</div>
+				</div>
 				<div class="footer_bt_div">
 					<span class="footer_span">
 						<a href="https://www.facebook.com/jomor.party/?fref=nf" class="footer_a"  target=_blank>

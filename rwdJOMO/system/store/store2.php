@@ -348,7 +348,7 @@
 			$selectStoreName = mysql_query($selectStoreName);
 			$store = mysql_fetch_assoc($selectStoreName);
 			?>
-			<div id="Store_inf" style="position:fixed;">
+			<div id="Store_inf" style="position:fixed;" onclick="my_scroll('store2.php'); return false">
 		  		<div class="div_store_card-0">
 				    <section class="div_store_section">
 				         <div class="div_store_card-01"><!--店家資訊卡店名與圖片部分-->

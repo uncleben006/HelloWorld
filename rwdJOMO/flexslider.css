@@ -48,6 +48,11 @@
   display: none;
   -webkit-backface-visibility: hidden;
 }
+.flexslider .slides img {
+  width: 100%;
+  display: block;
+   -moz-user-select: none;
+  }
 @media screen and (max-width: 1980px) {
 .flexslider .slides img {
   width: 100%;
@@ -107,7 +112,6 @@ html[xmlns] .flexslider .slides {
   -ms-transition: all 1s ease;
   -o-transition: all 1s ease;
   transition: all 1s ease;
-  top: 10px;
 }
 .loading .flex-viewport {
   max-height: 300px;

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>桌末狂歡 JOMOR - 桌遊資訊平台</title>
+	<title>桌遊資訊平台 - 桌末狂歡 JOMOR</title>
 	<link rel="icon" href="jomor_html/img/jomorparty_logo.png" type="image/ico" />
 	<link href="../../style.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" type="text/css" href="../../flexslider.css" />
@@ -9,6 +9,7 @@
 	<script type="text/javascript" src="../../javascript.js"></script>
 	<link rel="icon" href="../../jomor_html/img/jomorparty_logo.png" type="image/ico" />
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 	<body id="body0">
 		<?php 
@@ -24,7 +25,7 @@
 					<span class="store_span">
 						<content>
 							<marquee class="store_marquee">
-								<div >桌末狂歡上線囉～～快來一起玩桌遊！</div>
+								<div >桌末狂歡跟你一起揪團玩桌遊!!!</div>
 							</marquee>
 						</content>
 					</span>
@@ -52,8 +53,8 @@
 			<!--google地圖-->
 			<div class="map">
 
-				<iframe class="google_map" frameborder="0" src="https://www.google.com/maps/d/embed?mid=1Dwar45Rsg339gqQKJv_vo2I0zJU" width="792px" height="555px"></iframe>
-				<img class="mapframe" src="../../jomor_html/img/mapframe.png" alt="桌遊地圖框" title="桌遊地圖" width="900px" height="880px">
+				<iframe class="google_map" frameborder="0" src="https://www.google.com/maps/d/embed?mid=1Dwar45Rsg339gqQKJv_vo2I0zJU"></iframe>
+				<img class="mapframe" src="../../jomor_html/img/mapframe.png" alt="桌遊地圖框" title="桌遊地圖" >
 			</div>
 		</section >
 	
@@ -73,6 +74,38 @@
 				<img class="aside_store_img" src="../../jomor_html/img/a1.jpg" width="195px" height="195px" onclick="my_scroll('store1-2.php?no=125&storePlace=臺北市'); return false"></a>
 			</div>		
 		</aside>
+		<div class="footer_css">
+				<div class="footer_white"></div>
+				<div class="index_yellow"> 
+					<div class="index_yellow_pp">｜桌遊資訊平台｜桌末狂歡｜</div>
+				</div>
+				<div class="footer_bt_div">
+					<span class="footer_span">
+						<a href="https://www.facebook.com/jomor.party/?fref=nf" class="footer_a"  target=_blank>
+							<span class="footer_hover">
+								<img src="../../jomor_html/img/fb2.png" class="index_footer_bt">
+								<img src="../../jomor_html/img/fb.png" class="index_footer_bt">
+							</span>
+						</a>
+					</span>
+					<span class="footer_span">
+						<a href="mailto:ics.jomorparty@gmail.com" class="footer_a">
+							<span class="footer_hover">
+								<img src="../../jomor_html/img/mailus2.png" class="index_footer_bt">
+								<img src="../../jomor_html/img/mailus.png" class="index_footer_bt">
+							</span>
+						</a>
+					</span>
+					<span class="footer_span">
+						<a href="http://www.swanpanasia.com/" class="footer_a" target=_blank>
+							<span class="footer_hover">
+								<img src="../../jomor_html/img/heaven2.png" class="index_footer_bt">
+								<img src="../../jomor_html/img/heaven.png" class="index_footer_bt">
+							</span>
+						</a>
+					</span>
+				</div>
+		</div>
 
 		<!--店家資訊跳出顯示div-->
 		<!--店家資訊跳出顯示div-->
@@ -87,7 +120,7 @@
 			$selectStoreName = mysql_query($selectStoreName);
 			$store = mysql_fetch_assoc($selectStoreName);
 			?>
-			<div id="Store_inf" style="position:fixed;">
+			<div id="Store_inf" style="position:fixed;" onclick="my_scroll('store1-2.php'); return false">
 		  		<div class="div_store_card-0222">
 				    <section class="div_store_section">
 				         <div class="div_store_card-01"><!--店家資訊卡店名與圖片部分-->
@@ -136,7 +169,12 @@
 				                		<?php
 				                			if($store['webURL']!=''){
 				                				?>
-				                				<a href="<?php echo $store['webURL'];?>">網站</a>
+				                				<a href="<?php echo $store['webURL'];?>" target=_blank>
+													<span class="web_hover">
+					                					<img src="../../jomor_html/img/webicon2.png" class="store_web_bt">
+					                					<img src="../../jomor_html/img/webicon.png" class="store_web_bt">
+					                				</span>
+				                				</a>
 				                				<?php
 				                			}
 				                		?>				                			
@@ -169,5 +207,6 @@
 			<?php
 		}
 		?>
+		
 	</body>
 </html>
