@@ -219,6 +219,7 @@ function openNotify() {
         x.style.visibility = 'hidden';
     }
 }
+
 function openNotify_rwd() {
     var x = document.getElementById('notify_rwd');
     if (x.style.visibility === 'hidden') {

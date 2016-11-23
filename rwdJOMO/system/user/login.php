@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>jomor桌末狂歡</title>
+	<title>桌遊資訊平台 - 桌末狂歡 JOMOR</title>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<link href="../../style.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="../../javascript.js"></script>
@@ -63,68 +63,38 @@
 			if(isset($_POST['login'])){
 				$account = $_POST["account"];
 				$pass = $_POST["password"];
-				$setSQL1 = "SELECT * FROM `user` WHERE `account` = '".$account."'";
-				mysql_query("SET NAMES'UTF8'");
-				mysql_query("SET CHARACTER SET UTF8");
-				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
-				$result1 = mysql_query($setSQL1);
-				$row1 = mysql_fetch_assoc($result1);
-				echo $row1['password'];
-
-				$setSQL2 = "SELECT * FROM `admin` WHERE `account` = '".$account."'";
-				mysql_query("SET NAMES'UTF8'");
-				mysql_query("SET CHARACTER SET UTF8");
-				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
-				$result2 = mysql_query($setSQL2);
-				$row2 = mysql_fetch_assoc($result2);
-
-				
-				if($pass==$row1['password']){
-					session_set_cookie_params(600);
-					session_start();
-					$_SESSION["no"] = $row1["no"];
-					$_SESSION["pri"] = $row1["pri"];
-					$_SESSION["account"] = $row1["account"];
-					$_SESSION["password"] = $row1["password"];
-					$_SESSION["name"] = $row1["name"];
-					$_SESSION["email"] = $row1["email"];
-					$_SESSION["photo"] = $row1["photo"];
-					$_SESSION["introduction"] = $row1["introduction"];
-					session_write_close();
-					header("Location:../../index.php");
+				if($account==''){
+					$errMsg = "請填入帳號";
 				}
-				else if($pass==$row2['password']){
-					session_set_cookie_params(600);
-					session_start();
-					$_SESSION["no"] = $row2["no"];
-					$_SESSION["pri"] = $row2["pri"];
-					$_SESSION["account"] = $row2["account"];
-					$_SESSION["password"] = $row2["password"];
-					$_SESSION["name"] = $row2["name"];
-					$_SESSION["email"] = $row2["email"];
-					$_SESSION["photo"] = $row2["photo"];
-					$_SESSION["introduction"] = $row2["introduction"];
-					session_write_close();						
-					header("Location:../../index.php");
-				}
+				else if($pass==''){
+					$errMsg = "請填入密碼";
+				}	
 				else{
-					$errMsg = "帳號或密碼有誤";
-				}
+					$selectUserAccount = "SELECT * FROM `user` WHERE `account` = '".$account."'";
+					mysql_query("SET NAMES'UTF8'");
+					mysql_query("SET CHARACTER SET UTF8");
+					mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+					$selectUserAccount = mysql_query($selectUserAccount);
+					$userAccount = mysql_fetch_assoc($selectUserAccount);	
+					if($pass==$userAccount['password']){
+						session_set_cookie_params(600);
+						session_start();
+						$_SESSION["no"] = $userAccount["no"];
+						$_SESSION["pri"] = $userAccount["pri"];
+						$_SESSION["account"] = $userAccount["account"];
+						$_SESSION["password"] = $userAccount["password"];
+						$_SESSION["name"] = $userAccount["name"];
+						$_SESSION["email"] = $userAccount["email"];
+						$_SESSION["photo"] = $userAccount["photo"];
+						$_SESSION["introduction"] = $userAccount["introduction"];
+						session_write_close();
+						header("Location:../../index.php");
+					}
+					else{
+						$errMsg = "帳號或密碼有誤";
+					}
+				}		
 			}
-			/*if(isset($_GET['fb'])){
-				$fb = new phpSDK\src\Facebook\Facebook\Facebook([
-				    'app_id' => '1776470922608272',
-				    'app_secret' => '717ff345aa85c2610170f79ac6a5c841',
-				    'default_graph_version' => 'v2.8',
-				]);
-				
-				$helper = $fb->getRedirectLoginHelper();
-				$permissions = ['email', 'user_likes']; // optional
-				$loginUrl = $helper->getLoginUrl('http://{your-website}/login-callback.php', $permissions);
-
-				echo '<a href="' . $loginUrl . '">Log in with Facebook!</a>';
-			}
-			*/
 			
 			include('../../include/userHeader.php'); 
 		?>
@@ -170,7 +140,38 @@
 					</div>
 				</div>
 			</div>
+			<footer class="footer_css_login">
+				<div class="footer_white"></div>
+				<div class="index_yellow"> 
+					<div class="index_yellow_pp">｜桌遊資訊平台｜桌末狂歡｜</div>
+				</div>
+				<div class="footer_bt_div">
+					<span class="footer_span">
+						<a href="https://www.facebook.com/jomor.party/?fref=nf" class="footer_a"  target=_blank>
+							<span class="footer_hover">
+								<img src="../../jomor_html/img/fb2.png" class="index_footer_bt">
+								<img src="../../jomor_html/img/fb.png" class="index_footer_bt">
+							</span>
+						</a>
+					</span>
+					<span class="footer_span">
+						<a href="mailto:ics.jomorparty@gmail.com" class="footer_a">
+							<span class="footer_hover">
+								<img src="../../jomor_html/img/mailus2.png" class="index_footer_bt">
+								<img src="../../jomor_html/img/mailus.png" class="index_footer_bt">
+							</span>
+						</a>
+					</span>
+					<span class="footer_span">
+						<a href="http://www.swanpanasia.com/" class="footer_a" target=_blank>
+							<span class="footer_hover">
+								<img src="../../jomor_html/img/heaven2.png" class="index_footer_bt">
+								<img src="../../jomor_html/img/heaven.png" class="index_footer_bt">
+							</span>
+						</a>
+					</span>
+				</div>
+		</footer>
 		</section>
-
 	</body>
 </html>

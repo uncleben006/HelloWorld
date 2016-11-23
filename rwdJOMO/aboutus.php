@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>桌末狂歡 JOMOR - 桌遊資訊平台</title>
+	<title>桌遊資訊平台 - 桌末狂歡 JOMOR</title>
 	<link href="style.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="javascript.js"></script>
 	<meta charset="utf-8">
@@ -31,7 +31,7 @@
 				<img src="jomor_html/img/aboutusall.png" class="aboutall_img">
 			</div>
 		</section>
-		<footer>
+		<footer class="footer_css_00">
 				<div class="footer_white"></div>
 				<div class="index_yellow"> 
 					<div class="index_yellow_pp">｜桌遊資訊平台｜桌末狂歡｜</div>

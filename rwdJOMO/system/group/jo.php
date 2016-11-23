@@ -7,6 +7,7 @@
 	<script type="text/javascript" src="../../javascript.js"></script>
 	<script type="text/javascript" src="../../include/redips-scroll.js"></script>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" href="../../jomor_html/img/jomorparty_logo.png" type="image/ico" />
 </head>
 	<body id="body0">
@@ -235,9 +236,10 @@
 		 	//刪除成員
 		 	//刪除成員
 		 	//刪除成員
-			if(isset($_GET['deleteAccount'])){
+			if(isset($_GET['deleteAccountConfirm'])){
 				$no = $_GET['no'];
-				$account = $_GET['deleteAccount'];				
+				$account = $_GET['deleteAccount'];	
+				$result = $_GET['result'];			
 
 				$selectRoomNo = "SELECT * FROM `room` WHERE `no` = '".$no."'";
 				mysql_query("SET NAMES'UTF8'");
@@ -269,49 +271,65 @@
 
 				//header("Location:jo.php?no=".$no);
 			}
+			
 
 			//刪除房間
 			//刪除房間
 			//刪除房間
-			if(isset($_POST['deleteRoom'])){
-				$no = $_GET['no'];				
-
+			if(isset($_GET['deleteRoomConfrim'])){
+				$no = $_GET['deleteRoomConfrim'];
 				$selectRoomNo = "SELECT * FROM `room` WHERE `no` = '".$no."'";
 				mysql_query("SET NAMES'UTF8'");
 				mysql_query("SET CHARACTER SET UTF8");
 				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
 				$selectRoomNo = mysql_query($selectRoomNo);
 				$roomNo = mysql_fetch_assoc($selectRoomNo);
-				
-				$selectMemberNo = "SELECT * FROM `member` WHERE `no`= '".$no."' ";
-				mysql_query("SET NAMES'UTF8'");
-				mysql_query("SET CHARACTER SET UTF8");
-				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
-				$selectMemberNo = mysql_query($selectMemberNo);
-				while($memberNo = mysql_fetch_assoc($selectMemberNo)){
-					$insertMemberRemind = 'INSERT INTO `remind`(`no`, `account`, `email`, `host`, `room`, `date`, `time`, `store`,`decide`) VALUES ("'.$no.'","'.$memberNo['account'].'","'.$memberNo['email'].'","'.$roomNo['host'].'","'.$roomNo['room'].'","'.$roomNo['date'].'","'.$roomNo['time'].'","'.$roomNo['store'].'","2")';
+				if($_SESSION['account']!=$roomNo['host']){
+					?>
+					<script type="text/javascript">
+						alert("你不是房長!刪什麼刪阿操!(怒)");
+						window.location.href="http://www.jomorparty.com";
+					</script>
+					<?php
+				}
+				else{
+					$no = $_GET['deleteRoomConfrim'];				
+
+					$selectRoomNo = "SELECT * FROM `room` WHERE `no` = '".$no."'";
 					mysql_query("SET NAMES'UTF8'");
 					mysql_query("SET CHARACTER SET UTF8");
 					mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
-					mysql_query($insertMemberRemind);	
-
+					$selectRoomNo = mysql_query($selectRoomNo);
+					$roomNo = mysql_fetch_assoc($selectRoomNo);
+					
+					$selectMemberNo = "SELECT * FROM `member` WHERE `no`= '".$no."' ";
+					mysql_query("SET NAMES'UTF8'");
+					mysql_query("SET CHARACTER SET UTF8");
+					mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+					$selectMemberNo = mysql_query($selectMemberNo);
+					while($memberNo = mysql_fetch_assoc($selectMemberNo)){
+						$insertMemberRemind = 'INSERT INTO `remind`(`no`, `account`, `email`, `host`, `room`, `date`, `time`, `store`,`decide`) VALUES ("'.$no.'","'.$memberNo['account'].'","'.$memberNo['email'].'","'.$roomNo['host'].'","'.$roomNo['room'].'","'.$roomNo['date'].'","'.$roomNo['time'].'","'.$roomNo['store'].'","2")';
+						mysql_query("SET NAMES'UTF8'");
+						mysql_query("SET CHARACTER SET UTF8");
+						mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+						mysql_query($insertMemberRemind);
+					}					
+					//寄信給所有成員
+					include('deleteRoomMailer.php');
+					//刪除房間表裡屬於該房號的房間、成員資料表裡屬於該房號的成員、聊天室資料表裡屬於該房號的資料
+					$deleteRoom = "DELETE FROM `room` WHERE `no` = '".$no."'";
+					$deleteRoomMember = "DELETE FROM `member` WHERE `no` = '".$no."'";
+					$deleteChat = "DELETE FROM `chat` WHERE `no` = '".$no."'";
+					mysql_query($deleteRoom);
+					mysql_query($deleteRoomMember);
+					mysql_query($deleteChat);
 				}
-				//寄信給所有成員
-				include('deleteRoomMailer.php');
-				
-				//刪除房間表裡屬於該房號的房間、成員資料表裡屬於該房號的成員、聊天室資料表裡屬於該房號的資料
-				$deleteRoom = "DELETE FROM `room` WHERE `no` = '".$no."'";
-				$deleteRoomMember = "DELETE FROM `member` WHERE `no` = '".$no."'";
-				$deleteChat = "DELETE FROM `chat` WHERE `no` = '".$no."'";
-				mysql_query($deleteRoom);
-				mysql_query($deleteRoomMember);
-				mysql_query($deleteChat);
 			}
 
 			//鎖定房間
 			//鎖定房間
 			//鎖定房間
-			if(isset($_POST['lockRoom'])){
+			if(isset($_GET['lockRoom'])){
 				$no = $_GET['no'];
 				
 				//已經鎖定
@@ -1169,14 +1187,11 @@
 												if($roomNo['decide']==0){
 													if($_SESSION['account']==$memberHost['account']){
 										                ?>
-										                <form method="post">
+										                <form>
 											            	<div class="join_bt">
-												            	<button type="submit" name="lockRoom" class="join_Hbtn" >
-												            		鎖定<br>房間
-												            	</button>
-												            	<button type="submit" name="deleteRoom" class="join_Hbtn" onClick="javascript:window.location.href='jo.php';">
-												            		刪除<br>房間
-												            	</button>
+											            		<input type="hidden" name="no" value="<?php echo $no;?>">
+												            	<button type="submit" name="lockRoom" class="join_Hbtn">鎖定<br>房間</button>
+												            	<button type="submit" name="deleteRoom" value="<?php echo $_GET['no'];?>" class="join_Hbtn">刪除<br>房間</button>
 											            	</div>
 										            	</form>
 										                <?php
@@ -1483,13 +1498,14 @@
 	        <!--跳出的詢問確定要加入房間嗎div（sure)-->
 	        <?php
 	        	if(isset($_GET['confirm'])){
+	        		$no = $_GET['no'];
 	        		?>
 	        		<div id="sure">
 			            <div class="sure_position">
 			                <div class="sure_fram01">
 			                    <span class="sure_title">確定加入嗎？</span>
 			                    <!--關掉的xx-->
-			                    <span class="sure_close" onClick="javascript:sure.style.visibility='hidden';">
+			                    <span class="sure_close" onClick="window.location.href='jo.php?no=<?php echo $no;?>'">
 			            			<img src="../../jomor_html/img/close.png" class="sure_close_img">
 			            		</span>
 			                </div>
@@ -1620,10 +1636,82 @@
 	        	}
 	        ?>
 
+	        <!--跳出詢問刪除此人的原因-->
+	        <!--跳出詢問刪除此人的原因-->
+	        <!--跳出詢問刪除此人的原因-->
+	        <?php
+	        	if(isset($_GET['deleteAccount'])){
+	        		$no = $_GET['no'];
+	        		$deleteAccount = $_GET['deleteAccount'];
+	        		?>
+	        		<div id="sure">
+			            <div class="sure_position">
+			                <div class="sure_fram01">
+			                    <span class="sure_title">為什麼刪除<?php echo $deleteAccount ?>?</span>
+			                    <!--關掉的xx-->
+			                    <span class="sure_close" onClick="window.location.href='jo.php?no=<?php echo $no;?>'">
+			            			<img src="../../jomor_html/img/close.png" class="sure_close_img">
+			            		</span>
+			                </div>
+			                <div class="sure_fram02">
+			                	<form>
+				                    <div class="sure_p">
+				                    	<input type="hidden" name="no" value="<?php echo $no;?>">
+				                    	<input type="hidden" name="deleteAccount" value="<?php echo $deleteAccount;?>">
+				                        <textarea name="result" class="result"></textarea>
+				                    </div>
+				                    <!--按鈕-->
+				                    <div class="sure_btn_div">
+			                    		<span><button onclick="window.location.href='jo.php?no=<?php echo $no;?>'" class="sure_btn" >取消</button></span>
+			                    		<span><button type="submit" name="deleteAccountConfirm" class="sure_btn">確定</button></span>               
+			                   		</div>
+			                    </form>	
+			                </div>
+			            </div>
+			        </div>
+			        <?php
+	        	}
+	        ?>
+
+	        <?php
+	        	if(isset($_GET['deleteRoom'])){
+	        		$no = $_GET['deleteRoom'];
+	        		?>
+	        		<div id="sure">
+			            <div class="sure_position">
+			                <div class="sure_fram01">
+			                    <span class="sure_title">確定刪除房間嗎？</span>
+			                    <!--關掉的xx-->
+			                    <span class="sure_close" onclick="window.location.href='jo.php?no=<?php echo $no;?>'">
+			            			<img src="../../jomor_html/img/close.png" class="sure_close_img">
+			            		</span>
+			                </div>
+			                <div class="sure_fram02">
+			                    <div class="sure_p">
+			                        <p>按下”確定“後就會刪除此房間並且不能復原!</p>
+			                        <p class="sure_p01">此舉可能造成成員的不便與困擾，</p>
+			                        <p class="sure_p01">建議先在聊天室確認大家的認知一致再做決定！</p>
+			                        <p>確定要刪除嗎？</p>
+			                    </div>
+			                    <!--按鈕-->
+			                    <div class="sure_btn_div">
+			                    	<form>
+			                    		<span><button name="no" value="<?php echo "$no";?>" class="sure_btn" >取消</button></span>
+			                    		<span><button name="deleteRoomConfrim" class="sure_btn" value="<?php echo $no;?>">確定</button></span>
+			                    	</form>	                        
+			                    </div>
+			                </div>
+			            </div>
+			            <!--跳出的詢問確定要加入房間嗎div（sure_position)結束-->
+			        </div>
+			        <?php
+	        	}
+	        ?>
+
 	        <!--如何玩圖片教學div-->
 	        <!--如何玩圖片教學div-->
 	        <!--如何玩圖片教學div-->
-			<div id="rule">
+			<div id="rule" onClick="window.location.href='jo.php'">
 				<div class="rule_center">
 				  <div class="rule_fram01">
 						<span class="rule_title">如何揪團</span>

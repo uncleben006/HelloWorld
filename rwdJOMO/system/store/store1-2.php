@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>桌末狂歡 JOMOR - 桌遊資訊平台</title>
+	<title>桌遊資訊平台 - 桌末狂歡 JOMOR</title>
 	<link rel="icon" href="jomor_html/img/jomorparty_logo.png" type="image/ico" />
 	<link href="../../style.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" type="text/css" href="../../flexslider.css" />
@@ -18,25 +18,13 @@
 			include("../../include/storeHeader.php"); 
 		?>
 		<section>
-			<!--最新活動跑馬燈-->
-			<div class="store_marquee_div">
-				<div class="marquee_bg">
-					<span class="store_news01">最新活動 |</span>
-					<span class="store_span">
-						<content>
-							<marquee class="store_marquee">
-								<div >桌末狂歡上線囉～～快來一起玩桌遊！</div>
-							</marquee>
-						</content>
-					</span>
-				</div>
-			</div>
+			
 		</section>
 		<!--地圖切換頁籤-->
 		<section class="store_section">
 			<div class="mapbutton_frame">
-				<a href="store1-2.php" class="map_myButton">店家地圖</a>
 				<a href="store2.php" class="map_myButton">店家列表</a>
+				<a href="store1-2.php" class="map_myButton2">店家地圖</a>
 				<?php
 					if(isset($_SESSION['account'])){
 						$account = $_SESSION['account'];
@@ -44,11 +32,32 @@
 						$userAccount = mysql_fetch_assoc($selectUserAccount);
 						if($userAccount['pri']==3){
 							?>
-							<a href="uploadStore.php" class="map_myButton">輸入店家資訊</a>
+							<a href="uploadStore.php" class="map_myButton4">輸入店家資訊</a>
 							<?php						
 						}
 					}					
 				?>
+			</div>
+			<div class="store_yellow">
+				<span class="aside_p1">推薦店家</span>
+				<span class="store_push">
+					<img class="aside_store_img" src="../../jomor_html/img/swancafe01.jpg" width="195px" height="195px" onclick="my_scroll('store1-2.php?no=2&storePlace=臺北市'); return false">
+					<span class="store_img_hover" onclick="my_scroll('store1-2.php?no=2&storePlace=臺北市'); return false">天鵝咖啡館
+					</span> 
+				</span>
+
+				<span class="store_push">
+					<img class="aside_store_img" src="../../jomor_html/img/witch.jpg" width="195px" height="195px" onclick="my_scroll('store1-2.php?no=1&storePlace=臺北市'); return false">
+					<span class="store_img_hover" onclick="my_scroll('store1-2.php?no=1&storePlace=臺北市'); return false">
+					女巫店
+					</span> 
+				</span>
+				<span class="store_push">
+					<img class="aside_store_img" src="../../jomor_html/img/a1.jpg" width="195px" height="195px" onclick="my_scroll('store1-2.php?no=125&storePlace=臺北市'); return false">
+					<span class="store_img_hover" onclick="my_scroll('store1-2.php?no=125&storePlace=臺北市'); return false">
+					骰子人(景美店)
+					</span>
+				</span>
 			</div>
 			<!--google地圖-->
 			<div class="map">
@@ -59,6 +68,7 @@
 		</section >
 	
 		<!--側邊欄位-->
+	<!--
 		<aside class="aside01">
 			<div class="aside_store00">
 				<img src="../../jomor_html/img/store_aside.png" alt="吉祥物圖" title="猴子吉祥物" width="195px" height="210px" >
@@ -74,6 +84,39 @@
 				<img class="aside_store_img" src="../../jomor_html/img/a1.jpg" width="195px" height="195px" onclick="my_scroll('store1-2.php?no=125&storePlace=臺北市'); return false"></a>
 			</div>		
 		</aside>
+	-->
+		<div class="footer_css">
+				<div class="footer_white"></div>
+				<div class="index_yellow"> 
+					<div class="index_yellow_pp">｜桌遊資訊平台｜桌末狂歡｜</div>
+				</div>
+				<div class="footer_bt_div">
+					<span class="footer_span">
+						<a href="https://www.facebook.com/jomor.party/?fref=nf" class="footer_a"  target=_blank>
+							<span class="footer_hover">
+								<img src="../../jomor_html/img/fb2.png" class="index_footer_bt">
+								<img src="../../jomor_html/img/fb.png" class="index_footer_bt">
+							</span>
+						</a>
+					</span>
+					<span class="footer_span">
+						<a href="mailto:ics.jomorparty@gmail.com" class="footer_a">
+							<span class="footer_hover">
+								<img src="../../jomor_html/img/mailus2.png" class="index_footer_bt">
+								<img src="../../jomor_html/img/mailus.png" class="index_footer_bt">
+							</span>
+						</a>
+					</span>
+					<span class="footer_span">
+						<a href="http://www.swanpanasia.com/" class="footer_a" target=_blank>
+							<span class="footer_hover">
+								<img src="../../jomor_html/img/heaven2.png" class="index_footer_bt">
+								<img src="../../jomor_html/img/heaven.png" class="index_footer_bt">
+							</span>
+						</a>
+					</span>
+				</div>
+		</div>
 
 		<!--店家資訊跳出顯示div-->
 		<!--店家資訊跳出顯示div-->
@@ -137,7 +180,12 @@
 				                		<?php
 				                			if($store['webURL']!=''){
 				                				?>
-				                				<a href="<?php echo $store['webURL'];?>">網站</a>
+				                				<a href="<?php echo $store['webURL'];?>" target=_blank>
+													<span class="web_hover">
+					                					<img src="../../jomor_html/img/webicon2.png" class="store_web_bt">
+					                					<img src="../../jomor_html/img/webicon.png" class="store_web_bt">
+					                				</span>
+				                				</a>
 				                				<?php
 				                			}
 				                		?>				                			
@@ -170,37 +218,6 @@
 			<?php
 		}
 		?>
-		<footer >
-				<div class="footer_white"></div>
-				<div class="index_yellow"> 
-					<div class="index_yellow_pp">｜桌遊資訊平台｜桌末狂歡｜</div>
-				</div>
-				<div class="footer_bt_div">
-					<span class="footer_span">
-						<a href="https://www.facebook.com/jomor.party/?fref=nf" class="footer_a"  target=_blank>
-							<span class="footer_hover">
-								<img src="jomor_html/img/fb2.png" class="index_footer_bt">
-								<img src="jomor_html/img/fb.png" class="index_footer_bt">
-							</span>
-						</a>
-					</span>
-					<span class="footer_span">
-						<a href="mailto:ics.jomorparty@gmail.com" class="footer_a">
-							<span class="footer_hover">
-								<img src="jomor_html/img/mailus2.png" class="index_footer_bt">
-								<img src="jomor_html/img/mailus.png" class="index_footer_bt">
-							</span>
-						</a>
-					</span>
-					<span class="footer_span">
-						<a href="http://www.swanpanasia.com/" class="footer_a" target=_blank>
-							<span class="footer_hover">
-								<img src="jomor_html/img/heaven2.png" class="index_footer_bt">
-								<img src="jomor_html/img/heaven.png" class="index_footer_bt">
-							</span>
-						</a>
-					</span>
-				</div>
-		</footer>
+		
 	</body>
 </html>

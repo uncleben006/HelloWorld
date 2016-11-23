@@ -26,12 +26,11 @@
 			$selectUserAccount = mysql_query($selectUserAccount);
 			$userAccount = mysql_fetch_assoc($selectUserAccount);
 			?>
-			
 			<div class="individual_bg">
 
 				<div class="edit_bt_div">
 					<a href="javascript:history.back()" class="edit_bt">返回</a>
-			</div>
+				</div>
 
 				<!--左邊欄位的頭像白框-->
 				<div class="aside_l">
@@ -58,7 +57,7 @@
 					<hr color="#4EBABF" size="5" width="95%">
 					<div class="aboutme">
 						<p class="aboutme_p">關於我</p>
-						<p class="aboutme_introduce"><?php echo $userAccount['introduction'] ?></p>
+						<p class="aboutme_introduce"><?php echo $userAccount['introduction']; ?></p>
 					</div>
 				</div>
 				<!--右邊欄位的第一行-->

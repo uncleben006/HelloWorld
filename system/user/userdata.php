@@ -77,17 +77,17 @@
 			<!--右邊欄位的第一行-->
 				<div class="aside_r01">
 					<div>
-						<p class="my_info">個人資料修改</p>
+						<p class="my_info">個人資料</p>
 					</div>
 					<hr color="#4EBABF" size="5" width="95%">
 					<div class="my_info_div">
-						<div><!--暱稱-->
-							<p class="my_info1">暱稱</p>
-							<p class="my_info2"><?php echo $userAccount['name'] ?></p>
+						<div style="width:45%; float:left;"><!--暱稱-->
+							<div class="my_info1" style="margin: 5% 0 0 10%;">暱稱</div>
+							<div class="my_info2" style="margin: 7% 0 0 10%;"><?php echo $userAccount['name'] ?></div>
 						</div>
-						<div><!--密碼-->
-							<p class="my_info1">性別</p>
-							<p class="my_info2">
+						<div style="width:45%; float:left;"><!--性別-->
+							<div class="my_info1" style="margin: 5% 0 0 10%;">性別</div>
+							<div class="my_info2" style="margin: 7% 0 0 10%;">
 								<?php if($userAccount['gender']!=""){
 									echo $userAccount['gender'];
 								} 
@@ -95,7 +95,11 @@
 									echo "尚未填寫";
 								}
 								?>
-							</p>
+							</div>
+						</div>
+						<div style="width:45%; float:left; margin-top:20px; "><!--暱稱-->
+							<div class="my_info1" style="margin: 7% 0 0 10%;">信箱</div>
+							<div class="my_info2" style="margin: 7% 0 0 10%;"><?php echo $userAccount['email'] ?></div>
 						</div>
 					</div>
 				</div>

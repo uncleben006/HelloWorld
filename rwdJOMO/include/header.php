@@ -1,3 +1,4 @@
+<!--xampp-->
 
 <header class="header_bg">
 			<!--網頁版頂部圖案-->
@@ -250,21 +251,13 @@
 								<?php
 							}
 						?>
-					</tr><!--tr-->
-					<tr>
-					<form>
-						<td colspan="2" class="top_td4"><input class="index_search" type="text" name="storeWord" size="15"></td>
-						<td class="top_td5" valign="center">
-							<button type="submit" name="search" style="background-color: #ffffff"><img src="jomor_html/img/button.png" class="button"></button>
-						</td>
-					</form>
 					</tr>
 				</table>
 				
 			</div>
 		</header>
-<!--rwdjomo-->
-<nav class="rwd_nav">
+		<!--rwdjomo-->
+		<nav class="rwd_nav">
 				<a><img src="jomor_html/img/rwdlogo.png" class="rwdlogo"></a>
 				<!--rwd右邊的通知欄與頭像-->
 				<div class="rwd_nav_hd" >

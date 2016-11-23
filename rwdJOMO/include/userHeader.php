@@ -1,5 +1,6 @@
 <!--行動裝置rwd的視窗變小nav變小圖示可展開-->
-		<nav class="rwd_nav">
+<!--rwdjomo-->
+<nav class="rwd_nav">
 				<a><img src="../../jomor_html/img/rwdlogo.png" class="rwdlogo"></a>
 				<!--rwd右邊的通知欄與頭像-->
 				<div class="rwd_nav_hd" >
@@ -15,9 +16,9 @@
 									$remindNum = mysql_num_rows($selectRemindAccount);
 									if($remindNum>0){
 										?>
-										<img src="../../jomor_html/img/notify2.png" class="rwd_notify_img01" onClick="openNotify()">
+										<img src="../../jomor_html/img/notify2.png" class="rwd_notify_img01" onClick="openNotify_rwd()">
 										<!--通知欄跳出的div框-->
-										<div id="notify" style="position:absolute; visibility:hidden">
+										<div id="notify_rwd" style="position:absolute; visibility:hidden">
 											<div class="notify_fram">
 												<?php
 												//做提醒判定，
@@ -39,7 +40,7 @@
 														?>
 															<div class="notify_div01">
 													            <div class="notify_div_img">
-													              	<img src="../../system/user/photo/<?php echo $photo; ?>" class="notify_headph">
+													              	<img src="../user/photo/<?php echo $photo; ?>" class="notify_headph">
 													            </div>
 													            <div class="notify_div_p">
 													                <p>您於剛剛正式加入<font color="red"><?php echo $name; ?></font>所創建的房間<font color="red"><?php echo $remindAccount['room']; ?></font>，提醒您<font color="red"><?php echo $date; ?></font> <font color="red"><?php echo $time; ?></font>，在<font color="red"><?php echo $remindAccount['store'] ?></font>，別遲到囉~</p>
@@ -51,7 +52,7 @@
 														?>
 															<div class="notify_div01">
 													            <div class="notify_div_img">
-													              	<img src="../../omor_html/img/attention.png" class="notify_attention">
+													              	<img src="../../jomor_html/img/attention.png" class="notify_attention">
 													            </div>
 													            <div class="notify_div_p">
 													                <p>您於剛剛被<font color="red"><?php echo $name; ?></font>踢出了房間，房名為<font color="red"><?php echo $remindAccount['room']; ?></font></p>
@@ -132,7 +133,7 @@
 									?>
 									<!--圓形頭貼照-->
 										<div class="rwd_nav_userImg" >
-											<img src="../../system/user/photo/<?php echo $photo ?>" class="img_notify_img02" onClick="openNav()">
+											<img src="../user/photo/<?php echo $photo ?>" class="img_notify_img02" onClick="openNav()">
 											<!--頭像旁三角形選單<div class="nav_select" onClick="openNav()"></div>-->
 										</div>
 
@@ -190,7 +191,7 @@
 									?>
 									<!--圓形頭貼照-->
 										<div class="rwd_nav_userImg" >
-											<img src="../../system/user/photo/<?php echo $photo ?>" class="rwd_notify_img02" onClick="openNav()">
+											<img src="../user/photo/<?php echo $photo ?>" class="rwd_notify_img02" onClick="openNav()">
 											<!--頭像旁三角形選單<div class="nav_select" onClick="openNav()"></div>-->
 										</div>
 
@@ -236,11 +237,13 @@
 			    <ul id="rwdul">
 			    	<a href="../../index.php"><li>首頁</li></a>
 			        <a href="../../system/store/store1-2.php"><li>店家地圖</li></a>
+			        <a href="../../system/store/store2.php"><li>店家列表</li></a>
 			        <a href="../../system/group/jo.php"><li>揪團</li></a>
 			        <a href="../../discussion.php"><li>討論區</li></a>
 			        <a href="../../blog.php"><li>桌遊專欄</li></a>
 			        <a href="../../aboutus.php"><li>聯絡我們</li></a>
 			    </ul>
+				
 		</nav>
 <header class="header_bg">
 			<!--頂部圖案-->
@@ -492,12 +495,6 @@
 								<?php
 							}
 						?>
-					</tr><!--tr-->
-					<tr>
-						<td colspan="2" class="top_td4"><input class="index_search" type="text" name="search" size="13"></td>
-						<td class="top_td5" valign="center">
-							<input class="button" name="submit" type="image" value="search" src="../../jomor_html/img/button.png">
-						</td>
 					</tr>
 				</table>
 			</div>

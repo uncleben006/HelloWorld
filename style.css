@@ -3080,15 +3080,17 @@ input:focus{outline:none}
 }
 /*店家列表中的“地區”按鈕跳出的地區選單*/
 .local_fram{
-      border-width: : 2px;
-      background: rgba(242,238,113,0.6);
-      border-radius: 30px;
-      width: 330px;
-      height: 120px;
-      position: relative;
-      left: 140%;
-      top: 10px; 
-      z-index: 1; 
+	    border-width: : 2px;
+	    background: rgba(255, 255, 255, 0.87);
+	    border-radius: 15px;
+	    width: 450px;
+	    border-color: #f2ee71;
+	    border-width: 2px;
+	    border-style: solid;
+	    position: relative;
+	    left: 102%;
+	    top: 10px;
+	    z-index: 1;
     }
     .local_fram:after {
 	  content: "";
@@ -3103,11 +3105,11 @@ input:focus{outline:none}
 	  z-index: 0;
 }
     .local_scroll{
-      overflow:auto;/*超出框顯示捲軸*/
-      height: 100px;
-      width: 90%;
-      margin: 0 auto;
-      text-align: left;
+	    overflow: auto;
+	    height: 200px;
+	    width: 97%;
+	    margin: 0 auto;
+	    text-align: left;
     }
 
 .local_place{
@@ -3115,15 +3117,17 @@ input:focus{outline:none}
     margin: 4% 0 0 5%;
     }
 .stype_fram{
-      border-width: : 2px;
-      background: rgba(242,238,113,0.6);
-      border-radius: 30px;
-      width: 280px;
-      height: 120px;
-      position: relative;
-      left: 218%;
-      top: 10px; 
-      z-index: 1; 
+    	border-width: : 2px;
+	    background: rgba(255, 255, 255, 0.87);
+	    border-radius: 15px;
+	    width: 240px;
+	    border-color: #f2ee71;
+	    border-width: 2px;
+	    border-style: solid;
+	    position: relative;
+	    left: 612px;
+	    top: 10px;
+	    z-index: 1;
     }
     .stype_fram:after {
 	  content: "";
@@ -3138,13 +3142,12 @@ input:focus{outline:none}
 	  z-index: 0;
 }
     .stype_scroll{
-      position: relative;
-      overflow:auto;/*超出框顯示捲軸*/
-      height: 100px;
-      width: 90%;
-      margin: 0 auto;
-      text-align: left;
-      top: 20px;
+	    overflow: auto;
+	    height: 90px;
+	    padding-top: 10px;
+	    width: 97%;
+	    margin: 0 auto;
+	    text-align: left;
     }
 .css-input {
     display: inline-block;
@@ -5086,7 +5089,7 @@ input:focus{outline:none}
 .jo_cell1 {  
   display: inline-block; 
   /*外框改成310px(預設大小)*/
-  width: 310px;  
+  width: 330px;  
   height: 340px;
   /*拿掉padding*/
   /*padding: 0 2% 5% 2%;*/
@@ -5133,7 +5136,6 @@ input:focus{outline:none}
 	background-color: #EA6363;
 	border-top-right-radius: 25px;
 	z-index: 2;	
-	width: 260px;
 	height: 50px;
 	position: relative;
 }
@@ -5158,7 +5160,7 @@ input:focus{outline:none}
 	background-color: #F1E392;
 	/*改width:100%，不過其實也不用寫，因為div會預設填滿整列*/
 	width: 100%;
-	height: 300px;
+	padding-top: 10px;
 }
 .jo_info_table{
 	display: table;
@@ -5215,13 +5217,11 @@ input:focus{outline:none}
 .redline{
 	background-color: #EA6363;
 	height: 10px;
-	width: 310px;
 }
 .greenbottom{
 	position: relative;
 	background-color: #56959A;
 	height: 55px;
-	width: 310px;
 	border-bottom-right-radius: 30px;
 	border-bottom-left-radius: 30px;
 

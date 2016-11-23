@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>桌末狂歡 JOMOR - 桌遊資訊平</title>
+		<title>桌遊資訊平台 - 桌末狂歡 JOMOR</title>
 		<!--輪播圖-->
 		<!-- Demo CSS -->
 		<link rel="stylesheet" href="flexslider.css" type="text/css" media="screen" />
@@ -65,20 +65,20 @@
 			</div><!--輪播圖結束-->
 
 			<!--藍綠色標語-->
-			<div class="index_green_title">
-				<div class="index_green_title_pp">
-					<h1>More Fun on Table!</h1>
-					<p>&nbsp;</p>
-					<p>迅速找到最近最方便的店家</p>
-					<p>與新同好展開一場桌遊冒險</p>
-					<p>&nbsp;</p>
-					<p>桌末狂歡讓你狂歡週末</p>
-				</div>		
-			</div>
+				<div class="index_green_title">
+					<div class="index_green_title_pp">
+						<h1>More Fun on Table!</h1>
+						<p>&nbsp;</p>
+						<p>迅速找到最近最方便的店家</p>
+						<p>與新同好展開一場桌遊冒險</p>
+						<p>&nbsp;</p>
+						<p>桌末狂歡讓你狂歡週末</p>
+					</div>		
+				</div>
 
 				<!--跳出皮皮君介紹-->
 					    <div id="aboutmascot01">
-					    <div class="aboutmascot_position">
+					    <div class="aboutmascot_position" onClick="javascript:window.location.href='index.php';">
 						        <div class="aboutmascot_fram01">
 						            <span class="aboutmascot_title">皮皮君簡介</span>
 						            <!--關掉的xx-->
@@ -93,7 +93,7 @@
 					    </div><!--跳出熊哥介紹結束-->
 						<!--跳出熊哥介紹-->
 					    <div id="aboutmascot02">
-					    <div class="aboutmascot_position">
+					    <div class="aboutmascot_position" onClick="javascript:window.location.href='index.php';">
 					        <div class="aboutmascot_fram01">
 					            <span class="aboutmascot_title">熊哥簡介</span>
 					            <!--關掉的xx-->
@@ -108,7 +108,7 @@
 					    </div><!--跳出熊哥介紹結束-->
 					    <!--跳出笨太郎介紹-->
 					    <div id="aboutmascot03">
-					    <div class="aboutmascot_position">
+					    <div class="aboutmascot_position" onClick="javascript:window.location.href='index.php';">
 					        <div class="aboutmascot_fram01">
 					            <span class="aboutmascot_title">笨太郎簡介</span>
 					            <!--關掉的xx-->
@@ -123,7 +123,7 @@
 					    </div><!--跳出笨太郎介紹結束-->
 					    <!--跳出波爸介紹-->
 					    <div id="aboutmascot04">
-					    <div class="aboutmascot_position">
+					    <div class="aboutmascot_position" onClick="javascript:window.location.href='index.php';">
 					        <div class="aboutmascot_fram01">
 					            <span class="aboutmascot_title">波爸簡介</span>
 					            <!--關掉的xx-->
@@ -139,30 +139,31 @@
 				<!--吉祥物區塊-->
 				<div class="mascot_fram">
 					<a href="#">
-						<div class="mascot_span">
-							<img src="jomor_html/img/mascot01-2.png" class="mascot_img00">
+						<span class="mascot_span">
+							<!--<img src="jomor_html/img/mascot01-2.png" class="mascot_img00">-->
+							<div class="mascot_img00">1234567890</div>
 							<img src="jomor_html/img/mascot01.png" class="mascot_img00" onClick="op_aboutmascot01(aboutmascot01)">
-						</div>
-						<div class="mascot_span">
+						</span>
+						<span class="mascot_span">
 							<img src="jomor_html/img/mascot02-2.png" class="mascot_img01">
 							<img src="jomor_html/img/mascot02.png" class="mascot_img01" onClick="op_aboutmascot01(aboutmascot02)">
-						</div>
-						<div class="mascot_span">
+						</span>
+						<span class="mascot_span">
 							<img src="jomor_html/img/mascot03-2.png" class="mascot_img02">
 							<img src="jomor_html/img/mascot03.png" class="mascot_img02" onClick="op_aboutmascot01(aboutmascot03)">
-						</div>
-						<div class="mascot_span">
+						</span>
+						<span class="mascot_span">
 							<img src="jomor_html/img/mascot04-2.png" class="mascot_img00">
 							<img src="jomor_html/img/mascot04.png" class="mascot_img00" onClick="op_aboutmascot01(aboutmascot04)">
-						</div>
+						</span>
 					</a>
 					
 				</div>
 				<div class="index_red"></div>
-				<div class="index_yellow"> 
+				<div class="index_yellow0"> 
 					<div class="index_yellow_pp">｜桌遊資訊平台｜桌末狂歡｜</div>
 				</div>
-				<div class="footer_bt_div">
+				<div class="footer_bt_div00">
 					<span class="footer_span">
 						<a href="https://www.facebook.com/jomor.party/?fref=nf" class="footer_a"  target=_blank>
 							<span class="footer_hover">

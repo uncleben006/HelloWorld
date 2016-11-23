@@ -14,6 +14,20 @@
 			include('../../include/link.php');
 			include('../../include/sessionCheck.php'); 
 
+			//阻擋未登入用戶
+			if(empty($_SESSION['account'])){
+				header("Location:http://www.jomorparty.com");
+			}
+			//阻擋一般用戶，只有pri=3才能使用
+			if(isset($_SESSION['account'])){
+				$account = $_SESSION['account'];
+				$selectUserAccount = mysql_query("SELECT * FROM `user` WHERE `account` = '".$account."'");
+				$userAccount = mysql_fetch_assoc($selectUserAccount);
+				if($userAccount['pri']!=3){
+					header("Location:http://www.jomorparty.com");
+				}	
+			}
+			
 			//管理店家
 			if(isset($_POST['showStore'])){
 				header('Location:showStore.php');

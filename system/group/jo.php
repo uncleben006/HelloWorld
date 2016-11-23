@@ -401,12 +401,20 @@
 								$time2 = date("H:i",strtotime($row['time2']));
 								$store = $row['store'];
 								$people = $row['people'];
-								$game = $row['game'];									
+								$game = $row['game'];	
+								$host = $row['host'];								
 								$startTime = date("Y-m-d-H:i:s", strtotime($date.$time."5 hours"));
 
 								//抓取當前"no"的房間之人數
 								$selectMemberNo = mysql_query("SELECT * FROM `member` WHERE `no` = '".$no."'");
 								$num = mysql_num_rows($selectMemberNo);
+
+								$selectUserHost = "SELECT * FROM `user` WHERE `account` = '".$host."'";
+							    mysql_query("SET NAMES'UTF8'");
+								mysql_query("SET CHARACTER SET UTF8");
+								mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+								$selectUserHost = mysql_query($selectUserHost);
+								$userHost = mysql_fetch_assoc($selectUserHost);
 
 
 								if($now>$startTime){
@@ -441,6 +449,16 @@
 											<div class="jo_info_tr"><!--詳細資訊區塊日期tr-->
 												<div class="jo_info_bg"><!--詳細資訊白底區塊-->
 													<div class="jo_info_td01">
+														<div class="jo_info_td01-2">房主</div>
+													</div>
+													<div class="jo_info_td02">
+														<div class="jo_info_td02-2"><?php echo $userHost['name'] ?></div>
+													</div>
+												</div>
+											</div>
+											<div class="jo_info_tr"><!--詳細資訊區塊日期tr-->
+												<div class="jo_info_bg"><!--詳細資訊白底區塊-->
+													<div class="jo_info_td01">
 														<div class="jo_info_td01-2">日期</div>
 													</div>
 													<div class="jo_info_td02">
@@ -464,7 +482,7 @@
 														<div class="jo_info_td01-2">地點</div>
 													</div>
 													<div class="jo_info_td02">
-														<div class="jo_info_td02-2"><?php echo $store ?></div>
+														<div class="jo_info_td02-2" title="<?php echo $store ?>" ><?php echo $store ?></div>
 													</div>
 												</div>
 											</div>

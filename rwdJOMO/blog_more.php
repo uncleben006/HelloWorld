@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>桌末狂歡 JOMOR - 桌遊資訊平</title>
+	<title>桌遊資訊平台 - 桌末狂歡 JOMOR</title>
 	<link href="style.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="javascript.js"></script>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" href="jomor_html/img/jomorparty_logo.png" type="image/ico" />
 </head>
 	<body id="body0">
@@ -30,6 +31,7 @@
 		</section>
 		-->
 		<!--文章區塊-->
+
 		<section class="moreessay_section">
 			<div class="moreessay_fram">
 					<div class="moreeassy_green"><!--綠色標題區塊-->
@@ -86,6 +88,43 @@
 				</div>
 			</div>
 		</section>
+		<footer class="footer_css_00">
+				<div class="footer_white"></div>
+				<div class="index_yellow"> 
+					<div class="index_yellow_pp">｜桌遊資訊平台｜桌末狂歡｜</div>
+				</div>
+				<div class="footer_bt_div">
+					<span class="footer_span">
+						<a href="https://www.facebook.com/jomor.party/?fref=nf" class="footer_a"  target=_blank>
+							<span class="footer_hover">
+								<img src="jomor_html/img/fb2.png" class="index_footer_bt">
+								<img src="jomor_html/img/fb.png" class="index_footer_bt">
+							</span>
+						</a>
+					</span>
+					<span class="footer_span">
+						<a href="mailto:ics.jomorparty@gmail.com" class="footer_a">
+							<span class="footer_hover">
+								<img src="jomor_html/img/mailus2.png" class="index_footer_bt">
+								<img src="jomor_html/img/mailus.png" class="index_footer_bt">
+							</span>
+						</a>
+					</span>
+					<span class="footer_span">
+						<a href="http://www.swanpanasia.com/" class="footer_a" target=_blank>
+							<span class="footer_hover">
+								<img src="jomor_html/img/heaven2.png" class="index_footer_bt">
+								<img src="jomor_html/img/heaven.png" class="index_footer_bt">
+							</span>
+						</a>
+					</span>
+				</div>
+		</footer>
+		<div class="line-it-button" style="display: none;" data-type="share-a" data-lang="zh-Hant" ></div>
+<script src="//scdn.line-apps.com/n/line_it/thirdparty/loader.min.js" async="async" defer="defer" ></script>
 
+<a href="javascript: void(window.open('http://www.facebook.com/share.php?u='.concat(encodeURIComponent('http://www.jomorparty.com/blog_more.php'))));">點我分享</a>
+
+<div class="fb-page fb_iframe_widget" data-href="https://www.facebook.com/womany.net/" data-tabs="timeline" data-width="290" data-height="302" data-small-header="true" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="false" data-hide-cta="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="adapt_container_width=false&amp;app_id=226870747360988&amp;container_width=290&amp;height=302&amp;hide_cover=false&amp;hide_cta=true&amp;href=https%3A%2F%2Fwww.facebook.com%2Fwomany.net%2F&amp;locale=zh_TW&amp;sdk=joey&amp;show_facepile=false&amp;small_header=true&amp;tabs=timeline&amp;width=290"><span style="vertical-align: bottom; width: 290px; height: 302px;"><iframe name="fb80a7f2dad92c" width="290px" height="302px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:page Facebook Social Plugin" src="https://www.facebook.com/v2.3/plugins/page.php?adapt_container_width=false&amp;app_id=226870747360988&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FfTmIQU3LxvB.js%3Fversion%3D42%23cb%3Df19bebfb3ec5cdc%26domain%3Dwomany.net%26origin%3Dhttps%253A%252F%252Fwomany.net%252Ff1a1534a2ac7594%26relation%3Dparent.parent&amp;container_width=290&amp;height=302&amp;hide_cover=false&amp;hide_cta=true&amp;href=https://www.facebook.com/jomor.party/?fref=tsF&amp;locale=zh_TW&amp;sdk=joey&amp;show_facepile=false&amp;small_header=true&amp;tabs=timeline&amp;width=290" style="border: none; visibility: visible; width: 290px; height: 302px;" class=""></iframe></span></div>
 </body>
 </html>

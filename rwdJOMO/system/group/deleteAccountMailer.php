@@ -51,6 +51,8 @@ $htmlurl =
 		<div>您剛剛被「".$remind['host']."」踢出了房間</div>
 		<span>房名是「".$remind['room']."」</span>
 		<div>房間開始時間是".$date." ".$time."</div>
+		<div>原因是</div>
+		<div>".$result."</div>
 		<div>共多詳細資訊請看".$ahref."</div>
 	</div>
 </body>
