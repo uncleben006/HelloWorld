@@ -9,6 +9,24 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" href="../../jomor_html/img/jomorparty_logo.png" type="image/ico" />
+	
+	<?php
+		if(isset($_GET['no'])){
+			$no = $_GET['no'];
+			$selectRoomNo = "SELECT * FROM `room` WHERE `no` = '".$no."'";
+			$selectRoomNo = mysql_query($selectRoomNo);
+			$roomNo = mysql_fetch_assoc($selectRoomNo);
+			//以上為取得店家照片
+			?>
+			<meta property="og:image" content="http://www.jomorparty.com/jomor_html/img/f3.jpg"/>
+			<meta property="og:title" content="桌末狂歡" />
+			<meta property="og:description" content="缺人一起打桌遊嗎? 加入我的房間吧!" />
+			<meta property="og:url" content="http://www.jomorparty.com/system/group/jo.php?no=<?php echo $no;?>" />
+			<meta property="og:type" content="website" />
+			<?php
+		}
+		
+	?>
 </head>
 	<body id="body0">
 
@@ -97,26 +115,44 @@
 
 			//跳出確認提示，按確認則輸入訊息
 			if(isset($_POST['yes'])){
+
 				$no = $_GET['no'];
-				//把session資料insert進 member table
+				$account = $_SESSION['account'];
+
 				$selectMemberNo = "SELECT * FROM `member` WHERE `no`= '".$no."' ";
 				mysql_query("SET NAMES'UTF8'");
 				mysql_query("SET CHARACTER SET UTF8");
 				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
 				$selectMemberNo = mysql_query($selectMemberNo);
 				$memberNo = mysql_fetch_assoc($selectMemberNo);
-				$account = $_SESSION['account'];
+				
 				$selectUserAccount = "SELECT * FROM `user` WHERE `account` = '".$account."'";
 			    mysql_query("SET NAMES'UTF8'");
 				mysql_query("SET CHARACTER SET UTF8");
 				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
 				$selectUserAccount = mysql_query($selectUserAccount);
 				$userAccount = mysql_fetch_assoc($selectUserAccount);
-				$mysql3 = 'INSERT INTO `member`(`no`,`people`, `name`, `account`,`email`, `photo`) VALUES ("'.$no.'","'.$memberNo['people'].'","'.$userAccount['name'].'","'.$userAccount['account'].'","'.$userAccount['email'].'","'.$userAccount['photo'].'")';
+
+				//把member表裡的人數資料，user表裡的姓名、帳號、信箱跟照片，再存入member表裡
+				$insertMember = 'INSERT INTO `member`(`no`,`people`, `name`, `account`,`email`, `photo`) VALUES ("'.$no.'","'.$memberNo['people'].'","'.$userAccount['name'].'","'.$userAccount['account'].'","'.$userAccount['email'].'","'.$userAccount['photo'].'")';
 				mysql_query("SET NAMES'UTF8'");
 				mysql_query("SET CHARACTER SET UTF8");
 				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
-				mysql_query($mysql3);
+				mysql_query($insertMember);
+
+				$selectRoomNo = "SELECT * FROM `room` WHERE `no` = '".$no."'";
+				mysql_query("SET NAMES'UTF8'");
+				mysql_query("SET CHARACTER SET UTF8");
+				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+				$selectRoomNo = mysql_query($selectRoomNo);
+				$roomNo = mysql_fetch_assoc($selectRoomNo);
+
+				$insertRemind = 'INSERT INTO `remind`(`no`,`account`, `email`, `host`,`room`, `date`, `time`, `store`, `decide`) VALUES ("'.$no.'","'.$account.'","'.$userAccount['email'].'","'.$roomNo['host'].'","'.$roomNo['room'].'","'.$roomNo['date'].'","'.$roomNo['time'].'","'.$roomNo['store'].'","3")';
+				mysql_query("SET NAMES'UTF8'");
+				mysql_query("SET CHARACTER SET UTF8");
+				mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+				mysql_query($insertRemind);
+
 				header("Location:jo.php?no=".$no."&success=".$no);//避免重新整理時，重複傳送表單，故需導回原畫面。
 			}
 			//跳出確認提示，按取消則轉跳回原頁
@@ -210,7 +246,7 @@
 					$storePhoto = mysql_fetch_assoc($selectStorePhoto);
 					echo $storePhoto['storeName'];
 
-					$setSQL = 'INSERT INTO `room`(`host`,`room`,`store`,`game`,`date`,`time`,`time2`,`people`,`spend`,`remark`) VALUES ("'.$account.'","'.$room.'","'.$storePhoto['storeName'].'","'.$game.'","'.$date.'","'.$time.'","'.$time2.'","'.$people.'","'.$spend.'","'.$remark.'")';
+					$setSQL = 'INSERT INTO `room`(`host`,`room`,`storeNo`,`store`,`game`,`date`,`time`,`time2`,`people`,`spend`,`remark`) VALUES ("'.$account.'","'.$room.'","'.$storeNo.'","'.$storePhoto['storeName'].'","'.$game.'","'.$date.'","'.$time.'","'.$time2.'","'.$people.'","'.$spend.'","'.$remark.'")';
 					echo $setSQL;
 					mysql_query("SET NAMES'UTF8'");
 					mysql_query("SET CHARACTER SET UTF8");
@@ -367,6 +403,7 @@
 				<div class="jo_blue"><!--藍底區塊-->
 					<span><a class="jo_btn" onClick="openrule(rule)">如何揪團</a></span>
 					<span><a class="jo_btn" onClick="openroom(op)">創建房間</a></span>
+					<span><a class="jo_btn" onClick="window.location.href='jo.php?account=<?php echo $_SESSION['account'];?>'">我的房間</a></span>
 				</div>
 			</section>
 			<section><!--揪團房間區塊-->
@@ -376,155 +413,337 @@
 					 	<div class="jo_row"><!-- 大表格tr -->
 					 	
 					 	<?php
+				 			$setSQL = 'SELECT * FROM `room` ORDER BY `no` DESC';
+							mysql_query("SET NAMES'UTF8'");
+							mysql_query("SET CHARACTER SET UTF8");
+							mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+							$result = mysql_query($setSQL);
+							$number = mysql_num_rows($result);//取得所選SQL的列數，取代count(*);
 
-					 	$setSQL = 'SELECT * FROM `room` ORDER BY `no` DESC';
-						mysql_query("SET NAMES'UTF8'");
-						mysql_query("SET CHARACTER SET UTF8");
-						mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
-						$result = mysql_query($setSQL);
-						$number = mysql_num_rows($result);//取得所選SQL的列數，取代count(*);
-
-						//指定台北時區
-						date_default_timezone_set('Asia/Taipei');
-						$now = date("Y-m-d-H:i:s");
+							//指定台北時區
+							date_default_timezone_set('Asia/Taipei');
+							$now = date("Y-m-d-H:i:s");
+					 		
 
 						//顯示房間	配合html
 						//顯示房間	配合html
 						//顯示房間	配合html
 					 	//若資料庫裡 room table 的列數大於0，則取出資料並配合html顯示
 						if($number>0){
-							while($row = mysql_fetch_assoc($result) ){
-								$no = $row['no'];
-								$room = $row['room'];
-								$date = $row['date'];
-								$time = date("H:i",strtotime($row['time']));//格式化時間(只顯示小時跟分鐘)
-								$time2 = date("H:i",strtotime($row['time2']));
-								$store = $row['store'];
-								$people = $row['people'];
-								$game = $row['game'];									
-								$startTime = date("Y-m-d-H:i:s", strtotime($date.$time."5 hours"));
+							if(isset($_GET['account'])){
+								$setSQL = "SELECT * FROM `member` WHERE `account` = '".$_SESSION['account']."'";
+								mysql_query("SET NAMES'UTF8'");
+								mysql_query("SET CHARACTER SET UTF8");
+								mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+								$result = mysql_query($setSQL);
+								while($row = mysql_fetch_assoc($result) ){
+									$no = $row['no'];
+									$selectRoomNo = "SELECT * FROM `room` WHERE `no` = '".$no."'";
+									mysql_query("SET NAMES'UTF8'");
+									mysql_query("SET CHARACTER SET UTF8");
+									mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+									$selectRoomNo = mysql_query($selectRoomNo);
+									$roomNo = mysql_fetch_assoc($selectRoomNo);
 
-								//抓取當前"no"的房間之人數
-								$selectMemberNo = mysql_query("SELECT * FROM `member` WHERE `no` = '".$no."'");
-								$num = mysql_num_rows($selectMemberNo);
+									$room = $roomNo['room'];
+									$date = $roomNo['date'];
+									$time = date("H:i",strtotime($roomNo['time']));//格式化時間(只顯示小時跟分鐘)
+									$time2 = date("H:i",strtotime($roomNo['time2']));
+									$store = $roomNo['store'];
+									$people = $roomNo['people'];
+									$game = $roomNo['game'];	
+									$host = $roomNo['host'];								
+									$startTime = date("Y-m-d-H:i:s", strtotime($date.$time."5 hours"));
+
+									//抓取當前"no"的房間之人數
+									$selectMemberNo = mysql_query("SELECT * FROM `member` WHERE `no` = '".$no."'");
+									$num = mysql_num_rows($selectMemberNo);
+
+									$selectUserHost = "SELECT * FROM `user` WHERE `account` = '".$host."'";
+								    mysql_query("SET NAMES'UTF8'");
+									mysql_query("SET CHARACTER SET UTF8");
+									mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+									$selectUserHost = mysql_query($selectUserHost);
+									$userHost = mysql_fetch_assoc($selectUserHost);
 
 
-								if($now>$startTime){
-									//開始時間再加5小時，時間一到，刪除TABLE room 跟 DB room 還有 chat 裡面 'no'房 的
-									$setSQL1 = "DELETE FROM `room` WHERE `no`=".$no."";
-									mysql_query($setSQL1);
-									$setSQL2 = "DELETE FROM `member` WHERE `no` =".$no."";
-									mysql_query($setSQL2);
-									$setSQL3 = "DELETE FROM `chat` WHERE `no`=".$no."";
-									mysql_query($setSQL3);
-									$setSQL4 = "DELETE FROM `remind` WHERE `no` = ".$no."";
-									//header("Location:jo.php");//為了避免刪除以後頁面仍顯示房間，導回原頁面做重新整理
-								}
-							?>
-							
-					        <div class="jo_cell1"><!-- 大表格td -->  
-					        	<form method="get"> 
-						         	<!--揪團房間1-->
-						            <div class="jo_info_card-0"><!-- 一張揪團卡內的上半部table --> 
-										<div class="jo_title"><!--一張揪團卡內的上半部title區塊（tr)-->
-											<div class="jo_number_div"><!--一張揪團卡內的房間編碼（td)-->
-												<div class="jo_number"><?php echo $no ?></div>
-												<input type="hidden" name="no" value="<?php echo $no ?>" >
-											</div>
-											<div class="jo_room_name_div"><!--一張揪團卡內的房間名稱（td)-->
-												<div class="jo_room_name" title="<?php echo $room ?>" ><?php echo $room ?></div>											
-											</div>
-										</div>
-									</div>
-									<div class="jo_info"><!--一張揪團卡內的詳細資訊區塊（黃底）-->
-										<div class="jo_info_table"><!--一張揪團卡內的詳細資訊表格-->
-											<div class="jo_info_tr"><!--詳細資訊區塊日期tr-->
-												<div class="jo_info_bg"><!--詳細資訊白底區塊-->
-													<div class="jo_info_td01">
-														<div class="jo_info_td01-2">日期</div>
+									/*if($now>$startTime){
+										//開始時間再加5小時，時間一到，刪除TABLE room 跟 DB room 還有 chat 裡面 'no'房 的
+										$setSQL1 = "DELETE FROM `room` WHERE `no`=".$no."";
+										mysql_query($setSQL1);
+										$setSQL2 = "DELETE FROM `member` WHERE `no` =".$no."";
+										mysql_query($setSQL2);
+										$setSQL3 = "DELETE FROM `chat` WHERE `no`=".$no."";
+										mysql_query($setSQL3);
+										$setSQL4 = "DELETE FROM `remind` WHERE `no` = ".$no."";
+										//header("Location:jo.php");//為了避免刪除以後頁面仍顯示房間，導回原頁面做重新整理
+									}
+									*/
+									?>
+							        <div class="jo_cell1"><!-- 大表格td -->  
+							        	<form method="get"> 
+								         	<!--揪團房間1-->
+								            <div class="jo_info_card-0"><!-- 一張揪團卡內的上半部table --> 
+												<div class="jo_title"><!--一張揪團卡內的上半部title區塊（tr)-->
+													<div class="jo_number_div"><!--一張揪團卡內的房間編碼（td)-->
+														<div class="jo_number"><?php echo $no ?></div>
+														<input type="hidden" name="no" value="<?php echo $no ?>" >
 													</div>
-													<div class="jo_info_td02">
-														<div class="jo_info_td02-2"><?php echo $date ?></div>
+													<div class="jo_room_name_div"><!--一張揪團卡內的房間名稱（td)-->
+														<div class="jo_room_name" title="<?php echo $room ?>" ><?php echo $room ?></div>											
 													</div>
 												</div>
 											</div>
-											<div class="jo_info_tr"><!--詳細資訊區塊時間tr-->
-												<div class="jo_info_bg"><!--詳細資訊白底區塊-->
-													<div class="jo_info_td01">
-														<div class="jo_info_td01-2">時間</div>
+											<div class="jo_info"><!--一張揪團卡內的詳細資訊區塊（黃底）-->
+												<div class="jo_info_table"><!--一張揪團卡內的詳細資訊表格-->
+													<div class="jo_info_tr"><!--詳細資訊區塊日期tr-->
+														<div class="jo_info_bg"><!--詳細資訊白底區塊-->
+															<div class="jo_info_td01">
+																<div class="jo_info_td01-2">房主</div>
+															</div>
+															<div class="jo_info_td02">
+																<div class="jo_info_td02-2"><?php echo $userHost['name'] ?></div>
+															</div>
+														</div>
 													</div>
-													<div class="jo_info_td02">
-														<div class="jo_info_td02-2"><?php echo $time."-".$time2 ?></div>
+													<div class="jo_info_tr"><!--詳細資訊區塊日期tr-->
+														<div class="jo_info_bg"><!--詳細資訊白底區塊-->
+															<div class="jo_info_td01">
+																<div class="jo_info_td01-2">日期</div>
+															</div>
+															<div class="jo_info_td02">
+																<div class="jo_info_td02-2"><?php echo $date ?></div>
+															</div>
+														</div>
+													</div>
+													<div class="jo_info_tr"><!--詳細資訊區塊時間tr-->
+														<div class="jo_info_bg"><!--詳細資訊白底區塊-->
+															<div class="jo_info_td01">
+																<div class="jo_info_td01-2">時間</div>
+															</div>
+															<div class="jo_info_td02">
+																<div class="jo_info_td02-2"><?php echo $time."-".$time2 ?></div>
+															</div>
+														</div>
+													</div>
+													<div class="jo_info_tr"><!--詳細資訊地點區塊tr-->
+														<div class="jo_info_bg"><!--詳細資訊白底區塊-->
+															<div class="jo_info_td01">
+																<div class="jo_info_td01-2">地點</div>
+															</div>
+															<div class="jo_info_td02">
+																<div class="jo_info_td02-2" title="<?php echo $store ?>" ><?php echo $store ?></div>
+															</div>
+														</div>
+													</div>
+													<div class="jo_info_tr"><!--詳細資訊人數區塊tr-->
+														<div class="jo_info_bg"><!--詳細資訊白底區塊-->
+															<div class="jo_info_td01">
+																<div class="jo_info_td01-2">人數</div>
+															</div>
+															<div class="jo_info_td02">
+																<div class="jo_info_td02-2"><?php echo $num."/".$people ?></div>
+															</div>
+														</div>
+													</div>
+													<div class="jo_info_tr"><!--詳細資訊人數區塊tr-->
+														<div class="jo_info_bg"><!--詳細資訊白底區塊-->
+															<div class="jo_info_td01">
+																<div class="jo_info_td01-2">遊戲</div>
+															</div>
+															<div class="jo_info_td02">
+																<div class="jo_info_td02-2"><?php echo $game ?></div>
+															</div>
+														</div>
 													</div>
 												</div>
-											</div>
-											<div class="jo_info_tr"><!--詳細資訊地點區塊tr-->
-												<div class="jo_info_bg"><!--詳細資訊白底區塊-->
-													<div class="jo_info_td01">
-														<div class="jo_info_td01-2">地點</div>
-													</div>
-													<div class="jo_info_td02">
-														<div class="jo_info_td02-2"><?php echo $store ?></div>
-													</div>
-												</div>
-											</div>
-											<div class="jo_info_tr"><!--詳細資訊人數區塊tr-->
-												<div class="jo_info_bg"><!--詳細資訊白底區塊-->
-													<div class="jo_info_td01">
-														<div class="jo_info_td01-2">人數</div>
-													</div>
-													<div class="jo_info_td02">
-														<div class="jo_info_td02-2"><?php echo $num."/".$people ?></div>
-													</div>
-												</div>
-											</div>
-											<div class="jo_info_tr"><!--詳細資訊人數區塊tr-->
-												<div class="jo_info_bg"><!--詳細資訊白底區塊-->
-													<div class="jo_info_td01">
-														<div class="jo_info_td01-2">遊戲</div>
-													</div>
-													<div class="jo_info_td02">
-														<div class="jo_info_td02-2"><?php echo $game ?></div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div> 
-									<div class="redline"></div> <!--紅線-->  
-									<div class="greenbottom"> <!--綠底-->
-										<table class="goroom_table">
-											<tr>
-												<td class="go_room_td">
-													<div class="white1"></div> <!--白球-->
-												</td>
-												<td class="go_room_td2">
-													<?php
-														$selectRoomNo = "SELECT * FROM `room` WHERE `no` = '".$no."'";
-												 		$selectRoomNo = mysql_query($selectRoomNo);
-												 		$roomNo = mysql_fetch_assoc($selectRoomNo);
-														if($roomNo['decide']==0){
-															?>
-															<button type="submit" class="goroom_btn" onClick="openviewroom(view_room)">瀏覽房間</button>
+											</div> 
+											<div class="redline"></div> <!--紅線-->  
+											<div class="greenbottom"> <!--綠底-->
+												<table class="goroom_table">
+													<tr>
+														<td class="go_room_td">
+															<div class="white1"></div> <!--白球-->
+														</td>
+														<td class="go_room_td2">
 															<?php
-														}
-														else{
+																$selectRoomNo = "SELECT * FROM `room` WHERE `no` = '".$no."'";
+														 		$selectRoomNo = mysql_query($selectRoomNo);
+														 		$roomNo = mysql_fetch_assoc($selectRoomNo);
+																if($roomNo['decide']==0){
+																	?>
+																	<button type="submit" class="goroom_btn" onClick="openviewroom(view_room)">瀏覽房間</button>
+																	<?php
+																}
+																else{
+																	?>
+																	<button type="submit" class="goroom_btn" onClick="openviewroom(view_room)">已經鎖定</button>
+																	<?php
+																}
 															?>
-															<button type="submit" class="goroom_btn" onClick="openviewroom(view_room)">已經鎖定</button>
+														</td>
+														<td class="go_room_td">
+															<div class="white2"></div> <!--白球-->
+														</td>
+													</tr>
+												</table>
+											</div><!--綠底-->
+										</form>
+							        </div> <!-- 大表格td -->
+						        	<?php
+						    	}
+
+							}
+							else{
+								while($row = mysql_fetch_assoc($result) ){
+									$no = $row['no'];
+									$room = $row['room'];
+									$date = $row['date'];
+									$time = date("H:i",strtotime($row['time']));//格式化時間(只顯示小時跟分鐘)
+									$time2 = date("H:i",strtotime($row['time2']));
+									$store = $row['store'];
+									$people = $row['people'];
+									$game = $row['game'];	
+									$host = $row['host'];								
+									$startTime = date("Y-m-d-H:i:s", strtotime($date.$time."5 hours"));
+
+									//抓取當前"no"的房間之人數
+									$selectMemberNo = mysql_query("SELECT * FROM `member` WHERE `no` = '".$no."'");
+									$num = mysql_num_rows($selectMemberNo);
+
+									$selectUserHost = "SELECT * FROM `user` WHERE `account` = '".$host."'";
+								    mysql_query("SET NAMES'UTF8'");
+									mysql_query("SET CHARACTER SET UTF8");
+									mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+									$selectUserHost = mysql_query($selectUserHost);
+									$userHost = mysql_fetch_assoc($selectUserHost);
+
+
+									if($now>$startTime){
+										//開始時間再加5小時，時間一到，刪除TABLE room 跟 DB room 還有 chat 裡面 'no'房 的
+										$setSQL1 = "DELETE FROM `room` WHERE `no`=".$no."";
+										mysql_query($setSQL1);
+										$setSQL2 = "DELETE FROM `member` WHERE `no` =".$no."";
+										mysql_query($setSQL2);
+										$setSQL3 = "DELETE FROM `chat` WHERE `no`=".$no."";
+										mysql_query($setSQL3);
+										$setSQL4 = "DELETE FROM `remind` WHERE `no` = ".$no."";
+										//header("Location:jo.php");//為了避免刪除以後頁面仍顯示房間，導回原頁面做重新整理
+									}
+									?>
+							        <div class="jo_cell1"><!-- 大表格td -->  
+							        	<form method="get"> 
+								         	<!--揪團房間1-->
+								            <div class="jo_info_card-0"><!-- 一張揪團卡內的上半部table --> 
+												<div class="jo_title"><!--一張揪團卡內的上半部title區塊（tr)-->
+													<div class="jo_number_div"><!--一張揪團卡內的房間編碼（td)-->
+														<div class="jo_number"><?php echo $no ?></div>
+														<input type="hidden" name="no" value="<?php echo $no ?>" >
+													</div>
+													<div class="jo_room_name_div"><!--一張揪團卡內的房間名稱（td)-->
+														<div class="jo_room_name" title="<?php echo $room ?>" ><?php echo $room ?></div>											
+													</div>
+												</div>
+											</div>
+											<div class="jo_info"><!--一張揪團卡內的詳細資訊區塊（黃底）-->
+												<div class="jo_info_table"><!--一張揪團卡內的詳細資訊表格-->
+													<div class="jo_info_tr"><!--詳細資訊區塊日期tr-->
+														<div class="jo_info_bg"><!--詳細資訊白底區塊-->
+															<div class="jo_info_td01">
+																<div class="jo_info_td01-2">房主</div>
+															</div>
+															<div class="jo_info_td02">
+																<div class="jo_info_td02-2"><?php echo $userHost['name'] ?></div>
+															</div>
+														</div>
+													</div>
+													<div class="jo_info_tr"><!--詳細資訊區塊日期tr-->
+														<div class="jo_info_bg"><!--詳細資訊白底區塊-->
+															<div class="jo_info_td01">
+																<div class="jo_info_td01-2">日期</div>
+															</div>
+															<div class="jo_info_td02">
+																<div class="jo_info_td02-2"><?php echo $date ?></div>
+															</div>
+														</div>
+													</div>
+													<div class="jo_info_tr"><!--詳細資訊區塊時間tr-->
+														<div class="jo_info_bg"><!--詳細資訊白底區塊-->
+															<div class="jo_info_td01">
+																<div class="jo_info_td01-2">時間</div>
+															</div>
+															<div class="jo_info_td02">
+																<div class="jo_info_td02-2"><?php echo $time."-".$time2 ?></div>
+															</div>
+														</div>
+													</div>
+													<div class="jo_info_tr"><!--詳細資訊地點區塊tr-->
+														<div class="jo_info_bg"><!--詳細資訊白底區塊-->
+															<div class="jo_info_td01">
+																<div class="jo_info_td01-2">地點</div>
+															</div>
+															<div class="jo_info_td02">
+																<div class="jo_info_td02-2" title="<?php echo $store ?>" ><?php echo $store ?></div>
+															</div>
+														</div>
+													</div>
+													<div class="jo_info_tr"><!--詳細資訊人數區塊tr-->
+														<div class="jo_info_bg"><!--詳細資訊白底區塊-->
+															<div class="jo_info_td01">
+																<div class="jo_info_td01-2">人數</div>
+															</div>
+															<div class="jo_info_td02">
+																<div class="jo_info_td02-2"><?php echo $num."/".$people ?></div>
+															</div>
+														</div>
+													</div>
+													<div class="jo_info_tr"><!--詳細資訊人數區塊tr-->
+														<div class="jo_info_bg"><!--詳細資訊白底區塊-->
+															<div class="jo_info_td01">
+																<div class="jo_info_td01-2">遊戲</div>
+															</div>
+															<div class="jo_info_td02">
+																<div class="jo_info_td02-2"><?php echo $game ?></div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div> 
+											<div class="redline"></div> <!--紅線-->  
+											<div class="greenbottom"> <!--綠底-->
+												<table class="goroom_table">
+													<tr>
+														<td class="go_room_td">
+															<div class="white1"></div> <!--白球-->
+														</td>
+														<td class="go_room_td2">
 															<?php
-														}
-													?>
-												</td>
-												<td class="go_room_td">
-													<div class="white2"></div> <!--白球-->
-												</td>
-											</tr>
-										</table>
-									</div><!--綠底-->
-								</form>
-					        </div> <!-- 大表格td -->
-						    
-					        <?php
-					    	}
+																$selectRoomNo = "SELECT * FROM `room` WHERE `no` = '".$no."'";
+														 		$selectRoomNo = mysql_query($selectRoomNo);
+														 		$roomNo = mysql_fetch_assoc($selectRoomNo);
+																if($roomNo['decide']==0){
+																	?>
+																	<button type="submit" class="goroom_btn" onClick="openviewroom(view_room)">瀏覽房間</button>
+																	<?php
+																}
+																else{
+																	?>
+																	<button type="submit" class="goroom_btn" onClick="openviewroom(view_room)">已經鎖定</button>
+																	<?php
+																}
+															?>
+														</td>
+														<td class="go_room_td">
+															<div class="white2"></div> <!--白球-->
+														</td>
+													</tr>
+												</table>
+											</div><!--綠底-->
+										</form>
+							        </div> <!-- 大表格td -->
+						        	<?php
+						    	}
+							}
 					    }
 					    else{//若資料庫裡 room table 的列數小於0，則顯示目前沒人揪團
 					    	echo "目前沒有人揪團唷~";
@@ -578,8 +797,8 @@
 									<td class="openroom_info_td">地點</td>
 									<td class="openroom_info_input_td">
 									<select name="storeNo" class="jo_text04" onchange="select_storecard(this)">
-							          	<optgroup label="臺北市">
 							          		<option value="none.png">無</option>
+							          	<optgroup label="臺北市">
 								            <option value="taipei2.jpg">swancafe天鵝咖啡館</option>
 								            <option value="taipei1.jpg">女巫店</option>
 								            <option value="taipei3.jpg">萊斯樂</option>	
@@ -676,6 +895,7 @@
 								        	<option value="taoyun16.jpg">逗你玩</option>
 								        	<option value="taoyun17.jpg">骰子貓</option>
 								        	<option value="taoyun18.jpg">I-Play Boardgame</option>
+								        	<option value="add01.jpg">桌遊天空城 Laputa</option>
 								        <optgroup label="新竹市">
 								        	<option value="h1.jpg">Mini Shoppa</option>
 								        	<option value="h2.jpg">卡牌屋（新竹店）</option>
@@ -935,7 +1155,7 @@
 							                    <div class="jo_info_card01"><!--店家資訊卡店名與圖片部分-->
 							                      	
 							                      	<span class="jo_store_name"><?php echo $roomNo['store']; ?></span>
-							                      	<div><img class="jo_store_img" src="../store/photo/<?php echo $store['storePhoto'];?>"></div>
+							                      	<div><img class="jo_store_img" src="../store/photo/<?php echo $store['storePhoto'];?>" onclick="storeInf()"></div>
 							                    </div>
 						                    	<!--店家資訊卡文字部分-->
 						                   	 	<div class="jo_store_info_card02">
@@ -1059,14 +1279,14 @@
 										                    				<?php
 										                    			}
 										                    		?>
-											                      	<!--帳號欄包含選單-->
+											                      	<!--帳號欄包含下拉選單-->
 											                      	<div class="jo_acount">											                      		
 										                        		<div class="jo_acount">
 										                        			<?php echo $memberHost['account']; ?>
 										                        			<div class="player_select_div">
 																				<select class="player_select" onchange="location.href=this.options[this.selectedIndex].value" >
 																					<option value="">權限:房主</option>
-											                        				<option value="userData.php?account=<?php echo $memberHost['account']; ?>">查看資料</option>
+											                        				<option value="userData.php?account=<?php echo $memberHost['account']; ?>&no=<?php echo $memberHost['no']; ?>">查看資料</option>
 											                        			</select>
 																			</div>	
 										                        		</div>
@@ -1103,7 +1323,7 @@
 											                    			}
 											                    		?>											                      	
 
-												                      	<!--帳號欄包含選單-->
+												                      	<!--帳號欄包含下拉選單-->
 												                      	<div class="jo_acount">
 										                        			<?php echo $onlyMember['account']; ?>
 
@@ -1117,7 +1337,7 @@
 												                        					<?php
 												                        				}
 												                        			?>											                        				
-											                        				<option value="userData.php?account=<?php echo $onlyMember['account']; ?>">查看資料</option>
+											                        				<option value="userData.php?account=<?php echo $onlyMember['account']; ?>&no=<?php echo $onlyMember['no']; ?>">查看資料</option>
 											                        			</select>
 																			</div>	
 											                        	</div>
@@ -1189,6 +1409,7 @@
 										                ?>
 										                <form>
 											            	<div class="join_bt">
+											            		<a href="javascript: void(window.open('http://www.facebook.com/share.php?u='.concat(encodeURIComponent('http://www.jomorparty.com/system/group/jo.php?no=<?php echo $no;?>'))));"><img style="width: 80px; float: right; position: relative; top: 280px; right: 10px;" src="http://www.jomorparty.com/jomor_html/img/sharebutton.png"></a>
 											            		<input type="hidden" name="no" value="<?php echo $no;?>">
 												            	<button type="submit" name="lockRoom" class="join_Hbtn">鎖定<br>房間</button>
 												            	<button type="submit" name="deleteRoom" value="<?php echo $_GET['no'];?>" class="join_Hbtn">刪除<br>房間</button>
@@ -1200,6 +1421,7 @@
 									            		?>
 									            		<form method="post">
 											            	<div class="join_bt">
+											            		<a href="javascript: void(window.open('http://www.facebook.com/share.php?u='.concat(encodeURIComponent('http://www.jomorparty.com/system/group/jo.php?no=<?php echo $no;?>'))));"><img style="width: 80px; float: right; position: relative; top: 280px; right: 10px;" src="http://www.jomorparty.com/jomor_html/img/sharebutton.png"></a>
 												            	<button type="submit" name="join" class="join_btn" onClick="javascript:window.location.href='jo.php';">
 												            		加入
 												            	</button>
@@ -1231,14 +1453,37 @@
 									                <div class="b_player_td">
 									                  	<div class="b_player_td0" title="<?php echo $memberHost['name'] ?>" ><?php echo $memberHost['name']; ?></div>
 								                      	<div class="b_jo_acount_no_td">
-								                        	<div class="b_jo_acount_no"><?php echo $memberHost['account'] ?></div>
+								                        	<div class="b_jo_acount_no">
+								                        		<?php echo $memberHost['account'] ?>
+								                        		<div class="player_select_div">
+																	<select class="player_select" onchange="location.href=this.options[this.selectedIndex].value" style="width: 145px;">
+																		<option value="">權限:房主</option>
+								                        				<option value="userData.php?account=<?php echo $memberHost['account']; ?>&no=<?php echo $memberHost['no']; ?>">查看資料</option>
+								                        			</select>
+																</div>	
+								                        	</div>
 								                        </div>
 								                        <?php
 									                    	while($onlyMember = mysql_fetch_assoc($selectOnlyMember2)){
 									                    	?>
 									                        <div class="b_player_td01" title="<?php echo $onlyMember['name']; ?>" ><?php echo $onlyMember['name']; ?> </div>
 									                      	<div class="b_jo_acount_no_td">
-									                        	<div class="b_jo_acount_no"><?php echo $onlyMember['account']; ?></div>
+									                        	<div class="b_jo_acount_no">
+									                        		<?php echo $onlyMember['account']; ?>
+									                        		<div class="player_select_div">
+																		<select class="player_select" onchange="location.href=this.options[this.selectedIndex].value" style="width: 145px;">
+																			<option value="">權限:成員</option>
+																			<?php 
+										                        				if($_SESSION['account']==$memberHost['account']&&$roomNo['decide']==0){
+										                        					?>
+										                        					<option value="jo.php?deleteAccount=<?php echo $onlyMember['account']; ?>&no=<?php echo $no; ?>">踢除成員</option>
+										                        					<?php
+										                        				}
+										                        			?>											                        				
+									                        				<option value="userData.php?account=<?php echo $onlyMember['account']; ?>&no=<?php echo $onlyMember['no']; ?>">查看資料</option>
+									                        			</select>
+																	</div>		
+									                        	</div>
 									                        </div>
 								                        	<?php
 								                    	}
@@ -1727,3 +1972,123 @@
 		</section>
 	</body>
 </html>
+<?php
+	if(isset($_GET['no'])){
+		$no = $_GET["no"];
+		$selectStoreName = 'SELECT * FROM `store` WHERE `no` = "'.$no.'"';
+		mysql_query("SET NAMES'UTF8'");
+		mysql_query("SET CHARACTER SET UTF8");
+		mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+		$selectStoreName = mysql_query($selectStoreName);
+		$store = mysql_fetch_assoc($selectStoreName);
+		?>
+		<div id="Store_inf" style="visibility:hidden">
+			<div style="position: fixed; width: 100%; height: 100%" onclick="my_scroll('jo.php?no=<?php echo $no;?>'); return false"></div>
+	  		<div class="div_store_card-0">
+			    <section class="div_store_section">
+			         <div class="div_store_card-01"><!--店家資訊卡店名與圖片部分-->
+			             <span class="div_store_name"><?php echo $store['storeName']?></span>
+			                <div><img class="div_store_img" src="../store/photo/<?php echo $store['storePhoto'];?>" ></div>
+			         </div>
+			         <!--店家資訊卡文字部分-->
+			         <div class="div_store_card-02">
+			            <table class="div_store_info_card02_table">
+			                <tr>
+			                    <td class="div_store_info_card02_td01">店家類型｜</td>
+			                    <td class="div_store_info_p2" ><?php echo $store['storeType']; ?></td>
+			                </tr>
+			                <tr>
+			                    <td class="div_store_info_card02_td01">店家地址｜</td>
+			                    <td class="div_store_info_p2"><?php echo $store['storeAddress']; ?></td>
+			                </tr>
+			                <tr>
+			                    <td class="div_store_info_card02_td01">店家電話｜</td>
+			                    <td class="div_store_info_p2"><?php echo $store['storeNumber']; ?></td>
+			                </tr>
+			                <tr>
+			                    <td class="div_store_info_card02_td01">營業時間｜</td>
+			                    <td class="div_store_info_p2"><?php echo $store['storeTime']; ?></td>
+			                </tr>
+			                <tr>
+			                    <td class="div_store_info_card02_td01">消費模式｜</td>
+			                    <td class="div_store_info_p2" ><?php echo $store['storeSpend'];?></td>
+			                </tr>
+			                 <!--店家資訊卡內臉書與網站的icon-->
+			                <tr>
+			                	<td colspan="2" style="height: 40px">				     
+			                		<span class="span_aa">	                			
+			                		<?php
+			                			if($store['webURL']!=''){
+			                				?>
+											<span class="web_hover">
+			                					<img src="../../jomor_html/img/webicon2.png" class="store_web_bt" onclick="window.open('<?php echo $store['webURL'];?>', '_blank');">
+			                					<img src="../../jomor_html/img/webicon.png" class="store_web_bt" onclick="window.open('<?php echo $store['webURL'];?>', '_blank');">
+			                				</span>
+			                				<?php
+			                			}
+			                		?>	
+			                		</span>	
+			                		<span class="span_aa">
+			                		<?php
+			                			if($store['fbURL']!=''){
+			                				?>
+		                					<span class="fb_hover">
+			                					<img src="../../jomor_html/img/fb2.png" class="store_fb_bt" onclick="window.open('<?php echo $store['fbURL'];?>', '_blank');">
+			                					<img src="../../jomor_html/img/fb.png" class="store_fb_bt" onclick="window.open('<?php echo $store['fbURL'];?>', '_blank');">
+			                				</span>
+			                				<?php
+			                			}
+			                		?>	
+			                		</span>				                			
+			                	</td>
+			                </tr>
+			            </table>
+			            <div class="rwd_googlemap">
+			            <aside class="div_store_aside">
+					        <iframe class="rwdmap_iframe" src="<?php echo $store['googleURL']; ?>" frameborder="0" style="border:0" allowfullscreen>
+					        </iframe>
+				        	<div class="div_store_btn">
+				        		<?php 
+				        			if(isset($_GET['storePlace'])){
+				        				$storePlace = $_GET['storePlace'];
+				        				?>
+				        				<button name="close" class="btn" onclick="my_scroll('jo.php?no=<?php echo $no;?>'); return false">關閉</button>
+				        				<?php 
+				        			} 
+				        			else{
+				        				?>
+				        				<button name="close" class="btn" onclick="my_scroll('jo.php?no=<?php echo $no;?>'); return false">關閉</button>
+				        				<?php
+				        			}
+				        		?>
+					        </div>			        
+				    	</aside>
+				    	</div>
+			         </div>
+			    </section>
+			   	  <div class="or_googlemap">
+						<aside class="div_store_aside">
+					        <iframe class="rwdmap_iframe" src="<?php echo $store['googleURL']; ?>" frameborder="0" style="border:0" allowfullscreen>
+					        </iframe>
+				        	<div class="div_store_btn">
+				        		<?php 
+				        			if(isset($_GET['storePlace'])){
+				        				$storePlace = $_GET['storePlace'];
+				        				?>
+				        				<button name="close" class="btn" onclick="my_scroll('jo.php?no=<?php echo $no;?>'); return false">關閉</button>
+				        				<?php 
+				        			} 
+				        			else{
+				        				?>
+				        				<button name="close" class="btn" onclick="my_scroll('jo.php?no=<?php echo $no;?>'); return false">關閉</button>
+				        				<?php
+				        			}
+				        		?>
+					        </div>			        
+				    	</aside>
+				    </div>
+			</div>
+	  	</div>   
+		<?php
+	}
+?>

@@ -181,6 +181,7 @@ function pic2() {
     document.getElementById('pic').style.backgroundImage = "url('../../jomor_html/img/upload_button_01.png')";
 }
 
+/*揪團*/
 /*揪團頁面裡，瀏覽房間中對成員的「查看與踢除」功能，selection的hidden與show*/
 function selectShow(x) {
     x.select.option.style.visibility = 'hidden';
@@ -190,6 +191,18 @@ function selectShow(x) {
         x.style.visibility = 'hidden';
     }
 }
+/*揪團頁面裡，打開店家資訊*/
+function storeInf() {
+    var x = document.getElementById('Store_inf');
+    x.style.visibility = 'hidden';
+    if (x.style.visibility === 'hidden') {
+        x.style.visibility = 'visible';
+    } else {
+        x.style.visibility = 'hidden';
+    }
+}
+
+
 /*首頁的頭貼選單div*/
 function opennav(divID) {
     //根據傳遞的參數確定顯示的層
@@ -210,14 +223,45 @@ function opennotify(divID) {
         divID.style.top = (document.body.clientHeight - 139) / 2;
     }
 }
-
+var xmlHttp
 function openNotify() {
+    xmlHttp = GetXmlHttpObject()
+    if (xmlHttp == null) {
+        alert("Browser does not support HTTP Request")
+        return
+    }
+    var url = "include/click.php"
+    xmlHttp.onreadystatechange = stateChanged
+    xmlHttp.open("GET", url, true)
+    xmlHttp.send(null)
+    document.getElementById('remind').src = "http://www.jomorparty.com/jomor_html/img/notify1.png";
+    
     var x = document.getElementById('notify');
     if (x.style.visibility === 'hidden') {
         x.style.visibility = 'visible';
     } else {
         x.style.visibility = 'hidden';
     }
+}
+
+function stateChanged() {
+}
+
+
+function GetXmlHttpObject() {
+    var xmlHttp = null;
+    try {
+        // Firefox, Opera 8.0+, Safari
+        xmlHttp = new XMLHttpRequest();
+    } catch (e) {
+        // Internet Explorer
+        try {
+            xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+        } catch (e) {
+            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+    }
+    return xmlHttp;
 }
 
 function openNotify_rwd() {

@@ -13,6 +13,10 @@
 	<?php
 		if(isset($_GET['no'])){
 			$no = $_GET['no'];
+			$selectRoomNo = "SELECT * FROM `room` WHERE `no` = '".$no."'";
+			$selectRoomNo = mysql_query($selectRoomNo);
+			$roomNo = mysql_fetch_assoc($selectRoomNo);
+			//以上為取得店家照片
 			?>
 			<meta property="og:image" content="http://www.jomorparty.com/jomor_html/img/f3.jpg"/>
 			<meta property="og:title" content="桌末狂歡" />
@@ -593,8 +597,8 @@
 								}
 							}
 							else{
-								//若沒有抓取到「我的房間」
-								//則顯示房間
+								//沒有抓取到「我的房間」
+								//顯示房間
 								while($row = mysql_fetch_assoc($result) ){
 									$no = $row['no'];
 									$room = $row['room'];
@@ -613,16 +617,11 @@
 									$num = mysql_num_rows($selectMemberNo);
 
 									$selectUserHost = "SELECT * FROM `user` WHERE `account` = '".$host."'";
-									$selectRemindNo = "SELECT * FROM `remind` WHERE `no` = '".$no."'";
 								    mysql_query("SET NAMES'UTF8'");
 									mysql_query("SET CHARACTER SET UTF8");
 									mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
-									//取得房主資料
 									$selectUserHost = mysql_query($selectUserHost);
 									$userHost = mysql_fetch_assoc($selectUserHost);
-									//取得提醒資料
-									$selectRemindNo = mysql_query($selectRemindNo);
-									$remindNo = mysql_fetch_assoc($selectRemindNo);
 
 
 									if($now>$startTime){
@@ -636,14 +635,6 @@
 										$setSQL4 = "DELETE FROM `remind` WHERE `no` = ".$no."";
 										//header("Location:jo.php");//為了避免刪除以後頁面仍顯示房間，導回原頁面做重新整理
 									}
-									/*
-									if($now>$mailTime&&$remindNo['remindSend']==0){
-										//寄一封信給房內每個成員，然後把remind表裡的remindSend改成1
-
-										include("remindMailer.php");
-										$updateRemindNo = mysql_query("UPDATE `remind` SET `remindSend`= 1 WHERE `no` = '".$no."'");
-									}
-									*/
 									?>
 							        <div class="jo_cell1"><!-- 大表格td -->  
 							        	<form method="get"> 
@@ -1632,12 +1623,12 @@
 		    <!--跳出的評價資訊div，所以從這邊複製貼到想要的地方-->
 		    <!--跳出的評價資訊div，所以從這邊複製貼到想要的地方-->
 		    <!--跳出的評價資訊div，所以從這邊複製貼到想要的地方-->		    
-		    <div id="grade" style="visibility: hidden;">
+		    <div id="grade">
 		        <div class="grade_position">
 		            <div class="grade_fram01">
 		                <span class="grade_title">您尚未評分！</span>
 		                <!--關掉的xx-->
-		                <span class="grade_close" onClick="window.location.href='jo.php'">
+		                <span class="grade_close" onClick="javascript:grade.style.visibility='hidden';">
 		                    <img src="../../jomor_html/img/close.png" class="grade_close_img">
 		                </span>
 		            </div>
@@ -1652,96 +1643,102 @@
 		                    <span class="rank_span03">差勁=_=</span>
 		                </div>
 		                <!--評價內的框框-->
-		                <form>
-			                <div class="score_div">
-			                    <table class="score_table" rules="rows">
-			                        <tr class="score_tr">
-			                            <td class="score_td0">
-			                                <img src="../../jomor_html/img/headph.png" class="grade_head_img">
-			                            </td>
-			                            <td class="score_td1">
-			                                <div class="score_username">皮皮君</div>
-			                            </td>
-			                            <td class="score_td2">
-			                                <a href="individual.html" class="score_viewother">查看個人資料</a>
-			                            </td>
-			                            <td class="score_td3">
+		                <div class="score_div">
+		                    <table class="score_table" rules="rows">
+		                        <tr class="score_tr">
+		                            <td class="score_td0">
+		                                <img src="../../jomor_html/img/headph.png" class="grade_head_img">
+		                            </td>
+		                            <td class="score_td1">
+		                                <div class="score_username">皮皮君</div>
+		                            </td>
+		                            <td class="score_td2">
+		                                <a href="individual.html" class="score_viewother">查看個人資料</a>
+		                            </td>
+		                            <td class="score_td3">
+		                                <form>
 		                                    <input type="radio" name="#" class="score_radio">
 		                                    <!--優良-->
 		                                    <input type="radio" name="#" class="score_radio">
 		                                    <!--普通-->
 		                                    <input type="radio" name="#" class="score_radio">
 		                                    <!--差勁-->
-			                            </td>
-			                        </tr>
-			                        <!--第二行-->
-			                        <tr class="score_tr">
-			                            <td class="score_td0">
-			                                <img src="../../jomor_html/img/headph.png" class="grade_head_img">
-			                            </td>
-			                            <td class="score_td1">
-			                                <div class="score_username">波爸</div>
-			                            </td>
-			                            <td class="score_td2">
-			                                <a href="individual.html" class="score_viewother">查看個人資料</a>
-			                            </td>
-			                            <td class="score_td3">
+		                                </form>
+		                            </td>
+		                        </tr>
+		                        <!--第二行-->
+		                        <tr class="score_tr">
+		                            <td class="score_td0">
+		                                <img src="../../jomor_html/img/headph.png" class="grade_head_img">
+		                            </td>
+		                            <td class="score_td1">
+		                                <div class="score_username">波爸</div>
+		                            </td>
+		                            <td class="score_td2">
+		                                <a href="individual.html" class="score_viewother">查看個人資料</a>
+		                            </td>
+		                            <td class="score_td3">
+		                                <form class="score_radio_form">
 		                                    <input type="radio" name="#" class="score_radio">
 		                                    <!--優良-->
 		                                    <input type="radio" name="#" class="score_radio">
 		                                    <!--普通-->
 		                                    <input type="radio" name="#" class="score_radio">
 		                                    <!--差勁-->
-			                            </td>
-			                        </tr>
-			                        <!--第三行-->
-			                        <tr class="score_tr">
-			                            <td class="score_td0">
-			                                <img src="../../jomor_html/img/headph.png" class="grade_head_img">
-			                            </td>
-			                            <td class="score_td1">
-			                                <div class="score_username">我打了六個字</div>
-			                            </td>
-			                            <td class="score_td2">
-			                                <a href="individual.html" class="score_viewother">查看個人資料</a>
-			                            </td>
-			                            <td class="score_td3">
+		                                </form>
+		                            </td>
+		                        </tr>
+		                        <!--第三行-->
+		                        <tr class="score_tr">
+		                            <td class="score_td0">
+		                                <img src="../../jomor_html/img/headph.png" class="grade_head_img">
+		                            </td>
+		                            <td class="score_td1">
+		                                <div class="score_username">我打了六個字</div>
+		                            </td>
+		                            <td class="score_td2">
+		                                <a href="individual.html" class="score_viewother">查看個人資料</a>
+		                            </td>
+		                            <td class="score_td3">
+		                                <form class="score_radio_form">
 		                                    <input type="radio" name="#" class="score_radio">
 		                                    <!--優良-->
 		                                    <input type="radio" name="#" class="score_radio">
 		                                    <!--普通-->
 		                                    <input type="radio" name="#" class="score_radio">
 		                                    <!--差勁-->
-			                            </td>
-			                        </tr>
-			                        <!--第四行-->
-			                        <tr class="score_tr">
-			                            <td class="score_td0">
-			                                <img src="../../jomor_html/img/headph.png" class="grade_head_img">
-			                            </td>
-			                            <td class="score_td1">
-			                                <div class="score_username">我打五個字</div>
-			                            </td>
-			                            <td class="score_td2">
-			                                <a href="individual.html" class="score_viewother">查看個人資料</a>
-			                            </td>
-			                            <td class="score_td3">
+		                                </form>
+		                            </td>
+		                        </tr>
+		                        <!--第四行-->
+		                        <tr class="score_tr">
+		                            <td class="score_td0">
+		                                <img src="../../jomor_html/img/headph.png" class="grade_head_img">
+		                            </td>
+		                            <td class="score_td1">
+		                                <div class="score_username">我打五個字</div>
+		                            </td>
+		                            <td class="score_td2">
+		                                <a href="individual.html" class="score_viewother">查看個人資料</a>
+		                            </td>
+		                            <td class="score_td3">
+		                                <form class="score_radio_form">
 		                                    <input type="radio" name="#" class="score_radio">
 		                                    <!--優良-->
 		                                    <input type="radio" name="#" class="score_radio">
 		                                    <!--普通-->
 		                                    <input type="radio" name="#" class="score_radio">
 		                                    <!--差勁-->
-			                            </td>
-			                        </tr>
-			                    </table>
-			                </div>
-			                <!--按鈕-->
-			                <div class="grade_btn_div">
-			                    <span><button class="grade_btn" onclick="window.location.href='jo.php'">稍後</button></span>
-			                    <span><button class="grade_btn" type="submit">完成</button></span>
-			                </div>
-			            </form>
+		                                </form>
+		                            </td>
+		                        </tr>
+		                    </table>
+		                </div>
+		                <!--按鈕-->
+		                <div class="grade_btn_div">
+		                    <span><a href="#" class="grade_btn" onClick="javascript:grade.style.visibility='hidden';">稍後</a></span>
+		                    <span><a href="#" class="grade_btn" onClick="javascript:grade.style.visibility='hidden';">完成</a></span>
+		                </div>
 		            </div>
 		        </div>
 		    </div>

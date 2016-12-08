@@ -254,10 +254,10 @@
 					</a>
 				</td>
 				<td rowspan="2" class="top_td1">
-					<a href="../../system/store/store1-2.php" class="top_a">
+					<a href="../../system/store/store2.php" class="top_a">
 						<img src="../../jomor_html/img/animal-01.png" alt="logo" title="store" width="70px" height="50px">
 					</a>
-					<span><a href="../../system/store/store1-2.php"" class="pp">店家地圖</a></span>
+					<span><a href="../../system/store/store2.php"" class="pp">店家地圖</a></span>
 				</td>
 				<td rowspan="2" class="top_td2">
 					<a href="../group/jo.php" class="top_a">
@@ -294,8 +294,28 @@
 							$selectRemindAccount = mysql_query($selectRemindAccount);
 							$remindNum = mysql_num_rows($selectRemindAccount);
 							if($remindNum>0){
+								while($remindAccount = mysql_fetch_assoc($selectRemindAccount)){
+									$click = $remindAccount['click'];
+									if($click==0){
+										session_set_cookie_params(99999);
+										$_SESSION['click'] = 0;
+									}
+									if($click==1){
+										session_set_cookie_params(99999);
+										$_SESSION['click'] = 1;
+									}
+								}
+								if($_SESSION['click']==0){
+									?>
+									<img id="remind" src="../../jomor_html/img/notify2.png" class="notify_img01" onclick="openNotify()">
+									<?php
+								}
+								if($_SESSION['click']==1){
+									?>
+									<img id="remind" src="../../jomor_html/img/notify1.png" class="notify_img01" onclick="openNotify()">
+									<?php
+								}
 								?>
-								<img src="../../jomor_html/img/notify2.png" class="notify_img01" onClick="openNotify()">
 								<!--通知欄跳出的div框-->
 								<div id="notify" style="position:absolute; visibility: hidden ">	
 									<div class="notify_fram">
@@ -304,6 +324,11 @@
 										// 0 ==鎖定房間
 										// 1 ==被踢出房間
 										// 2 ==房主刪除房間
+										$selectRemindAccount = "SELECT * FROM `remind` WHERE `account` = '".$account."'";
+										mysql_query("SET NAMES'UTF8'");
+										mysql_query("SET CHARACTER SET UTF8");
+										mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+										$selectRemindAccount = mysql_query($selectRemindAccount);
 										while($remindAccount = mysql_fetch_assoc($selectRemindAccount)){
 											$selectUserHost = "SELECT * FROM `user` WHERE `account` = '".$remindAccount['host']."'";
 											$selectStoreName = 'SELECT * FROM `store` WHERE `storeName` = "'.$remindAccount['store'].'"';

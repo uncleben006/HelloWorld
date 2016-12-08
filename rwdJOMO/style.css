@@ -271,10 +271,10 @@ nav ul li:hover a {
 
 /*大於1920的*/
 .top{
-	position: relative;
-	height: 90px;
-	width: 100%;
-	background: rgba(255,255,255,0.9);
+    position: relative;
+    height: 90px;
+    width: 1280px;
+    margin: 0 auto;
 }
 
 .top_table{
@@ -2353,8 +2353,8 @@ input:focus{outline:none}
 }
 .footer_css_11{
 	/*discussion/blog*/
-	position: relative;
-	margin-top: 11%;
+    position: relative;
+    margin-top: 5%;
 }
 @media screen and (max-width: 768px) {
 .footer_css_11{
@@ -2540,9 +2540,12 @@ input:focus{outline:none}
 .store_yellow{
 	position: relative;
 	width: 100%;
-	height: 170px;
+	height: 190px;
 	background: #FFFF66;
 
+}
+.store_orange_rwd{
+	display: none;
 }
 .aside_p1{
     font-size: 1.5em;
@@ -2563,9 +2566,9 @@ input:focus{outline:none}
 .store_img_hover{
     opacity: 0;
     position: absolute;
-    z-index: 2;
+    z-index: 1;
     left: 0px;
-    top: 0;
+    top: 13px;
     width: 140px;
     height: 140px;
     line-height: 140px;
@@ -2591,6 +2594,7 @@ input:focus{outline:none}
     cursor: pointer;
     position: absolute;
     left: 0;
+    top: 0px;
 }
 .aside_store_img:hover{
 	cursor: pointer;
@@ -2609,6 +2613,8 @@ input:focus{outline:none}
 	width: 100%;
     background-color: #F7DFCC;
     height: 1000px;
+    position: relative;
+    top: 15px;
 
 }
 .store_marquee_div{
@@ -2636,16 +2642,58 @@ input:focus{outline:none}
 }
 .mapframe{
 	display: none;
+}
+/*推薦店家的1279以下*/
+.store_img_hover{
+    opacity: 0;
+    position: absolute;
+    z-index: 1;
+    left: 0px;
+    top: 13px;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    text-align: center;
+    margin: -13px auto;
+    border-radius: 25px;
+    cursor: pointer;
+}
+.store_img_hover:hover{
+	opacity: 10;
+    background-color: rgba(160, 167, 165, 0.52);
+	color: #ffffff;
+}
+.store_push{
+    position: relative;
+    top: 25px;
+    margin: 0 72px;
+}
+.aside_store_img{
+    border-radius: 25px;
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 0px;
+}
+.push_rwd_div{
+    position: relative;
+    margin-top: 74px;
+    left: 18%;
+    width: 100%;
 	}
 }
-
-/*店家地圖990視窗結束*/
-
-/*店家地圖990視窗*/
-@media screen and (max-width: 990px) {
+/*店家地圖1279視窗結束*/
+@media screen and (max-width: 1024px) {
 .store_section{
 	clear: both;
 	width: 100%;
+    background-color: #F7DFCC;
+    height: 800px;
+    position: relative;
+    top: -22px;
+
 }
 .store_marquee_div{
 	display: none;
@@ -2663,8 +2711,8 @@ input:focus{outline:none}
 	position: relative;
 	bottom: 16px;
 	z-index:1;
-	padding: 8% 0 0 0%;
-	width: 90%;
+	padding: 0% 0 0 0%;
+	width: 96%;
 }
 .mapframe{
 	display: none;
@@ -2672,6 +2720,46 @@ input:focus{outline:none}
 .aside01{
 	display: none;
 	}
+.store_yellow{
+	display: none;
+}
+.store_orange_rwd{
+	display: block;
+	background-color: #F2BD84;
+	width: 100%;
+	height: 150px;
+
+}
+.aside_p2{
+    font-size: 1.2em;
+    color: #545454;
+    text-align: center;
+    position: relative;
+    top: 100px;
+    left: 50px;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	}
+.push_rwd_div{
+    position: relative;
+    margin-top: 74px;
+    left: 18%;
+    width: 80%;
+}
+.push_store_p{
+    position: relative;
+    margin: 0 2% 0 0%;
+    width: 100px;
+    color: #40605F;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+.push_store_p:hover{
+    position: relative;
+    margin: 0 2% 0 0%;
+    width: 100px;
+    color: #ffffff;
+}
+
 }
 
 @media screen and (max-width: 769px) {
@@ -2695,7 +2783,7 @@ input:focus{outline:none}
 	position: relative;
 	bottom: 16px;
 	z-index:1;
-	padding: 8% 0 0 0%;
+	padding: 0% 0 0 0%;
 	width: 100%;
 }
 .mapframe{
@@ -2704,12 +2792,52 @@ input:focus{outline:none}
 .aside01{
 	display: none;
 	}
+.store_orange_rwd{
+	display: block;
+	background-color: #F2BD84;
+	width: 100%;
+	height: 190px;
+
+}
+.aside_p2{
+    font-size: 1.2em;
+    color: #545454;
+    text-align: center;
+    position: relative;
+    top: 100px;
+    left: 50px;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	}
+.push_rwd_div{
+    position: relative;
+    width: 75%;
+    margin-top: 100px;
+    left: 90px;
+}
+.push_store_p{
+    position: relative;
+    margin: 0 2% 0 0%;
+    display: inline-block;
+    width: 140px;
+    color: #40605F;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.push_store_p:hover{
+    position: relative;
+    margin: 0 2% 0 0%;
+    width: 140px;
+    color: #ffffff;
+}
+
 }
 
 @media screen and (max-width:414px) {
 .store_section{
 	clear: both;
 	width: 100%;
+	height: 720px;
 }
 .store_marquee_div{
 	display: none;
@@ -2727,7 +2855,7 @@ input:focus{outline:none}
 	position: relative;
 	bottom: 16px;
 	z-index:1;
-	padding: 13% 0 0 0%;
+	padding: 0% 0 0 0%;
 	width: 100%;
 	height: 500px;
 }
@@ -2737,19 +2865,102 @@ input:focus{outline:none}
 .aside01{
 	display: none;
 	}
+
+.store_orange_rwd{
+    display: block;
+    background-color: #F2BD84;
+    width: 100%;
+    height: 215px;
+
+}
+.aside_p2{
+	font-size: 1.3em;
+    color: #545454;
+    text-align: center;
+    position: relative;
+    top: 90px;
+    left: 15px;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	}
+.push_rwd_div{
+	position: relative;
+    width: 80%;
+    margin-top: 90px;
+    left: 60px;
+}
+.push_store_p{
+    position: relative;
+    margin: 0 2% 0 0%;
+    display: inline-block;
+    width: 120px;
+    color: #40605F;
+    cursor: pointer;
+    font-size: 1em;
+    line-height: 30px;
+}
+.push_store_p:hover{
+    position: relative;
+    margin: 0 2% 0 0%;
+    width: 120px;
+    color: #ffffff;
 }
 
+}
+
+@media screen and (max-width:320px) {
+	.store_orange_rwd{
+    display: block;
+    background-color: #F2BD84;
+    width: 100%;
+    height: 220px;
+
+	}
+}
 
 /*店家地圖990視窗結束*/
 
 
 
 /*store1  店家列表CSS開始*/
+/*店家列表套用全*/
 .mapbutton_frame2{
     margin: 7% 0 0 0;
     background-color: #FFCC99;
     width: 100%;
+    height: 290px;
 }
+.rwd_store_select_section{
+		display: none;
+}
+.rwd_store2_select{
+	display: none;
+}
+.store_search_div{
+    position: relative;
+    bottom: 50px;
+    left: 50%;
+    background-color: #767777;
+    border-radius: 20px;
+    height: 35px;
+    width: 175px;
+}
+.store_search{
+    font-size: 1em;
+    background-color: #767777;
+    margin: 4% 0 5% 12%;
+    height: 20px;
+    border: 0;
+    width: 80%;
+}
+.store_search_button{
+    background-color: rgba(0, 0, 0, 0);
+    width: 35px;
+    height: 34px;
+    position: relative;
+    bottom: 111%;
+    left: 82%;
+}
+
 .map_myButton4 {
 	display:inline-block;
 	cursor:pointer;
@@ -2763,14 +2974,17 @@ input:focus{outline:none}
 	border-color: #FF6666;
     border-style: solid;
     border-radius: 5px;
+     z-index: 10;
 }
 .map_myButton4:hover {
 	background-color:#FF6666;
 	color: #ffffff;
+	 z-index: 10;
 }
 .map_myButton4:active {
 	position:relative;
 	top:1px;
+	 z-index: 10;
 }
 
 .map_myButton3 {
@@ -2787,40 +3001,42 @@ input:focus{outline:none}
 	border-color: #FF6666;
     border-style: solid;
     border-radius: 5px;
+    z-index: 10;
 }
 .map_myButton3:hover {
 	background-color:#FF6666;
+	 z-index: 10;
 }
 .map_myButton3:active {
 	position:relative;
 	top:1px;
+	 z-index: 10;
 }
 .store_select{
-	position: relative;
-	z-index: 2;
-	height: 320px;
-	width: 1280px;
-	margin: 2% 0 0 0;
+    position: relative;
+    z-index: 2;
+    height: 320px;
+    width: 70%;
+    margin: -5% 0 0 20%;
 
 }
 .store_select_img{
-	position: relative;
-	top: 4%;
-	text-align: center;
+    position: relative;
+    top: 4%;
 }
 .store_select_word{
-	color: #545454;
-	position: relative;
-	bottom: 160px;
-	left: 34%;
-	z-index: 4;
-	font-size: 1.8em;
-	width: 200px;
-	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+    color: #545454;
+    position: relative;
+    bottom: 160px;
+    left: 28%;
+    z-index: 4;
+    font-size: 1.8em;
+    width: 200px;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 }
 .store_select_button0{
-	position: relative;
-	margin: -11% 0 0 0%;
+    position: relative;
+    margin: -15% 0 0 28%;
 }
 .store_select_button1{
 	position: relative;
@@ -2871,30 +3087,31 @@ input:focus{outline:none}
 	position:relative;
 	top:1px;
 }
-.store_search_div{
-	position: relative;
-	bottom: 50px;
-	left: 63%;
-	background-color: #767777;
-	border-radius:20px;
-	height: 35px;
-	width: 175px;
+
+.store_search_div2{
+    position: relative;
+    left: 9%;
+    background-color: #F0F5F5;
+    border-radius: 20px;
+    height: 35px;
+    width: 300px;
+    top: 80px;
 }
-.store_search{
+.store_search2{
     font-size: 1em;
-    background-color: #767777;
-    margin: 4% 0 5% 12%;
+    background-color: #F0F5F5;
+    margin: 2.5% 0 0% 6%;
     height: 20px;
     border: 0;
     width: 80%;
 }
-.store_search_button{
+.store_search_button2{
     background-color: rgba(0, 0, 0, 0);
     width: 35px;
     height: 34px;
     position: relative;
-    bottom: 111%;
-    left: 40%;
+    bottom: 28px;
+    left: 84%;
 }
 .aside02{
 	float: right;
@@ -2909,16 +3126,32 @@ input:focus{outline:none}
 .store_section2{
 	position: relative;
 	margin:0 auto;
-	width: 1250px;
+	width: 100%;
+	text-align: center;
 }
 .store_page_name{
 	color: #4EBDC2;
 	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size: 1.5em;
-	width: 100px;
-	margin: 1% 0 0 2%;
+	width: 170px;
+	margin: 1% 0 3% 2%;
 	border-bottom:5px #4EBDC2 solid;
 	text-align: center;
+}
+.store_page_name2{
+    color: rgba(188, 90, 3, 0.81);
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+    font-size: 1em;
+    width: 200px;
+    margin: -5% 0 3% -4%;
+    text-align: left;
+}
+.store_select_view{
+    position: absolute;
+    font-size: 0.5em;
+    margin-left: 100%;
+    margin-top: 5%;
+
 }
 /* table */
 .div_table {  
@@ -2992,8 +3225,8 @@ input:focus{outline:none}
 .store_img{
 	height: 175px;
 	width: 260px;
-	position: absolute;
-	bottom: 0px;
+	position: relative;
+	top: 20px;
 	cursor: pointer;
 }
 .store_img:hover{
@@ -3006,10 +3239,11 @@ input:focus{outline:none}
 }
 .store_info_card02_table{
 	margin: 3%;
+	text-align: left;
 }
 .store_info_card02_td01{
 	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-	color: #911F23;
+	color: rgb(242, 215, 129);
 	vertical-align:text-top;
 	line-height: 23px;
 }
@@ -3053,17 +3287,17 @@ input:focus{outline:none}
 }
 /*店家列表中的“地區”按鈕跳出的地區選單*/
 .local_fram{
-	    border-width: : 2px;
-	    background: rgba(255, 255, 255, 0.87);
-	    border-radius: 15px;
-	    width: 450px;
-	    border-color: #f2ee71;
-	    border-width: 2px;
-	    border-style: solid;
-	    position: relative;
-	    left: 102%;
-	    top: 10px;
-	    z-index: 5;
+	border-width: : 2px;
+    background: rgba(255, 255, 255, 0.87);
+    border-radius: 15px;
+    width: 450px;
+    border-color: #f2ee71;
+    border-width: 2px;
+    border-style: solid;
+    position: relative;
+    left: -8%;
+    top: 10px;
+    z-index: 5;
     }
     .local_fram:after {
 	  content: "";
@@ -3078,12 +3312,12 @@ input:focus{outline:none}
 	  z-index: 5;
 }
     .local_scroll{
-	    overflow: auto;
-	    height: 200px;
-	    width: 97%;
-	    margin: 0 auto;
-	    text-align: left;
-	    z-index: 5;
+    overflow: auto;
+    height: 200px;
+    width: 97%;
+    margin: 0 auto;
+    text-align: left;
+    z-index: 5;
     }
 
 .local_place{
@@ -3091,17 +3325,16 @@ input:focus{outline:none}
     margin: 4% 0 0 5%;
     }
 .stype_fram{
-    	border-width: : 2px;
-	    background: rgba(255, 255, 255, 0.87);
-	    border-radius: 15px;
-	    width: 240px;
-	    border-color: #f2ee71;
-	    border-width: 2px;
-	    border-style: solid;
-	    position: relative;
-	    left: 612px;
-	    top: 10px;
-	    z-index: 5;
+    background: rgba(255, 255, 255, 0.87);
+    border-radius: 15px;
+    width: 240px;
+    border-color: #f2ee71;
+    border-width: 2px;
+    border-style: solid;
+    position: relative;
+    left: 90px;
+    top: 10px;
+    z-index: 5;
     }
     .stype_fram:after {
 	  content: "";
@@ -3135,6 +3368,7 @@ input:focus{outline:none}
     border-width: 0px;
     margin: 2% 5%;
     cursor: pointer;
+    z-index: 5;
 }
 
 .css-input:hover {
@@ -3145,16 +3379,18 @@ input:focus{outline:none}
     box-shadow: 9px 0px 0px 0px rgba(235, 99, 99, .75);
     padding: 6px;
     border-width: 0px;
+    z-index: 5;
 }
 
 /*店家資訊彈出詳細的視窗*/
 #Store_inf{
+	position: fixed;
 	float: left;
 	width: 100%;
 	height: 100%;
 	z-index: 19;
 	top: 0px;
-	left: 0px;
+	margin:0 auto;
 	background: rgba(255,255,255,0.9);
 }
 /*
@@ -3167,16 +3403,17 @@ input:focus{outline:none}
 }
 */
 .div_store_card-0{
-	position: relative;
-	z-index: 100;
-	background-color: #DE6160;
-	width: 900px;
-	height: 530px;
-	border-radius: 10px;
-	bottom: 52%;
-	margin:36% auto;
-	background: rgba(235,99,99,0.9);
-	z-index: 25;
+    position: fixed;
+    height: 530px;
+    background-color: #DE6160;
+    width: 1050px;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    margin-top:-265px;
+    margin-left: -525px;
+    background: rgba(235,99,99,0.9);
+    z-index: 25;
 }
 /*store1-2地圖的跳出推薦店家卡的視窗*/
 .div_store_card-0222{
@@ -3243,7 +3480,7 @@ input:focus{outline:none}
 .div_store_info_card02_td01{
 	width:29%;
 	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-	color: #911F23;
+	color: rgb(242, 215, 129);
 	vertical-align:text-top;
 }
 .div_store_info_p2{
@@ -3257,11 +3494,23 @@ input:focus{outline:none}
 	
 }
 .div_store_aside{
-	width: 500px;
-	height: 480px;
-	float: right;
-	position: relative;
-	top: 3%;
+    width: 58%;
+    height: 480px;
+    float: right;
+    position: relative;
+    text-align: center;
+}
+.or_googlemap{
+	display: block;
+    position: relative;
+    top: 3%;
+}
+.rwd_googlemap{
+	display: none;
+}
+.rwdmap_iframe{
+		width: 90%;
+		height: 450px;
 }
 /*店家資訊卡內的臉書按鈕*/
 .span_aa{
@@ -3272,7 +3521,7 @@ input:focus{outline:none}
 	position: relative;
 	width: 38px;
 	height: auto;
-	right: 70px;
+	right: 5px;
 }	
 
 
@@ -3306,8 +3555,8 @@ input:focus{outline:none}
 .store_web_bt{
 	position: relative;
 	width: 38px;
-	height: auto;
-	right: 5px;
+    height: auto;
+    right: 70px;
 	}	
 
 
@@ -3340,7 +3589,7 @@ input:focus{outline:none}
 .div_store_btn{
 	position: relative;
 	top: 2%;
-	left: 78%;
+	left: 39%;
 }
 .btn {
 	background: #F2EE71;
@@ -3372,7 +3621,425 @@ input:focus{outline:none}
 	cursor: pointer;
 }
 
-/*套用全*/
+/*店家列表套用全結束*/
+
+/*店家列表1279*/
+@media screen and (max-width:1280px) {
+	.div_store_card-0 {
+    position: fixed;
+    z-index: 100;
+    background-color: #DE6160;
+    width: 84%;
+    height: 530px; 
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    margin-top: -230px;
+    margin-left: -42%;
+    background: rgba(235,99,99,0.9);
+    z-index: 25;
+	}
+}
+
+/*店家列表1279結束*/
+
+
+/*店家列表1024*/
+@media screen and (max-width:1024px) {
+	.mapbutton_frame2{
+	display: none;
+	}
+	.rwd_store_select_section{
+		display: block;
+		background-color: #F2BD84;
+    	width: 100%;
+   	 	height: 245px;
+	}
+	.rwd_store2_select_div{
+	position: relative;
+    margin-top: -28px;
+    left: 18%;
+    width: 60%;
+	}
+	.rwd_store_select_button1{
+	position: relative;
+    top: 20px;
+    margin: 0 2% 0 0;
+	}
+	.rwd_store_select_myButton{
+    background-color: #f2bd84;
+    -moz-border-radius: 42px;
+    border-style: solid;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+    font-size: 1.1em;
+    padding: 5px 10px;
+    text-decoration: none;
+	}
+	.rwd_store2_select_triangle{
+    border-color: #ffffff transparent;
+    border-style: solid;
+    border-width: 10px 8px 0 8px;
+    position: relative;
+    top: 15px;
+	}
+	.rwd_store2_select_bt{
+	opacity: 0;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    cursor: pointer;
+    height: 35px;
+    width: 86px;
+    top: -11px;
+
+	}
+
+	.rwd_store2_select_bt2{
+	opacity: 0;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    cursor: pointer;
+    height: 35px;
+    width: 125px;
+    top: -11px;
+
+	}
+	.aside_p3{
+	font-size: 1.2em;
+    color: #545454;
+    text-align: center;
+    position: relative;
+    top: 20px;
+    left: 50px;
+	}
+	.store_search_div2{
+    position: relative;
+    left: 5%;
+    background-color: #F0F5F5;
+    border-radius: 20px;
+    height: 35px;
+    width: 300px;
+    top: 80px;
+	}
+	.div_store_card-0 {
+	position: absolute;
+    z-index: 100;
+    background-color: #DE6160;
+    width: 90%;
+    height: 530px;
+    top: 50%;
+    margin-top: -255px;
+    left: 50%;
+    margin-left: -45%;
+    border-radius: 10px;
+    background: rgba(235,99,99,0.9);
+    z-index: 25;
+	}
+}
+
+/*店家列表1010以下*/
+@media screen and (max-width:1010px) {
+	#Store_inf{
+    position: absolute;
+    float: left;
+    width: 100%;
+    height: 100%;
+    z-index: 19;
+    top: 0px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.9);
+	}
+	.div_store_card-0 {
+	position: absolute;
+    z-index: 100;
+    background-color: #DE6160;
+    width: 66%;
+    height: auto;
+    top: 350px;
+    left: 50%;
+    margin-left: -33%;
+    border-radius: 10px;
+    background: rgba(235,99,99,0.9);
+    z-index: 25;
+    padding: 3% 0 2% 0;
+	}
+	.div_store_section {
+    position: relative;
+    top: 3%;
+    margin: 0 auto;
+    width: 100%;
+	}
+	.div_store_card-01 {
+    position: relative;
+    z-index: 1;
+    background-color: #F2B9A7;
+    width: 80%;
+    left: 0px;
+    height: auto;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    text-align: center;
+    margin: 0 auto;
+	}
+	.div_store_name {
+    color: #545354;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+    font-size: 1.5em;
+    position: relative;
+    top: 8px;
+	}
+	.div_store_img {
+    height: auto;
+    width: 100%;
+    position: relative;
+    top: 12px;
+	}
+	.div_store_card-02 {
+    position: relative;
+    top: 2%;
+    width: 80%;
+    overflow: hidden;
+    height: auto;
+    margin: 0 auto;
+	}
+	.div_store_info_card02_table {
+    padding: 3% 0 3% 0%;
+    width: 100%;
+	}
+	.div_store_aside {
+    width: 100%;
+    height: 550px;
+    position: relative;
+    top: 30px;
+    text-align: center;
+    margin: 0 auto;
+    float: none;
+	}
+	.div_store_btn {
+    position: absolute;
+    top: 470px;
+    right: 0px;
+    left: initial;
+	}
+	.or_googlemap{
+		display: none;
+	}
+	.rwd_googlemap{
+		display: block;
+	}
+	.rwdmap_iframe{
+		width: 100%;
+		height: 450px;
+	}
+}
+
+/*店家列表769以下*/
+@media screen and (max-width:769px) {
+	.rwd_store_select_section{
+		display: block;
+		background-color: #F2BD84;
+    	width: 100%;
+   	 	height: 350px;
+	}	
+	.rwd_store2_select_div{
+    position: relative;
+    margin-top: 10px;
+    left: 90px;
+    width: 70%;
+	}
+	.aside_p3{
+	font-size: 1.2em;
+    color: #545454;
+    text-align: center;
+    position: relative;
+    top: 20px;
+    left: 50px;
+	}
+	.rwd_store_select_myButton{
+    background-color: #f2bd84;
+    -moz-border-radius: 42px;
+    border-style: solid;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+    font-size: 1em;
+    padding: 5px 10px;
+    text-decoration: none;
+	}
+	.store_search_div2{
+    position: relative;
+    left: 5%;
+    background-color: #F0F5F5;
+    border-radius: 20px;
+    height: 35px;
+    width: 90%;
+    top: 80px;
+	}
+	.store_search_button2 {
+    background-color: rgba(0, 0, 0, 0);
+    width: 35px;
+    height: 34px;
+    position: relative;
+    bottom: 0px;
+    left: 3%;
+	}
+	.store_search2 {
+    position: relative;
+    font-size: 1em;
+    background-color: #F0F5F5;
+    margin: 0 0 0% 6%;
+    height: 20px;
+    border: 0;
+    width: 80%;
+    top: -2px;
+	}
+	.div_store_card-0 {
+    position: absolute;
+    z-index: 100;
+    background-color: #DE6160;
+    width: 90%;
+    height: auto;
+    top: 350px;
+    left: 50%;
+    margin-left: -45%;
+    border-radius: 10px;
+    background: rgba(235,99,99,0.9);
+    z-index: 25;
+    padding: 3% 0 2% 0;
+	}
+}
+/*769結束*/
+
+/*店家列表414以下*/
+@media screen and (max-width:414px) {
+	.aside_p3{
+	font-size: 1.2em;
+    color: #545454;
+    text-align: center;
+    position: relative;
+    top: 20px;
+    left: 15px;
+	}
+	.rwd_store2_select_div{
+    position: relative;
+    margin-top: 10px;
+    left: 60px;
+    width: 80%;
+	}
+	.store_search_div2{
+    position: relative;
+    left: 5%;
+    background-color: #F0F5F5;
+    border-radius: 20px;
+    height: 35px;
+    width: 90%;
+    top: 80px;
+	}
+	.store_search_button2 {
+    background-color: rgba(0, 0, 0, 0);
+    width: 35px;
+    height: 34px;
+    position: relative;
+    bottom: 0px;
+    left: 20px;
+	}
+	.store_search2 {
+    position: relative;
+    font-size: 1em;
+    background-color: #F0F5F5;
+    margin: 0 0 0% 6%;
+    height: 20px;
+    border: 0;
+    width: 70%;
+    top: -2px;
+	}
+.div_store_card-0 {
+    position: absolute;
+    z-index: 100;
+    background-color: #DE6160;
+    width: 98%;
+    height: auto;
+    top: 350px;
+    left: 50%;
+    margin-left: -49%;
+    border-radius: 10px;
+    background: rgba(235,99,99,0.9);
+    z-index: 25;
+    padding: 3% 0 2% 0;
+	}
+	.div_store_card-01 {
+    position: relative;
+    z-index: 1;
+    background-color: #F2B9A7;
+    width: 96%;
+    left: 0px;
+    height: auto;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    text-align: center;
+    margin: 0 auto;
+	}
+	.div_store_card-02 {
+    position: relative;
+    top: 2%;
+    width: 90%;
+    overflow: hidden;
+    height: auto;
+    margin: 0 auto;
+	}
+	.div_store_name {
+    color: #545354;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+    font-size: 1.1em;
+    position: relative;
+    top: 8px;
+	}
+	.div_store_info_card02_td01 {
+    width: 29%;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+    color: rgb(242, 215, 129);
+    vertical-align: text-top;
+    font-size: 0.9em;
+	}
+	.div_store_info_p2 {
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+    color: #ffffff;
+    line-height: 23px;
+    font-size: 0.9em;
+	}
+}
+/*414結束*/
+/*店家列表320以下*/
+@media screen and (max-width:320px) {
+	.store_search_div2{
+    position: relative;
+    left: 5%;
+    background-color: #F0F5F5;
+    border-radius: 20px;
+    height: 35px;
+    width: 90%;
+    top: 80px;
+	}
+	.push_rwd_div {
+    position: relative;
+    width: 90%;
+    margin-top: 90px;
+    left: 10%;
+	}
+	.rwd_store2_select_div {
+    position: relative;
+    margin-top: 10px;
+    left: 10%;
+    width: 90%;
+	}
+}
+/*320結束*/
+
+/*舊專欄css套用全*/
+/*
 .essay_section{
 	margin: 10% 0 5% 0;
 	text-align: center;
@@ -3424,7 +4091,7 @@ input:focus{outline:none}
   -moz-transition: opacity 0.3s ease-in-out;
   -o-transition: opacity 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
-  opacity:0.8; /*滑鼠滑入時，透明度變0*/
+  opacity:0.8; 
   cursor: pointer;
 }
 .eassy_artical_div{
@@ -3479,10 +4146,11 @@ input:focus{outline:none}
 .read_eassy_Button:active {
 	position:relative;
 }
-
+*/
 /*專欄套用全結束*/
 
 /*1920內*/
+/*
 @media screen and (max-width: 1920px) {
 .essay_section{
 	margin: 10% 0 5% 0;
@@ -3535,7 +4203,7 @@ input:focus{outline:none}
   -moz-transition: opacity 0.3s ease-in-out;
   -o-transition: opacity 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
-  opacity:0.8; /*滑鼠滑入時，透明度變0*/
+  opacity:0.8; 
   cursor: pointer;
 }
 .eassy_artical_div{
@@ -3591,9 +4259,11 @@ input:focus{outline:none}
 	position:relative;
 	}
 }
+*/
 /*1920內結束*/
 
 /*1024內*/
+/*
 @media screen and (max-width: 1024px) {
 .essay_section{
 	margin: 10% 0 5% 0;
@@ -3646,7 +4316,7 @@ input:focus{outline:none}
   -moz-transition: opacity 0.3s ease-in-out;
   -o-transition: opacity 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
-  opacity:0.8; /*滑鼠滑入時，透明度變0*/
+  opacity:0.8; 
   cursor: pointer;
 }
 .eassy_artical_div{
@@ -3702,9 +4372,11 @@ input:focus{outline:none}
 	position:relative;
 	}
 }
+*/
 /*1920內結束*/
 
 /*768內*/
+/*
 @media screen and (max-width: 768px) {
 .essay_section{
 	margin: 15% 0 5% 0;
@@ -3757,7 +4429,7 @@ input:focus{outline:none}
   -moz-transition: opacity 0.3s ease-in-out;
   -o-transition: opacity 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
-  opacity:0.8; /*滑鼠滑入時，透明度變0*/
+  opacity:0.8;
   cursor: pointer;
 }
 .eassy_artical_div{
@@ -3813,9 +4485,11 @@ input:focus{outline:none}
 	position:relative;
 	}
 }
+*/
 /*768內結束*/
 
 /*480內*/
+/*
 @media screen and (max-width: 480px) {
 .essay_section{
 	margin: 15% 0 5% 0;
@@ -3868,7 +4542,7 @@ input:focus{outline:none}
   -moz-transition: opacity 0.3s ease-in-out;
   -o-transition: opacity 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
-  opacity:0.8; /*滑鼠滑入時，透明度變0*/
+  opacity:0.8; 
   cursor: pointer;
 }
 .eassy_artical_div{
@@ -3925,9 +4599,11 @@ input:focus{outline:none}
 	position:relative;
 	}
 }
+*/
 /*768內結束*/
 
 /*480內*/
+/*
 @media screen and (max-width: 320px) {
 .essay_section{
 	margin: 20% 0 5% 0;
@@ -3980,7 +4656,7 @@ input:focus{outline:none}
   -moz-transition: opacity 0.3s ease-in-out;
   -o-transition: opacity 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
-  opacity:0.8; /*滑鼠滑入時，透明度變0*/
+  opacity:0.8; 
   cursor: pointer;
 }
 .eassy_artical_div{
@@ -4037,431 +4713,550 @@ input:focus{outline:none}
 	position:relative;
 	}
 }
+*/
 /*768內結束*/
+
+/*新專欄*/
+/*新專欄*/
+/*新專欄*/
+.essay_section{
+	position: relative;
+	top: 90px;
+	background-color: #669999;
+	width: 100%;
+	height: 100%;
+	padding-bottom: 5%;
+}
+.essaybt_div{
+	position: relative;
+    text-align: left;
+    width: 80%;
+    left: 10%;
+}
+.topic_div{
+	position: relative;
+	margin:0 auto;
+}
+.topic_white{
+	background-color: #ffffff;
+	width: 80%;
+	height: 290px;
+	position: relative;
+    margin: 3% auto;
+}
+.topic_img_div{
+	display: inline-block;
+    position: relative;
+    background-color: #669999;
+    width: 46%;
+    height: 90%;
+    top: 5%;
+    margin:0 2.5%;
+    float: left;
+}
+.topic_img_hover_div{
+	opacity: 0;
+    display: block;
+    position: absolute;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    cursor: pointer;
+}
+.topic_img_hover_div:hover{
+    display: block;
+    position: absolute;
+    background-color: rgba(132, 132, 132, 0.65);
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+.topic_img{
+    width: 100%;
+    height: 100%;
+}
+.topic_title_div{
+    display: inline-block;
+    position: relative;
+    border-style: solid;
+    border-width: 4px;
+    border-color: #669999;
+    width: 46%;
+    height: 87%;
+    top: 5%;
+}
+.topic_title{
+    display: inline-block;
+    background-color: #96BDD2;
+    width: 100%;
+    height: 25%;
+}
+.topic_title_p1{
+	color: #ffffff;
+	font-size: 1.2em;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	text-align: left;
+	line-height: 0;
+	position: relative;
+	left: 5%;
+	top: 15%;
+}
+.topic_title_p2{
+    color: #ffffff;
+    font-size: 1em;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+    text-align: right;
+    line-height: 0;
+    position: relative;
+    right: 3%;
+    top: 10px;
+}
+.topic_title_p3{
+	width: 90%;
+    margin: 0 auto;
+    text-align: left;
+    color: #535354;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+}
+.topic_title_hover_div{
+	opacity: 0;
+    display: block;
+    position: absolute;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    cursor: pointer;
+}
+.topic_title_hover_div:hover{
+	opacity: 1;
+    display: block;
+    position: absolute;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    cursor: pointer;
+    background-color: rgba(129, 213, 234, 0.54);
+}
+.essay_myButton {
+	background-color: #669999;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 2px 15px;
+    text-decoration: none;
+    margin: 25px 30px 0 0;
+    border-color: #ffffff;
+    border-style: solid;
+    border-radius: 2px;
+    border-width: 2px;
+    z-index: 10;
+}
+.essay_myButton:hover {
+	background-color:#ffffff;
+	color: #669999;
+	 z-index: 10;
+}
+.essay_myButton:active {
+	position:relative;
+	top:1px;
+	 z-index: 10;
+}
+
+/*新專欄*//*新專欄*//*新專欄*//*新專欄結束*/
+
+/*新專欄第二層桌遊畫面*/
+.essay_path_div{
+    position: relative;
+    text-align: left;
+    width: 80%;
+    left: 10%;
+    top: 30px;
+    padding-bottom: 2%;
+}
+.circle{
+	width: 15px;
+    height: 15px;
+    border-radius: 100px;
+    background-color: #E7BBB3;
+    display: inline-block;
+    vertical-align: middle;
+}
+.path_p{
+	color: #ffffff;
+	font-size: 1em;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	vertical-align: middle;
+}
+.path_p:hover{
+	color: #f0eb71;
+}
+.path_mark{
+    font-size: 1.1em;
+    color: #E7BBB3;
+    font-style: bold;
+    vertical-align: middle;
+}
+.essay_block_div{
+	position: relative;
+	margin:0 auto;
+	width: 86%;
+	text-align: center;
+}
+.essay_block{
+    width: 300px;
+    height: 280px;
+    background-color: #ffffff;
+    display: inline-block;
+    margin: 0 2.6% 3% 2.6%;
+    position: relative;
+}
+.essay_cover{
+	width: 100%;
+	height: 100%;
+}
+.cover_bg{
+	position: absolute;
+	background-color: #C15A06;
+	opacity: 0.7;
+	bottom: 0px;
+	height: 55px;
+	width: 100%;
+}
+.cover_bg2{
+	position: absolute;
+	background-color: #000000;
+	opacity: 0.7;
+	bottom: 0px;
+	height: 55px;
+	width: 100%;
+}
+.cover_bg_number{
+    color: #ffffff;
+    text-align: left;
+    vertical-align: top;
+    position: relative;
+    line-height: 0;
+    left: 5%;
+    font-size: 1.2em;
+}
+.cover_name{
+	color: #ffffff;
+	text-align: right;
+	position: relative;
+	right: 5%;
+	font-size: 1.2em;
+
+	line-height:0;
+}
+.eassay_cover_hover{
+	opacity: 0;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0px;
+	cursor: pointer;
+}
+.eassay_cover_hover:hover{
+	opacity: 1;
+	background-color: rgba(141, 129, 242, 0.28);
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0px;
+	cursor: pointer;
+}
+.eassay_share_block{
+    position: relative;
+    display: inline-block;
+    color: #ffffff;
+    width: 665px;
+    height: 280px;
+}
+.share_block{
+	position: absolute;
+	left: 0px;
+	width: 45%;
+	height: 100%;
+	background-color: #ffffff;
+	text-align: left;
+}
+.shareicon{
+    width: 30px;
+    height: 30px;
+    position: relative;
+    margin: 10% 3% 0 16%;
+}
+.share_p{
+    color: #5D5D5D;
+    font-size: 1.1em;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+    position: relative;
+    top: -10px;
+}
+.share_bt_div{
+	position: relative;
+    left: 34%;
+    top: 10%;
+    letter-spacing: 40px;
+
+}
+.share_fb_bt{
+	width: 45px;
+    height: 45px;
+    position: relative;
+    top: 2px;
+}
+.fb_block{
+	position: absolute;
+	background-color: #ffffff;
+	right: 0px;
+	width: 55%;
+	height: 100%;
+
+}
+
 
 /*部落格點開的內部文章*/
 /*專欄內部套用全*/
-.moreessay_section{
-	margin: 0 auto;
-    margin-top: 10%;
-    margin-bottom: 5%;
+.essay_more_white{
+    background-color: #ffffff;
+    width: 76%;
+    height: 100%;
+    position: relative;
+    margin: 0 auto;
+    padding: 2.5% 2% 3% 2%;
+    top: 40px;
+    margin-bottom: 3%;
+
 }
-.moreessay_fram{
-	background-color: #99C3D9;
-	width: 82%;
-	height: auto;
-	border-bottom-right-radius: 40px;
-	border-bottom-left-radius: 40px;
-	margin: 3% auto;
-	padding-bottom: 10%;
+.essay_green_line{
+    position: relative;
+    border-style: solid;
+    border-color: #548F94;
+    border-width: 4px;
+    margin: 0 auto;
+    width: 98%;
+    height: 100%;
+    z-index: 2;
 }
-.moreeassy_green{
-	background-color: #56959A;
-	width: 100%;
-	height: 80px;
+.essay_kind{
+	background-color: #ffffff;
+    display: inline-block;
+    cursor: pointer;
+    color: #E7BBB3;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 2px 15px;
+    text-decoration: none;
+    margin: 2%;
+    top: -15px;
+    position: relative;
+    border-color: #E7BBB3;
+    border-style: solid;
+    border-radius: 2px;
+    border-width: 2px;
 }
-.moreeassy_title{
-	position: relative;
-	text-align: center;
-	color: #ffffff;
-	font-size: 2em;
-	top: 22%;
-	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+.essay_title_span{
+	display: inline-block;
+    position: relative;
+    top: 15px;
 }
-.moreeassy_pink{
-	background-color: #E7BBB2;
-	width: 100%;
-	height: 60px;
-}
-.moreeassy_date{
-	position: relative;
+.essay_title_p{
+	font-size: 1.9em;
 	color: #5D5D5D;
-	font-size: 1.6em;
-	left: 3%;
-	top: 22%;
-	font-weight: bold;
-	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-}
-.moreeassy_times{
-	position: relative;
-	margin: 0 0 0 8%;
-	top: 25%;
-	color: #5D5D5D;
-	font-size: 1.3em;
-}
-.moreeassy_artical_div{
+	font-style: bold;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 
 }
-.moreeassy_artical{
-	position: relative;
-	top: 30px;
-	color: #5D5D5D;
-	font-size: 20px;
-	width: 80%;
-	line-height: 30px;
-	margin-bottom: 3%;
-	margin:0 auto;
-}
-.moreeassy_img_div{
-	width: 850px;
-}
-.blog_gameimg{
-	width: 250px;
-	height: 250px;
-}
-.moreeassy_img{
-	position: relative;
-	left: 15%;
-	width: 480px;
-	height: 300px;
-	margin-bottom:5%;
-}
-
-.blog_back_Button {
-	position: relative;
-	background-color:#de6160;
-	-moz-border-radius:25px;
-	-webkit-border-radius:25px;
-	border-radius:25px;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-	font-size:1.3em;
-	font-weight:bold;
-	padding:8px 24px;
-	text-decoration:none;
-	float: right;
-	right: 4%;
-    bottom: 40px;
-    margin: 8% 0 0 0;
-}
-.blog_back_Button:hover {
-	background-color:#e8a7a7;
-}
-.blog_back_Button:active {
-	position:relative;
-}
-/*專欄內部套用全結束*/
-
-/*專欄內部套用1920內*/
-@media screen and (max-width: 1920px) {
-.moreessay_section{
-	margin: 0 auto;
-    margin-top: 10%;
-    margin-bottom: 5%;
-}
-.moreessay_fram{
-	background-color: #99C3D9;
-	width: 82%;
-	height: auto;
-	border-bottom-right-radius: 40px;
-	border-bottom-left-radius: 40px;
-	margin: 3% auto;
-	padding-bottom: 10%;
-}
-.moreeassy_green{
-	background-color: #56959A;
-	width: 100%;
-	height: 80px;
-}
-.moreeassy_title{
-	position: relative;
-	text-align: center;
-	color: #ffffff;
-	font-size: 2em;
-	top: 22%;
-	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-}
-.moreeassy_pink{
-	background-color: #E7BBB2;
-	width: 100%;
-	height: 60px;
-}
-.moreeassy_date{
-	position: relative;
-	color: #5D5D5D;
-	font-size: 1.6em;
-	left: 3%;
-	top: 22%;
-	font-weight: bold;
-	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-}
-.moreeassy_times{
-	position: relative;
-	margin: 0 0 0 8%;
-	top: 25%;
-	color: #5D5D5D;
-	font-size: 1.3em;
-}
-.moreeassy_artical_div{
+.essay_title_p2{
+	font-size: 1em;
+	color: #969696;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 
 }
-.moreeassy_artical{
+.essay_more_share_span{
+    position: absolute;
+    right: 5%;
+    top: 50px;
+}
+.essay_more_shareicon{
+    width: 30px;
+    height: 30px;
+    position: relative;
+}
+.essay_more_share_p{
+    color: #5D5D5D;
+    font-size: 1.1em;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+    position: relative;
+    top: -10px;
+}
+.essay_more_share_bt_div{
+    position: relative;
+    display: inline-block;
+    top: 10%;
+    letter-spacing: 10px;
+	left: 5%;
+}
+.essay_more_share_fb_bt{
+	width: 35px;
+    height: 35px;
+    position: relative;
+    top: 2px;
+}
+.essay_more_share_fb_bt:hover{
+    position: relative;
+    top: 2px;
+    opacity: 0.7;
+}
+.essay_more_words{
 	position: relative;
-	top: 30px;
-	color: #5D5D5D;
-	font-size: 20px;
-	width: 80%;
-	line-height: 30px;
-	margin-bottom: 3%;
-	margin:0 auto;
+    width: 90%;
+    margin: 0 auto;
 }
-.moreeassy_img_div{
-	width: 850px;
+.essay_more_gname_block{
+	position: absolute;
+    top: 120px;
 }
-.blog_gameimg{
-	width: 250px;
-	height: 250px;
-}
-.moreeassy_img{
-	position: relative;
-	left: 15%;
-	width: 480px;
-	height: 300px;
-	margin-bottom:5%;
-}
-
-.blog_back_Button {
-	position: relative;
-	background-color:#de6160;
-	-moz-border-radius:25px;
-	-webkit-border-radius:25px;
-	border-radius:25px;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-	font-size:1.3em;
-	font-weight:bold;
-	padding:8px 24px;
-	text-decoration:none;
-	float: right;
-	right: 4%;
-    bottom: 40px;
-    margin: 8% 0 0 0;
-}
-.blog_back_Button:hover {
-	background-color:#e8a7a7;
-}
-.blog_back_Button:active {
-	position:relative;
-	}
-}
-/*專欄內部套用1920結束*/
-
-
-/*專欄內部套用768內*/
-@media screen and (max-width:768px) {
-.moreessay_section{
-	margin: 0 auto;
-    margin-top: 13%;
-    margin-bottom: 5%;
-}
-.moreessay_fram{
-	background-color: #99C3D9;
-	width: 100%;
-	height: auto;
-	border-bottom-right-radius: 40px;
-	border-bottom-left-radius: 40px;
-	margin: 3% auto;
-	padding-bottom: 10%;
-}
-.moreeassy_green{
-	background-color: #56959A;
-	width: 100%;
-	height: 60px;
-}
-.moreeassy_title{
-	position: relative;
-	text-align: center;
-	color: #ffffff;
+.essay_more_gname{
+	display: inline-block;
 	font-size: 1.8em;
-	top: 22%;
-	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-}
-.moreeassy_pink{
-	background-color: #E7BBB2;
-	width: 100%;
-	height: 50px;
-}
-.moreeassy_date{
-	position: relative;
+	font-style: bold;
 	color: #5D5D5D;
-	font-size: 1.4em;
-	left: 3%;
-	top: 22%;
-	font-weight: bold;
-	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+
 }
-.moreeassy_times{
-	position: relative;
-	margin: 0 0 0 8%;
-	top: 25%;
-	color: #5D5D5D;
+.essay_more_gp{
+	display: inline-block;
 	font-size: 1.1em;
+	color: #535354;
+	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	line-height: 35px;
+	width: 92%;
 }
-.moreeassy_artical_div{
-
+.essay_more_grule_block{
+    position: relative;
+    display: inline-block;
+    top: 25px;
+    left: 50px;
 }
-.moreeassy_artical{
+.essay_more_artical_block{
 	position: relative;
-	top: 30px;
-	color: #5D5D5D;
-	font-size: 1.2em;
-	width: 80%;
-	line-height: 30px;
-	margin-bottom: 3%;
-	margin:0 auto;
+	display: inline-block;
+    top: 25px;
+    left: 50px;
 }
-.moreeassy_img_div{
-	width: 850px;
+.game_introduction{
+    position: relative;
+    display: inline-block;
+    width: 90%;
+    text-align: center;
+    left: 50%;
+    margin: 3% 0 7% -45%;
 }
-.blog_gameimg{
-	width: 50%;
+.game_introduction_span{
+	width: 25%;
+    position: relative;
+    display: inline-block;
 }
-.moreeassy_img{
+.game_introduc_img{
+ 	width: 140px;
+    left: 50%;
+    position: relative;
+    margin-left: -70px;
+}
+.game_intro_table_bg{
 	position: relative;
-	left: 15%;
-	width: 480px;
-	height: 300px;
-	margin-bottom:5%;
-}
-
-.blog_back_Button {
-	position: relative;
-	background-color:#de6160;
-	-moz-border-radius:25px;
-	-webkit-border-radius:25px;
-	border-radius:25px;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-	font-size:1.3em;
-	font-weight:bold;
-	padding:8px 24px;
-	text-decoration:none;
-	float: right;
-	right: 4%;
-    bottom: 40px;
-    margin: 8% 0 0 0;
-}
-.blog_back_Button:hover {
-	background-color:#e8a7a7;
-}
-.blog_back_Button:active {
-	position:relative;
-	}
-}
-
-/*專欄內部套用768結束*/
-
-/*專欄內部套用480內*/
-@media screen and (max-width:480px) {
-.moreessay_section{
-	margin: 0 auto;
-    margin-top: 15%;
-    margin-bottom: 5%;
-}
-.moreessay_fram{
-	background-color: #99C3D9;
-	width: 100%;
-	height: auto;
-	border-bottom-right-radius: 0px;
-	border-bottom-left-radius: 0px;
-	margin: 3% auto;
-	padding-bottom: 20%;
-}
-.moreeassy_green{
-	background-color: #56959A;
+	background-color: #96BDD2;
 	width: 100%;
 	height: 60px;
 }
-.moreeassy_title{
+.game_intro_table{
 	position: relative;
-	text-align: center;
-	color: #ffffff;
-	font-size: 1.6em;
-	top: 22%;
-	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-}
-.moreeassy_pink{
-	background-color: #E7BBB2;
-	width: 100%;
-	height: 50px;
-}
-.moreeassy_date{
-	position: relative;
-	color: #5D5D5D;
-	font-size: 1.3em;
-	left: 3%;
-	top: 22%;
-	font-weight: bold;
-	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-}
-.moreeassy_times{
-	position: relative;
-	margin: 0 0 0 8%;
-	top: 25%;
-	color: #5D5D5D;
-	font-size: 1em;
-}
-.moreeassy_artical_div{
-
-}
-.moreeassy_artical{
-	position: relative;
-	top: 30px;
-	color: #5D5D5D;
-	font-size: 1em;
-	width: 80%;
-	line-height: 30px;
-	margin-bottom: 3%;
-	margin:0 auto;
-}
-.moreeassy_img_div{
-	width: 850px;
-}
-.blog_gameimg{
+	background-color: #96BDD2;
 	width: 90%;
+	margin:0 auto;
+	text-align: center;
 }
-.moreeassy_img{
-	position: relative;
-	left: 15%;
-	width: 480px;
-	height: 300px;
-	margin-bottom:5%;
+.game_intro_bt{
+	background-color: #96BDD2;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+    font-size: 0.8em;
+    font-weight: bold;
+    padding: 2px 10px;
+    text-decoration: none;
+    margin: 2% 0 0 0;
+    position: relative;
+    border-color: #ffffff;
+    border-style: solid;
+    border-radius: 2px;
+    border-width: 2px;
 }
-
-.blog_back_Button {
-	position: relative;
-	background-color:#de6160;
-	-moz-border-radius:25px;
-	-webkit-border-radius:25px;
-	border-radius:25px;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-	font-size:1.1em;
-	font-weight:bold;
-	padding:8px 22px;
-	text-decoration:none;
-	float: right;
-	right: 4%;
-    bottom: 40px;
-    margin: 15% 0 0 0;
-	}
-.blog_back_Button:hover {
-	background-color:#e8a7a7;
-	}
-.blog_back_Button:active {
-	position:relative;
-	}
+.game_intro_bt:hover{
+	background-color: #ffffff;
+    display: inline-block;
+    cursor: pointer;
+    color: #96BDD2;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+    font-size: 0.8em;
+    font-weight: bold;
+    padding: 2px 10px;
+    text-decoration: none;
+    margin: 2% 0 0 0;
+    position: relative;
+    border-color: #ffffff;
+    border-style: solid;
+    border-radius: 2px;
+    border-width: 2px;
 }
-/*專欄內部套用480結束*/
-
+.essay_back{
+    background-color: #ffffff;
+    display: inline-block;
+    cursor: pointer;
+    color: #548F94;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 2px 14px;
+    text-decoration: none;
+    top: 15px;
+    left: 50%;
+    margin-left: -51px;
+    position: relative;
+    border-color: #548F94;
+    border-style: solid;
+    border-radius: 2px;
+    border-width: 2px;
+}
+.essay_back:hover{
+	background-color: #548F94;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 2px 14px;
+    text-decoration: none;
+    top: 15px;
+    left: 50%;
+    margin-left: -51px;
+    position: relative;
+    border-color: #548F94;
+    border-style: solid;
+    border-radius: 2px;
+    border-width: 2px;
+}
 /*聯絡我們css*/
 
 /*套用全部*/
@@ -4525,7 +5320,7 @@ input:focus{outline:none}
 
 .aboutall_img{
 	width: 500px;
-	height: 1300px;
+	height: auto;
 	}
 
 @media only screen and (max-width: 1920px) {
@@ -4589,7 +5384,7 @@ input:focus{outline:none}
 
 .aboutall_img{
 	width: 500px;
-	height: 1300px;
+	height: auto;
 	}
 }/*1920視窗聯絡我們css結束*/
 
@@ -5008,7 +5803,7 @@ input:focus{outline:none}
 
 /*揪團房間區塊*/
 .jo_card{
-	margin: 5% 9% 5% 9%;
+	margin: 5% 7% 5% 7%;
 	z-index: 2;
 }
 /* table */
@@ -5016,6 +5811,7 @@ input:focus{outline:none}
   display: table; 
   border-collapse: collapse; 
   margin: 0 auto;
+  float: left;
 }  
 /* tr */
 .jo_row{
@@ -5025,7 +5821,7 @@ input:focus{outline:none}
 .jo_cell1 {  
   display: inline-block; 
   /*外框改成310px(預設大小)*/
-  width: 310px;  
+  width: 330px;  
   height: 340px;
   /*拿掉padding*/
   /*padding: 0 2% 5% 2%;*/
@@ -5072,7 +5868,6 @@ input:focus{outline:none}
 	background-color: #EA6363;
 	border-top-right-radius: 25px;
 	z-index: 2;	
-	width: 260px;
 	height: 50px;
 	position: relative;
 }
@@ -5097,7 +5892,7 @@ input:focus{outline:none}
 	background-color: #F1E392;
 	/*改width:100%，不過其實也不用寫，因為div會預設填滿整列*/
 	width: 100%;
-	height: 300px;
+	padding-top: 10px;
 }
 .jo_info_table{
 	display: table;
@@ -5154,13 +5949,11 @@ input:focus{outline:none}
 .redline{
 	background-color: #EA6363;
 	height: 10px;
-	width: 310px;
 }
 .greenbottom{
 	position: relative;
 	background-color: #56959A;
 	height: 55px;
-	width: 310px;
 	border-bottom-right-radius: 30px;
 	border-bottom-left-radius: 30px;
 
@@ -5677,7 +6470,7 @@ input:focus{outline:none}
 	position: relative;
 	width: 25px;
 	height: auto;
-	}	
+
 }
 
 .jofb_a{
@@ -6081,7 +6874,7 @@ input:focus{outline:none}
 	position: relative;
 	color: #5C5D5D;
 	left: 20px;
-	top: 220px;
+	top: 150px;
 }
 .join_btn:hover {
 	color: #ffffff;

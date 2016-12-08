@@ -11,10 +11,10 @@
 					</a>
 				</td>
 				<td rowspan="2" class="top_td1">
-					<a href="system/store/store1-2.php" class="top_a">
+					<a href="system/store/store2.php" class="top_a">
 						<img src="jomor_html/img/animal-01.png" alt="logo" title="store" class="top_logo_img1">
 					</a>
-					<span><a href="system/store/store1-2.php" class="pp">店家地圖</a></span>
+					<span><a href="system/store/store2.php" class="pp">店家地圖</a></span>
 				</td>
 				<td rowspan="2" class="top_td2">
 					<a href="system/group/jo.php" class="top_a">
@@ -51,8 +51,28 @@
 							$selectRemindAccount = mysql_query($selectRemindAccount);
 							$remindNum = mysql_num_rows($selectRemindAccount);
 							if($remindNum>0){
+								while($remindAccount = mysql_fetch_assoc($selectRemindAccount)){
+									$click = $remindAccount['click'];
+									if($click==0){
+										session_set_cookie_params(99999);
+										$_SESSION['click'] = 0;
+									}
+									if($click==1){
+										session_set_cookie_params(99999);
+										$_SESSION['click'] = 1;
+									}
+								}
+								if($_SESSION['click']==0){
+									?>
+									<img id="remind" src="jomor_html/img/notify2.png" class="notify_img01" onclick="openNotify()">
+									<?php
+								}
+								if($_SESSION['click']==1){
+									?>
+									<img id="remind" src="jomor_html/img/notify1.png" class="notify_img01" onclick="openNotify()">
+									<?php
+								}
 								?>
-								<img src="jomor_html/img/notify2.png" class="notify_img01" onClick="openNotify()">
 								<!--通知欄跳出的div框-->
 								<div id="notify" style="position:absolute; visibility:hidden ">
 									<div class="notify_fram">
@@ -61,34 +81,52 @@
 										// 0 ==鎖定房間
 										// 1 ==被踢出房間
 										// 2 ==房主刪除房間
+										$selectRemindAccount = "SELECT * FROM `remind` WHERE `account` = '".$account."'";
+										mysql_query("SET NAMES'UTF8'");
+										mysql_query("SET CHARACTER SET UTF8");
+										mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+										$selectRemindAccount = mysql_query($selectRemindAccount);
+
+										$selectRemindHost = "SELECT * FROM `remind` WHERE `host` = '".$account."'";
+										mysql_query("SET NAMES'UTF8'");
+										mysql_query("SET CHARACTER SET UTF8");
+										mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+										$selectRemindHost = mysql_query($selectRemindHost);
+
 										while($remindAccount = mysql_fetch_assoc($selectRemindAccount)){
+
 											$selectUserHost = "SELECT * FROM `user` WHERE `account` = '".$remindAccount['host']."'";
 											$selectStoreName = 'SELECT * FROM `store` WHERE `storeName` = "'.$remindAccount['store'].'"';
+
 											mysql_query("SET NAMES'UTF8'");
 											mysql_query("SET CHARACTER SET UTF8");
 											mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+
+											//取得房主資料
 											$selectUserHost = mysql_query($selectUserHost);
 											$userHost = mysql_fetch_assoc($selectUserHost);
+											//取得房間店家資料
 											$selectStoreName = mysql_query($selectStoreName);
 											$storeName = mysql_fetch_assoc($selectStoreName);
 
-											$photo = $userHost['photo'];
-											$name = $userHost['name'];
-											$pri = $userHost['pri'];
+											$hostPri = $userHost['pri'];
+											$hostName = $userHost['name'];
+											$hostPhoto = $userHost['photo'];
+											
 											$date = date("m/d",strtotime($remindAccount['date']));
 											$time = date("H:i",strtotime($remindAccount['time']));
 
 											if($remindAccount['decide']==0){
-												if($pri==2){
+												if($hostPri==2){
 													?>
 													<div class="notify_div01">
 											            <div class="notify_div_img">
 											            	<a href="http://www.jomorparty.com/system/group/userData.php?account=<?php echo $remindAccount['host'];?>">
-											              		<img src="<?php echo $photo; ?>" class="notify_headph" style="border-radius: 50px;">
+											              		<img src="<?php echo $hostPhoto; ?>" class="notify_headph" style="border-radius: 50px;">
 											              	</a>
 											            </div>
 											            <div class="notify_div_p">
-											                <p>您於剛剛正式加入<a href="http://www.jomorparty.com/system/group/userData.php?account=<?php echo $remindAccount['host'];?>"><font color="red"><?php echo $name; ?></font></a>所創建的房間<a href="http://www.jomorparty.com/system/group/jo.php?no=<?php echo $remindAccount['no']?>"><font color="blue"><?php echo $remindAccount['room']; ?></font></a>，提醒您<font color="red"><?php echo $date; ?></font> <font color="red"><?php echo $time; ?></font>，在<a href="http://www.jomorparty.com/system/store/store2.php?no=<?php echo $storeName['no'];?>"><font color="blue"><?php echo $remindAccount['store'] ?></font></a>，別遲到囉~</p>
+											                <p>您於剛剛正式加入<a href="http://www.jomorparty.com/system/group/userData.php?account=<?php echo $remindAccount['host'];?>"><font color="red"><?php echo $hostName; ?></font></a>所創建的房間<a href="http://www.jomorparty.com/system/group/jo.php?no=<?php echo $remindAccount['no']?>"><font color="blue"><?php echo $remindAccount['room']; ?></font></a>，提醒您<font color="red"><?php echo $date; ?></font> <font color="red"><?php echo $time; ?></font>，在<a href="http://www.jomorparty.com/system/store/store2.php?no=<?php echo $storeName['no'];?>"><font color="blue"><?php echo $remindAccount['store'] ?></font></a>，別遲到囉~</p>
 											            </div>
 													</div>
 													<?php
@@ -98,7 +136,7 @@
 													<div class="notify_div01">
 											            <div class="notify_div_img">
 											            	<a href="http://www.jomorparty.com/system/group/userData.php?account=<?php echo $remindAccount['host'];?>">
-											              		<img src="system/user/photo/<?php echo $photo; ?>" class="notify_headph">
+											              		<img src="system/user/photo/<?php echo $hostPhoto; ?>" class="notify_headph">
 											              	</a>
 											            </div>
 											            <div class="notify_div_p">
@@ -131,6 +169,50 @@
 											            </div>
 													</div>
 											  	<?php  
+											}
+										}
+										while($remindHost = mysql_fetch_assoc($selectRemindHost)){
+											$selectUserAccount = 'SELECT * FROM `user` WHERE `account` = "'.$remindHost['account'].'"';
+											mysql_query("SET NAMES'UTF8'");
+											mysql_query("SET CHARACTER SET UTF8");
+											mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+											//取得參加會員資料
+											$selectUserAccount = mysql_query($selectUserAccount);
+											$userAccount = mysql_fetch_assoc($selectUserAccount);
+
+											$accountPri = $userAccount['pri'];
+											$accountName = $userAccount['name'];
+											$accountPhoto = $userAccount['photo'];
+											if($remindHost['decide']==3){
+												if($accountPri==2){
+													?>
+													<div class="notify_div01">
+											            <div class="notify_div_img">
+											            	<a href="http://www.jomorparty.com/system/group/userData.php?account=<?php echo $remindHost['account'];?>">
+											              		<img src="<?php echo $accountPhoto; ?>" class="notify_headph" style="border-radius: 50px;">
+											              	</a>
+											            </div>
+											            <div class="notify_div_p">
+											                <p><a href="http://www.jomorparty.com/system/group/userData.php?account=<?php echo $remindHost['account'];?>"><font color="red"><?php echo $accountName; ?></font></a>剛剛加入了你的房間，你可以和他聊聊天。</p>
+											            </div>
+													</div>
+													<?php
+												}		
+												else{
+													?>
+													<div class="notify_div01">
+											            <div class="notify_div_img">
+											            	<a href="http://www.jomorparty.com/system/group/userData.php?account=<?php echo $remindHost['account'];?>">
+											              		<img src="system/user/photo/<?php echo $accountPhoto; ?>" class="notify_headph">
+											              	</a>
+											            </div>
+											            <div class="notify_div_p">
+											                <p><a href="http://www.jomorparty.com/system/group/userData.php?account=<?php echo $remindHost['account'];?>"><font color="red"><?php echo $accountName; ?></font></a>剛剛加入了你的房間，你可以和他聊聊天。</p>
+
+											            </div>
+													</div>
+													<?php
+												} 
 											}
 										}
 										?>

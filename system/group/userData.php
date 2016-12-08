@@ -18,6 +18,7 @@
 		<section>
 			<?php
 			$account = $_GET['account'];
+			$no = $_GET['no'];
 
 			$selectUserAccount = "SELECT * FROM `user` WHERE `account` = '".$account."'";
 			mysql_query("SET NAMES'UTF8'");
@@ -29,7 +30,7 @@
 			<div class="individual_bg">
 
 				<div class="edit_bt_div">
-					<a href="javascript:history.back()" class="edit_bt">返回</a>
+					<a href="jo.php?no=<?php echo $no;?>" class="edit_bt">返回</a>
 				</div>
 
 				<!--左邊欄位的頭像白框-->

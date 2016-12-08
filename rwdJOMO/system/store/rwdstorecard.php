@@ -57,45 +57,7 @@
 				<div class="store_select">
 					<div class="store_select_img">
 						<img src="../../jomor_html/img/store2.png" alt="吉祥物圖框" title="猴子吉祥物" width="800px" height="250px">
-						<div class="store_select_word">
-							<span>店家篩選</span>
-							<span class="store_select_view">篩選條件：
-							<!--左上角藍字 → 依照選取的縣市顯示-->
-							<table class="store_page_name2" cellpadding="7">
-								<tr>
-									<td>
-										<?php
-											if(isset($_GET['storePlace'])){
-												?>
-												<div style="display: inline-block;"><?php echo $_GET['storePlace']?></div>
-												<?php
-											}
-											if(isset($_GET['storeType'])){
-												if($_GET['storeType']=='複合式餐飲桌遊店'){
-													?>
-													<div style="display: inline-block;">  複合式餐飲店</div>
-													<?php
-												}
-												else{
-													?>
-													<div style="display: inline-block;"><?php echo $_GET['storeType']?></div>
-													<?php
-												}								
-											}
-											if(empty($_GET['storePlace'])&&empty($_GET['storeType'])){
-												?>
-												<div style="display: inline-block;">全部</div>
-												<?php
-											}
-										?>						
-									</td>
-								</tr>
-							</table>
-						</span>
-						</div>
-
-						
-
+						<div class="store_select_word">店家篩選</div>
 						<div class="store_select_button0">
 							<span class="store_select_button1">
 								<a href="store2.php" class="store_select_myButton">全部</a>
@@ -314,44 +276,43 @@
 					<span class="rwd_store_select_button1">
 						<span class="rwd_store_select_myButton">地區
 							<span class="rwd_store2_select_triangle"></span>
-							<select class="rwd_store2_select_bt" onchange="location.href=this.options[this.selectedIndex].value" >
+							<select class="rwd_store2_select_bt">
 								<optgroup label="北部">
-									<option>無</option>
-									<option value="http://www.jomorparty.com/system/store/store2.php?storePlace=%E8%87%BA%E5%8C%97%E5%B8%82">臺北市</option>
-									<option value="http://www.jomorparty.com/system/store/store2.php?storePlace=%E6%96%B0%E5%8C%97%E5%B8%82">新北市</option>
-									<option value="http://www.jomorparty.com/system/store/store2.php?storePlace=%E5%9F%BA%E9%9A%86%E5%B8%82">基隆市</option>
-									<option value="http://www.jomorparty.com/system/store/store2.php?storePlace=%E6%A1%83%E5%9C%92%E5%B8%82">桃園市</option>
-									<option value="http://www.jomorparty.com/rwdJOMO/system/store/store2.php?storePlace=%E6%96%B0%E7%AB%B9%E5%B8%82">新竹市</option>
-									<option value="http://www.jomorparty.com/system/store/store2.php?storePlace=%E6%96%B0%E7%AB%B9%E5%B8%82">新竹縣</option>
-									<option value="http://www.jomorparty.com/system/store/store2.php?storePlace=%E5%AE%9C%E8%98%AD%E7%B8%A3">宜蘭縣</option>
+									<option>臺北市</option>
+									<option>新北市</option>
+									<option>基隆市</option>
+									<option>桃園市</option>
+									<option>新竹市</option>
+									<option>新竹縣</option>
+									<option>宜蘭縣</option>
 								<optgroup label="中部">
-									<option value="http://www.jomorparty.com/system/store/store2.php?storePlace=%E8%8B%97%E6%A0%97%E7%B8%A3">苗栗縣</option>
-									<option value="http://www.jomorparty.com/system/store/store2.php?storePlace=%E8%87%BA%E4%B8%AD%E5%B8%82">臺中市</option>
-									<option value="http://www.jomorparty.com/system/store/store2.php?storePlace=%E5%BD%B0%E5%8C%96%E7%B8%A3">彰化縣</option>
+									<option>苗栗縣</option>
+									<option>臺中市</option>
+									<option>彰化縣</option>
 								<optgroup label="南部">
-									<option value="http://www.jomorparty.com/system/store/store2.php?storePlace=%E9%9B%B2%E6%9E%97%E7%B8%A3">雲林縣</option>
-									<option value="http://www.jomorparty.com/system/store/store2.php?storePlace=%E5%98%89%E7%BE%A9%E5%B8%82">嘉義市（縣）</option>
-									<option value="http://www.jomorparty.com/system/store/store2.php?storePlace=%E8%87%BA%E5%8D%97%E5%B8%82">臺南市</option>
-									<option value="http://www.jomorparty.com/system/store/store2.php?storePlace=%E9%AB%98%E9%9B%84%E5%B8%82">高雄市</option>
-									<option value="http://www.jomorparty.com/system/store/store2.php?storePlace=%E5%B1%8F%E6%9D%B1%E7%B8%A3">屏東縣</option>
+									<option>雲林縣</option>
+									<option>嘉義市（縣）</option>
+									<option>臺南市</option>
+									<option>高雄市</option>
+									<option>屏東縣</option>
 								<optgroup label="東部">
-									<option value="http://www.jomorparty.com/system/store/store2.php?storePlace=%E8%8A%B1%E8%93%AE%E7%B8%A3">花蓮縣</option>
-									<option value="http://www.jomorparty.com/system/store/store2.php?storePlace=%E8%87%BA%E6%9D%B1%E7%B8%A3">臺東縣</option>
+									<option>花蓮縣</option>
+									<option>臺東縣</option>
 								<optgroup label="外島">
-									<option value="http://www.jomorparty.com/system/store/store2.php?storePlace=%E6%BE%8E%E6%B9%96%E7%B8%A3">澎湖縣</option>
-									<option value="http://www.jomorparty.com/system/store/store2.php?storePlace=%E9%87%91%E9%96%80%E7%B8%A3">金門縣</option>
+									<option>澎湖縣</option>
+									<option>金門縣</option>
 							</select>
 						</span>	
 					</span>
 
-					<span class="rwd_store_select_button1" >
+					<span class="rwd_store_select_button1">
 						<span class="rwd_store_select_myButton">店家類型
 							<span class="rwd_store2_select_triangle"></span>
-							<select class="rwd_store2_select_bt2" onchange="location.href=this.options[this.selectedIndex].value">
-									<option value="http://www.jomorparty.com/system/store/store2.php?storeType=%E6%A1%8C%E9%81%8A%E5%B0%88%E9%96%80%E5%BA%97">桌遊專門店</option>
-									<option value="http://www.jomorparty.com/system/store/store2.php?storeType=%E8%A4%87%E5%90%88%E5%BC%8F%E9%A4%90%E9%A3%B2%E6%A1%8C%E9%81%8A%E5%BA%97">複合式餐飲店</option>
-									<option value="http://www.jomorparty.com/system/store/store2.php?storeType=%E6%A1%8C%E9%81%8A%E8%B2%A9%E8%B3%A3%E5%BA%97">桌遊販賣店</option>
-									<option value="http://www.jomorparty.com/system/store/store2.php?storeType=%E5%85%B6%E4%BB%96">其他</option>
+							<select class="rwd_store2_select_bt2">
+									<option>桌遊專門店</option>
+									<option>複合式餐飲店</option>
+									<option>桌遊販賣店</option>
+									<option>其他</option>
 							</select>
 						</span>	
 					</span>
@@ -360,7 +321,7 @@
 
 
 		<section class="store_section2">
-			<!--左上角藍字 → 依照選取的縣市顯示-->
+			<!--右上角藍字 → 依照選取的縣市顯示-->
 			<table class="store_page_name" cellpadding="7">
 				<tr>
 					<td>
@@ -554,9 +515,9 @@
 		</aside>
 	-->
 
-		<!--店家資訊跳出顯示div-->
-		<!--店家資訊跳出顯示div-->
-		<!--店家資訊跳出顯示div-->
+	<!--rwd跳出詳細店家資訊卡-->
+	<!--rwd跳出詳細店家資訊卡-->	
+	<!--rwd跳出詳細店家資訊卡-->
 		<?php
 		if(isset($_GET['no'])){
 			$no = $_GET["no"];
@@ -567,8 +528,7 @@
 			$selectStoreName = mysql_query($selectStoreName);
 			$store = mysql_fetch_assoc($selectStoreName);
 			?>
-			<div id="Store_inf">
-				<div style="position: fixed;width: 100%;height: 100%;" onclick="my_scroll('store2.php'); return false"></div>
+			<div id="Store_inf" style="position:fixed;"onclick="my_scroll('store2.php'); return false">
 		  		<div class="div_store_card-0">
 				    <section class="div_store_section">
 				         <div class="div_store_card-01"><!--店家資訊卡店名與圖片部分-->
@@ -600,19 +560,7 @@
 				                </tr>
 				                 <!--店家資訊卡內臉書與網站的icon-->
 				                <tr>
-				                	<td colspan="2" style="height: 40px">				     
-				                		<span class="span_aa">	                			
-				                		<?php
-				                			if($store['webURL']!=''){
-				                				?>
-												<span class="web_hover">
-				                					<img src="../../jomor_html/img/webicon2.png" class="store_web_bt" onclick="window.open('<?php echo $store['webURL'];?>', '_blank');">
-				                					<img src="../../jomor_html/img/webicon.png" class="store_web_bt" onclick="window.open('<?php echo $store['webURL'];?>', '_blank');">
-				                				</span>
-				                				<?php
-				                			}
-				                		?>	
-				                		</span>	
+				                	<td colspan="2">
 				                		<span class="span_aa">
 				                		<?php
 				                			if($store['fbURL']!=''){
@@ -624,60 +572,50 @@
 				                				<?php
 				                			}
 				                		?>	
+				                		</span>	
+				                		<span class="span_aa">	                			
+				                		<?php
+				                			if($store['webURL']!=''){
+				                				?>
+												<span class="web_hover">
+				                					<img src="../../jomor_html/img/webicon2.png" class="store_web_bt" onclick="window.open('<?php echo $store['webURL'];?>', '_blank');">
+				                					<img src="../../jomor_html/img/webicon.png" class="store_web_bt" onclick="window.open('<?php echo $store['webURL'];?>', '_blank');">
+				                				</span>
+				                				<?php
+				                			}
+				                		?>	
 				                		</span>				                			
 				                	</td>
 				                </tr>
 				            </table>
-				            <div class="rwd_googlemap">
-				            <aside class="div_store_aside">
-						        <iframe class="rwdmap_iframe" src="<?php echo $store['googleURL']; ?>" frameborder="0" style="border:0" allowfullscreen>
-						        </iframe>
-					        	<div class="div_store_btn">
-					        		<?php 
-					        			if(isset($_GET['storePlace'])){
-					        				$storePlace = $_GET['storePlace'];
-					        				?>
-					        				<button name="close" class="btn" onclick="my_scroll('store2.php?storePlace=<?php echo $storePlace; ?>'); return false">關閉</button>
-					        				<?php 
-					        			} 
-					        			else{
-					        				?>
-					        				<button name="close" class="btn" onclick="my_scroll('store2.php'); return false">關閉</button>
-					        				<?php
-					        			}
-					        		?>
-						        </div>			        
-					    	</aside>
-					    	</div>
 				         </div>
 				    </section>
-				   	  <div class="or_googlemap">
-							<aside class="div_store_aside">
-						        <iframe class="rwdmap_iframe" src="<?php echo $store['googleURL']; ?>" frameborder="0" style="border:0" allowfullscreen>
-						        </iframe>
-					        	<div class="div_store_btn">
-					        		<?php 
-					        			if(isset($_GET['storePlace'])){
-					        				$storePlace = $_GET['storePlace'];
-					        				?>
-					        				<button name="close" class="btn" onclick="my_scroll('store2.php?storePlace=<?php echo $storePlace; ?>'); return false">關閉</button>
-					        				<?php 
-					        			} 
-					        			else{
-					        				?>
-					        				<button name="close" class="btn" onclick="my_scroll('store2.php'); return false">關閉</button>
-					        				<?php
-					        			}
-					        		?>
-						        </div>			        
-					    	</aside>
-					    </div>
+				    
+				    <aside class="div_store_aside">
+				        <iframe src="<?php echo $store['googleURL']; ?>" width="485" height="450" frameborder="0" style="border:0" allowfullscreen>
+				        </iframe>
+			        	<div class="div_store_btn">
+			        		<?php 
+			        			if(isset($_GET['storePlace'])){
+			        				$storePlace = $_GET['storePlace'];
+			        				?>
+			        				<button name="close" class="btn" onclick="my_scroll('store2.php?storePlace=<?php echo $storePlace; ?>'); return false">關閉</button>
+			        				<?php 
+			        			} 
+			        			else{
+			        				?>
+			        				<button name="close" class="btn" onclick="my_scroll('store2.php'); return false">關閉</button>
+			        				<?php
+			        			}
+			        		?>
+				        </div>			        
+				    </aside>
+				    
 				</div>
 		  	</div>   
 			<?php
 		}
 		?>
-
 
 	</body>
 </html>

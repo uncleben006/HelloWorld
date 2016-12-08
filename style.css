@@ -2370,7 +2370,6 @@ input:focus{outline:none}
 .footer_css{
 	/*store層的檔案css  store1-2*/
 	position: relative;
-	margin-top: 90%;
 }
 
 .footer_css_edit{
@@ -2395,7 +2394,6 @@ input:focus{outline:none}
 .footer_css{
 	/*store層的檔案css  store1-2*/
 	position: relative;
-	margin-top:90%;
 	clear: both;
 	}
 }
@@ -2418,8 +2416,12 @@ input:focus{outline:none}
 
 
 /*1920以上開始*/
+/*1920以上開始*/
+/*1920以上開始*/
 .store_section{
-	float: left;
+	background-color: #F7DFCC;
+    /* margin-bottom: 5%; */
+    height: 1300px;
 }
 .marquee_bg{
     background-color: #4EBDC2;
@@ -2463,27 +2465,54 @@ input:focus{outline:none}
     margin: 3px 0 0 20px;
 }
 .mapbutton_frame{
-	margin: -2% 0 0 2%;
+	margin: 7% 0 0 0;
+	background-color: #FFCC99;
+	width: 100%;
+	height: 90px;
 }
+
 .map_myButton {
-	background-color:#de6160;
-	-moz-border-radius:25px;
-	-webkit-border-radius:25px;
-	border-radius:25px;
+	display:inline-block;
+	cursor:pointer;
+	color:#FF6666;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	font-size:16px;
+	font-weight:bold;
+	padding:6px 6px;
+	text-decoration:none;
+	margin: 25px 0 0 50px;
+	border-color: #FF6666;
+    border-style: solid;
+    border-radius: 5px;
+}
+.map_myButton:hover {
+	background-color:#FF6666;
+	color: #ffffff;
+}
+.map_myButton:active {
+	position:relative;
+	top:1px;
+}
+
+.map_myButton2 {
+	background-color:#FF6666;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size:16px;
 	font-weight:bold;
-	padding:8px 24px;
+	padding:6px 6px;
 	text-decoration:none;
-	margin: -5px 0 0 25px;
+	margin: 15px 0 0 25px;
+	border-color: #FF6666;
+    border-style: solid;
+    border-radius: 5px;
 }
-.map_myButton:hover {
-	background-color:#e8a7a7;
+.map_myButton2:hover {
+	background-color:#FF6666;
 }
-.map_myButton:active {
+.map_myButton2:active {
 	position:relative;
 	top:1px;
 }
@@ -2491,7 +2520,7 @@ input:focus{outline:none}
 	padding: 5% 0 0 0%;
 	width: 880px;
 	height: 850px;
-	float: left;
+	margin: 0 auto;
 }
 .google_map{
 	position: relative;
@@ -2508,24 +2537,24 @@ input:focus{outline:none}
 	width: 900px;
 	height: 880px;
 }
-.aside01{
-	float: right;
-	width: 300px;
-	height: 1000px;
-	margin: 5% 0 0 0;
-	background: #F2EE71;
+.store_yellow{
 	position: relative;
-	z-index: 3;
-	text-align: center;
-	padding-top: 40px;
-	border-radius: 50px;
+	width: 100%;
+	height: 190px;
+	background: #FFFF66;
+
+}
+.store_orange_rwd{
+	display: none;
 }
 .aside_p1{
-	font-size: 40px;
-	color: #545454;
-	text-align: center;
-	padding: 9% 0 ;
-	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+    font-size: 1.5em;
+    color: #545454;
+    text-align: center;
+    position: relative;
+    top: 70px;
+    left: 50px;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 }
 .aside_store00{
 	padding: 5% 7%;
@@ -2533,168 +2562,70 @@ input:focus{outline:none}
 .aside_store{
 	padding: 5% 10%;
 }
+
+.store_img_hover{
+    opacity: 0;
+    position: absolute;
+    z-index: 1;
+    left: 0px;
+    top: 13px;
+    width: 140px;
+    height: 140px;
+    line-height: 140px;
+    text-align: center;
+    margin: -13px auto;
+    border-radius: 25px;
+    cursor: pointer;
+}
+.store_img_hover:hover{
+	opacity: 10;
+    background-color: rgba(160, 167, 165, 0.52);
+	color: #ffffff;
+}
+.store_push{
+    position: relative;
+    top: 15px;
+    margin: 0 90px;
+}
 .aside_store_img{
-	border-radius: 25px;
-	width: 180PX;
-	height: 180PX;
-	cursor: pointer;
+    border-radius: 25px;
+    width: 140px;
+    height: 140px;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 0px;
 }
 .aside_store_img:hover{
-	border-radius: 25px;
-	width: 180PX;
-	height: 180PX;
 	cursor: pointer;
 	opacity: 0.7;
 	}
 
+.store_hover{
+	opacity: 1;
+}
 /*1920以上結束*/
-@media screen and (max-width: 1920px) {
-.store_section{
-	float: left;
-}
-.marquee_bg{
-    background-color: #4EBDC2;
-    border-radius: 30px;
-    height: 35px;
-    position: absolute;
-    top: 100px;
-}
-.store_marquee_div{
-	padding: 9% 0 0px 700px;
-	height: 80px;
-}
-.store_news01{
-    color: #FFFFFF;
-    background-color: #4EBDC2;
-    border-radius: 21px;
-    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-    font-size: 18px;
-    /* width: 110px; */
-    /* padding: 4px 10px; */
-    /* vertical-align: middle; */
-    position: relative;
-    bottom: 5px;
-    left: 20px;
-}
-.store_span{
-	height: 5px;
-    top: 3.5px;
-    position: relative;
-
-}
-.store_marquee{
-    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-    font-size: 18px;
-    background-color: #4EBDC2;
-    border-radius: 20px;
-    color: #FFFFFF;
-    height: 28px;
-    width: 400px;
-    /* left: 20px; */
-    margin: 3px 0 0 20px;
-}
-.mapbutton_frame{
-	margin: -2% 0 0 2%;
-}
-.map_myButton {
-	background-color:#de6160;
-	-moz-border-radius:25px;
-	-webkit-border-radius:25px;
-	border-radius:25px;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-	font-size:16px;
-	font-weight:bold;
-	padding:8px 24px;
-	text-decoration:none;
-	margin: -5px 0 0 25px;
-}
-.map_myButton:hover {
-	background-color:#e8a7a7;
-}
-.map_myButton:active {
-	position:relative;
-	top:1px;
-}
-.map{
-	padding: 5% 0 0 0%;
-	width: 880px;
-	height: 850px;
-	float: left;
-}
-.google_map{
-	position: relative;
-	bottom: 16px;
-	z-index:1;
-	padding: 20% 0 0 8%;
-	width: 792px;
-	height: 555px;
-}
-.mapframe{
-	margin: -740px 0 0 2%;
-	position: relative;
-	z-index:0;
-	width: 900px;
-	height: 880px;
-}
-.aside01{
-	float: right;
-	width: 300px;
-	height: 1000px;
-	margin: 5% 0 0 0;
-	background: #F2EE71;
-	position: relative;
-	z-index: 3;
-	text-align: center;
-	padding-top: 40px;
-	border-radius: 50px;
-}
-.aside_p1{
-	font-size: 40px;
-	color: #545454;
-	text-align: center;
-	padding: 9% 0 ;
-	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-}
-.aside_store00{
-	padding: 5% 7%;
-}
-.aside_store{
-	padding: 5% 10%;
-}
-.aside_store_img{
-	border-radius: 25px;
-	width: 180PX;
-	height: 180PX;
-	cursor: pointer;
-}
-.aside_store_img:hover{
-	border-radius: 25px;
-	width: 180PX;
-	height: 180PX;
-	cursor: pointer;
-	opacity: 0.7;
-	}
-}
-/*店家地圖1920視窗結束*/
-/*店家地圖1920視窗結束*/
 
 /*店家地圖1280視窗*/
 @media screen and (max-width: 1279px) {
 .store_section{
 	clear: both;
 	width: 100%;
+    background-color: #F7DFCC;
+    height: 1000px;
+    position: relative;
+    top: 15px;
+
 }
 .store_marquee_div{
 	display: none;
 
 }
 .mapbutton_frame{
-	margin: 120px 0 0 2%;
-	position: relative;
-	z-index:0;
+	margin: 7% 0 0 0;
+	background-color: #FFCC99;
+	width: 100%;
+	height: 90px;
 }
 .map{
 	width: 90%;
@@ -2712,18 +2643,57 @@ input:focus{outline:none}
 .mapframe{
 	display: none;
 }
-.aside01{
-	display: none;
+/*推薦店家的1279以下*/
+.store_img_hover{
+    opacity: 0;
+    position: absolute;
+    z-index: 1;
+    left: 0px;
+    top: 13px;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    text-align: center;
+    margin: -13px auto;
+    border-radius: 25px;
+    cursor: pointer;
+}
+.store_img_hover:hover{
+	opacity: 10;
+    background-color: rgba(160, 167, 165, 0.52);
+	color: #ffffff;
+}
+.store_push{
+    position: relative;
+    top: 25px;
+    margin: 0 72px;
+}
+.aside_store_img{
+    border-radius: 25px;
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 0px;
+}
+.push_rwd_div{
+    position: relative;
+    margin-top: 74px;
+    left: 18%;
+    width: 100%;
 	}
 }
-
-/*店家地圖990視窗結束*/
-
-/*店家地圖990視窗*/
-@media screen and (max-width: 990px) {
+/*店家地圖1279視窗結束*/
+@media screen and (max-width: 1024px) {
 .store_section{
 	clear: both;
 	width: 100%;
+    background-color: #F7DFCC;
+    height: 800px;
+    position: relative;
+    top: -22px;
+
 }
 .store_marquee_div{
 	display: none;
@@ -2741,8 +2711,8 @@ input:focus{outline:none}
 	position: relative;
 	bottom: 16px;
 	z-index:1;
-	padding: 8% 0 0 0%;
-	width: 90%;
+	padding: 0% 0 0 0%;
+	width: 96%;
 }
 .mapframe{
 	display: none;
@@ -2750,6 +2720,46 @@ input:focus{outline:none}
 .aside01{
 	display: none;
 	}
+.store_yellow{
+	display: none;
+}
+.store_orange_rwd{
+	display: block;
+	background-color: #F2BD84;
+	width: 100%;
+	height: 150px;
+
+}
+.aside_p2{
+    font-size: 1.2em;
+    color: #545454;
+    text-align: center;
+    position: relative;
+    top: 100px;
+    left: 50px;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	}
+.push_rwd_div{
+    position: relative;
+    margin-top: 74px;
+    left: 18%;
+    width: 80%;
+}
+.push_store_p{
+    position: relative;
+    margin: 0 2% 0 0%;
+    width: 100px;
+    color: #40605F;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+.push_store_p:hover{
+    position: relative;
+    margin: 0 2% 0 0%;
+    width: 100px;
+    color: #ffffff;
+}
+
 }
 
 @media screen and (max-width: 769px) {
@@ -2773,7 +2783,7 @@ input:focus{outline:none}
 	position: relative;
 	bottom: 16px;
 	z-index:1;
-	padding: 8% 0 0 0%;
+	padding: 0% 0 0 0%;
 	width: 100%;
 }
 .mapframe{
@@ -2782,12 +2792,52 @@ input:focus{outline:none}
 .aside01{
 	display: none;
 	}
+.store_orange_rwd{
+	display: block;
+	background-color: #F2BD84;
+	width: 100%;
+	height: 190px;
+
+}
+.aside_p2{
+    font-size: 1.2em;
+    color: #545454;
+    text-align: center;
+    position: relative;
+    top: 100px;
+    left: 50px;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	}
+.push_rwd_div{
+    position: relative;
+    width: 75%;
+    margin-top: 100px;
+    left: 90px;
+}
+.push_store_p{
+    position: relative;
+    margin: 0 2% 0 0%;
+    display: inline-block;
+    width: 140px;
+    color: #40605F;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.push_store_p:hover{
+    position: relative;
+    margin: 0 2% 0 0%;
+    width: 140px;
+    color: #ffffff;
+}
+
 }
 
 @media screen and (max-width:414px) {
 .store_section{
 	clear: both;
 	width: 100%;
+	height: 720px;
 }
 .store_marquee_div{
 	display: none;
@@ -2805,7 +2855,7 @@ input:focus{outline:none}
 	position: relative;
 	bottom: 16px;
 	z-index:1;
-	padding: 13% 0 0 0%;
+	padding: 0% 0 0 0%;
 	width: 100%;
 	height: 500px;
 }
@@ -2815,41 +2865,178 @@ input:focus{outline:none}
 .aside01{
 	display: none;
 	}
+
+.store_orange_rwd{
+    display: block;
+    background-color: #F2BD84;
+    width: 100%;
+    height: 215px;
+
+}
+.aside_p2{
+	font-size: 1.3em;
+    color: #545454;
+    text-align: center;
+    position: relative;
+    top: 90px;
+    left: 15px;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	}
+.push_rwd_div{
+	position: relative;
+    width: 80%;
+    margin-top: 90px;
+    left: 60px;
+}
+.push_store_p{
+    position: relative;
+    margin: 0 2% 0 0%;
+    display: inline-block;
+    width: 120px;
+    color: #40605F;
+    cursor: pointer;
+    font-size: 1em;
+    line-height: 30px;
+}
+.push_store_p:hover{
+    position: relative;
+    margin: 0 2% 0 0%;
+    width: 120px;
+    color: #ffffff;
 }
 
+}
+
+@media screen and (max-width:320px) {
+	.store_orange_rwd{
+    display: block;
+    background-color: #F2BD84;
+    width: 100%;
+    height: 220px;
+
+	}
+}
 
 /*店家地圖990視窗結束*/
 
 
 
 /*store1  店家列表CSS開始*/
+/*店家列表套用全*/
+.mapbutton_frame2{
+    margin: 7% 0 0 0;
+    background-color: #FFCC99;
+    width: 100%;
+    height: 290px;
+}
+.rwd_store_select_section{
+		display: none;
+}
+.rwd_store2_select{
+	display: none;
+}
+.store_search_div{
+    position: relative;
+    bottom: 50px;
+    left: 50%;
+    background-color: #767777;
+    border-radius: 20px;
+    height: 35px;
+    width: 175px;
+}
+.store_search{
+    font-size: 1em;
+    background-color: #767777;
+    margin: 4% 0 5% 12%;
+    height: 20px;
+    border: 0;
+    width: 80%;
+}
+.store_search_button{
+    background-color: rgba(0, 0, 0, 0);
+    width: 35px;
+    height: 34px;
+    position: relative;
+    bottom: 111%;
+    left: 82%;
+}
+
+.map_myButton4 {
+	display:inline-block;
+	cursor:pointer;
+	color:#FF6666;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	font-size:16px;
+	font-weight:bold;
+	padding:6px 6px;
+	text-decoration:none;
+	margin: 25px 0 0 25px;
+	border-color: #FF6666;
+    border-style: solid;
+    border-radius: 5px;
+     z-index: 10;
+}
+.map_myButton4:hover {
+	background-color:#FF6666;
+	color: #ffffff;
+	 z-index: 10;
+}
+.map_myButton4:active {
+	position:relative;
+	top:1px;
+	 z-index: 10;
+}
+
+.map_myButton3 {
+	background-color:#FF6666;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+	font-size:16px;
+	font-weight:bold;
+	padding:6px 6px;
+	text-decoration:none;
+	margin: 15px 0 0 50px;
+	border-color: #FF6666;
+    border-style: solid;
+    border-radius: 5px;
+    z-index: 10;
+}
+.map_myButton3:hover {
+	background-color:#FF6666;
+	 z-index: 10;
+}
+.map_myButton3:active {
+	position:relative;
+	top:1px;
+	 z-index: 10;
+}
 .store_select{
-	position: relative;
-	z-index: 2;
-	background-color: #4EBDC2;
-	height: 320px;
-	width: 1280px;
-	margin: 2% 0 0 0;
+    position: relative;
+    z-index: 2;
+    height: 320px;
+    width: 70%;
+    margin: -5% 0 0 20%;
 
 }
 .store_select_img{
-	position: relative;
-	top: 4%;
-	text-align: center;
+    position: relative;
+    top: 4%;
 }
 .store_select_word{
-	color: #545454;
-	position: relative;
-	bottom: 160px;
-	left: 34%;
-	z-index: 4;
-	font-size: 1.8em;
-	width: 200px;
-	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+    color: #545454;
+    position: relative;
+    bottom: 160px;
+    left: 28%;
+    z-index: 4;
+    font-size: 1.8em;
+    width: 200px;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 }
 .store_select_button0{
-	position: relative;
-	margin: -11% 0 0 0%;
+    position: relative;
+    margin: -15% 0 0 28%;
 }
 .store_select_button1{
 	position: relative;
@@ -2900,30 +3087,31 @@ input:focus{outline:none}
 	position:relative;
 	top:1px;
 }
-.store_search_div{
-	position: relative;
-	bottom: 50px;
-	left: 63%;
-	background-color: #767777;
-	border-radius:20px;
-	height: 35px;
-	width: 175px;
+
+.store_search_div2{
+    position: relative;
+    left: 9%;
+    background-color: #F0F5F5;
+    border-radius: 20px;
+    height: 35px;
+    width: 300px;
+    top: 80px;
 }
-.store_search{
+.store_search2{
     font-size: 1em;
-    background-color: #767777;
-    margin: 4% 0 5% 12%;
+    background-color: #F0F5F5;
+    margin: 2.5% 0 0% 6%;
     height: 20px;
     border: 0;
     width: 80%;
 }
-.store_search_button{
+.store_search_button2{
     background-color: rgba(0, 0, 0, 0);
     width: 35px;
     height: 34px;
     position: relative;
-    bottom: 111%;
-    left: 40%;
+    bottom: 28px;
+    left: 84%;
 }
 .aside02{
 	float: right;
@@ -2937,18 +3125,33 @@ input:focus{outline:none}
 }
 .store_section2{
 	position: relative;
-	left: 2%;
-	float: left;
-	width: 1000px;
+	margin:0 auto;
+	width: 100%;
+	text-align: center;
 }
 .store_page_name{
 	color: #4EBDC2;
 	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
 	font-size: 1.5em;
-	width: 100px;
-	margin: 1% 0 0 91%;
+	width: 170px;
+	margin: 1% 0 3% 2%;
 	border-bottom:5px #4EBDC2 solid;
 	text-align: center;
+}
+.store_page_name2{
+    color: rgba(188, 90, 3, 0.81);
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+    font-size: 1em;
+    width: 200px;
+    margin: -5% 0 3% -4%;
+    text-align: left;
+}
+.store_select_view{
+    position: absolute;
+    font-size: 0.5em;
+    margin-left: 100%;
+    margin-top: 5%;
+
 }
 /* table */
 .div_table {  
@@ -2971,7 +3174,11 @@ input:focus{outline:none}
 .store_card{
 	margin: 1% 5% 0 4%;
 }
+.storecard_inlineblock{
+	display: inline-block;
+}
 .store_info_card-0{
+	display: inline-block;
 	position: relative;
 	z-index: 0;
 	background-color: #DE6160;
@@ -2979,7 +3186,6 @@ input:focus{outline:none}
 	height: 375px;
 	border-radius: 10px;
 	/*margin: 0px auto;*/
-	display: inline-block;
 	margin: 10px;
 }
 .store_info_card01{
@@ -3019,8 +3225,8 @@ input:focus{outline:none}
 .store_img{
 	height: 175px;
 	width: 260px;
-	position: absolute;
-	bottom: 0px;
+	position: relative;
+	top: 20px;
 	cursor: pointer;
 }
 .store_img:hover{
@@ -3033,10 +3239,11 @@ input:focus{outline:none}
 }
 .store_info_card02_table{
 	margin: 3%;
+	text-align: left;
 }
 .store_info_card02_td01{
 	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-	color: #911F23;
+	color: rgb(242, 215, 129);
 	vertical-align:text-top;
 	line-height: 23px;
 }
@@ -3080,17 +3287,17 @@ input:focus{outline:none}
 }
 /*店家列表中的“地區”按鈕跳出的地區選單*/
 .local_fram{
-	    border-width: : 2px;
-	    background: rgba(255, 255, 255, 0.87);
-	    border-radius: 15px;
-	    width: 450px;
-	    border-color: #f2ee71;
-	    border-width: 2px;
-	    border-style: solid;
-	    position: relative;
-	    left: 102%;
-	    top: 10px;
-	    z-index: 1;
+	border-width: : 2px;
+    background: rgba(255, 255, 255, 0.87);
+    border-radius: 15px;
+    width: 450px;
+    border-color: #f2ee71;
+    border-width: 2px;
+    border-style: solid;
+    position: relative;
+    left: -8%;
+    top: 10px;
+    z-index: 5;
     }
     .local_fram:after {
 	  content: "";
@@ -3102,14 +3309,15 @@ input:focus{outline:none}
 	  border-width: 0px 15px 10px;
 	  border-style: solid;
 	  border-color: rgba(242,238,113,0.4) transparent;
-	  z-index: 0;
+	  z-index: 5;
 }
     .local_scroll{
-	    overflow: auto;
-	    height: 200px;
-	    width: 97%;
-	    margin: 0 auto;
-	    text-align: left;
+    overflow: auto;
+    height: 200px;
+    width: 97%;
+    margin: 0 auto;
+    text-align: left;
+    z-index: 5;
     }
 
 .local_place{
@@ -3117,17 +3325,16 @@ input:focus{outline:none}
     margin: 4% 0 0 5%;
     }
 .stype_fram{
-    	border-width: : 2px;
-	    background: rgba(255, 255, 255, 0.87);
-	    border-radius: 15px;
-	    width: 240px;
-	    border-color: #f2ee71;
-	    border-width: 2px;
-	    border-style: solid;
-	    position: relative;
-	    left: 612px;
-	    top: 10px;
-	    z-index: 1;
+    background: rgba(255, 255, 255, 0.87);
+    border-radius: 15px;
+    width: 240px;
+    border-color: #f2ee71;
+    border-width: 2px;
+    border-style: solid;
+    position: relative;
+    left: 90px;
+    top: 10px;
+    z-index: 5;
     }
     .stype_fram:after {
 	  content: "";
@@ -3139,7 +3346,7 @@ input:focus{outline:none}
 	  border-width: 0px 15px 10px;
 	  border-style: solid;
 	  border-color: rgba(242,238,113,0.4) transparent;
-	  z-index: 0;
+	  z-index: 5;
 }
     .stype_scroll{
 	    overflow: auto;
@@ -3148,6 +3355,7 @@ input:focus{outline:none}
 	    width: 97%;
 	    margin: 0 auto;
 	    text-align: left;
+	    z-index: 5;
     }
 .css-input {
     display: inline-block;
@@ -3160,6 +3368,7 @@ input:focus{outline:none}
     border-width: 0px;
     margin: 2% 5%;
     cursor: pointer;
+    z-index: 5;
 }
 
 .css-input:hover {
@@ -3170,16 +3379,18 @@ input:focus{outline:none}
     box-shadow: 9px 0px 0px 0px rgba(235, 99, 99, .75);
     padding: 6px;
     border-width: 0px;
+    z-index: 5;
 }
 
 /*店家資訊彈出詳細的視窗*/
 #Store_inf{
+	position: fixed;
 	float: left;
 	width: 100%;
 	height: 100%;
 	z-index: 19;
 	top: 0px;
-	left: 0px;
+	margin:0 auto;
 	background: rgba(255,255,255,0.9);
 }
 /*
@@ -3192,16 +3403,17 @@ input:focus{outline:none}
 }
 */
 .div_store_card-0{
-	position: relative;
-	z-index: 100;
-	background-color: #DE6160;
-	width: 900px;
-	height: 530px;
-	border-radius: 10px;
-	bottom: 52%;
-	margin:36% auto;
-	background: rgba(235,99,99,0.9);
-	z-index: 25;
+    position: fixed;
+    height: 530px;
+    background-color: #DE6160;
+    width: 1050px;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    margin-top:-265px;
+    margin-left: -525px;
+    background: rgba(235,99,99,0.9);
+    z-index: 25;
 }
 /*store1-2地圖的跳出推薦店家卡的視窗*/
 .div_store_card-0222{
@@ -3211,7 +3423,7 @@ input:focus{outline:none}
 	width: 900px;
 	height: 530px;
 	border-radius: 10px;
-	bottom: 52%;
+	bottom: 50%;
 	margin: 0 auto;
 	margin-top: 35%;
 	background: rgba(235,99,99,0.9);
@@ -3268,7 +3480,7 @@ input:focus{outline:none}
 .div_store_info_card02_td01{
 	width:29%;
 	font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-	color: #911F23;
+	color: rgb(242, 215, 129);
 	vertical-align:text-top;
 }
 .div_store_info_p2{
@@ -3282,11 +3494,23 @@ input:focus{outline:none}
 	
 }
 .div_store_aside{
-	width: 500px;
-	height: 480px;
-	float: right;
-	position: relative;
-	top: 3%;
+    width: 58%;
+    height: 480px;
+    float: right;
+    position: relative;
+    text-align: center;
+}
+.or_googlemap{
+	display: block;
+    position: relative;
+    top: 3%;
+}
+.rwd_googlemap{
+	display: none;
+}
+.rwdmap_iframe{
+		width: 90%;
+		height: 450px;
 }
 /*店家資訊卡內的臉書按鈕*/
 .span_aa{
@@ -3297,9 +3521,9 @@ input:focus{outline:none}
 	position: relative;
 	width: 38px;
 	height: auto;
-	right: 70px;
-	}	
-}
+	right: 5px;
+}	
+
 
 .fb_a{
 	position: relative;
@@ -3331,10 +3555,10 @@ input:focus{outline:none}
 .store_web_bt{
 	position: relative;
 	width: 38px;
-	height: auto;
-	right: 5px;
+    height: auto;
+    right: 70px;
 	}	
-}
+
 
 .web_a{
 	position: relative;
@@ -3365,7 +3589,7 @@ input:focus{outline:none}
 .div_store_btn{
 	position: relative;
 	top: 2%;
-	left: 78%;
+	left: 39%;
 }
 .btn {
 	background: #F2EE71;
@@ -3396,47 +3620,426 @@ input:focus{outline:none}
 	text-decoration: none;
 	cursor: pointer;
 }
-/*桌遊專欄*/
-/*藍色大象區塊*/
-/*
-.blue_section{
+
+/*店家列表套用全結束*/
+
+/*店家列表1279*/
+@media screen and (max-width:1280px) {
+	.div_store_card-0 {
+    position: fixed;
+    z-index: 100;
+    background-color: #DE6160;
+    width: 84%;
+    height: 530px; 
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    margin-top: -230px;
+    margin-left: -42%;
+    background: rgba(235,99,99,0.9);
+    z-index: 25;
+	}
+}
+
+/*店家列表1279結束*/
+
+
+/*店家列表1024*/
+@media screen and (max-width:1024px) {
+	.mapbutton_frame2{
+	display: none;
+	}
+	.rwd_store_select_section{
+		display: block;
+		background-color: #F2BD84;
+    	width: 100%;
+   	 	height: 245px;
+	}
+	.rwd_store2_select_div{
 	position: relative;
-	padding: 8% 0 0 0;
-}
-.blue_bg{
+    margin-top: -28px;
+    left: 18%;
+    width: 60%;
+	}
+	.rwd_store_select_button1{
 	position: relative;
-	background-color: #4EBDC2;
-	height: 295px;
-	padding: 1% 0 0 0;
+    top: 20px;
+    margin: 0 2% 0 0;
+	}
+	.rwd_store_select_myButton{
+    background-color: #f2bd84;
+    -moz-border-radius: 42px;
+    border-style: solid;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+    font-size: 1.1em;
+    padding: 5px 10px;
+    text-decoration: none;
+	}
+	.rwd_store2_select_triangle{
+    border-color: #ffffff transparent;
+    border-style: solid;
+    border-width: 10px 8px 0 8px;
+    position: relative;
+    top: 15px;
+	}
+	.rwd_store2_select_bt{
+	opacity: 0;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    cursor: pointer;
+    height: 35px;
+    width: 86px;
+    top: -11px;
+
+	}
+
+	.rwd_store2_select_bt2{
+	opacity: 0;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    cursor: pointer;
+    height: 35px;
+    width: 125px;
+    top: -11px;
+
+	}
+	.aside_p3{
+	font-size: 1.2em;
+    color: #545454;
+    text-align: center;
+    position: relative;
+    top: 20px;
+    left: 50px;
+	}
+	.store_search_div2{
+    position: relative;
+    left: 5%;
+    background-color: #F0F5F5;
+    border-radius: 20px;
+    height: 35px;
+    width: 300px;
+    top: 80px;
+	}
+	.div_store_card-0 {
+	position: absolute;
+    z-index: 100;
+    background-color: #DE6160;
+    width: 90%;
+    height: 530px;
+    top: 50%;
+    margin-top: -255px;
+    left: 50%;
+    margin-left: -45%;
+    border-radius: 10px;
+    background: rgba(235,99,99,0.9);
+    z-index: 25;
+	}
 }
-.blog_img{
-	position: relative;
-	margin: 1% 5% 1% 30%;
+
+/*店家列表1010以下*/
+@media screen and (max-width:1010px) {
+	#Store_inf{
+    position: absolute;
+    float: left;
+    width: 100%;
+    height: 100%;
+    z-index: 19;
+    top: 0px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.9);
+	}
+	.div_store_card-0 {
+	position: absolute;
+    z-index: 100;
+    background-color: #DE6160;
+    width: 66%;
+    height: auto;
+    top: 350px;
+    left: 50%;
+    margin-left: -33%;
+    border-radius: 10px;
+    background: rgba(235,99,99,0.9);
+    z-index: 25;
+    padding: 3% 0 2% 0;
+	}
+	.div_store_section {
+    position: relative;
+    top: 3%;
+    margin: 0 auto;
+    width: 100%;
+	}
+	.div_store_card-01 {
+    position: relative;
+    z-index: 1;
+    background-color: #F2B9A7;
+    width: 80%;
+    left: 0px;
+    height: auto;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    text-align: center;
+    margin: 0 auto;
+	}
+	.div_store_name {
+    color: #545354;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+    font-size: 1.5em;
+    position: relative;
+    top: 8px;
+	}
+	.div_store_img {
+    height: auto;
+    width: 100%;
+    position: relative;
+    top: 12px;
+	}
+	.div_store_card-02 {
+    position: relative;
+    top: 2%;
+    width: 80%;
+    overflow: hidden;
+    height: auto;
+    margin: 0 auto;
+	}
+	.div_store_info_card02_table {
+    padding: 3% 0 3% 0%;
+    width: 100%;
+	}
+	.div_store_aside {
+    width: 100%;
+    height: 550px;
+    position: relative;
+    top: 30px;
+    text-align: center;
+    margin: 0 auto;
+    float: none;
+	}
+	.div_store_btn {
+    position: absolute;
+    top: 470px;
+    right: 0px;
+    left: initial;
+	}
+	.or_googlemap{
+		display: none;
+	}
+	.rwd_googlemap{
+		display: block;
+	}
+	.rwdmap_iframe{
+		width: 100%;
+		height: 450px;
+	}
 }
-.blogbutton_frame{
-	margin: 4% 0 0 7%;
+
+/*店家列表769以下*/
+@media screen and (max-width:769px) {
+	.rwd_store_select_section{
+		display: block;
+		background-color: #F2BD84;
+    	width: 100%;
+   	 	height: 350px;
+	}	
+	.rwd_store2_select_div{
+    position: relative;
+    margin-top: 10px;
+    left: 90px;
+    width: 70%;
+	}
+	.aside_p3{
+	font-size: 1.2em;
+    color: #545454;
+    text-align: center;
+    position: relative;
+    top: 20px;
+    left: 50px;
+	}
+	.rwd_store_select_myButton{
+    background-color: #f2bd84;
+    -moz-border-radius: 42px;
+    border-style: solid;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+    font-size: 1em;
+    padding: 5px 10px;
+    text-decoration: none;
+	}
+	.store_search_div2{
+    position: relative;
+    left: 5%;
+    background-color: #F0F5F5;
+    border-radius: 20px;
+    height: 35px;
+    width: 90%;
+    top: 80px;
+	}
+	.store_search_button2 {
+    background-color: rgba(0, 0, 0, 0);
+    width: 35px;
+    height: 34px;
+    position: relative;
+    bottom: 0px;
+    left: 3%;
+	}
+	.store_search2 {
+    position: relative;
+    font-size: 1em;
+    background-color: #F0F5F5;
+    margin: 0 0 0% 6%;
+    height: 20px;
+    border: 0;
+    width: 80%;
+    top: -2px;
+	}
+	.div_store_card-0 {
+    position: absolute;
+    z-index: 100;
+    background-color: #DE6160;
+    width: 90%;
+    height: auto;
+    top: 350px;
+    left: 50%;
+    margin-left: -45%;
+    border-radius: 10px;
+    background: rgba(235,99,99,0.9);
+    z-index: 25;
+    padding: 3% 0 2% 0;
+	}
 }
-.blog_myButton {
-	background-color:#de6160;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
-	font-size:22px;
-	font-weight:bold;
-	padding:8px 20px;
-	text-decoration:none;
-	margin: 0 0 0 1%;
+/*769結束*/
+
+/*店家列表414以下*/
+@media screen and (max-width:414px) {
+	.aside_p3{
+	font-size: 1.2em;
+    color: #545454;
+    text-align: center;
+    position: relative;
+    top: 20px;
+    left: 15px;
+	}
+	.rwd_store2_select_div{
+    position: relative;
+    margin-top: 10px;
+    left: 60px;
+    width: 80%;
+	}
+	.store_search_div2{
+    position: relative;
+    left: 5%;
+    background-color: #F0F5F5;
+    border-radius: 20px;
+    height: 35px;
+    width: 90%;
+    top: 80px;
+	}
+	.store_search_button2 {
+    background-color: rgba(0, 0, 0, 0);
+    width: 35px;
+    height: 34px;
+    position: relative;
+    bottom: 0px;
+    left: 20px;
+	}
+	.store_search2 {
+    position: relative;
+    font-size: 1em;
+    background-color: #F0F5F5;
+    margin: 0 0 0% 6%;
+    height: 20px;
+    border: 0;
+    width: 70%;
+    top: -2px;
+	}
+.div_store_card-0 {
+    position: absolute;
+    z-index: 100;
+    background-color: #DE6160;
+    width: 98%;
+    height: auto;
+    top: 350px;
+    left: 50%;
+    margin-left: -49%;
+    border-radius: 10px;
+    background: rgba(235,99,99,0.9);
+    z-index: 25;
+    padding: 3% 0 2% 0;
+	}
+	.div_store_card-01 {
+    position: relative;
+    z-index: 1;
+    background-color: #F2B9A7;
+    width: 96%;
+    left: 0px;
+    height: auto;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    text-align: center;
+    margin: 0 auto;
+	}
+	.div_store_card-02 {
+    position: relative;
+    top: 2%;
+    width: 90%;
+    overflow: hidden;
+    height: auto;
+    margin: 0 auto;
+	}
+	.div_store_name {
+    color: #545354;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+    font-size: 1.1em;
+    position: relative;
+    top: 8px;
+	}
+	.div_store_info_card02_td01 {
+    width: 29%;
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+    color: rgb(242, 215, 129);
+    vertical-align: text-top;
+    font-size: 0.9em;
+	}
+	.div_store_info_p2 {
+    font-family: Microsoft YaHei,Hiragino Sans GB,STHeiti Light,SimHei;
+    color: #ffffff;
+    line-height: 23px;
+    font-size: 0.9em;
+	}
 }
-.blog_myButton:hover {
-	background-color:#e8a7a7;
+/*414結束*/
+/*店家列表320以下*/
+@media screen and (max-width:320px) {
+	.store_search_div2{
+    position: relative;
+    left: 5%;
+    background-color: #F0F5F5;
+    border-radius: 20px;
+    height: 35px;
+    width: 90%;
+    top: 80px;
+	}
+	.push_rwd_div {
+    position: relative;
+    width: 90%;
+    margin-top: 90px;
+    left: 10%;
+	}
+	.rwd_store2_select_div {
+    position: relative;
+    margin-top: 10px;
+    left: 10%;
+    width: 90%;
+	}
 }
-.blog_myButton:active {
-	position:relative;
-	top:1px;
-}
-*/
-/*套用全*/
+/*320結束*/
+
+
+/*專欄套用全*/
 .essay_section{
 	margin: 10% 0 5% 0;
 	text-align: center;
@@ -4589,7 +5192,7 @@ input:focus{outline:none}
 
 .aboutall_img{
 	width: 500px;
-	height: 1300px;
+	height: auto;
 	}
 
 @media only screen and (max-width: 1920px) {
@@ -4653,7 +5256,7 @@ input:focus{outline:none}
 
 .aboutall_img{
 	width: 500px;
-	height: 1300px;
+	height: auto;
 	}
 }/*1920視窗聯絡我們css結束*/
 
@@ -5072,7 +5675,7 @@ input:focus{outline:none}
 
 /*揪團房間區塊*/
 .jo_card{
-	margin: 5% 9% 5% 9%;
+	margin: 5% 7% 5% 7%;
 	z-index: 2;
 }
 /* table */
@@ -5080,6 +5683,7 @@ input:focus{outline:none}
   display: table; 
   border-collapse: collapse; 
   margin: 0 auto;
+  float: left;
 }  
 /* tr */
 .jo_row{
@@ -5714,6 +6318,7 @@ input:focus{outline:none}
 .jo_store_info_card02{
 	position: relative;
 	top:2%;
+	padding: 10px 0px 10px 0px;
 }
 .jo_store_info_card02_table{
 	margin: 2%;
@@ -5749,6 +6354,7 @@ input:focus{outline:none}
 
 .jofb_hover {
 	position:relative;
+	top:3px;
 }
 
 .jofb_hover img {
@@ -6142,7 +6748,7 @@ input:focus{outline:none}
 	position: relative;
 	color: #5C5D5D;
 	left: 20px;
-	top: 220px;
+	top: 150px;
 }
 .join_btn:hover {
 	color: #ffffff;
@@ -6184,7 +6790,7 @@ input:focus{outline:none}
 	position: relative;
 	color: #5C5D5D;
 	left: 20px;
-	top: 150px;
+	top: 70px;
 }
 .join_Hbtn:hover{
 	color: #ffffff;
