@@ -50,31 +50,46 @@
 					<!--文章內文-->
 					<div class="essay_more_words">
 						<span>
-							<img src="jomor_html/img/blogimg/blog_cover/game1.png">
+							<img src="jomor_html/img/blogimg/blog1/game1.png">
 						</span>
 						<span class="essay_more_gname_block">
-							<div class="essay_more_gname">第一名：德國心臟病</div>
-						<hr color="#96BDD2" width="48%" size="5" align="left">
+							<div class="essay_more_gname">第一名：德國心臟病 HALLI GALLI</div>
+						<hr color="#96BDD2" width="85%" size="5" align="left">
 							<div class="essay_more_gp">德國心臟病是一款考驗反應的遊戲。比撲克牌的心臟病還要更刺激的派對遊戲。</div>
 						</span>
 						<span class="essay_more_grule_block">
 							<div class="essay_more_gname">遊戲目標</div>
-						<hr color="#96BDD2" width="14%" size="5" align="left">
+						<hr color="#96BDD2" width="120px" size="5" align="left">
 							<div class="essay_more_gp">
 								<p>誰的牌最多誰就勝利，沒牌的則被淘汰。</p>
-								<p>誰的反應最快正確的按鈴，就可贏的場面上的牌。</p>
-								<p>而出到手上沒牌的人就出局了，看誰是撐到最後的贏家。</p>
-								<p>玩家依序翻開一張卡片放在自己面前，只要牌面上翻開的紙牌中有一瞬間共出現5個相同水果的時候，每位玩家就要搶按中央的鈴，最快按到鈴的玩家就可以把牌面上所有的卡片家到自己手中(按錯鈴則須把自己一張手牌給各其他所有玩家)。</p>
-								<p>而手牌用完的玩家就出局，誰能堅持到最後的玩家就獲勝。這是一款挑戰反應速度刺激緊張的派對遊戲。</p>
 							</div>
 						</span>
 						<span class="essay_more_artical_block">
-							<div class="essay_more_gname">小標題喔～～</div>
+							<div class="essay_more_gname">遊戲內容物</div>
+						<hr color="#96BDD2" width="140px" size="5" align="left">
+							<div class="essay_more_gp">
+								<p>56張卡牌、1個搶答鈴</p>
+							</div>
+						</span>
+						<!--圖片改檔名"game1-1"的部分-->
+						<span class="blogimg_span">
+							<img src="jomor_html/img/blogimg/blog1/game1-1.png" style="height: auto;width: 70%">
+						</span>
+						<span class="essay_more_artical_block">
+							<div class="essay_more_gname">遊戲規則</div>
 						<hr color="#96BDD2" width="30%" size="5" align="left">
 							<div class="essay_more_gp">
-								<p>內文內文內文內文</p>
-								<p>內文內文內文內文誰的反應最快正確的按鈴，就可贏的場面上的牌。</p>
-								<p>內文內文內文內文而出到手上沒牌的人就出局了，看誰是撐到最後的贏家。</p>
+								<p>誰的反應最快正確的按鈴，就可贏的場面上的牌。而出到手上沒牌的人就出局了，看誰是撐到最後的贏家。玩家依序翻開一張卡片放在自己面前，只要牌面上翻開的紙牌中有一瞬間共出現5個相同水果的時候，每位玩家就要搶按中央的鈴，最快按到鈴的玩家就可以把牌面上所有的卡片家到自己手中(按錯鈴則須把自己一張手牌給各其他所有玩家)。</p>
+							</div>
+						</span>
+						<!--圖片改檔名"game1-2"的部分-->
+						<span class="blogimg_span">
+							<img src="jomor_html/img/blogimg/blog1/game1-2.png" style="height: auto;width: 70%">
+						</span>
+						<span class="essay_more_artical_block">
+							<div class="essay_more_gp">
+								<p>而手牌用完的玩家就出局，誰能堅持到最後的玩家就獲勝。是一款挑戰反應速度刺激緊張的派對遊戲。
+								</p>
 							</div>
 						</span>
 					</div>
@@ -103,28 +118,29 @@
 					</div>
 					<div class="game_intro_table_bg"><!--遊戲介紹列表淺藍色區塊-->
 						<div class="game_intro_table">
-							<span class="game_intro_bt">德國心臟病</span>
-							<span class="game_intro_bt">矮人礦坑</span>
-							<span class="game_intro_bt">妙語說書人</span>
-							<span class="game_intro_bt">閃靈快手</span>
-							<span class="game_intro_bt">誰是牛頭王</span>
-							<span class="game_intro_bt">Bang!砰!</span>
-							<span class="game_intro_bt">印加寶藏</span>
-							<span class="game_intro_bt">化妝舞會</span>
-							<span class="game_intro_bt">凶煞迴廊</span>
+							<span><a href="blog_more1-1.php" class="game_intro_bt">德國心臟病</a></span>
+							<span><a href="blog_more1-2.php" class="game_intro_bt">妙語說書人</a></span>
+							<span><a href="blog_more1-3.php" class="game_intro_bt">閃靈快手</a></span>
+							<span><a href="blog_more1-4.php" class="game_intro_bt">誰是牛頭王</a></span>
+							<span><a href="blog_more1-5.php" class="game_intro_bt">矮人礦坑</a></span>
+							<span><a href="blog_more1-6.php" class="game_intro_bt">從前從前</a></span>
+							<span><a href="blog_more1-7.php" class="game_intro_bt">Bang!砰!</a></span>
+							<span><a href="blog_more1-8.php" class="game_intro_bt">印加寶藏</a></span>
+							<span><a href="blog_more1-9.php" class="game_intro_bt">化裝舞會</a></span>
+							<span><a href="blog_more1-10.php" class="game_intro_bt">凶煞迴廊</a></span>
 						</div>
 					</div>
 				</div>
 				<!--返回列表-->
-				<div class="essay_back">返回列表</div>
+				<a href="blog2.php"><div class="essay_back">返回列表</div></a>
 			</div>
 
 			
 		</section>
 
-		<footer class="footer_css_11">
+		<footer class="footer_css_12">
 				<div class="index_yellow"> 
-					<div class="index_yellow_pp">｜桌遊資訊平台｜桌末狂歡｜</div>
+					<div class="index_yellow_pp">｜桌遊資訊平台｜桌末狂歡版權所有｜</div>
 				</div>
 				<div class="footer_bt_div">
 					<span class="footer_span">

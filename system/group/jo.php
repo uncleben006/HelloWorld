@@ -383,7 +383,7 @@
 				while($memberNo = mysql_fetch_assoc($selectMemberNo)){
 
 					//insert進remind table
-					$insertMemberRemind = 'INSERT INTO `remind`(`no`, `account`, `email`, `host`, `room`, `date`, `time`, `store`) VALUES ("'.$no.'","'.$memberNo['account'].'","'.$memberNo['email'].'","'.$roomNo['host'].'","'.$roomNo['room'].'","'.$roomNo['date'].'","'.$roomNo['time'].'","'.$roomNo['store'].'")';
+					$insertMemberRemind = 'INSERT INTO `remind`(`no`, `account`, `email`, `host`, `room`, `date`, `time`, `store`,`decideGrade`) VALUES ("'.$no.'","'.$memberNo['account'].'","'.$memberNo['email'].'","'.$roomNo['host'].'","'.$roomNo['room'].'","'.$roomNo['date'].'","'.$roomNo['time'].'","'.$roomNo['store'].'","1")';
 					mysql_query("SET NAMES'UTF8'");
 					mysql_query("SET CHARACTER SET UTF8");
 					mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
@@ -396,13 +396,62 @@
 			  
 		<section class="jobg_section"><!--導覽列以下的區塊-->
 			<section class="jo_blue_section">
-				<div class="jo_blue"><!--藍底區塊-->
-					<span><a class="jo_btn" onClick="openrule(rule)">如何揪團</a></span>
-					<span><a class="jo_btn" onClick="openroom(op)">創建房間</a></span>
-					<span><a class="jo_btn" onClick="window.location.href='jo.php?account=<?php echo $_SESSION['account'];?>'">我的房間</a></span>
-				</div>
+				<?php
+					if(isset($_GET['no'])){
+						?>
+						<div class="jo_blue" style="background: rgba(255,255,255,0.9)"><!--藍底區塊-->
+							<!--最新活動跑馬燈-->
+							<div class="store_marquee_div">
+								<div class="marquee_bg">
+									<span class="store_news01">最新活動 |</span>
+									<span class="store_span">
+										<content>
+											<marquee class="store_marquee">
+												<div >桌末狂歡跟你一起揪團玩桌遊!!!</div>
+											</marquee>
+										</content>
+									</span>
+								</div>
+							</div>
+							<!--最新活動跑馬燈結束-->
+							<div class="jo_btn_div">
+								<span><a class="jo_btn" onClick="openrule(rule)">如何揪團</a></span>
+								<span><a class="jo_btn" onClick="openroom(op)">創建房間</a></span>
+								<span><a class="jo_btn" onClick="window.location.href='jo.php?account=<?php echo $_SESSION['account'];?>'">我的房間</a></span>
+							</div>
+						</div>
+						<?php
+					}
+					else{
+						?>
+						<div class="jo_blue"><!--藍底區塊-->
+							<!--最新活動跑馬燈-->
+							<div class="store_marquee_div">
+								<div class="marquee_bg">
+									<span class="store_news01">最新活動 |</span>
+									<span class="store_span">
+										<content>
+											<marquee class="store_marquee">
+												<div >桌末狂歡跟你一起揪團玩桌遊!!!</div>
+											</marquee>
+										</content>
+									</span>
+								</div>
+							</div>
+							<!--最新活動跑馬燈結束-->
+							<div class="jo_btn_div">
+								<span><a class="jo_btn" onClick="openrule(rule)">如何揪團</a></span>
+								<span><a class="jo_btn" onClick="openroom(op)">創建房間</a></span>
+								<span><a class="jo_btn" onClick="window.location.href='jo.php?account=<?php echo $_SESSION['account'];?>'">我的房間</a></span>
+							</div>
+						</div>
+						<?php
+					}
+				?>
+
+				
 			</section>
-			<section><!--揪團房間區塊-->
+			<section id="jo_card_section"><!--揪團房間區塊-->
 				<div class="jo_card" >
 				<!--第一行div表格-->
 					<div class="jo_div_table"><!--div_table-->
@@ -425,7 +474,10 @@
 						//顯示房間	配合html
 						//顯示房間	配合html
 					 	//若資料庫裡 room table 的列數大於0，則取出資料並配合html顯示
-						if($number>0){
+						if(isset($_GET['no'])){
+
+						}
+						else if($number>0){
 							if(isset($_GET['account'])){//若點選「我的房間」
 								if(empty($_SESSION['account'])){//若尚未登入，顯示警示提醒
 									?>
@@ -774,12 +826,8 @@
 			<div id="op">
 				<div class="op_fixed">
 					<div class="openroom_fram01">
-					    <table class="openroom_fram01_table">
-					      <tr>
-					        <td class="openroom_title">創建房間</td>
-					        <td class="openroom_close" onClick="javascript:op.style.display='none';">X</td>
-					      </tr>
-					    </table>
+					    <span class="openroom_title">創建房間</span>
+						<span class="openroom_close" onClick="javascript:op.style.display='none';">X</span>
 					</div> 
 				  	<div class="openroom_fram02">
 					    <table class="openroom_fram02_table">
@@ -787,7 +835,7 @@
 							    <tr class="openroom_info_tr">
 							        <td class="openroom_info_td">房名</td>
 							        <td class="openroom_info_input_td"><input type="text" name="room" class="jo_text01">&nbsp;&nbsp;*必填</td>
-							        <td rowspan="7">
+							        <td rowspan="7" class="rwd_openroom_info_tr1" >
 										<!--創建房間裡的店家資訊卡-->
 											<img id="ss" src="../../jomor_html/img/jo_store_card/none.png" class="select_store_img">
 							        </td>
@@ -1044,6 +1092,13 @@
 											
 						          	</select>
 								</tr>
+								<!--rwd的店家選項卡片-->
+								<tr class="rwd_openroom_info_tr2">
+								    <td colspan="2">
+										<img id="ss2" src="../../jomor_html/img/jo_store_card/none.png" class="select_store_img">
+								    </td>
+								</tr>
+								<!--rwd的店家選項卡片結束-->
 								<tr class="openroom_info_tr">
 									<td class="openroom_info_td">遊玩遊戲</td>
 									<td class="openroom_info_input_td" style="position:relative;top:5px;" ><input type="text" name="game" class="jo_text07">
@@ -1054,7 +1109,10 @@
 							        <td class="openroom_info_input_td">
 							          <textarea name="remark"  rows=5 cols=50 wrap=physical class="jo_text06"></textarea>
 							        </td>
-							        <td><button type="submit" name="create" class="jo_btn02" >創建</button></td>
+							        <td class="build_room_bt_td"><button type="submit" name="create" class="jo_btn02" >創建</button></td>
+							    </tr>
+							    <tr class="rwd_build_room_bt">
+							    	<td colspan="2"><button type="submit" name="create" class="jo_btn02" >創建</button></td>
 							    </tr>
 						    </form>
 					    </table>
@@ -1085,7 +1143,8 @@
 					$store = mysql_fetch_assoc($selectStore);
 
 					?>
-				    <div id="view_room"><!--瀏覽房間-->
+				    <!--瀏覽房間-->
+					<div id="view_room" >
 					    <div class="view_room_center">
 					        <div class="view_room_fram01">
 						            	<span class="view_room_title"><?php echo $no ?>號房-<?php echo $roomNo['room'] ?></span>
@@ -1518,7 +1577,7 @@
 									              	if($memberSignIn==0){
 									        			?>			        		
 										                <div class="chat_window">
-										                  	<p class="chat_window_p">您必須先加入此房間才能使用聊天室<p>
+										                  	<p class="chat_window_p">您必須先加入此房間才能使用聊天室</p>
 										                </div>
 										                <?php
 										            }
@@ -1587,6 +1646,360 @@
 							</div>
 						</div>
 					</div>
+
+					<!--rwd瀏覽房間--><!--rwd瀏覽房間--><!--rwd瀏覽房間--><!--rwd瀏覽房間-->
+					<!--rwd瀏覽房間--><!--rwd瀏覽房間--><!--rwd瀏覽房間--><!--rwd瀏覽房間-->						
+					<div id="rwd_joroom_bg">
+						<div class="rwd_joroom_nav">
+							<span class="rwd_roomname">
+								<div class="rwd_roomname_div"><?php echo $roomNo['room'] ?></div>
+							</span>
+							<span class="rwd_joroom_back"><a href="jo.php">返回</a></span>
+							<span class="rwd_roomnumber"><?php echo $no ?></span>
+							<form method="post">
+								<span class="rwd_joroom_join">
+									<button class="rwd_join_bt" type="submit" name="join" onClick="javascript:window.location.href='jo.php';">加入<br>房間</button>
+								</span>
+							</form>
+						</div>
+						<!--rwd的切換房間內頁籤-->
+						<div class="jorwd_tab"><!--rwd頁籤切換鈕-->
+						    <ul class="rwd_tabs_ul">
+							    <li class="rwd_tabs_li"><a href="#rwdtab1">房間資訊</a></li>
+							    <li class="rwd_tabs_li"><a href="#rwdtab2">成員名單</a></li>
+							    <li class="rwd_tabs_li"><a href="#rwdtab3">聊天室</a></li>
+						    </ul>
+						    <!--rwd房間資訊--><!--rwd房間資訊--><!--rwd房間資訊-->
+							<div class="rwd_tab_container">
+								<div id="rwdtab1" class="rwd_tab_content">
+									<table class="rwd_view_room_fram02_table"><!--切三列的表格-->
+						          	<tr>
+							            <td class="rwd_view_room_fram02_table_td">
+							              	<div class="rwd_view_info_table"><!--詳細資訊表格-->
+							                  	<div class="rwd_view_info_tr"><!--詳細資訊區塊日期tr-->
+							                        <div class="rwd_view_info_bg"><!--詳細資訊黃底區塊-->
+							                          	<div class="rwd_view_info_td01">
+							                            	<div class="rwd_view_info_td01-2">日期</div>
+							                         	</div>
+							                          	<div class="rwd_view_info_td02">
+							                            	<div class="rwd_view_info_td02-2"><?php echo $roomNo['date'] ?></div>
+							                          	</div>
+							                        </div>
+							                  	</div>
+							                  	<div class="rwd_view_info_tr"><!--詳細資訊區塊時間tr-->
+							                        <div class="rwd_view_info_bg"><!--詳細資訊白底區塊-->
+							                          	<div class="rwd_view_info_td01">
+								                            <div class="rwd_view_info_td01-2">時間</div>
+								                        </div>
+								                       	<div class="rwd_view_info_td02">
+								                            <div class="rwd_view_info_td02-2"><?php echo $time."-".$time2 ?></div>
+							                          	</div>
+							                        </div>
+							                  	</div>
+							                  	<div class="rwd_view_info_tr"><!--詳細資訊地點區塊tr-->
+							                        <div class="rwd_view_info_bg"><!--詳細資訊白底區塊-->
+							                          	<div class="rwd_view_info_td01">
+							                            	<div class="rwd_view_info_td01-2">地點</div>
+							                          	</div>
+							                          	<div class="rwd_view_info_td02">
+							                            	<div class="rwd_view_info_td02-2"><?php echo $roomNo['store'] ?></div>
+							                          	</div>
+							                        </div>
+							                  	</div>
+							                  	<div class="rwd_view_info_tr"><!--詳細資訊人數區塊tr-->
+							                        <div class="rwd_view_info_bg"><!--詳細資訊白底區塊-->
+							                          	<div class="rwd_view_info_td01">
+							                            	<div class="rwd_view_info_td01-2">人數</div>
+							                          	</div>
+							                          	<div class="rwd_view_info_td02">
+							                            	<div class="rwd_view_info_td02-2"><?php echo $num."/".$roomNo['people'] ?></div>
+							                          	</div>
+							                        </div>
+							                  	</div>
+							                  	<div class="rwd_view_info_tr"><!--詳細資訊遊戲區塊tr-->
+							                        <div class="rwd_view_info_bg"><!--詳細資訊白底區塊-->
+							                          	<div class="rwd_view_info_td01">
+							                            	<div class="rwd_view_info_td01-2">遊戲</div>
+							                          	</div>
+							                          	<div class="rwd_view_info_td02">
+							                            	<div class="rwd_view_info_td02-2"><?php echo $roomNo['game'] ?></div>
+							                          	</div>
+							                        </div>
+							                  	</div>
+							                  	<div class="view_info_tr"><!--備註區塊tr-->
+								                  	<div class="view_info_bg02"><!--詳細資訊黃底區塊-->
+									                    <div class="view_info_td01">
+									                      	<div class="view_info_td01-2">備註</div>
+									                    </div>
+									                    <div class="view_info_td02">
+									                      	<div class="view_info_td02-3"><?php echo $roomNo['remark'] ?></div>
+									                    </div>
+								                  	</div>
+							              		</div>
+
+							              		<!--店家資訊卡-->
+							              		<!--店家資訊卡-->
+							              		<!--店家資訊卡-->
+							              		<!--做一個店家資料的table，再select from it where store = $roomNo['store']-->
+							              	</div>
+						                  	<div class="jo_store_info_card-02">
+							                    <div class="jo_info_card01"><!--店家資訊卡店名與圖片部分-->
+							                      	
+							                      	<span class="jo_store_name"><?php echo $roomNo['store']; ?></span>
+							                      	<div><img class="jo_store_img" src="../store/photo/<?php echo $store['storePhoto'];?>" onclick="storeInf()"></div>
+							                    </div>
+						                    	<!--店家資訊卡文字部分-->
+						                   	 	<div class="jo_store_info_card02">
+							                    	<table class="jo_store_info_card02_table">
+								                        <tr>
+								                          <td class="jo_store_info_card02_td01">店家地址｜</td>
+								                          <td colspan="2" class="jo_store_info_p2">
+								                          <?php echo $store['storeAddress']; ?></td>
+								                        </tr>
+								                        <tr>
+								                          <td class="jo_store_info_card02_td01">店家電話｜</td>
+								                          <td colspan="2" class="jo_store_info_p2"><?php echo $store['storeNumber']; ?></td>
+								                        </tr>
+								                        <tr>
+								                          	<td class="jo_store_info_card02_td01">網站連結｜</td>
+								                          	<?php
+								                          		if(isset($store['fbURL'])){
+								                          		?>
+								                          		<td class="jo_store_info_p2">
+								                          			<a href="<?php echo $store['fbURL']; ?>" class="jofb_a" target="_blank">
+								                          				<span class="jofb_hover">
+										                					<img src="../../jomor_html/img/fb2.png" class="jo_fb_bt">
+										                					<img src="../../jomor_html/img/fb.png" class="jo_fb_bt">
+					                									</span>
+								                          			</a>
+								                          		</td>
+								                          		<?php
+								                          		}
+								                          		else if(isset($store['webURL'])){
+								                          		?>
+								                          		<td class="jo_store_info_p2">
+								                          			<a href="<?php echo $store['webURL']; ?>" class="joweb_a" target="_blank">
+																		<span class="joweb_hover">
+										                					<img src="../../jomor_html/img/webicon2.png" class="jo_web_bt">
+										                					<img src="../../jomor_html/img/webicon.png" class="jo_web_bt">
+										                				</span>								                          				
+								                          			</a>
+								                          		</td>
+								                          		<?php
+								                          		}
+								                          	?>	
+								                        </tr>
+							                      	</table>
+						                    	</div>
+						                  	</div>
+							            </td>
+							        </tr>
+							    	</table>
+								</div>
+
+
+								<!--成員名單-->
+								<div id="rwdtab2" class="rwd_tab_content">
+									<?php
+							        	error_reporting(0); 
+							        	//用房號來抓取討論室裡的資料
+							        	
+							        	$selectChatNo = "SELECT * FROM `chat` WHERE `no`='".$no."'";
+							        	$selectChat1 = mysql_query($selectChatNo);//分1和2給兩不同頁籤
+							        	$selectChat2 = mysql_query($selectChatNo);
+							        	//抓取 member table 裡面房號與目前點選房間的房號相同，帳號又跟目前使用者的session紀錄相同的資料，若有才開放聊天室
+							        	$selectMemberAccount = "SELECT * FROM `member` WHERE `account` = '".$_SESSION['account']."' AND `no` = '".$no."'";
+							        	$selectMemberAccount = mysql_query($selectMemberAccount);
+							        	$memberSignIn = mysql_num_rows($selectMemberAccount);		        	
+							        ?>
+						            <div id="rwd_tab_people" class="tab_content">
+							            <div class="player_frame">
+							            	<div class="player"><!--參與玩家視窗-->
+								                <div class="player_table"><!--參與玩家視窗表格-->
+								                  	<div class="player_tr">
+									                    <?php
+										                    //selectRoomNo已經做過不用再做
+										                    //selectMemberNo已經做過不用再做
+										                    //抓到member裡的此房間的房主
+										                    $limit = $roomNo['people']-$num;					                    
+										                    $selectMemberHost = "SELECT * FROM `member` WHERE `no` = '".$no."' AND `account` =  '".$roomNo['host']."'";
+										                    $selectMemberHost = mysql_query($selectMemberHost);
+										                    $memberHost = mysql_fetch_assoc($selectMemberHost);
+										                   
+										                   	$selectOnlyMember1 = mysql_query("SELECT * FROM `member` WHERE `no` = '".$no."' AND `account` != '".$roomNo['host']."'");
+										                    $selectOnlyMember2 = mysql_query("SELECT * FROM `member` WHERE `no` = '".$no."' AND `account` != '".$roomNo['host']."'");
+										                    
+									                    ?>
+									                    <!--成員包裹-->
+									                    <!--成員包裹-->
+									                    <!--成員包裹-->
+
+									                    <!--顯示房主資料-->
+									                    <!--顯示房主資料-->
+									                    <!--顯示房主資料-->
+									                    <div class="player_tr">
+									                    	<div class="player_tr_frame" >
+									                    		<div class="player_td0" title="<?php echo $memberHost['name']; ?>" >
+									                    			<a class="player_a" href="userData.php?account=<?php echo $memberHost['account']; ?>">
+									                    				<?php echo $memberHost['name']; ?>
+									                    			</a>							                    			    
+									                    		</div> 
+									                    		<?php
+									                    			$selectUserAccount = mysql_query("SELECT * FROM `user` WHERE `account` = '".$memberHost['account']."'");
+									                    			$userAccount = mysql_fetch_assoc($selectUserAccount);
+									                    			if($userAccount['pri']==2){
+									                    				?>
+									                    				<img class="jo_photo" src="<?php echo $memberHost['photo']; ?>">
+									                    				<?php
+									                    			}
+									                    			else{
+									                    				?>
+										                      			<img class="jo_photo" src="../user/photo/<?php echo $memberHost['photo']; ?>">
+									                    				<?php
+									                    			}
+									                    		?>
+										                      	<!--帳號欄包含下拉選單-->
+										                      	<div class="jo_acount">											                      		
+									                        		<div class="jo_acount">
+									                        			<?php echo $memberHost['account']; ?>
+									                        			<div class="player_select_div">
+																			<select class="player_select" onchange="location.href=this.options[this.selectedIndex].value" >
+																				<option value="">權限:房主</option>
+										                        				<option value="userData.php?account=<?php echo $memberHost['account']; ?>&no=<?php echo $memberHost['no']; ?>">查看資料</option>
+										                        			</select>
+																		</div>	
+									                        		</div>
+									                        	</div>
+									                    	</div>						                    		
+								                      	</div> 
+
+								                      	<!--顯示成員資料-->
+								                      	<!--顯示成員資料-->
+								                      	<!--顯示成員資料-->
+									                    <?php
+										                    while($onlyMember = mysql_fetch_assoc($selectOnlyMember1)){
+											                	?>
+											                    <div class="player_tr">
+											                    	<div class="player_tr_frame" >
+											                    		<div class="player_td01" title="<?php echo $onlyMember['name']; ?>" >
+											                    			<a class="player_a01" href="userData.php?account=<?php echo $onlyMember['account']; ?>">
+											                    				<?php echo $onlyMember['name']; ?>
+											                    			</a>							                    			    
+											                    		</div> 
+											                    		<!--圖片判定-->
+											                    		<?php
+											                    			$selectUserAccount = mysql_query("SELECT * FROM `user` WHERE `account` = '".$onlyMember['account']."'");
+											                    			$userAccount = mysql_fetch_assoc($selectUserAccount);
+											                    			if($userAccount['pri']==2){
+											                    				?>
+											                    				<img class="jo_photo" src="<?php echo $onlyMember['photo']; ?>">
+											                    				<?php
+											                    			}
+											                    			else{
+											                    				?>
+											                    				<img class="jo_photo" src="../user/photo/<?php echo $onlyMember['photo']; ?>">
+											                    				<?php
+											                    			}
+											                    		?>											                      	
+
+												                      	<!--帳號欄包含下拉選單-->
+												                      	<div class="jo_acount">
+										                        			<?php echo $onlyMember['account']; ?>
+
+										                        			<div class="player_select_div">
+																				<select class="player_select" onchange="location.href=this.options[this.selectedIndex].value" >
+																					<option value="">權限:成員</option>
+																					<?php 
+												                        				if($_SESSION['account']==$memberHost['account']&&$roomNo['decide']==0){
+												                        					?>
+												                        					<option value="jo.php?deleteAccount=<?php echo $onlyMember['account']; ?>&no=<?php echo $no; ?>">踢除成員</option>
+												                        					<?php
+												                        				}
+												                        			?>											                        				
+											                        				<option value="userData.php?account=<?php echo $onlyMember['account']; ?>&no=<?php echo $onlyMember['no']; ?>">查看資料</option>
+											                        			</select>
+																			</div>	
+											                        	</div>
+											                    	</div>							                    		
+										                      	</div>
+										                    	<?php
+									                    	}
+										                    //顯示等待中
+										                    //顯示等待中
+										                    //顯示等待中
+										                    for( $i=1 ; $i <= $limit ; $i++ ){
+										                    	?>
+										                    	<div class="player_waiting">
+										                    		<div class="player_tr">
+										                    			<div class="player_tr_frame" >
+										                    				<div class="player_td02">等待中</div> 
+													                      	<img class="jo_photo" src="../../jomor_html/img/jo_photo.png">
+											                        		<div class="jo_acount">empty</div>
+										                    			</div>								                    		
+											                      	</div>
+										                    	</div>
+										                    	<?php
+										                    }
+									                    ?>
+
+								                  	</div>
+								                  	
+								                </div><!--參與玩家視窗表格結束-->
+								            </div><!--參與玩家視窗結束-->
+							            </div>
+							        </div>
+								</div>
+
+								<!--rwd聊天室頁籤--><!--rwd聊天室頁籤--><!--rwd聊天室頁籤--><!--rwd聊天室頁籤-->
+								<div id="rwdtab3" class="rwd_tab_content">
+									<?php
+							        	error_reporting(0); 
+							        	//用房號來抓取討論室裡的資料
+							        	$selectChatNo = "SELECT * FROM `chat` WHERE `no`='".$no."'";
+							        	$selectChat1 = mysql_query($selectChatNo);//分1和2給兩不同頁籤
+							        	$selectChat2 = mysql_query($selectChatNo);
+							        	//抓取 member table 裡面房號與目前點選房間的房號相同，帳號又跟目前使用者的session紀錄相同的資料，若有才開放聊天室
+							        	$selectMemberAccount = "SELECT * FROM `member` WHERE `account` = '".$_SESSION['account']."' AND `no` = '".$no."'";
+							        	$selectMemberAccount = mysql_query($selectMemberAccount);
+							        	$memberSignIn = mysql_num_rows($selectMemberAccount);		        	
+							        ?>
+									<div class="rwd_chat_bg"><!--聊天室的黃背景-->
+							            <?php
+									        if($memberSignIn==0){
+									        	?>			        		
+									            <div class="rwd_chat_window">
+									                <p class="rwd_chat_window_p">您必須先加入此房間才能使用聊天室</p>
+									            </div>
+										        <?php
+										    }
+										    else{
+										        ?>
+								            	<div class="rwd_chat_window">
+								            		<?php
+								            		while($chatNo = mysql_fetch_assoc($selectChat2)){
+								            			echo "(".date("m/d",strtotime($chatNo['now']))."&nbsp&nbsp".date("H:i",strtotime($chatNo['now'])).")&nbsp".$chatNo['name']."說：&nbsp".$chatNo['chat']."<br>";     
+								            			//echo"<p class='chat_window_p'>($row4[2])"."$row4[1]"."說：&nbsp"."$row4[3]<p>";
+								            		}					            		
+								                  	?>
+								                </div>
+								                <?php
+								            }
+									    ?>
+						                <div class="rwd_message"><!--留言打字框-->
+						                	<form method="post">
+							                  	<span class="rwd_message_title">我有話要說：</span>
+							                  	<span><input class="rwd_chat_text" type="text" name="chat"></span>
+							                  	<span class="rwd_chat_bt"><input class="rwd_chat_enter" type="submit" name="OK" value="輸入" id="enter"></span>
+							                </form>
+						                </div>
+							        </div> 
+								</div>
+							</div><!--rwd_tab_container-->
+						</div><!--圖像與條列頁籤切換鈕結束-->
+						<!--rwd瀏覽房間結束-->
+					</div>
+					<!--瀏覽房間結束(內含rwd)-->
+					<!--瀏覽房間結束(內含rwd)-->
 					<?php
 				}
 			?>
@@ -1631,121 +2044,188 @@
 
 		    <!--跳出的評價資訊div，所以從這邊複製貼到想要的地方-->
 		    <!--跳出的評價資訊div，所以從這邊複製貼到想要的地方-->
-		    <!--跳出的評價資訊div，所以從這邊複製貼到想要的地方-->		    
-		    <div id="grade" style="visibility: hidden;">
-		        <div class="grade_position">
-		            <div class="grade_fram01">
-		                <span class="grade_title">您尚未評分！</span>
-		                <!--關掉的xx-->
-		                <span class="grade_close" onClick="window.location.href='jo.php'">
-		                    <img src="../../jomor_html/img/close.png" class="grade_close_img">
-		                </span>
-		            </div>
-		            <div class="grade_fram02">
-		                <div class="grade_p">
-		                    <p>您尚未對前次揪團房間成員予以評價，</p>
-		                    <p>請依您前次揪團體驗在此清單為其他成員做出正負評，謝謝！</p>
-		                </div>
-		                <div class="rank_div">
-		                    <span class="rank_span01">優良^_^</span>
-		                    <span class="rank_span02">普通O_O</span>
-		                    <span class="rank_span03">差勁=_=</span>
-		                </div>
-		                <!--評價內的框框-->
-		                <form>
-			                <div class="score_div">
-			                    <table class="score_table" rules="rows">
-			                        <tr class="score_tr">
-			                            <td class="score_td0">
-			                                <img src="../../jomor_html/img/headph.png" class="grade_head_img">
-			                            </td>
-			                            <td class="score_td1">
-			                                <div class="score_username">皮皮君</div>
-			                            </td>
-			                            <td class="score_td2">
-			                                <a href="individual.html" class="score_viewother">查看個人資料</a>
-			                            </td>
-			                            <td class="score_td3">
-		                                    <input type="radio" name="#" class="score_radio">
-		                                    <!--優良-->
-		                                    <input type="radio" name="#" class="score_radio">
-		                                    <!--普通-->
-		                                    <input type="radio" name="#" class="score_radio">
-		                                    <!--差勁-->
-			                            </td>
-			                        </tr>
-			                        <!--第二行-->
-			                        <tr class="score_tr">
-			                            <td class="score_td0">
-			                                <img src="../../jomor_html/img/headph.png" class="grade_head_img">
-			                            </td>
-			                            <td class="score_td1">
-			                                <div class="score_username">波爸</div>
-			                            </td>
-			                            <td class="score_td2">
-			                                <a href="individual.html" class="score_viewother">查看個人資料</a>
-			                            </td>
-			                            <td class="score_td3">
-		                                    <input type="radio" name="#" class="score_radio">
-		                                    <!--優良-->
-		                                    <input type="radio" name="#" class="score_radio">
-		                                    <!--普通-->
-		                                    <input type="radio" name="#" class="score_radio">
-		                                    <!--差勁-->
-			                            </td>
-			                        </tr>
-			                        <!--第三行-->
-			                        <tr class="score_tr">
-			                            <td class="score_td0">
-			                                <img src="../../jomor_html/img/headph.png" class="grade_head_img">
-			                            </td>
-			                            <td class="score_td1">
-			                                <div class="score_username">我打了六個字</div>
-			                            </td>
-			                            <td class="score_td2">
-			                                <a href="individual.html" class="score_viewother">查看個人資料</a>
-			                            </td>
-			                            <td class="score_td3">
-		                                    <input type="radio" name="#" class="score_radio">
-		                                    <!--優良-->
-		                                    <input type="radio" name="#" class="score_radio">
-		                                    <!--普通-->
-		                                    <input type="radio" name="#" class="score_radio">
-		                                    <!--差勁-->
-			                            </td>
-			                        </tr>
-			                        <!--第四行-->
-			                        <tr class="score_tr">
-			                            <td class="score_td0">
-			                                <img src="../../jomor_html/img/headph.png" class="grade_head_img">
-			                            </td>
-			                            <td class="score_td1">
-			                                <div class="score_username">我打五個字</div>
-			                            </td>
-			                            <td class="score_td2">
-			                                <a href="individual.html" class="score_viewother">查看個人資料</a>
-			                            </td>
-			                            <td class="score_td3">
-		                                    <input type="radio" name="#" class="score_radio">
-		                                    <!--優良-->
-		                                    <input type="radio" name="#" class="score_radio">
-		                                    <!--普通-->
-		                                    <input type="radio" name="#" class="score_radio">
-		                                    <!--差勁-->
-			                            </td>
-			                        </tr>
-			                    </table>
-			                </div>
-			                <!--按鈕-->
-			                <div class="grade_btn_div">
-			                    <span><button class="grade_btn" onclick="window.location.href='jo.php'">稍後</button></span>
-			                    <span><button class="grade_btn" type="submit">完成</button></span>
-			                </div>
-			            </form>
-		            </div>
-		        </div>
-		    </div>
+		    <!--跳出的評價資訊div，所以從這邊複製貼到想要的地方-->	
+		    <?php
+		    	date_default_timezone_set('Asia/Taipei');
+				$now = date("Y-m-d-H:i:s");
+				if(isset($_SESSION['account'])){
+					//選取當前登入的帳號且判定decide為已鎖的資料
+					/*
+					$sql = "SELECT * FROM `remind` WHERE `decide` = '0' AND `account` = '".$_SESSION['account']."' ORDER BY `date`,`time`";
+					$sql = mysql_query($sql);
+					$result = mysql_fetch_assoc($sql);
+					$date = $result['date'];
+					$time = $result['time'];
+					$no = $result['no'];
+					$startTime = date("Y-m-d-H:i:s", strtotime($date.$time));
+					*/
 
+					$sql = "SELECT * FROM `remind` WHERE `decide` = '0' AND `account` = '".$_SESSION['account']."' ORDER BY `date`,`time`";
+					$sql = mysql_query($sql);
+					while($result = mysql_fetch_assoc($sql)){
+						if($result['decideGrade']==1){
+							$date = $result['date'];
+							$time = $result['time'];
+							$no = $result['no'];
+							$startTime = date("Y-m-d-H:i:s", strtotime($date.$time));
+							if($now>$startTime){
+								?>
+								<div id="grade" style="visibility: visible;">
+							        <div class="grade_position">
+							            <div class="grade_fram01">
+							                <span class="grade_title">您尚未評分！</span>
+							                <!--關掉的xx-->
+							                <span class="grade_close" onclick="window.location.href='updateRemind.php?no=<?php echo $no;?>&xo=1'">
+							                    <img src="../../jomor_html/img/close.png" class="grade_close_img" onclick="window.location.href='updateRemind.php?no=<?php echo $no;?>&?X=1'">
+							                </span>
+							            </div>
+							            <div class="grade_fram02">
+							                <div class="grade_p">
+							                    <p>您尚未對前次揪團房間成員予以評價，</p>
+							                    <p>請依您前次揪團體驗在此清單為其他成員做出正負評，謝謝！</p>
+							                </div>
+							                <div class="rank_div">
+							                    <span class="rank_span01">優良^_^</span>
+							                    <span class="rank_span02">普通O_O</span>
+							                    <span class="rank_span03">差勁=_=</span>
+							                </div>
+							                <!--評價內的框框-->
+							                <form action="updateRemind.php">
+								                <div class="score_div">
+								                    <table class="score_table" rules="rows">
+								                    	<?php
+								                    		$no = $result['no'];
+									                		$sql = "SELECT * FROM `remind` WHERE `decide` = '0' AND `no` = '".$no."'";
+												    		mysql_query("SET NAMES'UTF8'");
+															mysql_query("SET CHARACTER SET UTF8");
+															mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+												    		$sql = mysql_query($sql);
+												    		while($result = mysql_fetch_assoc($sql)){
+												    			$selectUserAccount = "SELECT * FROM `user` WHERE `account` = '".$result['account']."'";
+															    mysql_query("SET NAMES'UTF8'");
+																mysql_query("SET CHARACTER SET UTF8");
+																mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+																$selectUserAccount = mysql_query($selectUserAccount);
+																$userAccount = mysql_fetch_assoc($selectUserAccount);
+																?>
+										                        <tr class="score_tr">
+										                            <td class="score_td0">
+										                                <img src="../../jomor_html/img/headph.png" class="grade_head_img">
+										                            </td>
+										                            <td class="score_td1">
+										                                <div class="score_username"><?php echo $userAccount['name'] ?></div>
+										                            </td>
+										                            <td class="score_td2">
+										                                <a href="userData.php?account=<?php echo $result['account'];?>&no=<?php echo $result['no'];?>" class="score_viewother">查看個人資料</a>
+										                            </td>
+										                            <td class="score_td3">
+									                                    <input type="radio" name="<?php echo $result['account'];?>" value="1" class="score_radio">
+									                                    <!--優良-->
+									                                    <input type="radio" name="<?php echo $result['account'];?>" value="0" class="score_radio">
+									                                    <!--普通-->
+									                                    <input type="radio" name="<?php echo $result['account'];?>" value="-1" class="score_radio">
+									                                    <!--差勁-->
+									                                    <input type="hidden" name="no" value="<?php echo $no;?>">
+										                            </td>
+										                        </tr>
+										                        <?php
+										                    }
+										                ?>
+								                    </table>
+								                </div>
+								                <!--按鈕-->
+								                <div class="grade_btn_div">
+								                    <span><button class="grade_btn" type="submit">完成</button></span>
+								                </div>
+								            </form>
+							            </div>
+							        </div>
+							    </div>
+								<?php
+							}
+						}
+					}
+					//這裡把decideGrade設成「只要鎖定房間就預設update成1」
+					/*
+			    	if($now>$startTime&&$result['decideGrade']==1){
+			    		?>
+		    			<div id="grade" style="visibility: visible;">
+					        <div class="grade_position">
+					            <div class="grade_fram01">
+					                <span class="grade_title">您尚未評分！</span>
+					                <!--關掉的xx-->
+					                <span class="grade_close" onclick="window.location.href='updateRemind.php?no=<?php echo $no;?>&xo=1'">
+					                    <img src="../../jomor_html/img/close.png" class="grade_close_img" onclick="window.location.href='updateRemind.php?no=<?php echo $no;?>&?X=1'">
+					                </span>
+					            </div>
+					            <div class="grade_fram02">
+					                <div class="grade_p">
+					                    <p>您尚未對前次揪團房間成員予以評價，</p>
+					                    <p>請依您前次揪團體驗在此清單為其他成員做出正負評，謝謝！</p>
+					                </div>
+					                <div class="rank_div">
+					                    <span class="rank_span01">優良^_^</span>
+					                    <span class="rank_span02">普通O_O</span>
+					                    <span class="rank_span03">差勁=_=</span>
+					                </div>
+					                <!--評價內的框框-->
+					                <form action="updateRemind.php">
+						                <div class="score_div">
+						                    <table class="score_table" rules="rows">
+						                    	<?php
+						                    		$no = $result['no'];
+							                		$sql = "SELECT * FROM `remind` WHERE `decide` = '0' AND `no` = '".$no."'";
+										    		mysql_query("SET NAMES'UTF8'");
+													mysql_query("SET CHARACTER SET UTF8");
+													mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+										    		$sql = mysql_query($sql);
+										    		while($result = mysql_fetch_assoc($sql)){
+										    			$selectUserAccount = "SELECT * FROM `user` WHERE `account` = '".$result['account']."'";
+													    mysql_query("SET NAMES'UTF8'");
+														mysql_query("SET CHARACTER SET UTF8");
+														mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+														$selectUserAccount = mysql_query($selectUserAccount);
+														$userAccount = mysql_fetch_assoc($selectUserAccount);
+														?>
+								                        <tr class="score_tr">
+								                            <td class="score_td0">
+								                                <img src="../../jomor_html/img/headph.png" class="grade_head_img">
+								                            </td>
+								                            <td class="score_td1">
+								                                <div class="score_username"><?php echo $userAccount['name'] ?></div>
+								                            </td>
+								                            <td class="score_td2">
+								                                <a href="userData.php?account=<?php echo $result['account'];?>&no=<?php echo $result['no'];?>" class="score_viewother">查看個人資料</a>
+								                            </td>
+								                            <td class="score_td3">
+							                                    <input type="radio" name="<?php echo $result['account'];?>" value="1" class="score_radio">
+							                                    <!--優良-->
+							                                    <input type="radio" name="<?php echo $result['account'];?>" value="0" class="score_radio">
+							                                    <!--普通-->
+							                                    <input type="radio" name="<?php echo $result['account'];?>" value="-1" class="score_radio">
+							                                    <!--差勁-->
+							                                    <input type="hidden" name="no" value="<?php echo $no;?>">
+								                            </td>
+								                        </tr>
+								                        <?php
+								                    }
+								                ?>
+						                    </table>
+						                </div>
+						                <!--按鈕-->
+						                <div class="grade_btn_div">
+						                    <span><button class="grade_btn" type="submit">完成</button></span>
+						                </div>
+						            </form>
+					            </div>
+					        </div>
+					    </div>
+					    <?php
+			    	}
+			    	*/
+				}
+		    ?>
+		    
 		    <!--跳出的詢問確定要加入房間嗎div（sure)-->
 	        <!--跳出的詢問確定要加入房間嗎div（sure)-->
 	        <!--跳出的詢問確定要加入房間嗎div（sure)-->
@@ -1983,14 +2463,14 @@
 <?php
 	if(isset($_GET['no'])){
 		$no = $_GET["no"];
-		$selectStoreName = 'SELECT * FROM `store` WHERE `no` = "'.$no.'"';
+		$selectStoreName = "SELECT * FROM `store` WHERE `storeName` = '".$roomNo['store']."'";
 		mysql_query("SET NAMES'UTF8'");
 		mysql_query("SET CHARACTER SET UTF8");
 		mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
 		$selectStoreName = mysql_query($selectStoreName);
 		$store = mysql_fetch_assoc($selectStoreName);
 		?>
-		<div id="Store_inf" style="visibility:hidden">
+		<div id="jo_Store_inf" style="visibility:hidden">
 			<div style="position: fixed; width: 100%; height: 100%" onclick="my_scroll('jo.php?no=<?php echo $no;?>'); return false"></div>
 	  		<div class="div_store_card-0">
 			    <section class="div_store_section">

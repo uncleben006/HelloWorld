@@ -73,6 +73,15 @@
 						<p class="aboutme_p">關於我</p>
 						<p class="aboutme_introduce"><?php echo $userAccount['introduction'] ?></p>
 					</div>
+					<div style="text-align: center;">
+						<div class="aboutme" style="display: inline-block;">
+							<p class="aboutme_p">評分:<?php echo $userAccount['grade'] ?>　</p>
+						</div>
+						<div class="aboutme" style="display: inline-block;">
+							<p class="aboutme_p">被評次數:<?php echo $userAccount['number'] ?></p>
+						</div>
+					</div>
+					<p class="aboutme_introduce">註:以零分為起始基準</p>
 				</div>
 			<!--右邊欄位的第一行-->
 				<div class="aside_r01">
@@ -134,9 +143,9 @@
 							</p>
 						</div>
 					</div>
-				</div>
-				<!--下方白區塊-->				
+				</div>		
 			</div>	
+			<!--下方白區塊-->
 			<footer class="footer_css_userdata">
 				<div class="footer_white"></div>
 				<div class="index_yellow"> 
@@ -168,6 +177,6 @@
 						</a>
 					</span>
 				</div>
-		</footer>			
+			</footer>			
 		</section>
 	</body>

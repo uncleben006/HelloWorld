@@ -287,132 +287,251 @@
 				  	<?php
 						if(isset($_SESSION['account'])){
 							$account = $_SESSION['account'];
-							$selectRemindAccount = "SELECT * FROM `remind` WHERE `account` = '".$account."'";
+							
+							/*新迴圈*/
+							$selectRemindAccountHost = "SELECT * FROM `remind` WHERE `account` = '".$account."' OR (`host` = '".$account."' AND `decide` = '3')";
 							mysql_query("SET NAMES'UTF8'");
 							mysql_query("SET CHARACTER SET UTF8");
 							mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
-							$selectRemindAccount = mysql_query($selectRemindAccount);
-							$remindNum = mysql_num_rows($selectRemindAccount);
-							if($remindNum>0){
-								while($remindAccount = mysql_fetch_assoc($selectRemindAccount)){
-									$click = $remindAccount['click'];
-									if($click==0){
+							$selectRemindAccountHost = mysql_query($selectRemindAccountHost);
+							$num = mysql_num_rows($selectRemindAccountHost);
+							if($num>0){
+								while($selectRemind = mysql_fetch_assoc($selectRemindAccountHost)){
+									$click = $selectRemind['click'];
+									//如果目前帳號是房主，判定又為3(有人加入你的房間)，且他已經按過提醒紐了，那之後就要把$click設為2，然後再設一個else if click==2
+									if($click==1&&$selectRemind['decide']==3&&$selectRemind['host']==$account){
 										session_set_cookie_params(99999);
 										$_SESSION['click'] = 0;
 									}
-									if($click==1){
+									else if($click==0){
+										session_set_cookie_params(99999);
+										$_SESSION['click'] = 0;
+									}
+									else if($click==1){
+										session_set_cookie_params(99999);
+										$_SESSION['click'] = 1;
+									}
+									else if($click==2){
 										session_set_cookie_params(99999);
 										$_SESSION['click'] = 1;
 									}
 								}
-								if($_SESSION['click']==0){
+								if($_SESSION['click']==0){//尚未看過
 									?>
-									<img id="remind" src="../../jomor_html/img/notify2.png" class="notify_img01" onclick="openNotify()">
+									<img id="remind" src="http://www.jomorparty.com/jomor_html/img/notify2.png" class="notify_img01" onclick="openNotify()">
 									<?php
 								}
 								if($_SESSION['click']==1){
 									?>
-									<img id="remind" src="../../jomor_html/img/notify1.png" class="notify_img01" onclick="openNotify()">
+									<img id="remind" src="http://www.jomorparty.com/jomor_html/img/notify1.png" class="notify_img01" onclick="openNotify()">
 									<?php
 								}
 								?>
 								<!--通知欄跳出的div框-->
-								<div id="notify" style="position:absolute; visibility:hidden">
-									<div class="notify_fram">
-										<?php
-										//做提醒判定，
-										// 0 ==鎖定房間
-										// 1 ==被踢出房間
-										// 2 ==房主刪除房間
-										$selectRemindAccount = "SELECT * FROM `remind` WHERE `account` = '".$account."'";
-										mysql_query("SET NAMES'UTF8'");
-										mysql_query("SET CHARACTER SET UTF8");
-										mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
-										$selectRemindAccount = mysql_query($selectRemindAccount);
-										while($remindAccount = mysql_fetch_assoc($selectRemindAccount)){
-											$selectUserHost = "SELECT * FROM `user` WHERE `account` = '".$remindAccount['host']."'";
-											$selectStoreName = 'SELECT * FROM `store` WHERE `storeName` = "'.$remindAccount['store'].'"';
-											mysql_query("SET NAMES'UTF8'");
-											mysql_query("SET CHARACTER SET UTF8");
-											mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
-											$selectUserHost = mysql_query($selectUserHost);
-											$userHost = mysql_fetch_assoc($selectUserHost);
-											$selectStoreName = mysql_query($selectStoreName);
-											$storeName = mysql_fetch_assoc($selectStoreName);
+								<div id="notify" style="position:absolute; visibility:hidden ">
+									<div class="notify_outfram">
+										<div class="notify_fram" id="remindDelete">
+											<?php
+												//做提醒判定，
+												// decide=0 ==>鎖定房間
+												// decide=1 ==>被踢出房間
+												// decide=2 ==>房主刪除房間
+												// decide=3 ==>有人加入，只有房主會看到提醒
+												$selectRemindAccountHost = "SELECT * FROM `remind` WHERE `account` = '".$account."' OR `host` = '".$account."' ORDER BY `num` DESC";
+												mysql_query("SET NAMES'UTF8'");
+												mysql_query("SET CHARACTER SET UTF8");
+												mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+												$selectRemindAccountHost = mysql_query($selectRemindAccountHost);
 
-											$pri = $userHost['pri'];
-											$photo = $userHost['photo'];
-											$name = $userHost['name'];
-											$date = date("m/d",strtotime($remindAccount['date']));
-											$time = date("H:i",strtotime($remindAccount['time']));
+												while($selectRemind = mysql_fetch_assoc($selectRemindAccountHost)){
 
-											if($remindAccount['decide']==0){				
-												if($pri==2){
 													?>
-													<div class="notify_div01">
-											            <div class="notify_div_img">
-											            	<a href="http://www.jomorparty.com/system/group/userData.php?account=<?php echo $remindAccount['host'];?>">
-											              		<img src="<?php echo $photo; ?>" class="notify_headph" style="border-radius: 50px;">
-											              	</a>
-											            </div>
-											            <div class="notify_div_p">
-											                <p>您於剛剛正式加入<a href="http://www.jomorparty.com/system/group/userData.php?account=<?php echo $remindAccount['host'];?>"><font color="red"><?php echo $name; ?></font></a>所創建的房間<a href="http://www.jomorparty.com/system/group/jo.php?no=<?php echo $remindAccount['no']?>"><font color="blue"><?php echo $remindAccount['room']; ?></font></a>，提醒您<font color="red"><?php echo $date; ?></font> <font color="red"><?php echo $time; ?></font>，在<a href="http://www.jomorparty.com/system/store/store2.php?no=<?php echo $storeName['no'];?>"><font color="blue"><?php echo $remindAccount['store'] ?></font></a>，別遲到囉~</p>
-											            </div>
-													</div>
+													<script type="text/javascript">
+										            	var num = '<?php echo $selectRemind['num'] ?>'
+										        	</script>
 													<?php
-												}	
-												else{								
-													?>
-													<div class="notify_div01">
-											            <div class="notify_div_img">
-											            	<a href="http://www.jomorparty.com/system/group/userData.php?account=<?php echo $remindAccount['host'];?>">
-											              		<img src="../user/photo/<?php echo $photo; ?>" class="notify_headph">
-											              	</a>
-											            </div>
-											            <div class="notify_div_p">
-											                <p>您於剛剛正式加入<a href="http://www.jomorparty.com/system/group/userData.php?account=<?php echo $remindAccount['host'];?>"><font color="red"><?php echo $name; ?></font></a>所創建的房間<a href="http://www.jomorparty.com/system/group/jo.php?no=<?php echo $remindAccount['no']?>"><font color="blue"><?php echo $remindAccount['room']; ?></font></a>，提醒您<font color="red"><?php echo $date; ?></font> <font color="red"><?php echo $time; ?></font>，在<a href="http://www.jomorparty.com/system/store/store2.php?no=<?php echo $storeName['no'];?>"><font color="blue"><?php echo $remindAccount['store'] ?></font></a>，別遲到囉~</p>
-											            </div>
-													</div>
-											  		<?php   
-											  	}
-											}
-											if($remindAccount['decide']==1){
-												?>
-													<div class="notify_div01">
-											            <div class="notify_div_img">
-											              	<img src="../../jomor_html/img/attention.png" class="notify_attention">
-											            </div>
-											            <div class="notify_div_p">
-											                <p>您於剛剛被<a href="http://www.jomorparty.com/system/group/userData.php?account=<?php echo $remindAccount['host'];?>"><font color="red"><?php echo $name; ?></font></a>踢出了房間，房名為<font color="red"><?php echo $remindAccount['room']; ?></font></p>
-											            </div>
-													</div>
-											  	<?php  
-											}
-											if($remindAccount['decide']==2){
-												?>
-													<div class="notify_div01">
-											            <div class="notify_div_img">
-											              	<img src="../../jomor_html/img/attention.png" class="notify_attention">
-											            </div>
-											            <div class="notify_div_p">
-											                <p><a href="http://www.jomorparty.com/system/group/userData.php?account=<?php echo $remindAccount['host'];?>"><font color="red"><?php echo $name; ?></font></a>因為個人因素刪除了房間，房名為<font color="red"><?php echo $remindAccount['room']; ?></font></p>
-											            </div>
-													</div>
-											  	<?php  
-											}
-										}
-										?>
-									</div>  
-								</div> 
+
+													$selectStoreName = 'SELECT * FROM `store` WHERE `storeName` = "'.$selectRemind['store'].'"';
+													$selectUserHost = "SELECT * FROM `user` WHERE `account` = '".$selectRemind['host']."'";
+													$selectUserAccount = 'SELECT * FROM `user` WHERE `account` = "'.$selectRemind['account'].'"';
+
+													mysql_query("SET NAMES'UTF8'");
+													mysql_query("SET CHARACTER SET UTF8");
+													mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+
+													//取得房間店家資料
+													$selectStoreName = mysql_query($selectStoreName);
+													$storeName = mysql_fetch_assoc($selectStoreName);
+
+													//取得房主資料
+													$selectUserHost = mysql_query($selectUserHost);
+													$userHost = mysql_fetch_assoc($selectUserHost);
+													$hostPri = $userHost['pri'];
+													$hostName = $userHost['name'];
+													$hostPhoto = $userHost['photo'];											
+													
+													//取得成員資料
+													$selectUserAccount = mysql_query($selectUserAccount);
+													$userAccount = mysql_fetch_assoc($selectUserAccount);
+													$accountPri = $userAccount['pri'];
+													$accountName = $userAccount['name'];
+													$accountPhoto = $userAccount['photo'];
+
+													$date = date("m/d",strtotime($selectRemind['date']));
+													$time = date("H:i",strtotime($selectRemind['time']));
+
+													if($selectRemind['decide']==0){
+														if($selectRemind['account']==$_SESSION['account']){
+															if($hostPri==2){
+																?>
+																<div class="notify_div01" >
+														            <div class="notify_div_img">
+														            	<a href="http://www.jomorparty.com/system/group/userData.php?account=<?php echo $selectRemind['host'];?>">
+														              		<img src="<?php echo $hostPhoto; ?>" class="notify_headph" style="border-radius: 50px;">
+														              	</a>
+														            </div>
+														            <div class="notify_div_p">
+														                <p>您於剛剛正式加入<a href="http://www.jomorparty.com/system/group/userData.php?account=<?php echo $selectRemind['host'];?>"><font color="blue"><?php echo $hostName; ?></font></a>所創建的房間<a href="http://www.jomorparty.com/system/group/jo.php?no=<?php echo $selectRemind['no']?>"><font color="red"><?php echo $selectRemind['room']; ?></font></a>，提醒您<font color="red"><?php echo $date; ?></font> <font color="red"><?php echo $time; ?></font>，在<a href="http://www.jomorparty.com/system/store/store2.php?no=<?php echo $storeName['no'];?>"><font color="blue"><?php echo $selectRemind['store'] ?></font></a>，別遲到囉~</p>
+														            </div>
+														            <div class="notify_div_x" onclick="deleteRemind(num)">X</div>
+																</div>
+																<?php
+															}		
+															else{
+																?>
+																<div class="notify_div01" >
+														            <div class="notify_div_img">
+														            	<a href="http://www.jomorparty.com/system/group/userData.php?account=<?php echo $selectRemind['host'];?>">
+														              		<img src="http://www.jomorparty.com/system/user/photo/<?php echo $hostPhoto; ?>" class="notify_headph" style="border-radius: 50px;">
+														              	</a>
+														            </div>
+														            <div class="notify_div_p">
+														                <p>您於剛剛正式加入<a href="http://www.jomorparty.com/system/group/userData.php?account=<?php echo $selectRemind['host'];?>"><font color="blue"><?php echo $hostName; ?></font></a>所創建的房間<a href="http://www.jomorparty.com/system/group/jo.php?no=<?php echo $selectRemind['no']?>"><font color="red"><?php echo $selectRemind['room']; ?></font></a>，提醒您<font color="red"><?php echo $date; ?></font> <font color="red"><?php echo $time; ?></font>，在<a href="http://www.jomorparty.com/system/store/store2.php?no=<?php echo $storeName['no'];?>"><font color="blue"><?php echo $selectRemind['store'] ?></font></a>，別遲到囉~</p>
+														            </div>
+
+														            <!--搭配AJAX刪除提醒，先把提醒num設給js變數方便傳遞-->
+														            <div class="notify_div_x" onclick="deleteRemind(num)">X</div>
+																</div>
+																<?php
+															}
+														}	 
+													}
+													if($selectRemind['decide']==1){
+														if($selectRemind['account']==$_SESSION['account']){
+															?>
+																<div class="notify_div01" >
+														            <div class="notify_div_img">
+														              	<img src="http://www.jomorparty.com/jomor_html/img/attention.png" class="notify_attention">
+														            </div>
+														            <div class="notify_div_p">
+														                <p>您於剛剛被<a href="http://www.jomorparty.com/system/group/userData.php?account=<?php echo $selectRemind['host'];?>"><font color="blue"><?php echo $hostName; ?></font></a>踢出了房間，房名為<font color="red"><?php echo $selectRemind['room']; ?></font></p>
+														            </div>
+														            <div class="notify_div_x" onclick="deleteRemind(num)">X</div>
+																</div>
+														  	<?php 
+														}												 
+													}
+													if($selectRemind['decide']==2){
+														if($selectRemind['account']==$_SESSION['account']){
+															?>
+																<div class="notify_div01" >
+														            <div class="notify_div_img">
+														              	<img src="http://www.jomorparty.com/jomor_html/img/attention.png" class="notify_attention">
+														            </div>
+														            <div class="notify_div_p">
+														                <p><a href="http://www.jomorparty.com/system/group/userData.php?account=<?php echo $selectRemind['host'];?>"><font color="blue"><?php echo $hostName; ?></font></a>因為個人因素刪除了房間，房名為<font color="red"><?php echo $selectRemind['room']; ?></font></p>
+														            </div>
+														            <div class="notify_div_x" onclick="deleteRemind(num)">X</div>
+																</div>
+														  	<?php 
+														}
+													}
+													if($selectRemind['decide']==3){
+														if($selectRemind['account']==$_SESSION['account']){
+															if($hostPri==2){
+																?>
+																<div class="notify_div01" >
+														            <div class="notify_div_img">
+														              	<a href="http://www.jomorparty.com/system/group/userData.php?account=<?php echo $selectRemind['host'];?>">
+														              		<img src="<?php echo $hostPhoto; ?>" class="notify_headph" style="border-radius: 50px;">
+														              	</a>
+														            </div>
+														            <div class="notify_div_p">
+														                <p>您剛剛加入了<a href="http://www.jomorparty.com/system/group/userData.php?account=<?php echo $selectRemind['host'];?>"><font color="blue"><?php echo $hostName; ?></font></a>的房間，房名為<font color="red"><?php echo $selectRemind['room']; ?></font></p>
+														            </div>
+														            <div class="notify_div_x" onclick="deleteRemind(num)">X</div>
+																</div>
+																<?php
+															}
+															else{
+																?>
+																<div class="notify_div01" >
+														            <div class="notify_div_img">
+														              	<a href="http://www.jomorparty.com/system/group/userData.php?account=<?php echo $selectRemind['host'];?>">
+														              		<img src="http://www.jomorparty.com/system/user/photo/<?php echo $hostPhoto; ?>" class="notify_headph" style="border-radius: 50px;">
+														              	</a>
+														            </div>
+														            <div class="notify_div_p">
+														                <p>您剛剛加入了<a href="http://www.jomorparty.com/system/group/userData.php?account=<?php echo $selectRemind['host'];?>"><font color="blue"><?php echo $hostName; ?></font></a>的房間，房名為<font color="red"><?php echo $selectRemind['room']; ?></font></p>
+														            </div>
+														            <div class="notify_div_x" onclick="deleteRemind(num)">X</div>
+																</div>
+																<?php
+															} 
+														}
+													}
+													if($selectRemind['decide']==3){
+														if($selectRemind['host']==$_SESSION['account']){
+															if($accountPri==2){
+																?>
+																<div class="notify_div01" >
+														            <div class="notify_div_img">
+														            	<a href="http://www.jomorparty.com/system/group/userData.php?account=<?php echo $selectRemind['account'];?>">
+														              		<img src="<?php echo $accountPhoto; ?>" class="notify_headph" style="border-radius: 50px;">
+														              	</a>
+														            </div>
+														            <div class="notify_div_p">
+														                <p><a href="http://www.jomorparty.com/system/group/userData.php?account=<?php echo $selectRemind['account'];?>"><font color="red"><?php echo $accountName; ?></font></a>剛剛加入了你的房間，你可以和他聊聊天。</p>
+														            </div>
+														            <div class="notify_div_x" onclick="deleteRemind(num)">X</div>
+																</div>
+																<?php
+															}		
+															else{
+																?>
+																<div class="notify_div01" >
+														            <div class="notify_div_img">
+														            	<a href="http://www.jomorparty.com/system/group/userData.php?account=<?php echo $selectRemind['account'];?>">
+														              		<img src="http://www.jomorparty.com/system/user/photo/<?php echo $accountPhoto; ?>" class="notify_headph" style="border-radius: 50px;">
+														              	</a>
+														            </div>
+														            <div class="notify_div_p">
+														                <p><a href="http://www.jomorparty.com/system/group/userData.php?account=<?php echo $selectRemind['account'];?>"><font color="red"><?php echo $accountName; ?></font></a>剛剛加入了你的房間，你可以和他聊聊天。</p>
+														            </div>
+														            <div class="notify_div_x" onclick="deleteRemind(num)">X</div>
+																</div>
+																<?php
+															} 
+														}												
+													}
+												}
+											?>
+											<div class="deleteremind_frame" onclick="window.location.href='http://www.jomorparty.com/include/deleteRemind.php?all=1'">
+												<div class="deleteremind">清除所有提醒</div>
+											</div>
+										</div> 
+
+									</div>
+								</div>  
 								<?php
 							}	
 							else{
 								?>
-								<img src="../../jomor_html/img/notify1.png" class="notify_img01">
+								<img src="http://www.jomorparty.com/jomor_html/img/notify1.png" class="notify_img01">
 								<?php
 							}									
-						}								
-					?>								
+						}
+					?>						
 				</td>
 				<?php
 					if(isset($_SESSION['pri'])){
@@ -432,22 +551,7 @@
 							<td rowspan="2" class="top_notify_td02"><!--圓形頭貼照-->
 								<div class="nav_userImg" >
 									<img src="../user/photo/<?php echo $photo ?>" class="notify_img02" onClick="openNav()">
-									<!--頭像旁三角形選單<div class="nav_select" onClick="openNav()"></div>-->
 								</div>
-
-								<!--頭貼點他跳出的div選單
-								
-							   	<div id="nav" style="position:absolute;width:200px; height:400px;visibility:hidden">
-						  			<div class="nav_div">
-								        <div class="nav_bt_div">
-								            <a href="../user/userdata.php" class="nav_bt">我的檔案</a>
-								        </div>
-								        <div class="nav_bt_div">
-								            <a href="../user/logout.php" class="nav_bt2">登出</a>
-								        </div>
-						  			</div>   
-								</div> 
-								頭貼點他跳出的div選單-->
 							</td>
 							<td><a href="../user/userdata.php" class="lognin">會員</a></td>
 							<td><a href="../user/logout.php" class="lognin">登出</a></td>
@@ -458,22 +562,7 @@
 							<td rowspan="2" class="top_notify_td02"><!--圓形頭貼照-->
 								<div class="nav_userImg" >
 									<img src="../user/photo/<?php echo $photo ?>" class="notify_img02" onClick="openNav()">
-									<!--頭像旁三角形選單<div class="nav_select" onClick="openNav()"></div>-->
 								</div>
-
-								<!--頭貼點他跳出的div選單
-								
-							   	<div id="nav" style="position:absolute;width:200px; height:400px;visibility:hidden">
-						  			<div class="nav_div">
-								        <div class="nav_bt_div">
-								            <a href="../user/userdata.php" class="nav_bt">我的檔案</a>
-								        </div>
-								        <div class="nav_bt_div">
-								            <a href="../user/logout.php" class="nav_bt2">登出</a>
-								        </div>
-						  			</div>   
-								</div> 
-								頭貼點他跳出的div選單-->
 							</td>
 							<td><a href="../user/userdata.php" class="lognin">會員</a></td>
 							<td><a href="../user/logout.php" class="lognin">登出</a></td>
@@ -484,22 +573,7 @@
 							<td rowspan="2" class="top_notify_td02"><!--圓形頭貼照-->
 								<div class="nav_userImg" >
 									<img src="<?php echo $photo ?>" class="notify_img02" onClick="openNav()">
-									<!--頭像旁三角形選單<div class="nav_select" onClick="openNav()"></div>-->
 								</div>
-
-								<!--頭貼點他跳出的div選單
-								
-							   	<div id="nav" style="position:absolute;width:200px; height:400px;visibility:hidden">
-						  			<div class="nav_div">
-								        <div class="nav_bt_div">
-								            <a href="../user/userdata.php" class="nav_bt">我的檔案</a>
-								        </div>
-								        <div class="nav_bt_div">
-								            <a href="../user/logout.php" class="nav_bt2">登出</a>
-								        </div>
-						  			</div>   
-								</div> 
-								頭貼點他跳出的div選單-->
 							</td>
 							<td><a href="../user/userdata.php" class="lognin">會員</a></td>
 							<td><a href="../user/logout.php" class="lognin">登出</a></td>
@@ -510,22 +584,7 @@
 							<td rowspan="2" class="top_notify_td02"><!--圓形頭貼照-->
 								<div class="nav_userImg" >
 									<img src="../user/photo/<?php echo $photo ?>" class="notify_img02" onClick="openNav()">
-									<!--頭像旁三角形選單<div class="nav_select" onClick="openNav()"></div>-->
 								</div>
-
-								<!--頭貼點他跳出的div選單
-								
-							   	<div id="nav" style="position:absolute;width:200px; height:400px;visibility:hidden">
-						  			<div class="nav_div">
-								        <div class="nav_bt_div">
-								            <a href="../user/userdata.php" class="nav_bt">我的檔案</a>
-								        </div>
-								        <div class="nav_bt_div">
-								            <a href="../user/logout.php" class="nav_bt2">登出</a>
-								        </div>
-						  			</div>   
-								</div> 
-								頭貼點他跳出的div選單-->
 							</td>
 							<td><a href="../user/userdata.php" class="lognin">管理</a></td>
 							<td><a href="../user/logout.php" class="lognin">登出</a></td>
@@ -542,9 +601,7 @@
 						<?php
 					}
 				?>
-			</tr><!--tr-->
-		
-
+			</tr>
 		</table>
 	</div>
 </header>

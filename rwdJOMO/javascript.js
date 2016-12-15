@@ -98,6 +98,7 @@ function openroom(divID) {
 /*創建房間時選擇店家連動到旁邊的店家卡*/
     function select_storecard(o){
       ss.src="../../jomor_html/img/jo_store_card/"+o.value;
+      ss2.src="../../jomor_html/img/jo_store_card/"+o.value;
       }
 
  /*”如何玩“的跳出div*/     
@@ -131,13 +132,44 @@ $(function() {
         this.blur();
     });
 });
+
+/*rwd房間頁籤功能*/
+$(function() {
+    // 預設顯示第一個 Tab
+    var _showTab = 0;
+    var $defaultLi = $('ul.rwd_tabs_ul li').eq(_showTab).addClass('active');
+    $($defaultLi.find('a').attr('href')).siblings().hide();
+
+    // 當 li 頁籤被點擊時...
+    // 若要改成滑鼠移到 li 頁籤就切 換時, 把 click 改成 mouseover
+    $('ul.rwd_tabs_ul li').click(function() {
+        // 找出 li 中的超連結 href(#id)
+        var $this = $(this),
+            _clickTab = $this.find('a').attr('href');
+        // 把目前點擊到的 li 頁籤加上 .active
+        // 並把兄弟元素中有 .active 的都移除 class
+        $this.addClass('active').siblings('.active').removeClass('active');
+        // 淡入相對應的內容並隱藏兄弟元素
+        $(_clickTab).stop(false, true).fadeIn().siblings().hide();
+
+        return false;
+    }).find('a').focus(function() {
+        this.blur();
+    });
+});
 /*揪團觸發瀏覽房間所跳出的房間div*/
 function openviewroom(divID) {
     //根據傳遞的參數確定顯示的層
     divID.style.display = 'block';
+    rwd_joroom_bg.visibility = 'visible';
     divID.style.left = (document.body.clientWidth - 240) / 2;
     divID.style.top = (document.body.clientHeight - 139) / 2;
 }
+/*揪團觸發瀏覽房間所跳出的房間div*/
+/*function rwd_openviewroom(divID) {
+     //根據傳遞的參數確定顯示的層
+    divID.style.visibility = 'visible';
+}*/
 /*房間內的”加入“按鈕所跳出的"確定加入嗎？“div*/
 function openjoin(divID) {
     //根據傳遞的參數確定顯示的層
@@ -180,7 +212,7 @@ function pic1() {
 function pic2() {
     document.getElementById('pic').style.backgroundImage = "url('../../jomor_html/img/upload_button_01.png')";
 }
-
+/*揪團*/
 /*揪團頁面裡，瀏覽房間中對成員的「查看與踢除」功能，selection的hidden與show*/
 function selectShow(x) {
     x.select.option.style.visibility = 'hidden';
@@ -190,6 +222,18 @@ function selectShow(x) {
         x.style.visibility = 'hidden';
     }
 }
+/*揪團頁面裡，打開店家資訊*/
+function storeInf() {
+    var x = document.getElementById('Store_inf');
+    x.style.visibility = 'hidden';
+    if (x.style.visibility === 'hidden') {
+        x.style.visibility = 'visible';
+    } else {
+        x.style.visibility = 'hidden';
+    }
+}
+
+
 /*首頁的頭貼選單div*/
 function opennav(divID) {
     //根據傳遞的參數確定顯示的層
@@ -211,7 +255,20 @@ function opennotify(divID) {
     }
 }
 
+/*提醒的AJAX*/
+var xmlHttp
 function openNotify() {
+    xmlHttp = GetXmlHttpObject();
+    if (xmlHttp == null) {
+        alert("Browser does not support HTTP Request");
+        return;
+    }
+    var url = "http://www.jomorparty.com/include/click.php";
+    xmlHttp.onreadystatechange = stateChanged;
+    xmlHttp.open("GET", url, true);
+    xmlHttp.send(null);
+    document.getElementById('remind').src = "http://www.jomorparty.com/jomor_html/img/notify1.png";
+    
     var x = document.getElementById('notify');
     if (x.style.visibility === 'hidden') {
         x.style.visibility = 'visible';
@@ -219,6 +276,34 @@ function openNotify() {
         x.style.visibility = 'hidden';
     }
 }
+function stateChanged() {//若成功則把click.php的文件顯示在那個id的位置(一般用不到)
+    /*
+    if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete"){ 
+        document.getElementById("notify").innerHTML=xmlHttp.responseText 
+    } 
+    */
+}
+function GetXmlHttpObject() {
+    var xmlHttp = null;
+    try {
+        // Firefox, Opera 8.0+, Safari
+        xmlHttp = new XMLHttpRequest();
+    } catch (e) {
+        // Internet Explorer
+        try {
+            xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+        } catch (e) {
+            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+    }
+    return xmlHttp;
+}
+
+/*刪除提醒的AJAX*/
+function deleteRemind(x) {
+    window.location.href="http://www.jomorparty.com/include/deleteRemind.php?num="+x
+}
+/*刪除提醒的AJAX*/
 
 function openNotify_rwd() {
     var x = document.getElementById('notify_rwd');

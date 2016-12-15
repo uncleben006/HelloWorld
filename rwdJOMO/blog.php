@@ -21,7 +21,8 @@
 				<a href="#" class="essay_myButton">店家</a>
 			</div>
 			<div class="topic_div" ><!--主題文章欄-->
-				<div class="topic_white"><!--單一主題文章欄-->
+				<a href="blog2.php"><!--單一主題文章欄-->
+				<div class="topic_white">
 					<div class="topic_img_div">
 						<img class="topic_img" src="jomor_html/img/blogimg/blogdm2.jpg">
 						<a href="blog2.php"><div class="topic_img_hover_div"></div></a><!--滑鼠移過去的變色區塊-->
@@ -37,6 +38,7 @@
 						<a href="blog2.php"><div class="topic_title_hover_div"></div></a>
 					</div>
 				</div>
+				</a>
 				<!--第二篇主題文章欄-->
 				<div class="topic_white"><!--單一主題文章欄-->
 					<div class="topic_img_div">
@@ -57,54 +59,10 @@
 			</div>
 			
 		</section>
-		<!--
-		<section class="essay_section">
-				<div class="essay_fram">//div表格法(第一篇的藍底區塊）					<div class="eassy_row">
-						<div class="eassy_pink">//粉紅日期區塊
-							<div class="eassy_date">2016/11/07</div>
-						</div>
-						<div class="eassy_green">//綠色標題區塊
-							<div class="eassy_title">新天鵝堡十大派對桌遊排行(下)</div>
-						</div>
-					</div>
-					<div class="eassy_row">//圖片區塊
-						<div class="eassy_img_div">
-							<a href="blog_more.php" class="blog_imghover">
-								<img class="eassy_img" src="jomor_html/img/blogimg/blogdm2.jpg">
-							</a>
-						</div>
-						<div class="eassy_artical_div">//文章部分內文區塊
-							<div class="eassy_artical">矮人礦坑是一款規則簡單、容易上手的派對陣營遊戲，很適合剛入門的新手玩。遊戲目標：好矮人- 挖取金礦；壞矮人- 阻止好矮人挖礦。</div>
-							<div><a href="blog_more2.php" class="read_eassy_Button">閱讀全文</a></div>
-						</div>
-					</div>
-				</div>
-				<div class="essay_fram">//div表格法(第二篇的藍底區塊）
-				<div class="eassy_row">
-					<div class="eassy_pink">//粉紅日期區塊
-						<div class="eassy_date">2016/11/06</div>
-					</div>
-					<div class="eassy_green">//綠色標題區塊
-						<div class="eassy_title">新天鵝堡十大派對桌遊排行(上)</div>
-					</div>
-				</div>
-				<div class="eassy_row">//圖片區塊
-					<div class="eassy_img_div">
-						<a href="blog_more.php" class="blog_imghover">
-								<img class="eassy_img" src="jomor_html/img/blogimg/blogdm1.jpg">
-						</a>
-					</div>
-					<div class="eassy_artical_div">//文章部分內文區塊
-						<div class="eassy_artical">透過粉絲專頁「桌末狂歡 Jomor - 桌遊資訊平台」所舉辦為期八天的活動「搶救皮皮君：森林派對の危機」之中(10/8-10/15)，從二十款新天鵝堡派對桌遊中票選出前十名，將分為上下篇，提供讀者在派對遊戲中有更多的選擇。</div>
-						<div><a href="blog_more.php" class="read_eassy_Button">閱讀全文</a></div>
-					</div>
-				</div>
-			</div>
-		</section>
-		-->
-		<footer class="footer_css_11">
+		
+		<footer class="footer_css_12">
 				<div class="index_yellow"> 
-					<div class="index_yellow_pp">｜桌遊資訊平台｜桌末狂歡｜</div>
+					<div class="index_yellow_pp">｜桌遊資訊平台｜桌末狂歡版權所有｜</div>
 				</div>
 				<div class="footer_bt_div">
 					<span class="footer_span">
