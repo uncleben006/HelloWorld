@@ -41,7 +41,7 @@
 									<img src="jomor_html/img/login_fb.png" class="essay_more_share_fb_bt">
 								</a>
 								<div class="line-it-button" style="display: none;" data-type="share-c" data-lang="zh-Hant" ></div>
-								<script src="//scdn.line-apps.com/n/line_it/thirdparty/loader.min.js" async="async" defer="defer" ></script>
+								<script src="//scdn.line-apps.com/n/line_it/thirdparty/loader.min.js" async="async" defer="defer" ></script> 
 							</div>
 						</span>
 					</div>

@@ -302,12 +302,12 @@ nav ul li:hover a {
 .top_td1{
 	position: relative;
 	text-align: right;
-	width: 14%;
+	width: 15%;
 }
 .top_td2{
 	position: relative;
 	text-align: right;
-	width: 10%;
+	width: 12%;
 }
 .top_td4{
 	position: relative;
@@ -573,12 +573,12 @@ nav ul li:hover a {
 .top_td1{
 	position: relative;
 	text-align: right;
-	width: 14%;
+	width: 15%;
 }
 .top_td2{
 	position: relative;
 	text-align: right;
-	width: 10%;
+	width: 12%;
 }
 .top_td4{
 	position: relative;
@@ -3019,7 +3019,7 @@ input:focus{outline:none}
     width: 35px;
     height: 34px;
     position: relative;
-    bottom: 111%;
+    bottom: 113%;
     left: 82%;
 }
 
@@ -6561,7 +6561,7 @@ input:focus{outline:none}
   border-collapse: collapse; 
   margin: 0 auto;
   float: left;
-  width: 100%;
+  width: 0%;
 }  
 /* tr */
 .jo_row{
@@ -8014,7 +8014,7 @@ input:focus{outline:none}
 	position: relative;
 	color: #5C5D5D;
 	left: 20px;
-	top: 70px;
+	top: 60px;
 }
 .join_Hbtn:hover{
 	color: #ffffff;

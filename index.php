@@ -45,16 +45,14 @@
 				<div id="main" role="main">
 			      <section class="slider">
 			        <div class="flexslider">
-			          <ul class="slides">
+			          <ul class="slides">		          	
 			            <li>
 			  	    	    <img src="jomor_html/img/f1.png" />
 			  	    	</li>
 			  	    	<li>
 			  	    	    <img src="jomor_html/img/f4.jpg" />
 			  	    	</li>
-			  	    	<li>
-			  	    	    <img src="jomor_html/img/f2.png" />
-			  	    	</li>
+
 			  	    	<li>
 			  	    	    <img src="jomor_html/img/f3.jpg" />
 			  	    	</li>

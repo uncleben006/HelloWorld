@@ -407,7 +407,8 @@
 									<span class="store_span">
 										<content>
 											<marquee class="store_marquee">
-												<div >桌末狂歡跟你一起揪團玩桌遊!!!</div>
+												<div >桌末狂歡上線囉～快來揪團打桌遊！
+												</div>
 											</marquee>
 										</content>
 									</span>
@@ -432,7 +433,7 @@
 									<span class="store_span">
 										<content>
 											<marquee class="store_marquee">
-												<div >桌末狂歡跟你一起揪團玩桌遊!!!</div>
+												<div >桌末狂歡上線囉～快來揪團打桌遊！</div>
 											</marquee>
 										</content>
 									</span>
@@ -859,7 +860,7 @@
 									<td class="openroom_info_td">地點</td>
 									<td class="openroom_info_input_td">
 									<select name="storeNo" class="jo_text04" onchange="select_storecard(this)">
-							          		<option value="none.png">無</option>
+							          		<option value="none.png">請選擇店家</option>
 							          	<optgroup label="臺北市">
 								            <option value="taipei2.jpg">swancafe天鵝咖啡館</option>
 								            <option value="taipei1.jpg">女巫店</option>
@@ -1091,6 +1092,7 @@
 											<option value="kinmen1.jpg">玩坊MoreFun（金門金城店）</option>
 											
 						          	</select>
+						          	</td>
 								</tr>
 								<!--rwd的店家選項卡片-->
 								<tr class="rwd_openroom_info_tr2">

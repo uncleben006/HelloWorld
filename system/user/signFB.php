@@ -216,6 +216,25 @@
 		$_SESSION["photo"] = $photo;
 		header('Location:../../index.php');
 	}
+	//若頭貼錯誤
+	else if($photo != $userNo['$photo']){
+		$setSQL = 'UPDATE `user` SET `photo`= "'.$photo.'" WHERE `no` = "'.$userNo['no'].'" ';
+		mysql_query("SET NAMES'UTF8'");
+		mysql_query("SET CHARACTER SET UTF8");
+		mysql_query("SET CHARACTER_SET_RESULTS='UTF8'");
+		mysql_query($setSQL);
+		session_set_cookie_params(600);
+		session_start();
+		$_SESSION["no"] = $userNo['no'];
+		$_SESSION["pri"] = $userNo['pri'];
+		$_SESSION["account"] = $userNo['account'];
+		$_SESSION["pass"] = $userNo['pass'];
+		$_SESSION["name"] = $userNo['name'];
+		$_SESSION["email"] = $userNo['email'];
+		$_SESSION["introduction"] = $userNo['introduction'];
+		$_SESSION["photo"] = $userNo['photo'];
+		header('Location:../../index.php');
+	}
 	//若有，則從資料庫以name抓取產生session
 	else{
 		session_set_cookie_params(600);

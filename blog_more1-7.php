@@ -61,7 +61,7 @@
 							<div class="essay_more_gname">遊戲目標</div>
 						<hr color="#96BDD2" width="120px" size="5" align="left">
 							<div class="essay_more_gp">
-								<p>（暫無資料）</p>
+								<p>警長被殺時，若場上只剩叛徒一人，則叛徒獲勝；反之為歹徒們獲勝。 另一結果:所有的歹徒和叛徒都被消滅，則警長和副警長們皆獲勝。</p>
 							</div>
 						</span>
 						<span class="essay_more_artical_block">

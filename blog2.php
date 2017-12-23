@@ -34,6 +34,8 @@
 						</div>
 						<div class="topic_title_p3">
 							<p>皮皮君想找猴子夥伴們一起玩桌遊，卻不曉得哪些派對桌遊比較好玩。神秘人物寄了一份清單給皮皮，不過清單上面太多選擇了，請大家幫幫皮皮君挑選遊戲吧！</p>
+							<!--<p>&nbsp;</p>
+							<p>(如需更詳盡的桌遊介紹請洽桌遊店家)</p>-->
 						</div>
 						
 					</div>
@@ -145,6 +147,12 @@
 						  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.8";
 						  fjs.parentNode.insertBefore(js, fjs);
 						}(document, 'script', 'facebook-jssdk'));</script>
+
+						
+						<!--臉書外掛（106/5/1更新）-->
+						<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fjomor.party%2F%3Fref%3Dts%26fref%3Dts&tabs=timeline&width=320&height=280&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="320" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+
+						<!--舊的臉書外掛（106/5/1更新）
 						<div class="fb-page1">
 							<div class="fb-page" data-href="https://www.facebook.com/jomor.party/" data-tabs="timeline" data-width="320" data-height="280" data-small-header="true" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/jomor.party/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/jomor.party/">桌末狂歡 Jomor - 桌遊資訊平台</a></blockquote></div>
 						</div>
@@ -156,7 +164,7 @@
 						</div>
 						<div class="fb-page4">
 							<div class="fb-page" data-href="https://www.facebook.com/jomor.party/" data-tabs="timeline" data-width="270" data-height="350" data-small-header="true" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/jomor.party/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/jomor.party/">桌末狂歡 Jomor - 桌遊資訊平台</a></blockquote></div>
-						</div>
+						</div>-->
 					</div>
 						<!--fb大螢幕顯示長度
 						<div class="fb_iframe" class="fb-page fb_iframe_widget"  data-href="https://www.facebook.com/womany.net/" data-tabs="timeline" data-width="350" data-height="275" data-small-header="true" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="false" data-hide-cta="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="adapt_container_width=false&amp;app_id=226870747360988&amp;container_width=350&amp;height=275&amp;hide_cover=false&amp;hide_cta=true&amp;href=https%3A%2F%2Fwww.facebook.com%2Fwomany.net%2F&amp;locale=zh_TW&amp;sdk=joey&amp;show_facepile=false&amp;small_header=true&amp;tabs=timeline&amp;width=350"><span style="vertical-align: bottom; width: 100%; height: 345px;"><iframe name="fb80a7f2dad92c" width="100%" height="275px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:page Facebook Social Plugin" src="https://www.facebook.com/v2.3/plugins/page.php?adapt_container_width=false&amp;app_id=226870747360988&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FfTmIQU3LxvB.js%3Fversion%3D42%23cb%3Df19bebfb3ec5cdc%26domain%3Dwomany.net%26origin%3Dhttps%253A%252F%252Fwomany.net%252Ff1a1534a2ac7594%26relation%3Dparent.parent&amp;container_width=350&amp;height=275&amp;hide_cover=false&amp;hide_cta=true&amp;href=https://www.facebook.com/jomor.party/?fref=tsF&amp;locale=zh_TW&amp;sdk=joey&amp;show_facepile=false&amp;small_header=true&amp;tabs=timeline&amp;width=350" ></iframe></span></div>

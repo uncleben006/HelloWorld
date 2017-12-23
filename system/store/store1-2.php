@@ -65,9 +65,9 @@
 					</span>
 				</span>
 				<span class="store_push">
-					<img class="aside_store_img" src="photo/taipei24.jpg" width="195px" height="195px" onclick="my_scroll('store1-2.php?no=122&storePlace=臺北市'); return false">
-					<span class="store_img_hover" onclick="my_scroll('store1-2.php?no=122&storePlace=臺北市'); return false">
-					 樂氣球(公館店)
+					<img class="aside_store_img" src="photo/taipei37.jpg" width="195px" height="195px" onclick="my_scroll('store1-2.php?no=135&storePlace=臺北市'); return false">
+					<span class="store_img_hover" onclick="my_scroll('store1-2.php?no=135&storePlace=臺北市'); return false">
+					 漫果子(公館店)
 					</span>
 				</span>
 				<span class="store_push">
@@ -86,7 +86,7 @@
 					<span class="push_store_p" onclick="my_scroll('store1-2.php?no=1&storePlace=臺北市'); return false">女巫店</span>
 					<span class="push_store_p" onclick="my_scroll('store1-2.php?no=125&storePlace=臺北市'); return false">骰子人(景美店)</span>
 					<span class="push_store_p" onclick="my_scroll('store1-2.php?no=124&storePlace=臺北市'); return false">卡卡城(萬芳店)</span>
-					<span class="push_store_p" onclick="my_scroll('store1-2.php?no=122&storePlace=臺北市'); return false">樂氣球(公館店)</span>
+					<span class="push_store_p" onclick="my_scroll('store1-2.php?no=135&storePlace=臺北市'); return false">漫果子(公館店)</span>
 					<span class="push_store_p" onclick="my_scroll('store1-2.php?no=121&storePlace=臺北市'); return false">卡牌屋(台北店)</span>
 				</div>
 			</div>

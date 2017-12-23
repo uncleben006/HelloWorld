@@ -271,12 +271,12 @@
 					</a>
 					<span><a href="../group/jo.php" class="pp">揪團</a></span>
 				</td>
-				<td rowspan="2" class="top_td3">
+				<!--<td rowspan="2" class="top_td3">
 					<a href="../../discussion.php" class="top_a">
 						<img src="../../jomor_html/img/animal-03.png" alt="logo" title="store" class="top_logo_img1">
 					</a>
 					<span><a href="../../discussion.php" class="pp">討論區</a></span>
-				</td>
+				</td>-->
 				<td rowspan="2" class="top_td1">
 					<a href="../../blog.php" class="top_a">
 						<img src="../../jomor_html/img/animal-04.png" alt="logo" title="store" class="top_logo_img1">
@@ -285,7 +285,7 @@
 				</td>
 				<td rowspan="2" class="top_td1">
 					<a href="../../aboutus.php" class="top_a">
-						<img src="../../jomor_html/img/animal-05.png" alt="logo" title="store" class="top_logo_img1">
+						<img src="../../jomor_html/img/animal-03.png" alt="logo" title="store" class="top_logo_img1">
 					</a>
 					<span><a href="../../aboutus.php" class="pp">聯絡我們</a></span>
 				</td>

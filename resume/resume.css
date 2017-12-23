@@ -1,0 +1,380 @@
+* {
+    font-family: 'cwtexyen', sans-serif;
+    transition: 0.4s;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.body {
+    background: url(bgpic.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.frame {
+    width: 720px;
+    margin: 50px auto;
+}
+
+.menu {
+    margin: 0px;
+    padding: 0px;
+    float: left;
+    width: 150px;
+    position: absolute;
+}
+
+.menu li {
+    list-style: none;
+}
+
+.tab .tab_side {
+    padding: 7px 20px;
+    margin: 0px 5px 5px 5px;
+    background: rgba(0, 255, 191, 0.8);
+    position: relative;
+    width: 100%;
+    transition: transform 0.4s, background 0.4s;
+    transform-style: preserve-3d;
+    transform-origin: 50% 50% -95px;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 18px;
+}
+
+.tab .tab_side::before {
+    padding: 7px 0px;
+    margin: 0px 5px 5px 5px;
+    background: rgba(0, 255, 191, 0.8);
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    background: rgba(6, 86, 93, 0.8);
+    content: attr(data-hover);
+    transition: background 0.4s;
+    transform: rotateY(90deg);
+    transform-origin: 0 50%;
+    pointer-events: none;
+    font-family: 'cwtexhei', sans-serif;
+}
+
+.tab:hover .tab_side,
+.tab:focus .tab_side {
+    background: rgba(31, 169, 126, 0.8);
+    transform: rotateY(-90deg);
+}
+
+.tab:hover .tab_side::before,
+.tab:focus .tab_side::before {
+    background: rgba(48, 176, 188, 0.8);
+}
+
+/*自傳卡*/
+#home {
+    display: block;
+}
+.content {
+    background: url("http://dotrex.co/theme-preview/cards/img/bg-card2.png") repeat-x right top rgba(244, 244, 244, 0.8);
+    position: absolute;
+    left: 41%;
+    width: 30%;
+    height: 600px;
+    overflow: auto;
+    display: none;
+    border-radius: 0px 10px 10px 0px;
+}
+
+.content::-webkit-scrollbar {
+    width: 12px;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.9);
+    background-color: #CCCCCC;
+}
+
+.content::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #888888;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.9);
+    /*background-image: -webkit-linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.4) 50%, transparent, transparent);*/
+}
+
+.content_frame {
+    text-align: center;
+    padding: 50px 50px 20px 50px;
+}
+
+.profile_frame {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.profile {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 100%;
+    border: 6px solid #ddd;
+}
+
+.title {
+    margin: 10px;
+    font-size: 30px;
+    font-family: 'cwtexhei', sans-serif;
+}
+
+.subtitle {
+    font-size: 20px;
+    font-family: 'cwtexfangsong', sans-serif;
+}
+
+.line_frame {
+    margin: 20px;
+}
+
+.line {
+    height: 1px;
+    background: radial-gradient(circle, #5e5f5b, rgba(255, 255, 255, 0));
+    border-style: none;
+}
+
+.text {
+    font-family: 'cwtexfangsong', sans-serif;
+    text-align: left;
+    margin: 5px;
+}
+
+.data {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgba(0, 150, 136, 0.1);
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.icon {
+    width: 250px;
+    margin: 15px auto 0px auto;
+}
+
+.icon a {
+    margin: 5px;
+}
+
+.icon1 {
+    width: 50px;
+    height: 50px;
+    background: url("pic/fb.png");
+    background-size: 100%;
+    display: inline-block;
+}
+
+.icon2 {
+    width: 50px;
+    height: 50px;
+    background: url("pic/git.png");
+    background-size: 100%;
+    display: inline-block;
+}
+
+.icon3 {
+    width: 50px;
+    height: 50px;
+    background: url("pic/jomor.png");
+    background-size: 100%;
+    display: inline-block;
+}
+
+.icon1:hover,
+.icon2:hover,
+.icon3:hover {
+    background-color: rgba(6, 86, 93, 0.8);
+    background-size: 100%;
+    border-radius: 3px;
+}
+
+.bar_bg {
+    background: rgba(185, 214, 190, 0.5);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.skills_bar {
+    margin-top: 20px;
+}
+
+.bar_frame {
+    border: 1px solid rgba(35, 34, 34, 0.25);
+    border-radius: 5px;
+    box-shadow: inset 5px 5px 15px rgba(0, 0, 0, .1);
+}
+
+.bar_content {
+    background: rgba(6, 86, 93, 0.8);
+    text-align: left;
+    padding: 5px 0px 5px 15px;
+    margin: 2px;
+    border-radius: 5px 0px 0px 5px;
+    color: #e9f0f1;
+}
+
+.bar_text {
+    font-family: 'cwtexfangsong', sans-serif;
+    text-align: left;
+    margin: 5px 5px 10px 5px;
+}
+
+.green {
+    background: rgba(93, 91, 6, 0.8);
+}
+
+.php {
+    width: 80%;
+}
+
+.html {
+    width: 70%;
+}
+
+.js {
+    width: 50%;
+}
+
+.java {
+    width: 30%;
+}
+
+.word {
+    width: 90%;
+}
+
+.excel {
+    width: 70%;
+}
+
+.wp {
+    width: 80%;
+}
+
+.ps {
+    width: 60%;
+}
+
+.premiere {
+    width: 40%;
+}
+
+
+/*works*/
+
+.workPic_frame {
+    border-radius: 3px;
+    margin-top: 10px;
+    border:1px solid #7c4b4b;;
+}
+
+.workPic_frame:hover {
+    opacity: 0.5;
+    background-size: cover;
+    border-radius: 3px;
+}
+.workPic {
+    width: 100%;
+    border-radius: 3px;
+}
+.index{	
+    background: url("pic/work.png");
+    background-size: cover;
+}
+.storePic{
+	background: url("pic/store.jpg");
+	background-size: cover;
+}
+.store2Pic{
+	background: url("pic/store2.png");
+	background-size: cover;	
+}
+.store3Pic{
+	background: url("pic/store3.png");
+	background-size: cover;		
+}
+.grouping{
+	background: url("pic/grouping.png");
+	background-size: cover;			
+}
+.systemBut_frame {
+    background: url("http://dotrex.co/theme-preview/cards/img/bg-card.png")rgba(6, 145, 212, 0.15);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.systemBut {
+    padding: 5px 10px;
+    background: rgb(6, 212, 176);
+    border-radius: 5px;
+}
+
+.systemBut:hover {
+    background: #296b71;
+    color: white;
+}
+/*聯絡方式*/
+.data_contact{
+    font-size: 16px;
+    margin: 5px;
+    border-bottom: #707070 solid;
+    display: inline-block;
+}
+
+/*頁面滑動*/
+.page {
+    background: url("http://dotrex.co/theme-preview/cards/img/bg-card2.png") repeat-x right top rgba(244, 244, 244, 0.8);
+    position: absolute;
+    left: 40%;
+    width: 30%;
+    height: 600px;
+    overflow: auto;
+    display: none;
+    border-radius: 0px 10px 10px 0px;
+}
+
+.page::-webkit-scrollbar {
+    width: 12px;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.9);
+    background-color: #CCCCCC;
+}
+
+.page::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #888888;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.9);
+    /*background-image: -webkit-linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.4) 50%, transparent, transparent);*/
+}	
+.pageActive {
+    opacity: 1;
+    z-index: 22;
+    left: 70%;
+    display: block;
+}
+
+.main-menu-pgactive {
+    left: 10%;
+}
+
+.section-vcardbody-pgactive {
+    left: 20%;
+}
+
+.profileActive {
+    opacity: 1!important;
+}
+
+.menuActive {
+  	background: #021533;
+}
